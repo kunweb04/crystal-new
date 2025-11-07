@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>晶体化学指南 - 溶液配置篇 - CrystalLab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="content.css?v=1.0.2">
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <div class="safety-container">
+            <div class="safety-content">
+                <h1>晶体化学指南<br><span>溶液配置篇</span></h1>
+
+                <div class="crystal-decoration top-left"><i class="fas fa-gem"></i></div>
+                <div class="crystal-decoration bottom-right"><i class="fas fa-gem"></i></div>
+
+                <section id="concentration">
+                    <h2>一、浓度问题</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-flask"></i> 1.1 热饱和溶液与不饱和溶液的主要区别</h3>
+                        <ul class="step-list">
+                            <li class="step-item">
+                                <div class="step-detail">
+                                    热饱和溶液：在较高温度下溶解了最大量的溶质，冷却后会迅速达到过饱和状态，导致晶体快速析出
+                                </div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">
+                                    不饱和溶液：溶质含量低于饱和状态，需要水分蒸发或温度降低到某一临界点才能达到饱和，从而开始析晶
+                                </div>
+                            </li>
+                        </ul>
+
+                        <h3><i class="fas fa-flask"></i> 1.2 析晶速率的决定因素</h3>
+                        <ul class="step-list">
+                            <li class="step-item">
+                                <div class="step-detail">
+                                    热饱和溶液：由于温度下降使溶解度迅速降低，导致溶质迅速析出，析晶速率较快
+                                </div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">
+                                    不饱和溶液：析晶取决于溶剂蒸发速率和浓度变化，通常较慢
+                                </div>
+                            </li>
+                        </ul>
+
+                        <h3><i class="fas fa-flask"></i> 1.3 出现饼的概率</h3>
+                        <ul class="step-list">
+                            <li class="step-item">
+                                <div class="step-detail">
+                                    热饱和溶液：析晶速率快，未形成良好晶核时，溶质可能直接在容器内大面积沉积，形成结壳，俗称"饼"
+                                </div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">
+                                    不饱和溶液：析晶速率较慢，通常能形成更稳定的晶体结构，减少结壳现象
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="supersaturation">
+                    <h2>二、过饱和溶液的形成</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-flask"></i> 2.1 过饱和溶液配置</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-detail">
+                                    在特定温度（如 60℃、70℃）下，加入溶质并充分搅拌，若仍有未溶解的固体，溶液达到饱和状态<br>
+                                    降温后，溶液可能进入过饱和状态（亚稳定），即溶质超过正常溶解度但仍保持溶解状态，此时溶液随时可能开始结晶
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3><i class="fas fa-flask"></i> 2.2 过饱和溶液的控制方法</h3>
+                        <ul class="step-list">
+                            <li class="step-item">
+                                <div class="step-detail">保持温度稳定：避免温度波动导致突然析晶</div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">使用过滤去除杂质：减少意外成核点</div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">缓慢降温：延长过饱和状态的持续时间，获得更均匀的晶体</div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">引入晶种：微量晶种可引导结晶，避免随机析出（注意晶种不要被溶解）</div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="stability">
+                    <h2>三、影响溶液稳定性的因素</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-flask"></i> 3.1 温度对溶液稳定性的影响</h3>
+                        <ul class="step-list">
+                            <li class="step-item">
+                                <div class="step-detail">升温：通常增加溶解度</div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">降温：可能导致析晶或沉淀</div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">温度波动：过快的温度变化会导致成核不均匀</div>
+                            </li>
+                        </ul>
+
+                        <h3><i class="fas fa-flask"></i> 3.2 溶剂的选择与混合</h3>
+                        <ul class="step-list">
+                            <li class="step-item">
+                                <div class="step-detail">不同溶剂：同一物质在不同溶剂中的溶解度不同，合理选择可提高结晶质量</div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">混合溶剂：可调节溶解度，精确控制析晶过程</div>
+                            </li>
+                        </ul>
+                        <div class="warning-box">
+                            <h3><i class="fas fa-exclamation-circle"></i> 重要提醒</h3>
+                            <p>混合溶剂方法仅供了解，新人请勿尝试</p>
+                        </div>
+
+                        <h3><i class="fas fa-flask"></i> 3.3 杂质的影响</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-detail">
+                                    杂质可能成为结晶中心，影响晶体形态。<br>
+                                    可通过过滤或重结晶提高溶液纯度。
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3><i class="fas fa-flask"></i> 3.4 机械扰动的影响</h3>
+                        <ul class="step-list">
+                            <li class="step-item">
+                                <div class="step-detail">震动、搅拌：加速成核，导致晶粒变小</div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">静置：有助于大单晶的生长</div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="optimization">
+                    <h2>四、结晶实验的优化与常见问题解决</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-flask"></i> 4.1 结晶实验的优化策略</h3>
+                        <ul class="step-list">
+                            <li class="step-item">
+                                <div class="step-detail">温控策略：采用恒温冷却，提高晶体均匀性</div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">缓慢蒸发：减少无序析晶，提高晶体纯度</div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">晶种诱导：使用晶种引导结晶，控制晶体大小和形态</div>
+                            </li>
+                        </ul>
+
+                        <h3><i class="fas fa-flask"></i> 4.2 结晶失败的常见问题及解决方案</h3>
+                        <div class="warning-box">
+                            <h3><i class="fas fa-exclamation-triangle"></i> 问题1: 形成"饼"</h3>
+                            <ul>
+                                <li>可能原因: 过快析晶、溶剂挥发过快</li>
+                                <li>解决方案: 缓慢降温、降低蒸发速率</li>
+                            </ul>
+                        </div>
+                        <div class="warning-box">
+                            <h3><i class="fas fa-exclamation-triangle"></i> 问题2: 结晶太小或无规则</h3>
+                            <ul>
+                                <li>可能原因: 成核过快、搅拌过强</li>
+                                <li>解决方案: 降低冷却速率，减少搅拌</li>
+                            </ul>
+                        </div>
+
+                        <h3><i class="fas fa-flask"></i> 4.3 如何提高晶体纯度</h3>
+                        <ul class="step-list">
+                            <li class="step-item">
+                                <div class="step-detail">重结晶：多次溶解和析晶，提高纯度</div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">过滤和洗涤：去除母液中的杂质，提高晶体质量</div>
+                            </li>
+                            <li class="step-item">
+                                <div class="step-detail">吸附法: 利用特定吸附剂（如活性炭、硅胶等）吸附溶液中的杂质。适合用于去除色素或一些小分子杂质</div>
+                            </li>
+                        </ul>
+
+                        <h3><i class="fas fa-flask"></i> 4.4 补充</h3>
+                        <div class="method-card">
+                            <h3><i class="fas fa-lightbulb"></i> 大佬们的习惯参考</h3>
+                            <p>滴水法：每次溶液出晶时取出后滴上两三毫升的水，使溶再次稳定后才析出下一次的晶体</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <nav class="safety-nav">
+                <h3>内容导航</h3>
+                <ul>
+                    <li><a href="#concentration">浓度问题</a></li>
+                    <li><a href="#supersaturation">过饱和溶液</a></li>
+                    <li><a href="#stability">溶液稳定性</a></li>
+                    <li><a href="#optimization">实验优化</a></li>
+                    <li><a href="index.html">返回首页</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+    
+    <script>
+        document.querySelectorAll('.safety-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 100;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                document.querySelectorAll('.safety-nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.safety-nav a[href^="#"]');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop - 150) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
