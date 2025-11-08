@@ -1,5 +1,4 @@
-// 版本控制 - 每次更新时修改这个版本号
-const ANNOUNCEMENT_VERSION = 'v1.0.1';
+const ANNOUNCEMENT_VERSION = 'v1.0.2';
 
 document.addEventListener('DOMContentLoaded', function() {
     const announcementModal = document.getElementById('announcementModal');
