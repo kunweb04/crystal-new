@@ -1,4 +1,4 @@
-const ANNOUNCEMENT_VERSION = 'v1.0.2';
+const ANNOUNCEMENT_VERSION = 'v1.0.3';
 
 document.addEventListener('DOMContentLoaded', function() {
     const announcementModal = document.getElementById('announcementModal');
