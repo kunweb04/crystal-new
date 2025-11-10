@@ -9,15 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
             works: [
                 { img: '紫色硫酸铜01.png', author: '紫色硫酸铜' },
                 { img: '作品12.png', author: '迷路的野指针' },
-                { img: '作品13.png', author: '迷路的野指针' },
                 { img: '作品14.png', author: '迷路的野指针' },
-                { img: '作品15.png', author: '迷路的野指针' },
                 { img: '作品34.png', author: '长街听风' }
             ]
         },
         {
             id: 'x1',
-            title: '硫酸铝钾/铬明矾混晶',
+            title: '铬明矾混晶',
             type: 'gallery',
             works: [
                 { img: '作品2.png', author: '迷路的野指针' },
@@ -84,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: '饼の美学',
             type: 'blessing',
             works: [
-                { img: '作品36.png', author: '', description: '在这里，预祝大家' },
+                { img: '作品36.png', author: ''},
                 { img: '作品37.png', author: '迷路的野指针' },
                 { img: '作品38.png', author: '迷路的野指针' },
                 { img: '作品39.png', author: '迷路的野指针' },
@@ -119,71 +117,42 @@ document.addEventListener('DOMContentLoaded', function() {
             h2.textContent = sectionData.title;
             section.appendChild(h2);
             
-            const methodCard = document.createElement('div');
-            methodCard.className = 'method-card';
-            
-            const stepList = document.createElement('div');
-            stepList.className = 'step-list';
-            
-            const stepItem = document.createElement('div');
-            stepItem.className = 'step-item';
-            
-            if (sectionData.type === 'preface') {
-                // 前情提要类型
-                const p = document.createElement('p');
-                p.textContent = sectionData.content;
-                stepItem.appendChild(p);
-            } else {
-                // 其他类型
-                const stepTitle = document.createElement('div');
-                stepTitle.className = 'step-title';
-                stepTitle.textContent = sectionData.type === 'blessing' ? '特别祝福' : '作品展示';
-                stepItem.appendChild(stepTitle);
-                
-                const stepDetail = document.createElement('div');
-                stepDetail.className = 'step-detail';
-                
-                // 处理祝福语（仅饼の美学）
-                if (sectionData.type === 'blessing') {
-                    const blessingP = document.createElement('p');
-                    blessingP.style.textAlign = 'center';
-                    blessingP.style.color = 'var(--primary)';
-                    blessingP.style.fontSize = '1.5em';
-                    blessingP.style.fontWeight = 'bold';
-                    blessingP.textContent = '在这里，预祝大家';
-                    stepDetail.appendChild(blessingP);
-                }
-                
-                // 添加作品图片
-                sectionData.works.forEach(work => {
-                    const img = document.createElement('img');
-                    img.src = `p/portfolio/${work.img}`;
-                    img.className = 'content-image';
-                    img.alt = work.author ? `${work.author}作品` : '作品图片';
-                    stepDetail.appendChild(img);
-                    
-                    const p = document.createElement('p');
-                    p.style.textAlign = 'center';
-                    p.style.color = 'var(--accent)';
-                    
-                    let text = '';
-                    if (work.author) {
-                        text += `作者：${work.author}`;
-                    }
-                    if (work.description) {
-                        text += work.author ? `，晶体：${work.description}` : work.description;
-                    }
-                    
-                    p.textContent = text;
-                    stepDetail.appendChild(p);
-                });
-                
-                stepItem.appendChild(stepDetail);
+            // 处理祝福语（仅饼の美学）
+            if (sectionData.type === 'blessing') {
+                const blessingP = document.createElement('p');
+                blessingP.style.textAlign = 'center';
+                blessingP.style.color = 'var(--primary)';
+                blessingP.style.fontSize = '1.5em';
+                blessingP.style.fontWeight = 'bold';
+                blessingP.style.marginBottom = '2rem';
+                blessingP.textContent = '在这里，预祝大家';
+                section.appendChild(blessingP);
             }
             
-            stepList.appendChild(stepItem);
-            methodCard.appendChild(stepList);
-            section.appendChild(methodCard);
+            // 添加作品图片
+            sectionData.works.forEach(work => {
+                const img = document.createElement('img');
+                img.src = `p/portfolio/${work.img}`;
+                img.className = 'content-image';
+                img.alt = work.author ? `${work.author}作品` : '作品图片';
+                section.appendChild(img);
+                
+                const p = document.createElement('p');
+                p.style.textAlign = 'center';
+                p.style.color = 'var(--accent)';
+                p.style.marginBottom = '3rem';
+                
+                let text = '';
+                if (work.author) {
+                    text += `作者：${work.author}`;
+                }
+                if (work.description) {
+                    text += work.author ? `，晶体：${work.description}` : work.description;
+                }
+                
+                p.textContent = text;
+                section.appendChild(p);
+            });
             
             // 插入到安全内容容器中
             safetyContent.appendChild(section);
