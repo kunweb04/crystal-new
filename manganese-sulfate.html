@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CrystalLab - 晶体培养指南网站，提供从硫酸铜、磷酸二氢钾到金属铋等多种晶体的详细培养教程，也收录了许多精美的晶体作品=">
+    <meta name="keywords" content="晶体培养,晶体化学,硫酸锰晶体,硫酸锰,晶体制作,结晶艺术,晶体摄影,溶液配置,晶体保存">
+    <meta name="author" content="CrystalLab团队">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CrystalLab">
+    <meta property="og:title" content="CrystalLab - 硫酸锰晶体">
+    <meta property="og:description" content="学习如何培养美丽的硫酸锰晶体，从溶液配置到晶体生长的完整步骤">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://crystal-lab.org/manganese-sulfate.html">
     <title>晶体化学指南 - 硫酸锰篇 - CrystalLab</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="content.css">
     <link rel="icon" href="logo.png" type="image/png">
+    <meta name="google-adsense-account" content="ca-pub-9337526323324673">
 </head>
 <body>
     <div id="navbar-container"></div>
@@ -21,25 +32,268 @@
                 <div class="crystal-decoration top-left"><i class="fas fa-gem"></i></div>
                 <div class="crystal-decoration bottom-right"><i class="fas fa-gem"></i></div>
 
+                <section id="quick-start">
+                    <h2>🎯 预览</h2>
+                    <div class="method-card">
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>项目概览：</strong>
+                                <ul>
+                                    <li>难度等级：★★☆☆☆ (中级)</li>
+                                    <li>培养周期：3-4周</li>
+                                    <li>成功率：65%</li>
+                                    <li>推荐人群：有一定经验者</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>所需材料：</strong>
+                                <ul>
+                                    <li>七水合硫酸锰</li>
+                                    <li>玻璃培养皿或烧杯</li>
+                                    <li>蒸馏水</li>
+                                    <li>过滤材料</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
                 <section id="basic">
-                    <h2>一、基本认识</h2>
+                    <h2>一、基础认识</h2>
                     
                     <div class="method-card">
-                        <h3><i class="fas fa-flask"></i> 化学特性</h3>
-                        <p class="chemical-formula">化学式：七水合硫酸锰 MnSO<sub>4</sub>·7H<sub>2</sub>O</p>
-                        <ul>
-                            <li>外观：浅粉红色单斜晶系细小结晶</li>
-                            <li>溶解性：易溶于水，不溶于乙醇</li>
-                            <li>热稳定性：200℃开始失水，280℃失去大部分结晶水，700℃形成无水盐，850℃分解释放SO<sub>3</sub>/SO<sub>2</sub>/O<sub>2</sub></li>
-                        </ul>
+                        <h3><i class="fas fa-flask"></i> 1.1 化学特性</h3>
+                        <p class="chemical-formula">化学式：MnSO<sub>4</sub>·7H<sub>2</sub>O（七水合物）</p>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">外观特征</div>
+                                <div class="step-detail">浅粉红色单斜晶系细小结晶</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">溶解性</div>
+                                <div class="step-detail">易溶于水，不溶于乙醇</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">晶系</div>
+                                <div class="step-detail">单斜晶系，适合培养粉色透明晶体</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-atom"></i> 1.2 结构特点</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">热稳定性</div>
+                                <div class="step-detail">200℃开始失水，280℃失去大部分结晶水，700℃形成无水盐</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">分解特性</div>
+                                <div class="step-detail">850℃分解释放SO<sub>3</sub>/SO<sub>2</sub>/O<sub>2</sub></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="experiment">
+                    <h2>二、实验与制备</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-vial"></i> 2.1 配制溶液（示例）</h3>
+                        <p>目标：配制500ml饱和硫酸锰溶液</p>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">计算用量</div>
+                                <div class="step-detail">根据溶解度计算所需硫酸锰质量，七水合硫酸锰溶解度较高</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">溶解</div>
+                                <div class="step-detail">将粉末加入烧杯，加400mL温水(40-50℃)搅拌至完全溶解</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">过滤</div>
+                                <div class="step-detail">用滤纸过滤溶液，去除不溶性杂质</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-seedling"></i> 2.2 晶体生长</h3>
+                        <div class="note">
+                            <strong>💡 平底结晶法</strong>
+                            <p>材料：硫酸锰、培养皿、过滤材料、镊子</p>
+                            
+                            <div class="step-list">
+                                <div class="step-item">
+                                    <div class="step-title">配制溶液</div>
+                                    <div class="step-detail">
+                                        配制不饱和溶液：取适量温水，加入硫酸锰搅拌至大部分溶解
+                                        <div class="note">
+                                            硫酸锰结晶速度适中，适合培养大单晶<br>
+                                            推荐使用不饱和溶液开始培养，虽然出晶较慢但晶体质量更高
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">过滤</div>
+                                    <div class="step-detail">用滤纸或眼镜布过滤溶液，确保溶液纯净</div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">静置培养</div>
+                                    <div class="step-detail">
+                                        将溶液缓慢倒入培养皿，覆盖透气防尘材料，静置7-10天
+                                        <div class="note">
+                                            注意事项：<br>
+                                            - 控制温度在20-25℃范围<br>
+                                            - 避免震动和温度剧烈变化<br>
+                                            - 放置在稳定、无直射光的位置
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">晶体收集</div>
+                                    <div class="step-detail">
+                                        用镊子小心取出晶体，用纸巾轻压吸干表面溶液
+                                        <div class="note">
+                                            硫酸锰晶体较脆，操作需格外小心
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="note">
+                            <strong>💡 大单晶培养技巧</strong>
+                            <div class="step-list">
+                                <div class="step-item">
+                                    <div class="step-title">晶种选择</div>
+                                    <div class="step-detail">从初次培养的晶体中挑选形状完整、颜色均匀的作为晶种</div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">悬挂培养</div>
+                                    <div class="step-detail">
+                                        用透明鱼线悬挂晶种于饱和溶液中央
+                                        <div class="note">
+                                            悬挂培养可获得更完整、更大尺寸的单晶
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">缓慢生长</div>
+                                    <div class="step-detail">通过控制温度和蒸发速率，使晶体缓慢生长，提高透明度</div>
+                                </div>
+                            </div>
+                            <div class="note">
+                                成品处理建议：<br>
+                                - 避免剧烈温度变化，防止晶体开裂<br>
+                                - 存放于干燥环境中，防止潮解<br>
+                                详细操作参考<a href="conserve.html" style="color:var(--primary);">晶体保存篇</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="safety">
+                    <h2>三、安全与注意事项</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-shield-alt"></i> 3.1 安全特性</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">毒性等级</div>
+                                <div class="step-detail">低毒性，但需避免长期接触</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">吸入防护</div>
+                                <div class="step-detail">操作时佩戴防护口罩，避免吸入粉尘</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">皮肤接触</div>
+                                <div class="step-detail">可能引起轻微刺激，操作后及时洗手</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-exclamation-triangle"></i> 3.2 操作规范</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">个人防护</div>
+                                <div class="step-detail">建议佩戴手套操作，避免直接接触粉末和溶液</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">高温处理</div>
+                                <div class="step-detail">高温处理需在通风橱中进行，避免有害气体聚集</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">储存要求</div>
+                                <div class="step-detail">密封保存于干燥处，防止吸湿结块</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="gallery">
+                    <h2>四、成果展示与质量评估</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-gem"></i> 优质晶体特征</h3>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>优质晶体：</strong>
+                                <ul>
+                                    <li>颜色均匀，呈浅粉红色</li>
+                                    <li>透明度适中，晶面平整</li>
+                                    <li>棱角分明，形态完整</li>
+                                    <li>尺寸均匀，无内部缺陷</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>问题晶体：</strong>
+                                <ul>
+                                    <li>颜色不均 - 杂质或氧化影响</li>
+                                    <li>表面粗糙 - 生长速度过快</li>
+                                    <li>畸形生长 - 温度波动或震动</li>
+                                    <li>开裂 - 干燥过程过快</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="troubleshooting">
+                    <h2>五、问题诊断与解决</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-stethoscope"></i> 常见问题排查</h3>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题一：晶体生长缓慢</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>温度过低、溶液浓度不足、蒸发过慢</li>
+                                <li><strong>解决方案：</strong>提高环境温度至20-25℃，增加溶液浓度，适当增加通风</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题二：晶体颜色异常</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>氧化、杂质污染、光照影响</li>
+                                <li><strong>解决方案：</strong>避免溶液接触金属，使用高纯度试剂，避光保存</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题三：晶体透明度差</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>生长速度过快、溶液杂质多、温度波动</li>
+                                <li><strong>解决方案：</strong>降低溶液浓度，重新过滤溶液，稳定环境温度</li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
 
                 <section id="usage">
-                    <h2>二、实际用途</h2>
-                    
+                    <h2>六、实际用途</h2>
                     <div class="method-card">
-                        <h3><i class="fas fa-industry"></i> 多领域应用</h3>
+                        <h3><i class="fas fa-industry"></i> 6.1 多领域应用</h3>
                         <div class="step-list">
                             <div class="step-item">
                                 <div class="step-title">农业领域</div>
@@ -74,10 +328,10 @@
                 </section>
 
                 <section id="tutton">
-                    <h2>三、塔顿复盐</h2>
+                    <h2>七、塔顿复盐</h2>
                     
                     <div class="method-card">
-                        <h3><i class="fas fa-atom"></i> 3.1 硫酸锰铵溶液合成</h3>
+                        <h3><i class="fas fa-atom"></i> 7.1 硫酸锰铵溶液合成</h3>
                         <div class="step-list">
                             <div class="step-item">
                                 <div class="step-title">方法一</div>
@@ -86,29 +340,15 @@
                             <div class="step-item">
                                 <div class="step-title">方法二</div>
                                 <div class="step-detail">分别溶解两种盐后混合加热，详细操作参考
-                                    <a href="01.html" style="color:var(--primary);">结晶方式篇</a>
+                                    <a href="crystallization.html" style="color:var(--primary);">结晶方式篇</a>
                                 </div>
                             </div>
                         </div>
 
-                        <h3><i class="fas fa-eye"></i> 3.2 外观变化</h3>
+                        <h3><i class="fas fa-eye"></i> 7.2 外观变化</h3>
                         <ul>
                             <li>纯硫酸锰晶体：淡粉红色单斜晶系，透明度高</li>
                             <li>复盐晶体：结构改变，颜色与透明度可能呈现梯度变化</li>
-                        </ul>
-                    </div>
-                </section>
-
-                <section id="safety">
-                    <h2>四、安全规范</h2>
-                    
-                    <div class="warning-box">
-                        <h3><i class="fas fa-exclamation-triangle"></i> 安全注意事项</h3>
-                        <ul>
-                            <li>操作时佩戴防护口罩，避免吸入粉尘</li>
-                            <li>接触皮肤或眼睛时立即用大量清水冲洗</li>
-                            <li>储存于干燥通风处，防止受潮结块</li>
-                            <li>高温处理需在通风橱中进行，避免有害气体聚集</li>
                         </ul>
                     </div>
                 </section>
@@ -117,10 +357,13 @@
             <nav class="safety-nav">
                 <h3>内容导航</h3>
                 <ul>
-                    <li><a href="#basic">基本认识</a></li>
+                    <li><a href="#basic">基础认识</a></li>
+                    <li><a href="#experiment">实验制备</a></li>
+                    <li><a href="#safety">安全事项</a></li>
+                    <li><a href="#gallery">质量评估</a></li>
+                    <li><a href="#troubleshooting">问题诊断</a></li>
                     <li><a href="#usage">实际用途</a></li>
                     <li><a href="#tutton">塔顿复盐</a></li>
-                    <li><a href="#safety">安全规范</a></li>
                     <li><a href="index.html">返回首页</a></li>
                 </ul>
             </nav>
