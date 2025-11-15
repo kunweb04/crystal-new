@@ -52,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 { img: '作品33.png', author: '迷路的野指针', description: '银' },
                 { img: '作品35.png', author: 'mo', description: '铯' },
                 { img: '作品26.png', author: '清蒸带鱼', description: '铜' },
-                { img: '作品66.jpg', author: '关关', description: '铜' },
                 { img: '作品17.png', author: '迷路的野指针', description: '硫酸三乙二胺络镍' },
                 { img: '作品9.png', author: '迷路的野指针', description: '二水合二氯化二乙二胺络铜' },
                 { img: '作品23.png', author: '待到群星闪耀时', description: '三水合丙二酸铁钾' },
