@@ -1,3 +1,4 @@
+
 // portfolio.js - 动态生成作品集页面
 document.addEventListener('DOMContentLoaded', function() {
     // 作品集数据结构
@@ -77,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 { img: '作品49.png', author: '青于', description: '硫酸镨' },
                 { img: '作品50.png', author: '青于', description: '硫酸镨' },
                 { img: '作品51.png', author: '青于', description: '硫酸镍' },
+                { img: '作品69.jpg', author: '紫色硫酸铜', description: '硫酸镍' },
                 { img: '作品65.jpg', author: '关关', description: '硫酸铝钾' },
                 { img: '作品60.jpg', author: '青于', description: '硝酸甜菜碱铜' },
                 { img: '作品53.png', author: '泠鳞', description: '硫酸镨晶簇' },
@@ -137,11 +139,22 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // 添加作品图片
             sectionData.works.forEach(work => {
+                // 创建作品包装容器
+                const workContainer = document.createElement('div');
+                workContainer.className = 'portfolio-work';
+                
+                // 设置搜索数据
+                let searchData = '';
+                if (work.author) searchData += work.author + ' ';
+                if (work.description) searchData += work.description + ' ';
+                if (sectionData.title) searchData += sectionData.title + ' ';
+                workContainer.setAttribute('data-search', searchData.trim());
+                
                 const img = document.createElement('img');
                 img.src = `p/portfolio/${work.img}`;
                 img.className = 'content-image';
                 img.alt = work.author ? `${work.author}作品` : '作品图片';
-                section.appendChild(img);
+                workContainer.appendChild(img);
                 
                 const p = document.createElement('p');
                 p.style.textAlign = 'center';
@@ -157,7 +170,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 p.textContent = text;
-                section.appendChild(p);
+                workContainer.appendChild(p);
+                
+                section.appendChild(workContainer);
             });
             
             // 插入到安全内容容器中

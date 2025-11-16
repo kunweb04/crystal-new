@@ -26,6 +26,36 @@
     <div id="navbar-container"></div>
 
     <div class="container">
+        <div class="portfolio-collapsible-search">
+            <div class="portfolio-search-toggle">
+                <button class="portfolio-toggle-btn" id="portfolioSearchToggle">
+                    <i class="fas fa-search"></i>
+                    <span>搜索作品</span>
+                    <i class="fas fa-chevron-down toggle-arrow"></i>
+                </button>
+            </div>
+            
+            <div class="portfolio-search-content" id="portfolioSearchContent">
+                <div class="portfolio-search-header">
+                    <h3><i class="fas fa-search"></i> 作品搜索</h3>
+                </div>
+                
+                <div class="portfolio-search-container">
+                    <div class="portfolio-search-box">
+                        <input type="text" id="portfolioSearch" placeholder="输入作者名、晶体名称或分类...">
+                        <button type="button" id="portfolioSearchButton" class="portfolio-search-btn">
+                            <i class="fas fa-search"></i>
+                            <span>搜索</span>
+                        </button>
+                        <button type="button" id="portfolioClearSearch" class="portfolio-clear-btn" style="display: none;">
+                            <i class="fas fa-times"></i>
+                            <span>清除</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="safety-container">
             <div class="safety-content">
     <h1>晶体作品集<br><span>大佬作品展示</span></h1>
@@ -56,6 +86,90 @@
     <script src="components.js"></script>
     
     <script>
+        // 折叠/展开搜索栏功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchToggle = document.getElementById('portfolioSearchToggle');
+            const searchContent = document.getElementById('portfolioSearchContent');
+            const toggleArrow = document.querySelector('.toggle-arrow');
+
+            // 默认折叠状态 - 使用CSS类控制
+            searchContent.classList.remove('expanded');
+            
+            searchToggle.addEventListener('click', function() {
+                if (searchContent.classList.contains('expanded')) {
+                    // 折叠
+                    searchContent.classList.remove('expanded');
+                    toggleArrow.style.transform = 'rotate(0deg)';
+                } else {
+                    // 展开
+                    searchContent.classList.add('expanded');
+                    toggleArrow.style.transform = 'rotate(180deg)';
+                }
+            });
+
+            // 搜索功能
+            const searchInput = document.getElementById('portfolioSearch');
+            const searchButton = document.getElementById('portfolioSearchButton');
+            const clearButton = document.getElementById('portfolioClearSearch');
+
+            function performSearch() {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                
+                if (searchTerm === '') {
+                    clearSearch();
+                    return;
+                }
+
+                const works = document.querySelectorAll('.portfolio-work');
+                let matchCount = 0;
+
+                works.forEach(work => {
+                    const workData = work.getAttribute('data-search').toLowerCase();
+                    const isMatch = workData.includes(searchTerm);
+                    
+                    if (isMatch) {
+                        work.style.display = 'block';
+                        work.classList.add('portfolio-work-matched');
+                        matchCount++;
+                    } else {
+                        work.style.display = 'none';
+                        work.classList.remove('portfolio-work-matched');
+                    }
+                });
+
+                clearButton.style.display = 'flex';
+            }
+
+            function clearSearch() {
+                searchInput.value = '';
+                const works = document.querySelectorAll('.portfolio-work');
+                works.forEach(work => {
+                    work.style.display = 'block';
+                    work.classList.remove('portfolio-work-matched');
+                });
+                clearButton.style.display = 'none';
+            }
+
+            searchButton.addEventListener('click', performSearch);
+            clearButton.addEventListener('click', clearSearch);
+
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            // 输入时实时搜索
+            searchInput.addEventListener('input', function() {
+                if (this.value.trim() === '') {
+                    clearSearch();
+                } else {
+                    performSearch();
+                }
+            });
+        });
+
+        // 原有的滚动导航代码保持不变...
         document.querySelectorAll('.safety-nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
