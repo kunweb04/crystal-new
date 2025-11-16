@@ -50,7 +50,7 @@
 
                 <div class="contributor-grid">
                     <div class="honor-card">
-                        <div class="honor-badge">首席顾问</div>
+                        <div class="honor-badge">是首席顾问的猫梁</div>
                         <h3>紫色硫酸铜</h3>
                         <p>• 提供"滴水法"结晶稳定技术<br>• 撰写相关经验专文并提供高清图片支持<br>• 参与各章节内容审校，确保专业性</p>
                     </div>
@@ -84,11 +84,29 @@
                         <h3>mo</h3>
                         <p>• 提供针对性修改建议，提升文本质量 <br>• 分享丰富的文献与研究经验<br>• 参与章节审校</p>
                     </div>
-
+                    
                     <div class="honor-card">
                         <div class="honor-badge">气球呱鱼猫</div>
                         <h3>KERBAL123</h3>
-                        <p>• 化学竞赛山西#45（39届）/#48（38届） <br>• 冷门配合物晶体猎人<br>• 正在探索土法温差结晶</p>
+                        <p>• 化学竞赛山西#45（39届）/#48（38届） <br>•  冷门配合物晶体猎人<br>• 正在探索土法温差结晶</p>
+                    </div>
+
+                    <div class="honor-card">
+                        <div class="honor-badge">前排观众</div>
+                        <h3>CPSA</h3>
+                        <p>• 提供大量相关高清图片 <br>• 投稿建设性建议完善网站<br>• 撰写相关专文</p>
+                    </div>
+
+                    <div class="honor-card">
+                        <div class="honor-badge">供稿伙伴</div>
+                        <h3>青于</h3>
+                        <p>• 提供大量稿件 <br>• 分享大量高质量图片<br>• 贡献珍贵经验供参考</p>
+                    </div>
+
+                    <div class="honor-card">
+                        <div class="honor-badge">图片提供</div>
+                        <h3>关关</h3>
+                        <p>• 「数据丢失」<br>• 「数据丢失」<br>• 「数据丢失」</p>
                     </div>
                 </div>
 
@@ -154,5 +172,79 @@
 
     <script src="components.js"></script>
     <script src="script.js"></script>
+    <script>
+// 更流畅的动态乱码生成函数
+function generateGibberish() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+-=[]{}|;:,.<>?';
+    let result = '';
+    const length = Math.floor(Math.random() * 10) + 6; // 6-15个字符
+    
+    for (let i = 0; i < length; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+    }
+    
+    return result;
+}
+
+// 更新单个数据丢失行
+function updateDataLostLine(lineElement) {
+    if (lineElement.textContent.includes('数据丢失') || lineElement.classList.contains('data-lost')) {
+        lineElement.textContent = '• ' + generateGibberish();
+        if (!lineElement.classList.contains('data-lost')) {
+            lineElement.classList.add('data-lost');
+        }
+    }
+}
+
+// 更新数据丢失内容为动态乱码
+function updateDataLostElements() {
+    const dataLostElements = document.querySelectorAll('.honor-card p');
+    
+    dataLostElements.forEach(element => {
+        if (element.textContent.includes('数据丢失')) {
+            // 清除现有内容并重新标记为数据丢失
+            element.innerHTML = '';
+            for (let i = 0; i < 3; i++) {
+                const line = document.createElement('div');
+                line.classList.add('data-lost');
+                line.textContent = '• ' + generateGibberish();
+                element.appendChild(line);
+            }
+        } else if (element.querySelector('.data-lost')) {
+            // 更新现有的数据丢失行
+            const dataLostLines = element.querySelectorAll('.data-lost');
+            dataLostLines.forEach(line => {
+                line.textContent = '• ' + generateGibberish();
+            });
+        }
+    });
+}
+
+// 初始化和定时更新
+document.addEventListener('DOMContentLoaded', function() {
+    // 初始更新一次
+    updateDataLostElements();
+    setInterval(updateDataLostElements, 60);
+    
+    // 鼠标悬停事件
+    const honorBadge = document.querySelector('.honor-badge');
+    if (honorBadge && honorBadge.textContent.includes('是首席顾问的猫梁')) {
+        let originalText = honorBadge.textContent;
+        let hoverText = '我喜欢你❤️';
+        
+        honorBadge.addEventListener('mouseenter', function() {
+            if (this.textContent === originalText) {
+                this.textContent = hoverText;
+            }
+        });
+        
+        honorBadge.addEventListener('mouseleave', function() {
+            if (this.textContent === hoverText) {
+                this.textContent = originalText;
+            }
+        });
+    }
+});
+</script>
 </body>
 </html>
