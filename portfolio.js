@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: '铬明矾混晶',
             type: 'gallery',
             works: [
+                { img: '作品1.png', author: '迷路的野指针' },
                 { img: '作品2.png', author: '迷路的野指针' },
                 { img: '作品3.png', author: '迷路的野指针' },
                 { img: '作品6.png', author: '迷路的野指针' },
@@ -49,10 +50,16 @@ document.addEventListener('DOMContentLoaded', function() {
             title: '其他好看晶体',
             type: 'gallery',
             works: [
-  
                 { img: '作品33.png', author: '迷路的野指针', description: '银' },
                 { img: '作品35.png', author: 'mo', description: '铯' },
                 { img: '作品26.png', author: '清蒸带鱼', description: '铜' },
+                { img: '作品66.jpg', author: '关关', description: '铜' },
+                { img: '电解铜2.jpg', author: '食堂人民科学协会-荣', description: '铜' },
+                { img: '作品71.jpg', author: '紫色硫酸铜', description: '铜' },
+                { img: '作品72.jpg', author: 'Chlorine', description: '碘' },
+                { img: '作品73.jpg', author: 'Chlorine', description: '碘' },
+                { img: '作品74.jpg', author: 'Chlorine', description: '碘' },
+                { img: '作品70.jpg', author: 'Chlorine', description: '白磷 '},
                 { img: '作品17.png', author: '迷路的野指针', description: '硫酸三乙二胺络镍' },
                 { img: '作品9.png', author: '迷路的野指针', description: '二水合二氯化二乙二胺络铜' },
                 { img: '作品23.png', author: '待到群星闪耀时', description: '三水合丙二酸铁钾' },
@@ -81,8 +88,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 { img: '作品69.jpg', author: '紫色硫酸铜', description: '硫酸镍' },
                 { img: '作品65.jpg', author: '关关', description: '硫酸铝钾' },
                 { img: '作品60.jpg', author: '青于', description: '硝酸甜菜碱铜' },
+                { img: '作品67.jpg', author: 'Kerbal123', description: '硝酸脲铁' },
                 { img: '作品53.png', author: '泠鳞', description: '硫酸镨晶簇' },
-                { img: '作品54.png', author: '泠鳞', description: '柠檬酸单晶' }
+                { img: '作品54.png', author: '泠鳞', description: '柠檬酸单晶' },
+                { img: '作品68.jpg', author: 'Kerbal123', description: '乙酸铜钙' },
             ]
         },
         {
