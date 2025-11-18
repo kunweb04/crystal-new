@@ -1,4 +1,3 @@
-
 // portfolio.js - 动态生成作品集页面
 document.addEventListener('DOMContentLoaded', function() {
     // 作品集数据结构
@@ -56,6 +55,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 { img: '作品66.jpg', author: '关关', description: '铜' },
                 { img: '电解铜2.jpg', author: '食堂人民科学协会-荣', description: '铜' },
                 { img: '作品71.jpg', author: '紫色硫酸铜', description: '铜' },
+                { img: '作品103.jpg', author: '紫色硫酸铜', description: '铜' },
+                { img: '作品104.jpg', author: '紫色硫酸铜', description: '铜' },
                 { img: '作品75.jpg', author: '青于', description: '铜' },
                 { img: '作品76.jpg', author: '青于', description: '铜' },
                 { img: '作品77.jpg', author: '青于', description: '铜' },
@@ -68,6 +69,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 { img: '作品73.jpg', author: 'Chlorine', description: '碘' },
                 { img: '作品74.jpg', author: 'Chlorine', description: '碘' },
                 { img: '作品70.jpg', author: 'Chlorine', description: '白磷 '},
+                { img: '作品105.jpg', author: '氟氙Cryptand', description: '四丁基铵八氯二铼酸盐丨四丁基铵八溴二铼酸盐 丨合成by yusaki'},
+                { img: '作品106.jpg', author: '氟氙Cryptand', description: '二(μ-2羟基)双(二(2-甲基咪唑基)络铜)）二高氯酸盐二水合物'},
+                { img: '作品107.jpg', author: '氟氙Cryptand', description: '硫酸镍六水合物'},
+                { img: '作品108.jpg', author: '氟氙Cryptand', description: '六氰合铁（III）酸钾'},
+                { img: '作品109.jpg', author: '氟氙Cryptand', description: '四（异硫氰酸根）络锰(II)双[水·（18-冠-6醚）络钾]18-冠-6醚络钾硫氰酸盐'},
+                { img: '作品110.jpg', author: '氟氙Cryptand', description: '二乙烯三胺四氯合铜酸盐一氯化物'},
                 { img: '作品17.png', author: '迷路的野指针', description: '硫酸三乙二胺络镍' },
                 { img: '作品9.png', author: '迷路的野指针', description: '二水合二氯化二乙二胺络铜' },
                 { img: '作品23.png', author: '待到群星闪耀时', description: '三水合丙二酸铁钾' },
@@ -168,9 +175,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 workContainer.setAttribute('data-search', searchData.trim());
                 
                 const img = document.createElement('img');
-                img.src = `p/portfolio/${work.img}`;
+                // 使用data-src存储真实图片路径
+                img.dataset.src = `p/portfolio/${work.img}`;
+                // 初始使用一个极小的base64占位图
+                img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
                 img.className = 'content-image';
                 img.alt = work.author ? `${work.author}作品` : '作品图片';
+                img.loading = 'lazy'; // 使用原生懒加载
+                
                 workContainer.appendChild(img);
                 
                 const p = document.createElement('p');
@@ -195,6 +207,55 @@ document.addEventListener('DOMContentLoaded', function() {
             // 插入到安全内容容器中
             safetyContent.appendChild(section);
         });
+
+        // 初始化回退懒加载（为不支持原生懒加载的浏览器）
+        initFallbackLazyLoad();
+    }
+
+    // 回退懒加载方案
+    function initFallbackLazyLoad() {
+        // 检查浏览器是否支持原生懒加载
+        if ('loading' in HTMLImageElement.prototype) {
+            // 浏览器支持原生懒加载，将data-src转移到src
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+            });
+            return;
+        }
+        
+        // 回退方案：监听滚动事件实现懒加载
+        const lazyImages = [].slice.call(document.querySelectorAll('img[data-src]'));
+        
+        let lazyLoadThrottle;
+        
+        function lazyLoad() {
+            if (lazyLoadThrottle) {
+                clearTimeout(lazyLoadThrottle);
+            }
+            
+            lazyLoadThrottle = setTimeout(function() {
+                const scrollTop = window.pageYOffset;
+                
+                lazyImages.forEach(function(img) {
+                    if (img.offsetTop < (window.innerHeight + scrollTop + 200)) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                });
+                
+                if (lazyImages.length == 0) {
+                    document.removeEventListener('scroll', lazyLoad);
+                    window.removeEventListener('resize', lazyLoad);
+                    window.removeEventListener('orientationchange', lazyLoad);
+                }
+            }, 20);
+        }
+        
+        document.addEventListener('scroll', lazyLoad);
+        window.addEventListener('resize', lazyLoad);
+        window.addEventListener('orientationchange', lazyLoad);
+        lazyLoad(); // 初始加载视口内的图片
     }
 
     // 初始化作品集内容
