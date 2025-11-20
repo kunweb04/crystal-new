@@ -2912,3 +2912,8 @@ figcaption {
     width: 100%;
     max-width: 600px;
 }
+
+.article-ad {
+    width: 100%;
+    max-width: 800px;
+}
