@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CrystalLab - 晶体培养指南网站，提供从硫酸铜、磷酸二氢钾到碘晶体等多种晶体的详细培养教程">
+    <meta name="keywords" content="晶体培养,晶体化学,碘晶体,单质碘,升华结晶,晶体制作,结晶艺术,晶体保存">
+    <meta name="author" content="CrystalLab团队">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CrystalLab">
+    <meta property="og:title" content="CrystalLab - 碘晶体">
+    <meta property="og:description" content="学习如何通过升华法制作紫黑色的碘晶体，掌握单质晶体的特殊培养与保存技巧">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://crystal-lab.org/iodine-crystal.html">
+    <meta property="og:image" content="https://crystal-lab.org/og.png">
+    <title>晶体化学指南 - 碘晶体篇 - CrystalLab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="content.css">
+    <link rel="icon" href="favicon.ico" type="image/png">
+    <meta name="google-adsense-account" content="ca-pub-9337526323324673">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9337526323324673"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <div class="safety-container">
+            <div class="safety-content">
+                <h1>晶体化学指南<br><span>碘晶体篇</span></h1>
+
+                <div class="crystal-decoration top-left"><i class="fas fa-gem"></i></div>
+                <div class="crystal-decoration bottom-right"><i class="fas fa-gem"></i></div>
+
+                <img src="p/iodine_main.png" alt="碘晶体" class="content-image">
+                <p style="text-align:center;color:var(--accent)">图源：网络</p>
+
+                <section id="quick-start">
+                    <h2>🎯 预览</h2>
+                    <div class="method-card">
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>项目概览：</strong>
+                                <ul>
+                                    <li>难度等级：★★☆☆☆ (中级)</li>
+                                    <li>培养周期：数小时</li>
+                                    <li>成功率：80%</li>
+                                    <li>推荐人群：有通风条件的进阶者</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>所需材料：</strong>
+                                <ul>
+                                    <li>碘单质（或碘化钾+氧化剂）</li>
+                                    <li>烧杯</li>
+                                    <li>圆底烧瓶（用于冷凝）</li>
+                                    <li>加热设备</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="basic">
+                    <h2>一、基础认识</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-flask"></i> 1.1 化学特性</h3>
+                        <p class="chemical-formula">化学式：$I_2$</p>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">外观特征</div>
+                                <div class="step-detail">紫黑色片状或针状晶体，具有显著的金属光泽</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">物理性质</div>
+                                <div class="step-detail">具有升华性，加热时直接由固态变为紫红色蒸气，冷却后凝华为晶体</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">晶系</div>
+                                <div class="step-detail">正交晶系</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-atom"></i> 1.2 结构特点</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">分子晶体</div>
+                                <div class="step-detail">由双原子分子通过范德华力结合而成，质地较脆</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">溶解性</div>
+                                <div class="step-detail">微溶于水，易溶于乙醇、乙醚、二硫化碳等有机溶剂</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="experiment">
+                    <h2>二、实验与制备</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-fire"></i> 2.1 升华法（推荐）</h3>
+                        <p>这是制备高纯度、形态规整碘晶体最经典的方法。</p>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">搭建装置</div>
+                                <div class="step-detail">
+                                    准备一个干燥的烧杯，上方放置一个装满冷水或冰块的圆底烧瓶（或表面皿）。
+                                    <div class="note">
+                                        确保装置连接处紧密，可在缝隙处垫一圈湿棉花防止蒸汽泄漏。
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">加料</div>
+                                <div class="step-detail">在烧杯底部放入少量的粗碘（或碘砂）。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">加热升华</div>
+                                <div class="step-detail">
+                                    使用低火缓慢加热烧杯底部（建议水浴或沙浴加热，避免温度过高）。
+                                    <div class="note">
+                                        观察到紫红色蒸汽充满烧杯内部，碘蒸汽遇到上方冷的烧瓶底面会直接凝华为晶体。
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">收集晶体</div>
+                                <div class="step-detail">加热结束后，待装置冷却，小心取下烧瓶，用塑料刮刀或非金属镊子刮下底部的针状或片状碘晶体。</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-vial"></i> 2.2 溶液置换法（参考）</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">原理</div>
+                                <div class="step-detail">利用氧化剂（如过氧化氢、高锰酸钾）将碘化钾溶液中的碘离子氧化为单质碘沉淀。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">操作</div>
+                                <div class="step-detail">
+                                    反应产生的碘通常为粉末状沉淀，需过滤干燥后，再通过上述"升华法"进行提纯结晶，才能得到漂亮的晶体形态。
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="safety">
+                    <h2>三、安全与注意事项</h2>
+                    
+                    <div class="warning-box">
+                        <h3><i class="fas fa-exclamation-triangle"></i> 3.1 毒性与防护</h3>
+                        <ul>
+                            <li><strong>蒸汽危害：</strong>碘蒸汽有强烈刺激性，损害呼吸道和眼睛。必须在通风橱或室外通风良好处操作。</li>
+                            <li><strong>腐蚀性：</strong>碘具有腐蚀性，避免直接接触皮肤，接触后会造成黄褐色灼伤。操作时请佩戴丁腈手套。</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <h3><i class="fas fa-exclamation-circle"></i> 3.2 特性警告</h3>
+                        <ul>
+                            <li><strong>极强染色性：</strong>碘会染黑皮肤、衣物和桌面，且难以清洗。建议在桌面上铺设废报纸。</li>
+                            <li><strong>腐蚀金属：</strong>碘蒸汽会迅速腐蚀周围的金属物品（如天平、金属勺），请移除周围不必要的金属设备。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="gallery">
+                    <h2>四、成果展示与质量评估</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-gem"></i> 优质晶体特征</h3>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>优质晶体：</strong>
+                                <ul>
+                                    <li>表面具有强烈的紫黑色金属光泽</li>
+                                    <li>晶体呈明显的片状或长针状</li>
+                                    <li>边缘锋利，无粉末附着</li>
+                                    <li>纯度高，无杂质残留</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>问题晶体：</strong>
+                                <ul>
+                                    <li>色泽暗淡 - 含有水分或杂质</li>
+                                    <li>呈粉末状 - 冷却过快或凝华温度过低</li>
+                                    <li>形态细碎 - 升华速率过快</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="troubleshooting">
+                    <h2>五、问题诊断与解决</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-stethoscope"></i> 常见问题排查</h3>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题一：晶体细小如粉末</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>加热温度过高导致升华太快，或冷凝面温度过低。</li>
+                                <li><strong>解决方案：</strong>降低加热温度，使用温水浴加热；改用自然冷却或温差较小的冷凝方式。</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题二：蒸汽泄漏</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>烧杯与烧瓶口吻合度不够。</li>
+                                <li><strong>解决方案：</strong>在接口处缠绕生料带或垫湿棉花（注意不要让水滴入）。</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="conserve">
+                    <h2>六、晶体保存（重要）</h2>
+                    <div class="method-card">
+                        <p>碘晶体具有显著的挥发性（升华），且蒸汽能穿透并腐蚀大多数塑料。</p>
+                        
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">推荐方法：玻封（安瓿瓶）</div>
+                                <div class="step-detail">
+                                    这是唯一能长期完美保存碘晶体的方法。将晶体放入玻璃安瓿瓶或试管中，使用喷枪熔融封口。
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">禁忌</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li><strong>严禁使用塑料容器：</strong>碘会渗透PE/PP塑料，导致容器变脆、变色，并污染周围环境。</li>
+                                        <li><strong>严禁使用金属盖瓶：</strong>碘会迅速腐蚀金属盖。</li>
+                                        <li><strong>普通磨口瓶：</strong>需涂抹浓硫酸封口（不推荐新手），凡士林会被碘溶解失效。</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="ad-container article-ad">
+                    <ins class="adsbygoogle"
+                         style="display:block; text-align:center;"
+                         data-ad-layout="in-article"
+                         data-ad-format="fluid"
+                         data-ad-client="ca-pub-9337526323324673"
+                         data-ad-slot="6874868877"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+
+            <nav class="safety-nav">
+                <h3>内容导航</h3>
+                <ul>
+                    <li><a href="#basic">基础认识</a></li>
+                    <li><a href="#experiment">实验制备</a></li>
+                    <li><a href="#safety">安全事项</a></li>
+                    <li><a href="#gallery">质量评估</a></li>
+                    <li><a href="#troubleshooting">问题诊断</a></li>
+                    <li><a href="#conserve">保存方法</a></li>
+                    <li><a href="index.html">返回首页</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        document.querySelectorAll('.safety-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 100;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                document.querySelectorAll('.safety-nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.safety-nav a[href^="#"]');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop - 150) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
