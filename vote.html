@@ -125,42 +125,85 @@
 
         let selectedOption = null;
         let hasVoted = false;
+        let pageInitialized = false;
+
+        // 页面加载状态管理
+        function setPageLoaded() {
+            if (!pageInitialized) {
+                pageInitialized = true;
+                // 强制停止浏览器加载指示器
+                if (window.stop) {
+                    window.stop();
+                }
+                // 移除任何可能的加载状态
+                document.body.classList.remove('loading');
+                
+                console.log('页面加载完成');
+            }
+        }
+
+        // 带超时的初始化
+        function initializeWithTimeout() {
+            // 设置超时，确保页面不会一直loading
+            const timeoutId = setTimeout(() => {
+                console.log('初始化超时，强制完成页面加载');
+                setPageLoaded();
+            }, 5000); // 5秒超时
+
+            initializeVotePage().finally(() => {
+                clearTimeout(timeoutId);
+                setPageLoaded();
+            });
+        }
 
         // 初始化投票页面
-        function initializeVotePage() {
-            renderVoteOptions();
-            loadVoteResults();
-            checkVotingStatus();
+        async function initializeVotePage() {
+            try {
+                // 并行执行初始化任务
+                await Promise.all([
+                    renderVoteOptions(),
+                    loadVoteResults(),
+                    checkVotingStatus()
+                ]);
+                
+                console.log('投票页面初始化完成');
+            } catch (error) {
+                console.error('初始化失败:', error);
+            }
         }
 
         // 渲染投票选项
         function renderVoteOptions() {
-            const container = document.getElementById('voteOptions');
-            container.innerHTML = '';
+            return new Promise((resolve) => {
+                const container = document.getElementById('voteOptions');
+                container.innerHTML = '';
 
-            voteOptions.forEach(option => {
-                const optionElement = document.createElement('div');
-                optionElement.className = 'vote-option';
-                optionElement.dataset.optionId = option.id;
+                voteOptions.forEach(option => {
+                    const optionElement = document.createElement('div');
+                    optionElement.className = 'vote-option';
+                    optionElement.dataset.optionId = option.id;
+                    
+                    optionElement.innerHTML = `
+                        <div class="crystal-image">
+                            <img src="${option.image}" alt="${option.name}" 
+                                 onerror="this.src='${option.defaultImage}'">
+                        </div>
+                        <div class="crystal-name">${option.name}</div>
+                        <div class="crystal-description">${option.description}</div>
+                        <div class="vote-stats">
+                            <div class="vote-count">票数: <span id="count_${option.id}">0</span></div>
+                            <div class="vote-percentage"><span id="percent_${option.id}">0</span>%</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress_${option.id}"></div>
+                        </div>
+                    `;
+
+                    optionElement.addEventListener('click', () => selectOption(option.id));
+                    container.appendChild(optionElement);
+                });
                 
-                optionElement.innerHTML = `
-                    <div class="crystal-image">
-                        <img src="${option.image}" alt="${option.name}" 
-                             onerror="this.src='${option.defaultImage}'">
-                    </div>
-                    <div class="crystal-name">${option.name}</div>
-                    <div class="crystal-description">${option.description}</div>
-                    <div class="vote-stats">
-                        <div class="vote-count">票数: <span id="count_${option.id}">0</span></div>
-                        <div class="vote-percentage"><span id="percent_${option.id}">0</span>%</div>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" id="progress_${option.id}"></div>
-                    </div>
-                `;
-
-                optionElement.addEventListener('click', () => selectOption(option.id));
-                container.appendChild(optionElement);
+                resolve();
             });
         }
 
@@ -323,8 +366,18 @@
         // 事件监听
         document.getElementById('submitVote').addEventListener('click', submitVote);
 
-        // 页面加载完成后初始化
-        document.addEventListener('DOMContentLoaded', initializeVotePage);
+        // 页面加载完成后初始化 - 使用超时保护
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM内容加载完成，开始初始化投票页面');
+            initializeWithTimeout();
+        });
+
+        // 窗口加载完成事件作为备用
+        window.addEventListener('load', function() {
+            console.log('窗口加载完成');
+            // 确保页面加载状态被设置
+            setTimeout(setPageLoaded, 1000);
+        });
     </script>
 </body>
 </html>
