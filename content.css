@@ -1,4 +1,3 @@
-/* 安全指南页面特定样式 */
 .safety-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -3127,3 +3126,350 @@ figcaption {
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
+/* 投票页 */
+.vote-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(26, 37, 47, 0.85)), url('p/关关-背景图3.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.vote-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.vote-content {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.97) 0%, rgba(250, 252, 255, 0.97) 100%);
+    border-radius: 28px;
+    padding: 4rem;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.vote-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 80%, rgba(26, 188, 156, 0.03) 0%, transparent 30%),
+                radial-gradient(circle at 80% 20%, rgba(52, 152, 219, 0.03) 0%, transparent 30%);
+    pointer-events: none;
+}
+
+.vote-content h1 {
+    font-size: 3.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1.5rem;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.vote-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    border-radius: 2px;
+}
+
+.vote-intro {
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.vote-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.vote-option {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+    border-radius: 20px;
+    padding: 2.5rem;
+    border: 2px solid transparent;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.vote-option:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    border-color: var(--accent-light);
+}
+
+.vote-option.selected {
+    border-color: var(--accent);
+    background: linear-gradient(145deg, rgba(232, 244, 253, 0.9) 0%, rgba(214, 235, 255, 0.9) 100%);
+    box-shadow: 0 15px 35px rgba(22, 160, 133, 0.15);
+}
+
+.vote-option.selected::before {
+    content: '✓';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 30px;
+    height: 30px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(22, 160, 133, 0.3);
+}
+
+.crystal-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.crystal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.vote-option:hover .crystal-image img {
+    transform: scale(1.05);
+}
+
+.crystal-name {
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.crystal-description {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.vote-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(22, 160, 133, 0.1);
+}
+
+.vote-count {
+    font-size: 1.1rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.vote-percentage {
+    font-size: 1.3rem;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(22, 160, 133, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--accent-light), var(--accent));
+    border-radius: 4px;
+    transition: width 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 0%;
+}
+
+.vote-actions {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 2px solid rgba(22, 160, 133, 0.1);
+}
+
+.submit-vote-btn {
+    background: linear-gradient(135deg, var(--accent-light), var(--accent));
+    color: white;
+    border: none;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 8px 25px rgba(22, 160, 133, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.submit-vote-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(22, 160, 133, 0.4);
+}
+
+.submit-vote-btn:disabled {
+    background: #95a5a6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.vote-message {
+    margin-top: 1.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+}
+
+.vote-message.success {
+    background: rgba(46, 204, 113, 0.1);
+    color: #27ae60;
+    border: 1px solid rgba(46, 204, 113, 0.2);
+    display: block;
+}
+
+.vote-message.error {
+    background: rgba(231, 76, 60, 0.1);
+    color: #c0392b;
+    border: 1px solid rgba(231, 76, 60, 0.2);
+    display: block;
+}
+
+.vote-results {
+    margin-top: 3rem;
+}
+
+.results-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.results-header h3 {
+    font-size: 2.2rem;
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+}
+
+.total-votes {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+@media (max-width: 1100px) {
+    .vote-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .vote-hero {
+        height: 50vh;
+        clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+    }
+
+    .vote-content {
+        padding: 2rem;
+        border-radius: 20px;
+        margin: 0 1rem;
+    }
+
+    .vote-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .vote-intro {
+        font-size: 1.1rem;
+    }
+
+    .vote-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .vote-option {
+        padding: 1.8rem;
+    }
+
+    .crystal-name {
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .vote-container {
+        padding: 2rem 0;
+    }
+
+    .vote-content {
+        padding: 1.5rem;
+        margin: 0 0.5rem;
+    }
+
+    .vote-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .vote-option {
+        padding: 1.2rem;
+    }
+
+    .crystal-image {
+        height: 160px;
+    }
+
+    .submit-vote-btn {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+        width: 100%;
+        justify-content: center;
+    }
+}
