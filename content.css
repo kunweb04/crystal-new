@@ -309,7 +309,6 @@
     box-shadow: 0 5px 15px rgba(22, 160, 133, 0.15);
 }
 
-/* 移动设备优化 - 减少空白，增加内容宽度 */
 @media (max-width: 1100px) {
     .safety-container {
         grid-template-columns: 1fr;
@@ -363,7 +362,6 @@
         border-radius: 16px;
     }
 
-    /* 移动端步骤列表优化 */
     .step-item {
         margin-bottom: 1.8rem;
         padding: 1rem;
@@ -413,7 +411,6 @@
         min-width: 160px;
     }
 
-    /* 移动端警告框优化 */
     .warning-box {
         padding: 1.2rem;
         margin: 1.5rem 0;
@@ -436,7 +433,6 @@
         line-height: 1.5;
     }
 
-    /* 移动端问答区域优化 */
     .qa-section {
         padding: 1.5rem;
         margin: 1.5rem 0;
@@ -459,7 +455,6 @@
         line-height: 1.6;
     }
 
-    /* 移动端优缺点区域优化 */
     .pros-cons {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -559,7 +554,6 @@
         padding: 0.8rem 1rem;
     }
 
-    /* 移动端投稿页面优化 */
     .contribute-content {
         padding: 1.2rem;
         margin: 0;
@@ -654,7 +648,6 @@
     animation: float 15s infinite ease-in-out reverse;
 }
 
-/* 投稿与建议页面特定样式 */
 .contribute-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -860,7 +853,6 @@
     transform: translateY(-5px);
 }
 
-/* 新样式 - 简洁步骤列表（投稿页面） */
 .contribute-step-list {
     list-style: none;
     counter-reset: step-counter;
@@ -1262,7 +1254,6 @@
     box-shadow: 0 7px 20px rgba(22, 160, 133, 0.15);
 }
 
-/* 投稿页面移动优化 - 减少空白，增加内容宽度 */
 @media (max-width: 1100px) {
     .contribute-container {
         grid-template-columns: 1fr;
@@ -1497,7 +1488,6 @@
     animation: float 18s infinite ease-in-out reverse;
 }
 
-/* 作品集页面特定样式 */
 .content-image {
     width: 80%;
     margin: 1.5em auto;
@@ -1512,7 +1502,6 @@
     }
 }
 
-/* 结晶方式页面特定样式 */
 .pros-cons {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1600,7 +1589,6 @@
     font-size: 1.1rem;
 }
 
-/* 结晶方式页面移动优化 - 减少空白，增加内容宽度 */
 @media (max-width: 768px) {
     .pros-cons {
         grid-template-columns: 1fr;
@@ -1649,9 +1637,8 @@
     }
 }
 
-/* 晶体分类页面特定样式 - 第二首页设计 */
 .secondary-hero {
-    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(26, 37, 47, 0.85)), url('p/index_head_01.jpg');
+    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(26, 37, 47, 0.85));
     height: 70vh;
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
@@ -2917,3 +2904,226 @@ figcaption {
     width: 100%;
     max-width: 800px;
 }
+
+.diagonal-banner {
+    position: absolute;
+    top: 18px;
+    left: -38px;
+    background: linear-gradient(135deg, 
+        rgba(22, 160, 133, 0.95) 0%, 
+        rgba(46, 204, 113, 0.95) 25%, 
+        rgba(26, 188, 156, 0.95) 50%, 
+        rgba(22, 160, 133, 0.95) 75%, 
+        rgba(46, 204, 113, 0.95) 100%);
+    color: white;
+    padding: 6px 48px;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-align: center;
+    transform: rotate(-45deg);
+    box-shadow: 
+        0 4px 15px rgba(22, 160, 133, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+        0 1px 3px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    overflow: hidden;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-family: 'Noto Sans SC', sans-serif;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    animation: bannerGlow 3s ease-in-out infinite;
+}
+
+.diagonal-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.4), 
+        rgba(255, 255, 255, 0.6), 
+        rgba(255, 255, 255, 0.4), 
+        transparent);
+    transform: skewX(-15deg);
+    transition: left 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.diagonal-banner:hover::before {
+    left: 150%;
+}
+
+.diagonal-banner::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.diagonal-banner:hover::after {
+    opacity: 1;
+}
+
+@keyframes bannerGlow {
+    0%, 100% {
+        box-shadow: 
+            0 4px 15px rgba(22, 160, 133, 0.3),
+            0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+            0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        box-shadow: 
+            0 4px 20px rgba(22, 160, 133, 0.5),
+            0 0 0 1px rgba(255, 255, 255, 0.3) inset,
+            0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.diagonal-banner.hot {
+    background: linear-gradient(135deg, 
+        rgba(230, 126, 34, 0.95) 0%, 
+        rgba(243, 156, 18, 0.95) 25%, 
+        rgba(231, 76, 60, 0.95) 50%, 
+        rgba(230, 126, 34, 0.95) 75%, 
+        rgba(243, 156, 18, 0.95) 100%);
+    animation: bannerGlowHot 3s ease-in-out infinite;
+}
+
+@keyframes bannerGlowHot {
+    0%, 100% {
+        box-shadow: 
+            0 4px 15px rgba(230, 126, 34, 0.3),
+            0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+            0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        box-shadow: 
+            0 4px 20px rgba(230, 126, 34, 0.5),
+            0 0 0 1px rgba(255, 255, 255, 0.3) inset,
+            0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.diagonal-banner.premium {
+    background: linear-gradient(135deg, 
+        rgba(155, 89, 182, 0.95) 0%, 
+        rgba(142, 68, 173, 0.95) 25%, 
+        rgba(192, 57, 43, 0.95) 50%, 
+        rgba(155, 89, 182, 0.95) 75%, 
+        rgba(142, 68, 173, 0.95) 100%);
+    animation: bannerGlowPremium 3s ease-in-out infinite;
+}
+
+@keyframes bannerGlowPremium {
+    0%, 100% {
+        box-shadow: 
+            0 4px 15px rgba(155, 89, 182, 0.3),
+            0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+            0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        box-shadow: 
+            0 4px 20px rgba(155, 89, 182, 0.5),
+            0 0 0 1px rgba(255, 255, 255, 0.3) inset,
+            0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+}
+
+.diagonal-banner.slim {
+    top: 16px;
+    left: -42px;
+    padding: 5px 58px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.diagonal-banner.crystal {
+    background: linear-gradient(135deg, 
+        rgba(52, 152, 219, 0.95) 0%, 
+        rgba(41, 128, 185, 0.95) 25%, 
+        rgba(26, 188, 156, 0.95) 50%, 
+        rgba(52, 152, 219, 0.95) 75%, 
+        rgba(41, 128, 185, 0.95) 100%);
+    animation: bannerGlowCrystal 3s ease-in-out infinite;
+}
+
+@keyframes bannerGlowCrystal {
+    0%, 100% {
+        box-shadow: 
+            0 4px 15px rgba(52, 152, 219, 0.3),
+            0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+            0 1px 3px rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        box-shadow: 
+            0 4px 20px rgba(52, 152, 219, 0.5),
+            0 0 0 1px rgba(255, 255, 255, 0.3) inset,
+            0 1px 4px rgba(0, 0, 0, 0.5);
+    }
+}
+
+@media (max-width: 768px) {
+    .diagonal-banner {
+        top: 14px;
+        left: -32px;
+        padding: 5px 40px;
+        font-size: 0.75rem;
+        letter-spacing: 1.2px;
+    }
+    
+    .diagonal-banner.slim {
+        top: 13px;
+        left: -36px;
+        padding: 4px 50px;
+        font-size: 0.72rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .diagonal-banner {
+        top: 12px;
+        left: -28px;
+        padding: 4px 35px;
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+    
+    .diagonal-banner.slim {
+        top: 11px;
+        left: -32px;
+        padding: 3px 45px;
+        font-size: 0.68rem;
+    }
+}
+
+.acknowledgements-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(26, 37, 47, 0.85)), url('p/index_head_01.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.classification-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(26, 37, 47, 0.85)), url('p/index_head_01.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
