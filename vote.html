@@ -14,7 +14,7 @@
     <meta property="og:locale" content="zh_CN">
     <meta property="og:url" content="https://crystal-lab.org/vote.html">
     <meta property="og:image" content="https://crystal-lab.org/og.png">
-    <title>晶体更新投票 - CrystalLab</title>
+    <title>投票页 - CrystalLab</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
@@ -36,8 +36,8 @@
         <div class="crystal"><i class="fas fa-diamond"></i></div>
         
         <div class="hero-content">
-            <h2>决定<span>未来</span>的晶体</h2>
-            <p>投票选择您最希望看到的下一期晶体专题，共同塑造 CrystalLab 的内容方向</p>
+            <h2>决定<span>未来</span>的一票</h2>
+            <p>投票选择您最认同的项目，共同塑造 CrystalLab 的方向</p>
         </div>
     </section>
 
@@ -83,43 +83,31 @@
                 id: 'crystal_1',
                 name: '氯化钠晶体',
                 description: '探索最常见的盐类晶体，学习如何培养完美的立方体氯化钠晶体，了解其在不同条件下的生长特性。',
-                image: 'p/vote-nacl.jpg',
-                defaultImage: 'https://via.placeholder.com/400x200/4A90E2/FFFFFF?text=氯化钠晶体'
             },
             {
                 id: 'crystal_2', 
                 name: '酒石酸钾钠',
                 description: '制作具有压电效应的有趣晶体，了解其在电子领域的应用，掌握特殊晶体的培养技巧。',
-                image: 'p/vote-tartrate.jpg',
-                defaultImage: 'https://via.placeholder.com/400x200/50E3C2/FFFFFF?text=酒石酸钾钠'
             },
             {
                 id: 'crystal_3',
                 name: '硫酸镁晶体',
                 description: '培养美丽的针状硫酸镁晶体，学习快速结晶技巧，了解其在医药和化工中的应用。',
-                image: 'p/vote-mgso4.jpg',
-                defaultImage: 'https://via.placeholder.com/400x200/9013FE/FFFFFF?text=硫酸镁晶体'
             },
             {
                 id: 'crystal_4',
                 name: '重铬酸钾',
                 description: '制作鲜艳的橙色晶体，了解氧化剂晶体的特殊性质，掌握高危晶体的安全操作方法。',
-                image: 'p/vote-dichromate.jpg',
-                defaultImage: 'https://via.placeholder.com/400x200/F5A623/FFFFFF?text=重铬酸钾'
             },
             {
                 id: 'crystal_5',
                 name: '明矾大单晶',
                 description: '挑战培养透明完美的明矾大单晶，学习晶体退火和光学级晶体的制作工艺。',
-                image: 'p/vote-alum.jpg',
-                defaultImage: 'https://via.placeholder.com/400x200/BD10E0/FFFFFF?text=明矾大单晶'
             },
             {
                 id: 'crystal_6',
                 name: '乙酸铜晶体',
                 description: '制作独特的蓝绿色配合物晶体，了解有机酸盐晶体的特殊结构和培养方法。',
-                image: 'p/vote-copper-acetate.jpg',
-                defaultImage: 'https://via.placeholder.com/400x200/7ED321/FFFFFF?text=乙酸铜晶体'
             }
         ];
 
@@ -178,15 +166,16 @@
                 const container = document.getElementById('voteOptions');
                 container.innerHTML = '';
 
-                voteOptions.forEach(option => {
+                const iconClasses = ['nacl', 'tartrate', 'mgso4', 'dichromate', 'alum', 'copper-acetate'];
+                
+                voteOptions.forEach((option, index) => {
                     const optionElement = document.createElement('div');
                     optionElement.className = 'vote-option';
                     optionElement.dataset.optionId = option.id;
                     
                     optionElement.innerHTML = `
-                        <div class="crystal-image">
-                            <img src="${option.image}" alt="${option.name}" 
-                                 onerror="this.src='${option.defaultImage}'">
+                        <div class="crystal-icon ${iconClasses[index]}">
+                            <i class="${option.icon}"></i>
                         </div>
                         <div class="crystal-name">${option.name}</div>
                         <div class="crystal-description">${option.description}</div>
