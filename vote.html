@@ -92,8 +92,7 @@
 
     <script src="components.js"></script>
     <script>
-        // 替换为您的 Worker URL
-        const WORKER_URL = 'https://crystal-vote-worker.您的子域名.workers.dev';
+        const WORKER_URL = 'https://crystal-vote-worker.enderwolf9487.workers.dev';
         
         // 投票选项数据
         const voteOptions = [
@@ -212,16 +211,16 @@
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 提交中...';
 
             try {
-                const response = await fetch('crystal-vote-worker.enderwolf9487.workers.dev', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    optionId: selectedOption,
-                    voterId: generateVoterId()
-                })
-            });
+                const response = await fetch(`${WORKER_URL}/api/vote`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        optionId: selectedOption,
+                        voterId: generateVoterId()
+                    })
+                });
 
                 if (result.success) {
                     messageDiv.className = 'vote-message success';
