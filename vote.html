@@ -222,6 +222,8 @@
                     })
                 });
 
+                const result = await response.json();
+                
                 if (result.success) {
                     messageDiv.className = 'vote-message success';
                     messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> 投票成功！感谢您的参与。';
