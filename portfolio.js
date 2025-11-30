@@ -70,6 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 { img: '作品74.jpg', author: 'Chlorine', description: '碘' },
                 { img: '作品111.png', author: '群青丨Ultramarine', description: '碘' },
                 { img: '作品112.png', author: '群青丨Ultramarine', description: '碘' },
+                { img: '作品113.png', author: '群青丨Ultramarine', description: '碘' },
+                { img: '作品114.png', author: '群青丨Ultramarine', description: '碘' },
                 { img: '作品70.jpg', author: 'Chlorine', description: '白磷 '},
                 { img: '作品105.jpg', author: '氟氙Cryptand', description: '四丁基铵八氯二铼酸盐丨四丁基铵八溴二铼酸盐 丨合成by yusaki'},
                 { img: '作品106.jpg', author: '氟氙Cryptand', description: '二(μ-2羟基)双(二(2-甲基咪唑基)络铜)）二高氯酸盐二水合物'},

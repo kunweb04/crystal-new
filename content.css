@@ -3126,6 +3126,15 @@ figcaption {
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
+.classification-rain-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(26, 37, 47, 0.85)), url('p/晶雨1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
 /* 投票页面优化样式 */
 .vote-container {
     max-width: 1000px;
@@ -3554,3 +3563,101 @@ figcaption {
 .vote-option:nth-child(4) { animation-delay: 0.4s; }
 .vote-option:nth-child(5) { animation-delay: 0.5s; }
 .vote-option:nth-child(6) { animation-delay: 0.6s; }
+
+.author-card {
+            display: flex;
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent);
+            transition: transform 0.3s ease;
+        }
+        
+        .author-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .author-avatar {
+            flex: 0 0 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: white;
+            font-size: 2rem;
+        }
+        
+        .author-info {
+            flex: 1;
+        }
+        
+        .author-info h3 {
+            margin: 0 0 5px 0;
+            color: var(--dark);
+            font-size: 1.5rem;
+        }
+        
+        .author-title {
+            color: var(--accent);
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        
+        .author-bio {
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0 0 15px 0;
+        }
+        
+        .author-social {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .social-tag {
+            background: rgba(52, 152, 219, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .author-card {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-avatar {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+            
+            .author-social {
+                justify-content: center;
+            }
+        }
+
+.acknowledgements-container .honor-card.kerbal-special::before {
+    content: '' !important;
+    background: url('p/kerbal123.png') center/cover no-repeat;
+    width: 100px;
+    height: 100px;
+    right: 10px;
+    top: 20px;
+    font-size: 0;
+    opacity: 0.5;
+    border-radius: 10%;
+    transform: rotate(15deg);
+    box-shadow: none;
+}
