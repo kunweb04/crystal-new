@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CrystalLab - 银单质晶体培养完整教程 - 包含特性、电解法制备、安全注意事项、问题排查和保存方法">
+    <meta name="keywords" content="晶体培养,晶体化学,银晶体,银单质,电解银,树枝晶,金属晶体,晶体制作,电化学结晶">
+    <meta name="author" content="CrystalLab团队">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CrystalLab">
+    <meta property="og:title" content="CrystalLab - 银单质晶体">
+    <meta property="og:description" content="学习如何通过电解法制备美丽的银树枝晶，掌握电化学结晶的完整步骤与技巧">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://crystal-lab.org/silver-metal.html">
+    <meta property="og:image" content="https://crystal-lab.org/og.png">
+    <title>晶体化学指南 - 银单质篇 - CrystalLab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="content.css">
+    <link rel="icon" href="favicon.ico" type="image/png">
+    <meta name="google-adsense-account" content="ca-pub-9337526323324673">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9337526323324673" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <div class="safety-container">
+            <div class="safety-content">
+                <h1>晶体化学指南<br><span>银单质篇</span></h1>
+
+                <img src="p/银单质.jpg" alt="银树枝晶" class="content-image">
+                <p style="text-align:center;color:var(--accent)">图源：⌬Aurora⌬</p>
+
+                <div class="crystal-decoration top-left"><i class="fas fa-gem"></i></div>
+                <div class="crystal-decoration bottom-right"><i class="fas fa-gem"></i></div>
+
+                <section id="quick-start">
+                    <h2>🎯 预览</h2>
+                    <div class="method-card">
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>项目概览：</strong>
+                                <ul>
+                                    <li>难度等级：★★☆☆☆ (中级)</li>
+                                    <li>制备周期：1-2天</li>
+                                    <li>成功率：70%</li>
+                                    <li>推荐人群：有电化学基础者</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>所需材料：</strong>
+                                <ul>
+                                    <li>硝酸银(AgNO₃)</li>
+                                    <li>可调稳流直流电源</li>
+                                    <li>银电极(阳极)和不锈钢/银阴极</li>
+                                    <li>电解容器、导线</li>
+                                    <li>蒸馏水</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="basic">
+                    <h2>一、基础认识</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-flask"></i> 1.1 元素特性</h3>
+                        <p class="chemical-formula">元素符号：Ag（原子序数47）</p>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">外观特征</div>
+                                <div class="step-detail">银白色金属，具有明亮的金属光泽</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">物理特性</div>
+                                <div class="step-detail">导电性、导热性最佳金属，延展性极好</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">化学特性</div>
+                                <div class="step-detail">化学性质稳定，耐腐蚀，但易与硫化物反应变黑</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-atom"></i> 1.2 晶体学特性</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">晶系</div>
+                                <div class="step-detail">面心立方晶系</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">晶体形态</div>
+                                <div class="step-detail">树枝状、枝蔓晶、分形结构，电解易形成树枝晶</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">晶格常数</div>
+                                <div class="step-detail">a = 0.4086 nm，配位数12</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="experiment">
+                    <h2>二、实验与制备</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-vial"></i> 2.1 电解液配制</h3>
+                        <p>目标：配制500ml硝酸银电解液</p>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">配方选择</div>
+                                <div class="step-detail">推荐浓度：5-10g/L 硝酸银，浓度越高沉积越快</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">配制步骤</div>
+                                <div class="step-detail">称取2.5-5g硝酸银，溶于500ml蒸馏水，搅拌至完全溶解</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">注意事项</div>
+                                <div class="step-detail">硝酸银见光易分解，应使用棕色瓶储存或避光操作</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-bolt"></i> 2.2 电解装置搭建</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">电源选择</div>
+                                <div class="step-detail">可调稳流直流电源，电压范围0-12V，电流范围0-200mA</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">电极配置</div>
+                                <div class="step-detail">阳极：银板/银棒；阴极：不锈钢片/银片/铜片（表面抛光）</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">间距设置</div>
+                                <div class="step-detail">电极间距3-5cm，避免过近导致短路</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-seedling"></i> 2.3 电解过程</h3>
+                        <div class="note">
+                            <strong>💡 银树枝晶电解法</strong>
+                            <p>材料：硝酸银电解液、直流电源、电极、电解容器</p>
+                            
+                            <div class="step-list">
+                                <div class="step-item">
+                                    <div class="step-title">初始设置</div>
+                                    <div class="step-detail">
+                                        连接电路：阳极接电源正极，阴极接电源负极
+                                        <div class="note">
+                                            确保电极不接触，防止短路
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">开始电解</div>
+                                    <div class="step-detail">
+                                        设置稳流模式，初始电流调至50-100mA
+                                        <div class="note">
+                                            阴极表面会逐渐出现银灰色沉积
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">树枝晶形成</div>
+                                    <div class="step-detail">
+                                        电解30-60分钟后，逐渐提高电流至150-200mA
+                                        <div class="note">
+                                            电流密度越大，树枝晶分支越细密
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">过程监控</div>
+                                    <div class="step-detail">
+                                        电解2-4小时，定期观察晶体生长情况
+                                        <div class="note">
+                                            注意事项：<br>
+                                            - 控制电流密度，避免沉积过快导致结构疏松<br>
+                                            - 保持电解液温度20-25℃<br>
+                                            - 可轻微搅拌使浓度均匀
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">结束电解</div>
+                                    <div class="step-detail">
+                                        断电后小心取出阴极，用蒸馏水冲洗晶体
+                                        <div class="step-detail">
+                                            银树枝晶较脆弱，操作需轻柔
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-lightbulb"></i> 2.4 影响晶体形态的因素</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">电流密度</div>
+                                <div class="step-detail">电流密度越高，树枝晶分支越细密；反之则粗壮</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">电解液浓度</div>
+                                <div class="step-detail">浓度越高沉积越快，但可能影响晶体质量</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">电极形状</div>
+                                <div class="step-detail">阴极尖端越尖锐，树枝晶生长越定向</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">添加剂</div>
+                                <div class="step-detail">添加少量明胶或表面活性剂可改善晶体形貌</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="safety">
+                    <h2>三、安全与注意事项</h2>
+                    
+                    <div class="warning-box">
+                        <h3><i class="fas fa-exclamation-triangle"></i> 3.1 化学品安全</h3>
+                        <ul>
+                            <li><strong>硝酸银：</strong>强氧化剂，有腐蚀性，接触皮肤会造成黑色灼伤</li>
+                            <li><strong>防护要求：</strong>操作时必须佩戴防护眼镜、丁腈手套和实验服</li>
+                            <li><strong>废液处理：</strong>含银废液需专门回收，不可随意倾倒</li>
+                        </ul>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-shield-alt"></i> 3.2 电安全与操作规范</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">电安全</div>
+                                <div class="step-detail">使用低压直流电源，避免触电风险；电解中勿触摸电极</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">通风要求</div>
+                                <div class="step-detail">电解可能产生微量氮氧化物，应在通风良好处操作</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">个人卫生</div>
+                                <div class="step-detail">操作后彻底洗手，避免银化合物残留</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="gallery">
+                    <h2>四、成果展示与质量评估</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-gem"></i> 优质晶体特征</h3>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>优质树枝晶：</strong>
+                                <ul>
+                                    <li>银白色明亮，金属光泽强</li>
+                                    <li>分形结构清晰，分支均匀</li>
+                                    <li>形态规整，层次分明</li>
+                                    <li>结构牢固，不易破碎</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>问题晶体：</strong>
+                                <ul>
+                                    <li>颜色发暗 - 杂质污染或氧化</li>
+                                    <li>结构疏松 - 电流密度过大</li>
+                                    <li>形态畸形 - 电场分布不均</li>
+                                    <li>沉积不均 - 电解液浓度不当</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="troubleshooting">
+                    <h2>五、问题诊断与解决</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-stethoscope"></i> 常见问题排查</h3>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题一：晶体生长缓慢</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>电流过小、电解液浓度低、电极接触不良</li>
+                                <li><strong>解决方案：</strong>适当提高电流，增加硝酸银浓度，检查电路连接</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题二：树枝晶不形成</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>电流密度过小、阴极表面过于光滑</li>
+                                <li><strong>解决方案：</strong>提高电流密度，对阴极表面进行粗糙化处理</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题三：晶体易脱落</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>沉积过快、电极表面不洁、电解液杂质多</li>
+                                <li><strong>解决方案：</strong>降低电流密度，抛光电极表面，过滤电解液</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题四：晶体颜色发黑</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>硫化物污染、电解液分解、氧化</li>
+                                <li><strong>解决方案：</strong>使用高纯试剂，避光保存电解液，减少空气暴露</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="science">
+                    <h2>六、科学原理</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-atom"></i> 6.1 电化学原理</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">阴极反应</div>
+                                <div class="step-detail">Ag⁺ + e⁻ → Ag，银离子在阴极获得电子还原为银原子</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">阳极反应</div>
+                                <div class="step-detail">Ag → Ag⁺ + e⁻，银阳极溶解补充银离子</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">扩散控制</div>
+                                <div class="step-detail">树枝晶生长受银离子向阴极扩散速率控制</div>
+                            </div>
+                        </div>
+
+                        <h3><i class="fas fa-project-diagram"></i> 6.2 树枝晶形成机理</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">尖端效应</div>
+                                <div class="step-detail">电场在尖端集中，银离子优先在尖端沉积</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">扩散限制聚集</div>
+                                <div class="step-detail">离子扩散速率限制形成分形结构</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">各向异性生长</div>
+                                <div class="step-detail">面心立方晶格导致特定方向的优势生长</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="variations">
+                    <h2>七、实验变体</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-vials"></i> 7.1 不同电解液体系</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">硝酸银体系</div>
+                                <div class="step-detail">最常用，沉积速度快，晶体质量好</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">氰化银钾体系</div>
+                                <div class="step-detail">工业电镀常用，毒性大，不推荐业余使用</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">硫代硫酸银体系</div>
+                                <div class="step-detail">无氰电镀，相对安全，沉积速度较慢</div>
+                            </div>
+                        </div>
+
+                        <h3><i class="fas fa-palette"></i> 7.2 彩色银晶体</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">氧化着色</div>
+                                <div class="step-detail">通过控制氧化条件获得彩虹色氧化膜</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">合金电沉积</div>
+                                <div class="step-detail">与铜、金等共沉积获得不同颜色的合金晶体</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="preservation">
+                    <h2>八、保存与维护</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-box"></i> 8.1 保存方法</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">防氧化处理</div>
+                                <div class="step-detail">可涂覆透明指甲油或专用防氧化剂</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">密封保存</div>
+                                <div class="step-detail">放入密封袋或干燥器中，减少空气接触</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">避光存放</div>
+                                <div class="step-detail">避免阳光直射，防止加速氧化</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">防硫化</div>
+                                <div class="step-detail">远离橡胶、含硫物品，防止生成硫化银变黑</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="application">
+                    <h2>九、应用领域</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-industry"></i> 9.1 多领域应用</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">电子工业</div>
+                                <div class="step-detail">导电浆料、触点材料、集成电路</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">珠宝首饰</div>
+                                <div class="step-detail">925银饰品、银器制作</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">抗菌材料</div>
+                                <div class="step-detail">银离子抗菌剂、医疗器械涂层</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">催化领域</div>
+                                <div class="step-detail">乙烯氧化催化剂、燃料电池电极</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文章广告 -->
+                <div class="ad-container article-ad">
+                    <ins class="adsbygoogle"
+                         style="display:block; text-align:center;"
+                         data-ad-layout="in-article"
+                         data-ad-format="fluid"
+                         data-ad-client="ca-pub-9337526323324673"
+                         data-ad-slot="6874868877"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+
+            <nav class="safety-nav">
+                <h3>内容导航</h3>
+                <ul>
+                    <li><a href="#basic">基础认识</a></li>
+                    <li><a href="#experiment">实验制备</a></li>
+                    <li><a href="#safety">安全事项</a></li>
+                    <li><a href="#gallery">质量评估</a></li>
+                    <li><a href="#troubleshooting">问题诊断</a></li>
+                    <li><a href="#science">科学原理</a></li>
+                    <li><a href="#variations">实验变体</a></li>
+                    <li><a href="#preservation">保存维护</a></li>
+                    <li><a href="#application">应用领域</a></li>
+                    <li><a href="index.html">返回首页</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        document.querySelectorAll('.safety-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 100;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                document.querySelectorAll('.safety-nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.safety-nav a[href^="#"]');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop - 150) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

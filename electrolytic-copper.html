@@ -618,6 +618,34 @@
                 }
             });
         });
+        // 研究方向标签切换
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.research-tab');
+            const contents = document.querySelectorAll('.research-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // 移除所有active类
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    // 添加当前active类
+                    this.classList.add('active');
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // 根据URL哈希自动激活对应标签
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#branch-')) {
+                const branchId = hash.replace('#branch-', '');
+                const tab = document.querySelector(`.research-tab[data-tab="${branchId}"]`);
+                if (tab) {
+                    setTimeout(() => tab.click(), 100);
+                }
+            }
+        });
     </script>
 </body>
 </html>
