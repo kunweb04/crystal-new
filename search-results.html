@@ -152,7 +152,7 @@
             transform: translateY(-3px) !important;
             box-shadow: 0 8px 20px rgba(26, 188, 156, 0.3) !important;
         }
-
+        
         .no-results-container {
             text-align: center;
             padding: 60px 20px;
@@ -160,6 +160,7 @@
             border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.08);
             margin: 40px 0;
+            display: none;
         }
         
         .no-results-icon {
@@ -208,41 +209,6 @@
             box-shadow: 0 8px 20px rgba(26, 188, 156, 0.3);
         }
         
-        .related-searches {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            margin-top: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-        }
-        
-        .related-searches h3 {
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        .related-search-items {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .related-search-item {
-            background: var(--light-gray);
-            color: var(--primary);
-            padding: 8px 16px;
-            border-radius: 20px;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .related-search-item:hover {
-            background: var(--accent);
-            color: white;
-        }
-        
         @media (max-width: 768px) {
             .search-results-container {
                 margin-top: 80px;
@@ -288,9 +254,9 @@
             <p class="search-stats" id="searchStats">正在加载搜索结果...</p>
         </div>
         
-        <div class="gcse-searchresults" data-gname="searchresults"></div>
+        <div class="gcse-searchresults"></div>
         
-        <div class="no-results-container" id="noResults" style="display:none;">
+        <div class="no-results-container" id="noResults">
             <div class="no-results-icon">
                 <i class="fas fa-search"></i>
             </div>
@@ -309,12 +275,6 @@
                 <a href="solutionpreparation.html" class="search-suggestion">溶液配置</a>
             </div>
         </div>
-        
-        <div class="related-searches" id="relatedSearches" style="display:none;">
-            <h3><i class="fas fa-lightbulb"></i> 您可能还想搜索</h3>
-            <div class="related-search-items">
-            </div>
-        </div>
     </div>
     
     <div id="footer-container"></div>
@@ -327,21 +287,12 @@
             return urlParams.get(name);
         }
         
-        // 相关搜索词推荐
-        const relatedKeywords = {
-            "硫酸铜": ["硫酸铜晶体", "蓝矾", "晶体培养", "结晶", "化学晶体"],
-            "明矾": ["硫酸铝钾", "白矾", "晶体制作", "入门晶体", "透明晶体"],
-            "安全": ["实验安全", "化学品安全", "防护措施", "急救措施", "危险品"],
-            "晶雨": ["红晶雨", "晶体悬浮液", "天气瓶", "钴配合物", "配位化合物"],
-            "摄影": ["晶体摄影", "拍照技巧", "微距摄影", "灯光设置", "背景选择"],
-            "保存": ["晶体保存", "防潮", "防氧化", "密封保存", "展示方法"],
-            "配置": ["溶液配置", "饱和溶液", "溶解度", "温度控制", "过滤方法"]
-        };
-        
         // 页面初始化
         document.addEventListener('DOMContentLoaded', function() {
             const query = getQueryParameter('q');
             const searchQueryElement = document.getElementById('searchQuery');
+            const searchStatsElement = document.getElementById('searchStats');
+            const noResultsElement = document.getElementById('noResults');
             
             if (query) {
                 const decodedQuery = decodeURIComponent(query);
@@ -349,123 +300,110 @@
                 
                 // 更新页面标题
                 document.title = `"${decodedQuery}" 搜索结果 - CrystalLab`;
-                
-                // 设置相关搜索
-                setTimeout(setupRelatedSearches, 1000);
             } else {
-                // 如果没有搜索词，重定向到首页
-                window.location.href = 'index.html';
+                // 如果没有搜索词，显示无结果页面
+                searchQueryElement.textContent = '空';
+                searchStatsElement.textContent = '请输入搜索关键词';
+                noResultsElement.style.display = 'block';
+                return;
             }
             
-            // 配置Google CSE
+            // 设置Google CSE配置
             window.__gcse = {
                 parsetags: 'explicit',
                 initializationCallback: function() {
-                    // 渲染搜索结果
-                    google.search.cse.element.render({
-                        div: 'gcse-searchresults',
-                        tag: 'searchresults-only',
-                        attributes: {
-                            enableOrderBy: true,
-                            enableHistory: false
-                        }
-                    });
+                    // 显示搜索结果容器
+                    document.querySelector('.gcse-searchresults').style.display = 'block';
                     
-                    // 监听搜索结果加载完成
-                    google.search.cse.element.setOnLoadCallback(function(container) {
-                        setTimeout(checkSearchResults, 1500);
-                    });
+                    // 初始化Google搜索
+                    if (typeof google !== 'undefined') {
+                        try {
+                            // 渲染搜索结果
+                            google.search.cse.element.render({
+                                div: 'gcse-searchresults',
+                                tag: 'searchresults-only'
+                            });
+                            
+                            // 监听搜索结果加载
+                            google.search.cse.element.setOnLoadCallback(function(container) {
+                                console.log('Google CSE loaded');
+                                checkSearchResults();
+                            });
+                        } catch (e) {
+                            console.error('Google CSE error:', e);
+                            showNoResults();
+                        }
+                    }
                 }
             };
             
             // 加载Google CSE脚本
-            const script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://cse.google.com/cse.js?cx=20995defc55444858';
-            document.head.appendChild(script);
+            loadGoogleCSE();
+            
+            // 设置定时器检查搜索结果
+            setTimeout(checkSearchResults, 3000);
         });
+        
+        // 加载Google CSE脚本
+        function loadGoogleCSE() {
+            const existingScript = document.querySelector('script[src*="cse.google.com/cse.js"]');
+            if (!existingScript) {
+                const script = document.createElement('script');
+                script.async = true;
+                script.src = 'https://cse.google.com/cse.js?cx=20995defc55444858';
+                script.onload = function() {
+                    console.log('Google CSE script loaded');
+                };
+                script.onerror = function() {
+                    console.error('Failed to load Google CSE script');
+                    showNoResults();
+                };
+                document.head.appendChild(script);
+            }
+        }
         
         // 检查搜索结果
         function checkSearchResults() {
-            const resultsContainer = document.querySelector('.gsc-results');
-            const noResultsElement = document.getElementById('noResults');
             const searchStatsElement = document.getElementById('searchStats');
+            const noResultsElement = document.getElementById('noResults');
             
-            if (resultsContainer && resultsContainer.innerHTML.trim() !== '') {
+            // 方法1：检查Google搜索结果元素
+            const googleResults = document.querySelector('.gsc-results');
+            if (googleResults && googleResults.children.length > 0) {
                 // 有搜索结果
-                noResultsElement.style.display = 'none';
-                
-                // 统计结果数量
                 const resultCount = document.querySelectorAll('.gsc-webResult.gsc-result').length;
-                if (resultCount > 0) {
-                    searchStatsElement.textContent = `找到约 ${resultCount} 条相关结果`;
-                }
-            } else {
-                // 无搜索结果
-                noResultsElement.style.display = 'block';
-                searchStatsElement.textContent = '未找到相关结果';
+                searchStatsElement.textContent = `找到约 ${resultCount} 条相关结果`;
+                noResultsElement.style.display = 'none';
+                return;
             }
+            
+            // 方法2：检查是否有"没有找到结果"的消息
+            const noResultsMsg = document.querySelector('.gsc-no-results');
+            if (noResultsMsg) {
+                showNoResults();
+                return;
+            }
+            
+            // 方法3：检查Google搜索框是否已加载
+            const searchBox = document.querySelector('.gsc-search-box');
+            if (!searchBox) {
+                // Google CSE可能还没有加载完成，等待更长时间
+                setTimeout(checkSearchResults, 1000);
+                return;
+            }
+            
+            // 如果到这里还没有结果，显示无结果页面
+            showNoResults();
         }
         
-        // 设置相关搜索
-        function setupRelatedSearches() {
-            const query = getQueryParameter('q');
-            if (!query) return;
+        // 显示无结果页面
+        function showNoResults() {
+            const searchStatsElement = document.getElementById('searchStats');
+            const noResultsElement = document.getElementById('noResults');
             
-            const decodedQuery = decodeURIComponent(query).toLowerCase();
-            const relatedSearchesElement = document.getElementById('relatedSearches');
-            const relatedSearchItems = document.querySelector('.related-search-items');
-            
-            // 清空之前的推荐
-            relatedSearchItems.innerHTML = '';
-            
-            // 查找相关关键词
-            let foundRelated = false;
-            
-            Object.keys(relatedKeywords).forEach(keyword => {
-                if (decodedQuery.includes(keyword.toLowerCase())) {
-                    foundRelated = true;
-                    relatedKeywords[keyword].forEach(related => {
-                        const searchItem = document.createElement('a');
-                        searchItem.href = `search-results.html?q=${encodeURIComponent(related)}`;
-                        searchItem.className = 'related-search-item';
-                        searchItem.textContent = related;
-                        relatedSearchItems.appendChild(searchItem);
-                    });
-                }
-            });
-            
-            // 如果没有匹配的关键词，显示通用推荐
-            if (!foundRelated) {
-                const genericKeywords = [
-                    '晶体培养', '硫酸铜', '明矾', '安全指南', 
-                    '作品展示', '结晶方式', '溶液配置', '晶体保存'
-                ];
-                
-                genericKeywords.forEach(keyword => {
-                    const searchItem = document.createElement('a');
-                    searchItem.href = `search-results.html?q=${encodeURIComponent(keyword)}`;
-                    searchItem.className = 'related-search-item';
-                    searchItem.textContent = keyword;
-                    relatedSearchItems.appendChild(searchItem);
-                });
-            }
-            
-            // 显示相关搜索区域
-            if (relatedSearchItems.children.length > 0) {
-                relatedSearchesElement.style.display = 'block';
-            }
+            searchStatsElement.textContent = '未找到相关结果';
+            noResultsElement.style.display = 'block';
         }
-        
-        // 自动聚焦搜索框（如果有）
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                const searchInput = document.querySelector('.gsc-input');
-                if (searchInput) {
-                    searchInput.focus();
-                }
-            }, 500);
-        });
     </script>
 </body>
 </html>
