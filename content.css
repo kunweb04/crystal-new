@@ -4467,45 +4467,77 @@ figcaption {
 
 #google-custom-search {
     width: 100%;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
 }
 
 .gsc-control-cse {
-    background: transparent !important;
-    border: none !important;
+    width: 100% !important;
     padding: 0 !important;
     margin: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    font-family: 'Noto Sans SC', sans-serif !important;
+}
+
+.gsc-search-box {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.gsc-search-box table {
+    width: 100% !important;
+    margin: 0 !important;
+    border: none !important;
+    border-collapse: collapse !important;
+}
+
+.gsc-search-box td {
+    padding: 0 !important;
+    border: none !important;
+    vertical-align: middle !important;
 }
 
 .gsc-input-box {
+    width: 100% !important;
+    height: 100% !important;
     border: none !important;
     background: transparent !important;
+    padding: 0 !important;
 }
 
 .gsc-input {
+    width: 100% !important;
+    height: 100% !important;
     background: transparent !important;
-    color: white !important;
     border: none !important;
     outline: none !important;
+    color: white !important;
     font-size: 1.05rem !important;
+    padding: 0.3rem 0 !important;
     font-family: 'Noto Sans SC', sans-serif !important;
 }
 
 .gsc-input::placeholder {
     color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 300 !important;
 }
 
 .gsc-search-button {
     background: transparent !important;
     border: none !important;
-    padding: 0 !important;
+    padding: 0 0 0 10px !important;
+    margin: 0 !important;
+    min-width: auto !important;
+    cursor: pointer !important;
 }
 
 .gsc-search-button svg {
     fill: white !important;
-}
-
-.gsib_a {
-    padding: 0 !important;
+    width: 20px !important;
+    height: 20px !important;
 }
 
 .gsst_a {
@@ -4516,13 +4548,40 @@ figcaption {
     background: var(--primary-dark) !important;
     border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 10px !important;
-    margin-top: 10px !important;
+    margin-top: 8px !important;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2) !important;
+    overflow: hidden !important;
+}
+
+.gsc-completion-container table {
+    background: var(--primary-dark) !important;
 }
 
 .gsc-completion-container .gsc-completion-title {
     color: white !important;
+    padding: 10px 15px !important;
+    font-size: 1rem !important;
 }
 
 .gsc-completion-container .gsc-completion-selected {
     background: rgba(26, 188, 156, 0.3) !important;
+}
+
+@media (max-width: 1100px) {
+    #google-custom-search {
+        width: 100%;
+        margin-top: 0;
+    }
+    
+    .gsc-search-box {
+        width: 100% !important;
+    }
+}
+
+.gsc-search-box,
+.gsc-input-box,
+.gsc-input {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
