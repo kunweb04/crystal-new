@@ -12,54 +12,9 @@
                 <li><a href="contribute.html">联系投稿</a></li>
             </ul>
         </nav>
-        
         <div class="search-box">
-    <!-- 最简化的Google CSE代码 -->
-    <script async src="https://cse.google.com/cse.js?cx=20995defc55444858"></script>
-    <div class="gcse-searchbox-only" 
-         data-resultsUrl="search-results.html"
-         data-newWindow="false"></div>
-</div>
+            <input type="text" placeholder="搜索相关内容...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
     </div>
 </header>
-
-<script>
-(function() {
-    var cx = '20995defc55444858';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-    
-    // 添加全局配置
-    window.__gcse = {
-        parsetags: 'explicit',
-        callback: function() {
-            if (typeof google !== 'undefined' && google.search && google.search.cse) {
-                // 搜索框渲染完成后执行
-                setTimeout(function() {
-                    var searchBox = google.search.cse.element.render({
-                        'div': 'google-search-container',
-                        'tag': 'searchbox-only',
-                        'attributes': {
-                            'resultsUrl': 'search-results.html',
-                            'newWindow': false,
-                            'queryParameterName': 'q'
-                        }
-                    });
-                    
-                    // 强制显示输入框
-                    var inputs = document.querySelectorAll('.gsc-input-box, .gsc-input');
-                    inputs.forEach(function(input) {
-                        input.style.display = 'block !important';
-                        input.style.visibility = 'visible !important';
-                        input.style.opacity = '1 !important';
-                    });
-                }, 1000);
-            }
-        }
-    };
-})();
-</script>
