@@ -32,48 +32,4 @@ function loadComponents() {
 // 页面加载完成后执行
 document.addEventListener('DOMContentLoaded', function() {
     loadComponents();
-    
-    // 导航栏滚动效果
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if (header) {
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.15)';
-            } else {
-                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-            }
-        }
-    });
-    
-    // 页面加载动画
-    setTimeout(function() {
-        document.body.style.opacity = 1;
-    }, 100);
-});
-
-// 页面完全加载后初始化
-window.addEventListener('load', function() {
-    // 卡片悬停效果
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-15px)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
-    
-    // 按钮悬停效果
-    const buttons = document.querySelectorAll('.card-btn, .featured-btn');
-    buttons.forEach(button => {
-        button.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-6px)';
-        });
-        
-        button.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0)';
-        });
-    });
 });

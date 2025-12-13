@@ -14,6 +14,7 @@
         </nav>
         
         <div class="search-box">
+            <!-- Google自定义搜索容器 -->
             <div id="google-custom-search">
                 <div class="gcse-searchbox-only" 
                      data-resultsUrl="search-results.html" 
@@ -26,53 +27,20 @@
     </div>
 </header>
 
+<script async src="https://cse.google.com/cse.js?cx=20995defc55444858"></script>
 <script>
 window.__gcse = {
     parsetags: 'explicit',
     initializationCallback: function() {
-        if (typeof google !== 'undefined' && google.search && google.search.cse) {
-            // 渲染搜索框
-            google.search.cse.element.render({
-                div: 'google-custom-search',
-                tag: 'searchbox-only',
-                attributes: {
-                    resultsUrl: 'search-results.html',
-                    newWindow: false,
-                    queryParameterName: 'q',
-                    autoCompleteMaxCompletions: 5,
-                    enableAutoComplete: true
-                }
-            });
-            
-            // 等待搜索框渲染完成，然后隐藏Google的placeholder
-            setTimeout(function() {
-                const googleInput = document.querySelector('.gsc-input');
-                if (googleInput) {
-                    // 设置一个空的placeholder来覆盖Google的默认值
-                    googleInput.setAttribute('placeholder', ' ');
-                    
-                    googleInput.addEventListener('focus', function() {
-                        this.style.color = 'white';
-                    });
-                    
-                    googleInput.addEventListener('blur', function() {
-                        if (this.value === '') {
-                            this.style.color = 'white';
-                        }
-                    });
-                }
-            }, 500);
-        }
+        google.search.cse.element.render({
+            div: 'google-custom-search',
+            tag: 'searchbox-only',
+            attributes: {
+                resultsUrl: 'search-results.html',
+                newWindow: false,
+                queryParameterName: 'q'
+            }
+        });
     }
 };
-
-setTimeout(function() {
-    const existingScript = document.querySelector('script[src*="cse.google.com/cse.js"]');
-    if (!existingScript) {
-        const script = document.createElement('script');
-        script.async = true;
-        script.src = 'https://cse.google.com/cse.js?cx=20995defc55444858';
-        document.body.appendChild(script);
-    }
-}, 1000);
 </script>

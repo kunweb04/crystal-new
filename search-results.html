@@ -20,10 +20,6 @@
         .search-results-header {
             text-align: center;
             margin-bottom: 40px;
-            padding: 2rem;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
         }
         
         .search-results-header h1 {
@@ -36,210 +32,12 @@
         .search-query {
             color: var(--accent);
             font-weight: 600;
-            font-size: 1.2rem;
-            padding: 0.5rem 1.5rem;
-            background: rgba(26, 188, 156, 0.1);
-            border-radius: 30px;
-            display: inline-block;
-            margin: 0 10px;
-        }
-        
-        .search-stats {
-            color: var(--text-light);
-            margin-top: 1rem;
-            font-size: 1.1rem;
-        }
-        
-        .gcse-searchresults {
-            background: white;
-            border-radius: 20px;
-            padding: 30px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            min-height: 400px;
-            margin-bottom: 40px;
-        }
-        
-        .gsc-control-cse {
-            padding: 0 !important;
-            margin: 0 !important;
-            border: none !important;
-            background: transparent !important;
-            font-family: 'Noto Sans SC', sans-serif !important;
-        }
-        
-        .gsc-webResult.gsc-result {
-            border-bottom: 2px solid var(--border-color) !important;
-            padding: 25px 0 !important;
-            margin: 0 !important;
-        }
-        
-        .gsc-webResult.gsc-result:hover {
-            background-color: rgba(26, 188, 156, 0.03) !important;
-        }
-        
-        .gs-result .gs-title {
-            color: var(--primary) !important;
-            font-size: 1.3rem !important;
-            font-weight: 600 !important;
-            text-decoration: none !important;
-            line-height: 1.4 !important;
-            margin-bottom: 8px !important;
-        }
-        
-        .gs-result .gs-title b {
-            color: var(--accent) !important;
-        }
-        
-        .gs-result .gs-title:hover {
-            color: var(--accent) !important;
-            text-decoration: underline !important;
-        }
-        
-        .gsc-url-top, .gsc-url-bottom {
-            color: var(--accent) !important;
-            font-size: 0.9rem !important;
-            margin-bottom: 8px !important;
-        }
-        
-        .gs-snippet {
-            color: var(--text) !important;
-            line-height: 1.7 !important;
-            font-size: 1.05rem !important;
-            margin: 10px 0 !important;
-        }
-        
-        .gs-snippet b {
-            color: var(--accent) !important;
-            font-weight: 600 !important;
-        }
-        
-        .gsc-table-result {
-            margin-bottom: 20px !important;
-        }
-        
-        .gsc-cursor-box {
-            margin-top: 40px !important;
-            text-align: center !important;
-        }
-        
-        .gsc-cursor {
-            display: flex !important;
-            justify-content: center !important;
-            gap: 10px !important;
-        }
-        
-        .gsc-cursor-page {
-            background: white !important;
-            border: 2px solid var(--border-color) !important;
-            color: var(--primary) !important;
-            padding: 10px 18px !important;
-            border-radius: 10px !important;
-            text-decoration: none !important;
-            font-weight: 500 !important;
-            transition: var(--transition) !important;
-        }
-        
-        .gsc-cursor-current-page {
-            background: var(--accent) !important;
-            color: white !important;
-            border-color: var(--accent) !important;
-        }
-        
-        .gsc-cursor-page:hover {
-            background: var(--accent) !important;
-            color: white !important;
-            border-color: var(--accent) !important;
-            transform: translateY(-3px) !important;
-            box-shadow: 0 8px 20px rgba(26, 188, 156, 0.3) !important;
-        }
-        
-        .no-results-container {
-            text-align: center;
-            padding: 60px 20px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            margin: 40px 0;
-            display: none;
-        }
-        
-        .no-results-icon {
-            font-size: 4rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-            opacity: 0.6;
-        }
-        
-        .no-results-title {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-        
-        .no-results-description {
-            color: var(--text-light);
-            max-width: 600px;
-            margin: 0 auto 30px;
-            line-height: 1.7;
-        }
-        
-        .search-suggestions {
-            margin-top: 30px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            justify-content: center;
-        }
-        
-        .search-suggestion {
-            background: var(--light-gray);
-            color: var(--primary);
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-        
-        .search-suggestion:hover {
-            background: var(--accent);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(26, 188, 156, 0.3);
         }
         
         @media (max-width: 768px) {
             .search-results-container {
                 margin-top: 80px;
                 padding: 0 15px;
-            }
-            
-            .search-results-header h1 {
-                font-size: 2rem;
-            }
-            
-            .gcse-searchresults {
-                padding: 20px;
-            }
-            
-            .gs-result .gs-title {
-                font-size: 1.2rem !important;
-            }
-            
-            .search-suggestions {
-                flex-direction: column;
-                align-items: center;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .search-results-header h1 {
-                font-size: 1.8rem;
-            }
-            
-            .gcse-searchresults {
-                padding: 15px;
             }
         }
     </style>
@@ -251,28 +49,22 @@
         <div class="search-results-header">
             <h1><i class="fas fa-search"></i> 搜索结果</h1>
             <p>为您找到关于 <span class="search-query" id="searchQuery">晶体</span> 的相关内容</p>
-            <p class="search-stats" id="searchStats">正在加载搜索结果...</p>
         </div>
         
+        <!-- Google 自定义搜索结果容器 -->
         <div class="gcse-searchresults"></div>
         
-        <div class="no-results-container" id="noResults">
-            <div class="no-results-icon">
-                <i class="fas fa-search"></i>
-            </div>
-            <h3 class="no-results-title">未找到相关结果</h3>
-            <p class="no-results-description">
-                抱歉，没有找到与您的搜索词相关的内容。<br>
-                请尝试使用其他关键词，或浏览以下热门内容。
-            </p>
-            <div class="search-suggestions">
-                <a href="crystal-classification.html" class="search-suggestion">晶体分类</a>
-                <a href="copper-sulfate.html" class="search-suggestion">硫酸铜</a>
-                <a href="aluminum-potassium-sulfate.html" class="search-suggestion">硫酸铝钾</a>
-                <a href="safety.html" class="search-suggestion">安全指南</a>
-                <a href="portfolio.html" class="search-suggestion">作品展示</a>
-                <a href="crystallization.html" class="search-suggestion">结晶方式</a>
-                <a href="solutionpreparation.html" class="search-suggestion">溶液配置</a>
+        <!-- 无结果时显示 -->
+        <div id="noResults" style="display:none; text-align:center; padding: 40px;">
+            <i class="fas fa-search" style="font-size:3rem; color:var(--accent); margin-bottom:20px; opacity:0.5;"></i>
+            <h3>未找到相关结果</h3>
+            <p>请尝试其他关键词，或浏览以下热门内容：</p>
+            <div style="margin-top:30px;">
+                <a href="crystal-classification.html" style="background:var(--light-gray); color:var(--primary); padding:10px 20px; border-radius:25px; text-decoration:none; margin:5px; display:inline-block;">晶体分类</a>
+                <a href="copper-sulfate.html" style="background:var(--light-gray); color:var(--primary); padding:10px 20px; border-radius:25px; text-decoration:none; margin:5px; display:inline-block;">硫酸铜</a>
+                <a href="aluminum-potassium-sulfate.html" style="background:var(--light-gray); color:var(--primary); padding:10px 20px; border-radius:25px; text-decoration:none; margin:5px; display:inline-block;">硫酸铝钾</a>
+                <a href="safety.html" style="background:var(--light-gray); color:var(--primary); padding:10px 20px; border-radius:25px; text-decoration:none; margin:5px; display:inline-block;">安全指南</a>
+                <a href="portfolio.html" style="background:var(--light-gray); color:var(--primary); padding:10px 20px; border-radius:25px; text-decoration:none; margin:5px; display:inline-block;">作品展示</a>
             </div>
         </div>
     </div>
@@ -287,123 +79,44 @@
             return urlParams.get(name);
         }
         
-        // 页面初始化
         document.addEventListener('DOMContentLoaded', function() {
             const query = getQueryParameter('q');
             const searchQueryElement = document.getElementById('searchQuery');
-            const searchStatsElement = document.getElementById('searchStats');
-            const noResultsElement = document.getElementById('noResults');
             
             if (query) {
                 const decodedQuery = decodeURIComponent(query);
                 searchQueryElement.textContent = decodedQuery;
-                
-                // 更新页面标题
                 document.title = `"${decodedQuery}" 搜索结果 - CrystalLab`;
             } else {
-                // 如果没有搜索词，显示无结果页面
-                searchQueryElement.textContent = '空';
-                searchStatsElement.textContent = '请输入搜索关键词';
-                noResultsElement.style.display = 'block';
-                return;
+                // 如果没有搜索词，重定向到首页
+                window.location.href = 'index.html';
             }
             
             // 设置Google CSE配置
             window.__gcse = {
                 parsetags: 'explicit',
                 initializationCallback: function() {
-                    // 显示搜索结果容器
-                    document.querySelector('.gcse-searchresults').style.display = 'block';
+                    google.search.cse.element.render({
+                        div: 'gcse-searchresults',
+                        tag: 'searchresults-only'
+                    });
                     
-                    // 初始化Google搜索
-                    if (typeof google !== 'undefined') {
-                        try {
-                            // 渲染搜索结果
-                            google.search.cse.element.render({
-                                div: 'gcse-searchresults',
-                                tag: 'searchresults-only'
-                            });
-                            
-                            // 监听搜索结果加载
-                            google.search.cse.element.setOnLoadCallback(function(container) {
-                                console.log('Google CSE loaded');
-                                checkSearchResults();
-                            });
-                        } catch (e) {
-                            console.error('Google CSE error:', e);
-                            showNoResults();
+                    // 检查结果是否为空
+                    setTimeout(function() {
+                        const results = document.querySelector('.gsc-results');
+                        if (!results || results.innerHTML.trim() === '') {
+                            document.getElementById('noResults').style.display = 'block';
                         }
-                    }
+                    }, 2000);
                 }
             };
             
             // 加载Google CSE脚本
-            loadGoogleCSE();
-            
-            // 设置定时器检查搜索结果
-            setTimeout(checkSearchResults, 3000);
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://cse.google.com/cse.js?cx=20995defc55444858';
+            document.head.appendChild(script);
         });
-        
-        // 加载Google CSE脚本
-        function loadGoogleCSE() {
-            const existingScript = document.querySelector('script[src*="cse.google.com/cse.js"]');
-            if (!existingScript) {
-                const script = document.createElement('script');
-                script.async = true;
-                script.src = 'https://cse.google.com/cse.js?cx=20995defc55444858';
-                script.onload = function() {
-                    console.log('Google CSE script loaded');
-                };
-                script.onerror = function() {
-                    console.error('Failed to load Google CSE script');
-                    showNoResults();
-                };
-                document.head.appendChild(script);
-            }
-        }
-        
-        // 检查搜索结果
-        function checkSearchResults() {
-            const searchStatsElement = document.getElementById('searchStats');
-            const noResultsElement = document.getElementById('noResults');
-            
-            // 方法1：检查Google搜索结果元素
-            const googleResults = document.querySelector('.gsc-results');
-            if (googleResults && googleResults.children.length > 0) {
-                // 有搜索结果
-                const resultCount = document.querySelectorAll('.gsc-webResult.gsc-result').length;
-                searchStatsElement.textContent = `找到约 ${resultCount} 条相关结果`;
-                noResultsElement.style.display = 'none';
-                return;
-            }
-            
-            // 方法2：检查是否有"没有找到结果"的消息
-            const noResultsMsg = document.querySelector('.gsc-no-results');
-            if (noResultsMsg) {
-                showNoResults();
-                return;
-            }
-            
-            // 方法3：检查Google搜索框是否已加载
-            const searchBox = document.querySelector('.gsc-search-box');
-            if (!searchBox) {
-                // Google CSE可能还没有加载完成，等待更长时间
-                setTimeout(checkSearchResults, 1000);
-                return;
-            }
-            
-            // 如果到这里还没有结果，显示无结果页面
-            showNoResults();
-        }
-        
-        // 显示无结果页面
-        function showNoResults() {
-            const searchStatsElement = document.getElementById('searchStats');
-            const noResultsElement = document.getElementById('noResults');
-            
-            searchStatsElement.textContent = '未找到相关结果';
-            noResultsElement.style.display = 'block';
-        }
     </script>
 </body>
 </html>
