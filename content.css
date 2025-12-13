@@ -4473,14 +4473,20 @@ figcaption {
     width: 320px;
     transition: var(--transition);
     border: 1px solid rgba(255,255,255,0.1);
+    align-items: center;
+    justify-content: center;
 }
 
 .search-box:hover {
     background: rgba(255,255,255,0.25);
 }
 
-#google-custom-search {
+.gcse-search {
     width: 100%;
+}
+
+.search-box * {
+    color: white !important;
 }
 
 @media (max-width: 1100px) {

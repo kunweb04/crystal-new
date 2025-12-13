@@ -14,33 +14,8 @@
         </nav>
         
         <div class="search-box">
-            <!-- Google自定义搜索容器 -->
-            <div id="google-custom-search">
-                <div class="gcse-searchbox-only" 
-                     data-resultsUrl="search-results.html" 
-                     data-newWindow="false" 
-                     data-queryParameterName="q"
-                     data-autoCompleteMaxCompletions="5"
-                     data-enableAutoComplete="true"></div>
-            </div>
+            <script async src="https://cse.google.com/cse.js?cx=20995defc55444858"></script>
+            <div class="gcse-search"></div>
         </div>
     </div>
 </header>
-
-<script async src="https://cse.google.com/cse.js?cx=20995defc55444858"></script>
-<script>
-window.__gcse = {
-    parsetags: 'explicit',
-    initializationCallback: function() {
-        google.search.cse.element.render({
-            div: 'google-custom-search',
-            tag: 'searchbox-only',
-            attributes: {
-                resultsUrl: 'search-results.html',
-                newWindow: false,
-                queryParameterName: 'q'
-            }
-        });
-    }
-};
-</script>
