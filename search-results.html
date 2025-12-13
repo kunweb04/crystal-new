@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>搜索结果 - CrystalLab</title>
+    <meta name="description" content="在 CrystalLab 中搜索晶体培养相关内容">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="content.css">
+    <link rel="icon" href="favicon.ico" type="image/png">
+    <style>
+        .search-results-container {
+            max-width: 1200px;
+            margin: 100px auto 60px;
+            padding: 0 20px;
+        }
+        
+        .search-results-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .search-results-header h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .search-query {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .gcse-searchresults {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            min-height: 400px;
+        }
+        
+        .no-results-message {
+            text-align: center;
+            padding: 60px 20px;
+            display: none;
+        }
+        
+        .search-suggestions {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .search-suggestion {
+            background: var(--light-gray);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .search-suggestion:hover {
+            background: var(--accent);
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .search-results-container {
+                margin-top: 80px;
+                padding: 0 15px;
+            }
+            
+            .search-results-header h1 {
+                font-size: 2rem;
+            }
+            
+            .gcse-searchresults {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="navbar-container"></div>
+    
+    <div class="search-results-container">
+        <div class="search-results-header">
+            <h1><i class="fas fa-search"></i> 搜索结果</h1>
+            <p>为您找到关于 "<span class="search-query" id="searchQuery"></span>" 的相关内容</p>
+        </div>
+        
+        <div class="gcse-searchresults" data-gname="searchresults"></div>
+        
+        <div class="no-results-message" id="noResults">
+            <i class="fas fa-search"></i>
+            <h3>未找到相关结果</h3>
+            <p>请尝试其他关键词，或浏览以下热门内容：</p>
+            <div class="search-suggestions">
+                <a href="crystal-classification.html" class="search-suggestion">晶体分类</a>
+                <a href="copper-sulfate.html" class="search-suggestion">硫酸铜</a>
+                <a href="aluminum-potassium-sulfate.html" class="search-suggestion">硫酸铝钾</a>
+                <a href="safety.html" class="search-suggestion">安全指南</a>
+                <a href="portfolio.html" class="search-suggestion">作品展示</a>
+            </div>
+        </div>
+    </div>
+    
+    <div id="footer-container"></div>
+    
+    <script>
+        function getQueryParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const query = getQueryParameter('q');
+            if (query) {
+                document.getElementById('searchQuery').textContent = decodeURIComponent(query);
+            }
+            
+            window.__gcse = {
+                parsetags: 'explicit',
+                initializationCallback: function() {
+                    google.search.cse.element.render({
+                        div: 'gcse-searchresults',
+                        tag: 'searchresults-only'
+                    });
+                }
+            };
+            
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = 'https://cse.google.com/cse.js?cx=20995defc55444858';
+            document.head.appendChild(script);
+            
+            setTimeout(() => {
+                const results = document.querySelector('.gsc-results');
+                if (!results || results.innerHTML.trim() === '') {
+                    document.getElementById('noResults').style.display = 'block';
+                }
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
