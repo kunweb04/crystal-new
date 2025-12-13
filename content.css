@@ -4585,3 +4585,40 @@ figcaption {
     visibility: visible !important;
     opacity: 1 !important;
 }
+
+.gsc-input-box .gsc-input::placeholder {
+    opacity: 0 !important;
+    color: transparent !important;
+}
+
+.gsc-input-box {
+    position: relative !important;
+}
+
+.gsc-input-box::before {
+    content: "搜索相关内容..." !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 300 !important;
+    font-size: 1.05rem !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+    display: none !important; 
+}
+
+.gsc-input-box:has(.gsc-input:placeholder-shown)::before {
+    display: block !important;
+}
+.gsc-input-box:has(.gsc-input:focus)::before {
+    display: none !important;
+}
+
+.gsc-input {
+    color: white !important;
+    position: relative !important;
+    z-index: 2 !important;
+    background: transparent !important;
+}

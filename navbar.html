@@ -14,31 +14,51 @@
         </nav>
         
         <div class="search-box">
+            <!-- Google自定义搜索容器 -->
             <div id="google-custom-search">
-                <div class="search-placeholder">
-                    <input type="text" placeholder="搜索相关内容..." disabled>
-                    <button disabled><i class="fas fa-search"></i></button>
-                </div>
+                <div class="gcse-searchbox-only" 
+                     data-resultsUrl="search-results.html" 
+                     data-newWindow="false" 
+                     data-queryParameterName="q"
+                     data-autoCompleteMaxCompletions="5"></div>
             </div>
         </div>
     </div>
 </header>
 
+<style>
+/* 搜索框加载时的临时样式 */
+.search-box {
+    position: relative;
+}
+
+.search-box .loading-text {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.85);
+    font-weight: 300;
+    font-size: 1.05rem;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.search-box.loaded .loading-text {
+    display: none;
+}
+</style>
+
 <script>
-window.addEventListener('load', function() {
-    // 创建配置
+// 页面加载完成后初始化Google搜索
+document.addEventListener('DOMContentLoaded', function() {
+    // 创建Google CSE配置
     window.__gcse = {
         parsetags: 'explicit',
         initializationCallback: function() {
-            // 移除占位符
-            const placeholder = document.querySelector('.search-placeholder');
-            if (placeholder) {
-                placeholder.style.display = 'none';
-            }
-            
-            // 渲染搜索框
             if (typeof google !== 'undefined' && google.search && google.search.cse) {
-                const searchBox = google.search.cse.element.render({
+                // 渲染搜索框
+                google.search.cse.element.render({
                     div: 'google-custom-search',
                     tag: 'searchbox-only',
                     attributes: {
@@ -49,54 +69,31 @@ window.addEventListener('load', function() {
                     }
                 });
                 
-                // 等待搜索框渲染完成
+                // 移除Google默认的placeholder
                 setTimeout(function() {
-                    // 添加自定义placeholder
                     const googleInput = document.querySelector('.gsc-input');
                     if (googleInput) {
-                        googleInput.placeholder = '搜索相关内容...';
+                        // 清除Google的默认placeholder
+                        googleInput.placeholder = '';
+                        
+                        // 添加一个透明字符作为占位，避免浏览器显示默认placeholder
+                        googleInput.placeholder = '\u00A0';
                     }
-                }, 500);
+                    
+                    // 标记搜索框已加载
+                    document.querySelector('.search-box').classList.add('loaded');
+                }, 1000);
             }
         }
     };
     
     // 加载Google CSE脚本
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://cse.google.com/cse.js?cx=20995defc55444858';
-    document.body.appendChild(script);
+    const existingScript = document.querySelector('script[src*="cse.google.com/cse.js"]');
+    if (!existingScript) {
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://cse.google.com/cse.js?cx=20995defc55444858';
+        document.body.appendChild(script);
+    }
 });
 </script>
-
-<style>
-.search-placeholder {
-    display: flex;
-    width: 100%;
-    align-items: center;
-}
-
-.search-placeholder input {
-    flex: 1;
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 1.05rem;
-    padding: 0.3rem 0;
-    outline: none;
-}
-
-.search-placeholder input::placeholder {
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: 300;
-}
-
-.search-placeholder button {
-    background: transparent;
-    border: none;
-    color: white;
-    cursor: not-allowed;
-    font-size: 1.15rem;
-    padding-left: 0.5rem;
-}
-</style>
