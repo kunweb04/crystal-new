@@ -36,8 +36,11 @@ function initNavbar() {
                 searchInput.focus();
             } else {
                 const encodedTerm = encodeURIComponent(searchTerm);
-                this.action = `https://cse.google.com/cse/publicurl?cx=20995defc55444858&q=${encodedTerm}`;
-                this.target = '_blank';
+                const searchUrl = `https://www.google.com/search?q=site%3Acrystal-lab.org+${encodedTerm}&cx=20995defc55444858&hl=zh-CN&cof=FORID%3A10&ie=UTF-8&oe=UTF-8`;
+                
+                window.open(searchUrl, '_blank');
+                e.preventDefault();
+                
                 showSearchMessage(`正在搜索: ${searchTerm}`, 'info');
             }
         });
