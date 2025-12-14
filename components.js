@@ -23,54 +23,56 @@ function initNavbar() {
         }
     });
 
-    const searchForm = document.getElementById('searchForm');
-    const searchInput = document.querySelector('.search-box input[name="q"]');
+    const searchBox = document.getElementById('searchBox');
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
     
-    if (searchForm && searchInput) {
-        searchForm.addEventListener('submit', function(e) {
-            const searchTerm = searchInput.value.trim();
-            
-            if(searchTerm === '') {
-                e.preventDefault();
+    if (searchBox && searchInput && searchButton) {
+        function submitSearch() {
+            const query = searchInput.value.trim();
+            if (query === '') {
                 showSearchMessage('请输入搜索内容', 'error');
                 searchInput.focus();
             } else {
-                const encodedTerm = encodeURIComponent(searchTerm);
-                this.action = `https://cse.google.com/cse/publicurl?cx=20995defc55444858&q=${encodedTerm}`;
-                this.target = '_blank';
-                showSearchMessage(`正在搜索: ${searchTerm}`, 'info');
+                window.location.href = `search-results.html?q=${encodeURIComponent(query)}`;
+            }
+        }
+        
+        searchButton.addEventListener('click', submitSearch);
+        
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                submitSearch();
             }
         });
-    }
-    
-    if (searchInput) {
+        
         searchInput.addEventListener('focus', function() {
-            this.parentElement.style.boxShadow = '0 0 0 3px rgba(22, 160, 133, 0.2)';
+            searchBox.style.boxShadow = '0 0 0 3px rgba(22, 160, 133, 0.2)';
         });
         
         searchInput.addEventListener('blur', function() {
-            this.parentElement.style.boxShadow = '';
+            searchBox.style.boxShadow = '';
         });
         
         searchInput.addEventListener('input', function() {
             if (this.value.trim().length > 0) {
-                this.style.borderColor = '#16a085';
+                searchBox.style.borderColor = '#16a085';
             } else {
-                this.style.borderColor = '';
+                searchBox.style.borderColor = '';
+            }
+        });
+        
+        const currentPage = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('nav a');
+        navLinks.forEach(link => {
+            const linkPage = link.getAttribute('href');
+            if (linkPage === currentPage) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
             }
         });
     }
-    
-    const currentPage = window.location.pathname.split('/').pop();
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        const linkPage = link.getAttribute('href');
-        if (linkPage === currentPage) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
 }
 
 function showSearchMessage(message, type) {
@@ -122,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.addEventListener('keydown', function(e) {
         if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
             e.preventDefault();
-            const searchInput = document.querySelector('.search-box input[name="q"]');
+            const searchInput = document.getElementById('searchInput');
             if (searchInput) {
                 searchInput.focus();
                 searchInput.select();
@@ -131,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     setTimeout(() => {
-        const searchInput = document.querySelector('.search-box input[name="q"]');
+        const searchInput = document.getElementById('searchInput');
         if (searchInput) {
             searchInput.placeholder = '搜索相关内容... (Ctrl+K)';
         }
@@ -184,9 +186,111 @@ style.textContent = `
         background: #16a085 !important;
     }
     
+    .search-results-container {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: var(--card-shadow);
+        margin-top: 2rem;
+    }
+    
+    .gsc-control-cse {
+        font-family: 'Noto Sans SC', sans-serif !important;
+        background: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+    }
+    
+    .gsc-results-wrapper-overlay {
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    .gsc-webResult.gsc-result {
+        border: 1px solid var(--border-color) !important;
+        border-radius: 12px !important;
+        padding: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+        background: white !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .gsc-webResult.gsc-result:hover {
+        border-color: #16a085 !important;
+        box-shadow: 0 8px 25px rgba(22, 160, 133, 0.15) !important;
+        transform: translateY(-3px) !important;
+    }
+    
+    .gs-title {
+        color: var(--primary-dark) !important;
+        font-size: 1.3rem !important;
+        font-weight: 600 !important;
+        text-decoration: none !important;
+        line-height: 1.4 !important;
+        margin-bottom: 0.5rem !important;
+    }
+    
+    .gs-title:hover {
+        color: #16a085 !important;
+        text-decoration: underline !important;
+    }
+    
+    .gs-snippet {
+        color: var(--text-light) !important;
+        font-size: 1.05rem !important;
+        line-height: 1.6 !important;
+        margin-top: 0.5rem !important;
+    }
+    
+    .gs-visibleUrl {
+        color: #16a085 !important;
+        font-size: 0.9rem !important;
+        margin-top: 0.5rem !important;
+    }
+    
+    .gsc-cursor-box {
+        margin-top: 2rem !important;
+        text-align: center !important;
+    }
+    
+    .gsc-cursor-page {
+        background: white !important;
+        border: 1px solid var(--border-color) !important;
+        border-radius: 8px !important;
+        color: var(--text) !important;
+        padding: 0.5rem 1rem !important;
+        margin: 0 0.3rem !important;
+        text-decoration: none !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .gsc-cursor-page:hover {
+        background: #16a085 !important;
+        color: white !important;
+        border-color: #16a085 !important;
+    }
+    
+    .gsc-cursor-current-page {
+        background: #16a085 !important;
+        color: white !important;
+        border-color: #16a085 !important;
+    }
+    
     @media (max-width: 768px) {
         .search-box input {
             width: 100%;
+        }
+        
+        .search-results-container {
+            padding: 1.5rem;
+        }
+        
+        .gsc-webResult.gsc-result {
+            padding: 1rem !important;
+        }
+        
+        .gs-title {
+            font-size: 1.1rem !important;
         }
     }
 `;
