@@ -1,3 +1,18 @@
+function loadComponents() {
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar-container').innerHTML = data;
+            initNavbar();
+        });
+    
+    fetch('footer.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        });
+}
+
 function initNavbar() {
     window.addEventListener('scroll', function() {
         const header = document.querySelector('header');
@@ -20,8 +35,8 @@ function initNavbar() {
                 showSearchMessage('请输入搜索内容', 'error');
                 searchInput.focus();
             } else {
-                this.action = `https://cse.google.com/cse?cx=20995defc55444858&q=${encodeURIComponent(searchTerm)}&hl=zh-CN&ie=UTF-8`;
-                this.method = 'get';
+                const encodedTerm = encodeURIComponent(searchTerm);
+                this.action = `https://cse.google.com/cse/publicurl?cx=20995defc55444858&q=${encodedTerm}`;
                 this.target = '_blank';
                 showSearchMessage(`正在搜索: ${searchTerm}`, 'info');
             }
@@ -35,6 +50,14 @@ function initNavbar() {
         
         searchInput.addEventListener('blur', function() {
             this.parentElement.style.boxShadow = '';
+        });
+        
+        searchInput.addEventListener('input', function() {
+            if (this.value.trim().length > 0) {
+                this.style.borderColor = '#16a085';
+            } else {
+                this.style.borderColor = '';
+            }
         });
     }
     
@@ -117,6 +140,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const style = document.createElement('style');
 style.textContent = `
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+    
     @keyframes fadeOut {
         from {
             opacity: 1;
