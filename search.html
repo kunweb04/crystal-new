@@ -3,37 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>搜索结果 - CrystalLab</title>
+    <title>搜索 - CrystalLab</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="content.css">
-    <link rel="icon" href="favicon.ico" type="image/png">
+    <link rel="icon" href="favicon.ico">
 </head>
 <body>
     <div id="navbar-container"></div>
 
-    <section class="hero secondary-hero">
-        <div class="hero-content">
-            <h2>搜索结果</h2>
-            <p>查找您需要的晶体培养信息</p>
-        </div>
-    </section>
-
     <div class="container">
         <div class="section">
             <div class="section-title">
-                <h2>搜索结果</h2>
-                <p>为您找到以下相关内容</p>
+                <h2>搜索晶体相关内容</h2>
+                <p>使用Google自定义搜索引擎，查找网站内的所有晶体相关文章</p>
             </div>
             
-            <!-- Google自定义搜索结果 -->
-            <div class="search-results-container">
-                <div class="gcse-searchresults-only" data-queryParameterName="q"></div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="index.html" class="card-btn">返回首页</a>
+            <div class="search-page-content">
+                <div class="search-form-container">
+                    <form id="search-page-form" class="search-page-form">
+                        <input type="text" 
+                               id="search-page-input" 
+                               placeholder="输入关键词搜索晶体相关内容..."
+                               autocomplete="off"
+                               required>
+                        <button type="submit">
+                            <i class="fas fa-search"></i> 搜索
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="google-cse-container">
+                    <script async src="https://cse.google.com/cse.js?cx=20995defc55444858"></script>
+                    <div class="gcse-searchresults-only" 
+                         data-queryParameterName="q"
+                         data-enableHistory="true"
+                         data-sortBy="date"
+                         data-filter="0"
+                         data-gname="crystallabsearch">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -41,141 +51,36 @@
     <div id="footer-container"></div>
 
     <script src="components.js"></script>
-    
-    <!-- Google自定义搜索脚本 -->
-    <script async src="https://cse.google.com/cse.js?cx=20995defc55444858"></script>
     <script>
-        // 自定义搜索结果样式
         document.addEventListener('DOMContentLoaded', function() {
-            // 等待Google搜索加载
-            setTimeout(() => {
-                // 调整搜索结果样式
-                const results = document.querySelectorAll('.gsc-results');
-                results.forEach(result => {
-                    result.style.cssText = `
-                        background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
-                        border-radius: 12px;
-                        padding: 2rem;
-                        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-                    `;
-                });
+            const searchForm = document.getElementById('search-page-form');
+            const searchInput = document.getElementById('search-page-input');
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const query = urlParams.get('q');
+            
+            if (query) {
+                searchInput.value = query;
                 
-                // 调整单个结果项
-                const resultItems = document.querySelectorAll('.gsc-result');
-                resultItems.forEach(item => {
-                    item.style.cssText = `
-                        background: white;
-                        border-radius: 8px;
-                        padding: 1.5rem;
-                        margin-bottom: 1rem;
-                        border: 1px solid rgba(22, 160, 133, 0.1);
-                        transition: all 0.3s ease;
-                    `;
-                    
-                    item.addEventListener('mouseenter', function() {
-                        this.style.transform = 'translateY(-5px)';
-                        this.style.boxShadow = '0 10px 25px rgba(0, 0, 0, 0.1)';
-                        this.style.borderColor = 'var(--accent-light)';
-                    });
-                    
-                    item.addEventListener('mouseleave', function() {
-                        this.style.transform = 'translateY(0)';
-                        this.style.boxShadow = 'none';
-                        this.style.borderColor = 'rgba(22, 160, 133, 0.1)';
-                    });
-                });
-                
-                // 调整标题样式
-                const titles = document.querySelectorAll('.gs-title');
-                titles.forEach(title => {
-                    title.style.cssText = `
-                        color: var(--primary);
-                        font-weight: 600;
-                        font-size: 1.3rem;
-                        text-decoration: none;
-                        margin-bottom: 0.5rem;
-                        display: block;
-                    `;
-                });
-                
-                // 调整摘要样式
-                const snippets = document.querySelectorAll('.gs-snippet');
-                snippets.forEach(snippet => {
-                    snippet.style.cssText = `
-                        color: var(--text-light);
-                        font-size: 1rem;
-                        line-height: 1.6;
-                        margin-bottom: 0.5rem;
-                    `;
-                });
-                
-                // 调整链接样式
-                const links = document.querySelectorAll('.gs-title a');
-                links.forEach(link => {
-                    link.style.cssText = `
-                        color: var(--primary);
-                        text-decoration: none;
-                    `;
-                    
-                    link.addEventListener('mouseenter', function() {
-                        this.style.color = 'var(--accent)';
-                    });
-                    
-                    link.addEventListener('mouseleave', function() {
-                        this.style.color = 'var(--primary)';
-                    });
-                });
-                
-                // 调整分页样式
-                const pagination = document.querySelectorAll('.gsc-cursor');
-                pagination.forEach(page => {
-                    page.style.cssText = `
-                        display: flex;
-                        justify-content: center;
-                        gap: 0.5rem;
-                        margin-top: 2rem;
-                    `;
-                });
-                
-                const pageNumbers = document.querySelectorAll('.gsc-cursor-page');
-                pageNumbers.forEach(page => {
-                    page.style.cssText = `
-                        padding: 0.5rem 1rem;
-                        background: white;
-                        border: 1px solid rgba(22, 160, 133, 0.2);
-                        border-radius: 6px;
-                        color: var(--text);
-                        text-decoration: none;
-                        transition: all 0.3s ease;
-                    `;
-                    
-                    page.addEventListener('mouseenter', function() {
-                        this.style.background = 'rgba(22, 160, 133, 0.1)';
-                        this.style.borderColor = 'var(--accent)';
-                    });
-                    
-                    page.addEventListener('mouseleave', function() {
-                        if (!this.classList.contains('gsc-cursor-current-page')) {
-                            this.style.background = 'white';
-                            this.style.borderColor = 'rgba(22, 160, 133, 0.2)';
+                setTimeout(() => {
+                    const gcseElement = document.querySelector('.gsc-input');
+                    if (gcseElement) {
+                        gcseElement.value = query;
+                        const searchButton = document.querySelector('.gsc-search-button');
+                        if (searchButton) {
+                            searchButton.click();
                         }
-                    });
-                });
-                
-                // 当前页样式
-                const currentPage = document.querySelector('.gsc-cursor-current-page');
-                if (currentPage) {
-                    currentPage.style.cssText = `
-                        padding: 0.5rem 1rem;
-                        background: var(--accent);
-                        border: 1px solid var(--accent);
-                        border-radius: 6px;
-                        color: white;
-                        text-decoration: none;
-                    `;
+                    }
+                }, 1000);
+            }
+            
+            searchForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const query = searchInput.value.trim();
+                if (query) {
+                    window.location.href = `search.html?q=${encodeURIComponent(query)}`;
                 }
-                
-            }, 1000);
+            });
         });
     </script>
 </body>
