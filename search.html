@@ -9,132 +9,483 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="content.css">
     <link rel="icon" href="favicon.ico">
-    <style>
-        .search-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-        
-        .search-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .search-header h1 {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .search-form {
-            max-width: 600px;
-            margin: 0 auto 3rem;
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .search-form input {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            border: 2px solid var(--border-color);
-            border-radius: 50px;
-            font-size: 1.1rem;
-        }
-        
-        .search-form button {
-            background: var(--accent);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 1.1rem;
-            transition: var(--transition);
-        }
-        
-        .search-form button:hover {
-            background: var(--accent-light);
-        }
-        
-        #google-search-results {
-            min-height: 500px;
-        }
-        
-        .gcse-searchresults {
-            font-family: 'Noto Sans SC', sans-serif !important;
-        }
-    </style>
+    <meta name="google-adsense-account" content="ca-pub-9337526323324673">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9337526323324673" crossorigin="anonymous"></script>
 </head>
 <body>
     <div id="navbar-container"></div>
 
-    <div class="search-container">
-        <div class="search-header">
-            <h1><i class="fas fa-search"></i> 搜索晶体相关内容</h1>
-            <p>使用Google自定义搜索引擎查找网站内容</p>
+    <main class="search-page">
+        <div class="search-page-container">
+            <div class="search-page-header">
+                <h1><i class="fas fa-search"></i> 搜索晶体相关内容</h1>
+                <p>在 CrystalLab 网站中查找您需要的晶体培养知识</p>
+            </div>
+            
+            <div class="search-form-container">
+                <form class="search-page-form" id="searchForm">
+                    <div class="search-input-group">
+                        <input type="text" 
+                               id="searchQuery" 
+                               name="q"
+                               placeholder="输入关键词搜索，例如：硫酸铜、晶体保存、溶液配置..."
+                               autocomplete="off"
+                               autofocus
+                               required>
+                        <button type="submit" class="search-submit-btn">
+                            <i class="fas fa-search"></i> 搜索
+                        </button>
+                    </div>
+                    <div class="search-tips">
+                        <span><i class="fas fa-lightbulb"></i> 搜索提示：</span>
+                        <a href="#" data-search="硫酸铜">硫酸铜</a>
+                        <a href="#" data-search="明矾">明矾</a>
+                        <a href="#" data-search="晶体保存">晶体保存</a>
+                        <a href="#" data-search="摄影技巧">摄影技巧</a>
+                        <a href="#" data-search="安全操作">安全操作</a>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="search-results-container" id="searchResults">
+                <div class="search-results-header">
+                    <h3>搜索结果</h3>
+                    <div class="results-count" id="resultsCount">正在搜索...</div>
+                </div>
+                
+                <div class="search-results-list" id="resultsList">
+                    <div class="search-loading">
+                        <div class="loading-spinner">
+                            <i class="fas fa-cog fa-spin"></i>
+                        </div>
+                        <p>正在搜索相关内容，请稍候...</p>
+                    </div>
+                </div>
+                
+                <div class="search-no-results" id="noResults" style="display: none;">
+                    <div class="no-results-icon">
+                        <i class="fas fa-search-minus"></i>
+                    </div>
+                    <h4>未找到相关结果</h4>
+                    <p>抱歉，没有找到与 "<span id="searchTerm"></span>" 相关的页面。</p>
+                    <div class="suggestions">
+                        <p>建议：</p>
+                        <ul>
+                            <li>检查输入的关键词是否正确</li>
+                            <li>尝试使用其他关键词搜索</li>
+                            <li>浏览网站的分类页面</li>
+                            <li>查看热门内容推荐</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="search-pagination" id="pagination" style="display: none;">
+                    <button class="prev-btn" disabled><i class="fas fa-chevron-left"></i> 上一页</button>
+                    <div class="page-info">第 <span id="currentPage">1</span> 页 / 共 <span id="totalPages">1</span> 页</div>
+                    <button class="next-btn">下一页 <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            
+            <div class="search-recommendations">
+                <h3><i class="fas fa-star"></i> 热门内容推荐</h3>
+                <div class="recommendations-grid">
+                    <div class="recommendation-card">
+                        <div class="rec-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h4>安全须知</h4>
+                        <p>每个人都必须了解的晶体制作安全知识</p>
+                        <a href="safety.html" class="rec-link">查看详情 →</a>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <div class="rec-icon">
+                            <i class="fas fa-flask"></i>
+                        </div>
+                        <h4>硫酸铜专题</h4>
+                        <p>最受欢迎的蓝色晶体制作全攻略</p>
+                        <a href="copper-sulfate.html" class="rec-link">查看详情 →</a>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <div class="rec-icon">
+                            <i class="fas fa-camera"></i>
+                        </div>
+                        <h4>晶体摄影</h4>
+                        <p>如何拍出惊艳的晶体照片</p>
+                        <a href="shooting.html" class="rec-link">查看详情 →</a>
+                    </div>
+                    
+                    <div class="recommendation-card">
+                        <div class="rec-icon">
+                            <i class="fas fa-box-open"></i>
+                        </div>
+                        <h4>晶体保存</h4>
+                        <p>6大保存方法，让你的晶体持久如新</p>
+                        <a href="conserve.html" class="rec-link">查看详情 →</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <form class="search-form" id="search-form">
-            <input type="text" id="search-query" placeholder="输入关键词..." required>
-            <button type="submit"><i class="fas fa-search"></i> 搜索</button>
-        </form>
-        
-        <div id="google-search-results">
-            <!-- Google CSE 结果将显示在这里 -->
-        </div>
-    </div>
+    </main>
 
     <div id="footer-container"></div>
 
     <script src="components.js"></script>
     <script>
+        // 网站页面数据 - 将你所有的页面信息放在这里
+        const websitePages = [
+            {
+                title: "安全与操作规范 - 新人必读",
+                url: "safety.html",
+                description: "每个人在制作晶体前都需要了解的重要安全知识，确保实验过程安全可靠，避免意外发生，保护自己和他人。",
+                category: "安全",
+                keywords: ["安全", "操作规范", "新人", "必读", "注意事项"],
+                image: "p/index-new-1.png",
+                author: "冰麒麟"
+            },
+            {
+                title: "硫酸铜晶体专题",
+                url: "copper-sulfate.html",
+                description: "硫酸铜晶体以鲜艳蓝色和规则形态闻名，是最受欢迎的晶体培养项目之一。本专题将介绍其培养技巧、常见问题及高级处理方法。",
+                category: "专题",
+                keywords: ["硫酸铜", "蓝色晶体", "专题", "培养技巧", "常见问题"],
+                image: "p/index_z_01.png",
+                author: "紫色硫酸铜"
+            },
+            {
+                title: "结晶方式",
+                url: "crystallization.html",
+                description: "掌握基础结晶原理，了解溶液配置与操作注意事项，为高质量晶体培养打下坚实基础。",
+                category: "基础",
+                keywords: ["结晶", "溶液配置", "基础原理", "操作"],
+                image: "p/index_04.png",
+                author: "LX虫管吖Galvin"
+            },
+            {
+                title: "晶体分类与培养指南",
+                url: "crystal-classification.html",
+                description: "开始接触晶体化学这门有趣的科目，有哪些晶体可以制作？从简单到复杂，一步步进阶。",
+                category: "指南",
+                keywords: ["分类", "培养", "指南", "晶体化学", "进阶"],
+                image: "p/index_05.png",
+                author: "紫色硫酸铜"
+            },
+            {
+                title: "溶液配置",
+                url: "solutionpreparation.html",
+                description: "溶液配置的注意事项，新人需要了解的大致内容，精确配比是成功培养晶体的关键。",
+                category: "基础",
+                keywords: ["溶液", "配置", "配比", "新人", "注意事项"],
+                image: "p/index_06.png",
+                author: "浅梦星河"
+            },
+            {
+                title: "晶体保存方法",
+                url: "conserve.html",
+                description: "了解6大保存法的优缺点，选自己最适合的方法，让您的晶体作品长久保持完美状态。",
+                category: "后期",
+                keywords: ["保存", "方法", "6大保存法", "长久保存", "完美状态"],
+                image: "p/index_07.png",
+                author: "浅梦星河"
+            },
+            {
+                title: "晶体摄影技巧",
+                url: "shooting.html",
+                description: "怎么拍才能把晶体拍得好看？都有哪些技巧呢？掌握专业摄影技巧，展现晶体的独特美感。",
+                category: "后期",
+                keywords: ["摄影", "技巧", "拍照", "展示", "美感"],
+                image: "p/index_08.png",
+                author: "浅梦星河"
+            },
+            {
+                title: "晶体图书馆",
+                url: "library.html",
+                description: "一些更为学术性、内容更为丰富的书刊推荐，帮助您深入理解晶体学的理论与应用。",
+                category: "资源",
+                keywords: ["图书馆", "学术", "书刊", "理论", "应用"],
+                image: "p/index-new-3.png",
+                author: "冰麒麟"
+            },
+            {
+                title: "购买防骗指南",
+                url: "anti-fraud-guide.html",
+                description: "了解购买试剂时的常见骗局与识别技巧，避免经济损失，确保你能获取到优质可靠的材料。",
+                category: "安全",
+                keywords: ["购买", "防骗", "试剂", "骗局", "识别技巧"],
+                image: "p/防诈.jpg",
+                author: "冰麒麟"
+            },
+            {
+                title: "大佬作品集",
+                url: "portfolio.html",
+                description: "精选大佬们的匠心之作，感受结晶之美的独特魅力，从中汲取灵感，提升自己的制作技巧。",
+                category: "作品",
+                keywords: ["作品", "大佬", "展示", "灵感", "技巧"],
+                image: "p/index_03.png",
+                author: "迷路的野指针"
+            },
+            {
+                title: "制作晶雨",
+                url: "crystal-rain-classification.html",
+                description: "学习制作晶雨的方法，体验晶体在溶液中如雨般落下的奇妙现象，创造令人惊叹的天气瓶。",
+                category: "专题",
+                keywords: ["晶雨", "天气瓶", "奇妙现象", "制作方法"],
+                image: "p/晶雨1.jpg",
+                author: "不会炼金的阿贝少"
+            },
+            {
+                title: "投稿与建议",
+                url: "contribute.html",
+                description: "欢迎投稿作品于此或投稿纠正本站内容，共同完善晶体培养知识库，分享您的经验和见解。",
+                category: "资源",
+                keywords: ["投稿", "建议", "内容纠正", "知识库", "分享"],
+                image: "p/index_02.png",
+                author: "westleaf"
+            },
+            {
+                title: "特别鸣谢",
+                url: "acknowledgements.html",
+                description: "本指南的诞生离不开众多领域专家，因此特此感谢所有为晶体学社区做出贡献的人们。",
+                category: "其他",
+                keywords: ["鸣谢", "感谢", "贡献", "专家", "社区"],
+                image: "p/index-new-2.png",
+                author: "冰麒麟"
+            }
+        ];
+
+        // 搜索功能
         document.addEventListener('DOMContentLoaded', function() {
-            const searchForm = document.getElementById('search-form');
-            const searchQuery = document.getElementById('search-query');
+            const searchForm = document.getElementById('searchForm');
+            const searchQuery = document.getElementById('searchQuery');
+            const resultsList = document.getElementById('resultsList');
+            const noResults = document.getElementById('noResults');
+            const pagination = document.getElementById('pagination');
+            const resultsCount = document.getElementById('resultsCount');
+            const searchTermSpan = document.getElementById('searchTerm');
             
-            // 加载Google CSE脚本
-            const script = document.createElement('script');
-            script.async = true;
-            script.src = 'https://cse.google.com/cse.js?cx=20995defc55444858';
-            script.onload = function() {
-                // 初始化Google CSE
-                const gcse = document.createElement('div');
-                gcse.className = 'gcse-searchresults-only';
-                gcse.setAttribute('data-queryParameterName', 'q');
-                document.getElementById('google-search-results').appendChild(gcse);
-                
-                // 检查URL参数
-                const urlParams = new URLSearchParams(window.location.search);
-                const query = urlParams.get('q');
-                if (query) {
-                    searchQuery.value = query;
-                    // 触发搜索
-                    setTimeout(() => {
-                        if (window.google && window.google.search) {
-                            window.google.search.cse.element.getElement('standard').execute(query);
-                        }
-                    }, 1000);
-                }
-            };
-            document.head.appendChild(script);
+            let currentResults = [];
+            let currentPage = 1;
+            const resultsPerPage = 10;
+            
+            // 从URL参数获取搜索词
+            const urlParams = new URLSearchParams(window.location.search);
+            const queryFromUrl = urlParams.get('q');
+            
+            if (queryFromUrl) {
+                searchQuery.value = queryFromUrl;
+                performSearch(queryFromUrl);
+            }
             
             // 表单提交
             searchForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 const query = searchQuery.value.trim();
                 if (query) {
-                    // 更新URL但不重新加载页面
-                    const newUrl = `${window.location.pathname}?q=${encodeURIComponent(query)}`;
+                    const newUrl = `search.html?q=${encodeURIComponent(query)}`;
                     window.history.pushState({}, '', newUrl);
-                    
-                    // 触发搜索
-                    if (window.google && window.google.search) {
-                        window.google.search.cse.element.getElement('standard').execute(query);
-                    }
+                    performSearch(query);
                 }
             });
+            
+            // 搜索提示词点击
+            document.querySelectorAll('.search-tips a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const searchText = this.getAttribute('data-search');
+                    searchQuery.value = searchText;
+                    const newUrl = `search.html?q=${encodeURIComponent(searchText)}`;
+                    window.history.pushState({}, '', newUrl);
+                    performSearch(searchText);
+                });
+            });
+            
+            // 搜索功能
+            function performSearch(query) {
+                currentPage = 1;
+                searchTermSpan.textContent = query;
+                
+                // 显示加载状态
+                resultsList.innerHTML = `
+                    <div class="search-loading">
+                        <div class="loading-spinner">
+                            <i class="fas fa-cog fa-spin"></i>
+                        </div>
+                        <p>正在搜索 "${query}"，请稍候...</p>
+                    </div>
+                `;
+                noResults.style.display = 'none';
+                pagination.style.display = 'none';
+                resultsCount.textContent = '搜索中...';
+                
+                // 模拟搜索延迟
+                setTimeout(() => {
+                    const searchResults = searchPages(query);
+                    displayResults(searchResults, query);
+                }, 500);
+            }
+            
+            // 搜索算法
+            function searchPages(query) {
+                const queryLower = query.toLowerCase();
+                const queryWords = queryLower.split(' ').filter(word => word.length > 1);
+                
+                return websitePages.filter(page => {
+                    let score = 0;
+                    
+                    // 标题匹配（最高权重）
+                    if (page.title.toLowerCase().includes(queryLower)) {
+                        score += 100;
+                    } else if (page.title.toLowerCase().includes(queryWords[0])) {
+                        score += 50;
+                    }
+                    
+                    // 描述匹配（中等权重）
+                    if (page.description.toLowerCase().includes(queryLower)) {
+                        score += 30;
+                    }
+                    
+                    // 关键词匹配
+                    page.keywords.forEach(keyword => {
+                        if (keyword.toLowerCase().includes(queryLower)) {
+                            score += 20;
+                        }
+                        queryWords.forEach(word => {
+                            if (keyword.toLowerCase().includes(word)) {
+                                score += 10;
+                            }
+                        });
+                    });
+                    
+                    // 类别匹配
+                    if (page.category.toLowerCase().includes(queryLower)) {
+                        score += 15;
+                    }
+                    
+                    // 作者匹配
+                    if (page.author.toLowerCase().includes(queryLower)) {
+                        score += 10;
+                    }
+                    
+                    page.score = score;
+                    return score > 0;
+                }).sort((a, b) => b.score - a.score);
+            }
+            
+            // 显示结果
+            function displayResults(results, query) {
+                currentResults = results;
+                
+                if (results.length === 0) {
+                    noResults.style.display = 'block';
+                    resultsList.innerHTML = '';
+                    pagination.style.display = 'none';
+                    resultsCount.textContent = `未找到与 "${query}" 相关的结果`;
+                    return;
+                }
+                
+                const totalPages = Math.ceil(results.length / resultsPerPage);
+                resultsCount.textContent = `找到 ${results.length} 个相关结果`;
+                
+                if (totalPages > 1) {
+                    updatePagination(totalPages);
+                    pagination.style.display = 'flex';
+                } else {
+                    pagination.style.display = 'none';
+                }
+                
+                renderPage(currentPage);
+            }
+            
+            // 渲染页面
+            function renderPage(page) {
+                const startIndex = (page - 1) * resultsPerPage;
+                const endIndex = startIndex + resultsPerPage;
+                const pageResults = currentResults.slice(startIndex, endIndex);
+                
+                let html = '';
+                
+                pageResults.forEach((result, index) => {
+                    const resultNumber = startIndex + index + 1;
+                    html += `
+                        <div class="search-result-item">
+                            <div class="result-number">${resultNumber}</div>
+                            <div class="result-content">
+                                <div class="result-header">
+                                    <span class="result-category">${result.category}</span>
+                                    <span class="result-author"><i class="fas fa-user"></i> ${result.author}</span>
+                                </div>
+                                <h4 class="result-title">
+                                    <a href="${result.url}">${highlightText(result.title, searchQuery.value)}</a>
+                                </h4>
+                                <p class="result-description">${highlightText(result.description, searchQuery.value)}</p>
+                                <div class="result-keywords">
+                                    ${result.keywords.map(keyword => 
+                                        `<span class="keyword-tag">${keyword}</span>`
+                                    ).join('')}
+                                </div>
+                                <a href="${result.url}" class="result-link">查看详情 →</a>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                resultsList.innerHTML = html;
+                
+                // 更新页码
+                document.getElementById('currentPage').textContent = page;
+            }
+            
+            // 高亮文本
+            function highlightText(text, query) {
+                if (!query) return text;
+                
+                const queryWords = query.toLowerCase().split(' ').filter(word => word.length > 1);
+                let highlightedText = text;
+                
+                queryWords.forEach(word => {
+                    const regex = new RegExp(`(${word})`, 'gi');
+                    highlightedText = highlightedText.replace(regex, '<span class="highlight">$1</span>');
+                });
+                
+                return highlightedText;
+            }
+            
+            // 更新分页
+            function updatePagination(totalPages) {
+                document.getElementById('totalPages').textContent = totalPages;
+                
+                const prevBtn = document.querySelector('.prev-btn');
+                const nextBtn = document.querySelector('.next-btn');
+                
+                prevBtn.disabled = currentPage === 1;
+                nextBtn.disabled = currentPage === totalPages;
+                
+                // 清除旧的事件监听器
+                const newPrevBtn = prevBtn.cloneNode(true);
+                const newNextBtn = nextBtn.cloneNode(true);
+                prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+                nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+                
+                // 添加新的事件监听器
+                newPrevBtn.addEventListener('click', () => {
+                    if (currentPage > 1) {
+                        currentPage--;
+                        renderPage(currentPage);
+                        updatePagination(totalPages);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                });
+                
+                newNextBtn.addEventListener('click', () => {
+                    if (currentPage < totalPages) {
+                        currentPage++;
+                        renderPage(currentPage);
+                        updatePagination(totalPages);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }
+                });
+            }
         });
     </script>
 </body>
