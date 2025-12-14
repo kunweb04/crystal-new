@@ -1150,3 +1150,29 @@ footer::before {
     right: 20px;
     transform: rotate(180deg);
 }
+
+.card-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)) !important;
+    gap: 3.5rem !important;
+}
+
+.card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: auto !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.card-img {
+    aspect-ratio: 16/9;
+    height: auto;
+    min-height: 260px;
+}
+
+.card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
