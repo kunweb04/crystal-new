@@ -4464,3 +4464,17 @@ figcaption {
 .extended-thanks-section {
     animation: sectionFadeIn 0.6s ease-out 0.3s both;
 }
+
+.acknowledgements-container .honor-card.zbh::before {
+    content: '' !important;
+    background: url('p/zhb.png') center/cover no-repeat;
+    width: 120px;
+    height: 120px;
+    right: 20px;
+    top: 30px;
+    font-size: 0;
+    opacity: 0.5;
+    border-radius: 10%;
+    transform: rotate(0);
+    box-shadow: none;
+}
