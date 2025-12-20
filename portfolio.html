@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -236,3 +237,243 @@
     </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CrystalLab - 晶体培养指南网站，提供从硫酸铜、磷酸二氢钾到金属铋等多种晶体的详细培养教程，也收录了许多精美的晶体作品=">
+    <meta name="keywords" content="晶体培养,晶体化学,硫酸铜晶体,硫酸铜,晶体制作,结晶艺术,晶体摄影,溶液配置,晶体保存,晶体作品集">
+    <meta name="author" content="CrystalLab团队">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CrystalLab">
+    <meta property="og:title" content="CrystalLab - 晶体作品集">
+    <meta property="og:description" content="看看业界大佬们都制作了哪些漂亮的晶体作品吧！">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://crystal-lab.org/portfolio.html">
+    <meta property="og:image" content="https://crystal-lab.org/og.png">
+    <title>晶体作品集 - CrystalLab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="content.css?v=1.0.2">
+    <link rel="icon" href="logo.png" type="image/png">
+    <meta name="google-adsense-account" content="ca-pub-9337526323324673">
+</head>
+<style>
+.content-image {
+    width: 80%;
+    margin: 1.5em auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.content-image[data-src] {
+    min-height: 200px; 
+    background: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+    .content-image {
+        width: 95%;
+    }
+}
+</style>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <div class="portfolio-collapsible-search">
+            <div class="portfolio-search-toggle">
+                <button class="portfolio-toggle-btn" id="portfolioSearchToggle">
+                    <i class="fas fa-search"></i>
+                    <span>搜索作品</span>
+                    <i class="fas fa-chevron-down toggle-arrow"></i>
+                </button>
+            </div>
+            
+            <div class="portfolio-search-content" id="portfolioSearchContent">
+                <div class="portfolio-search-header">
+                    <h3>作品搜索</h3>
+                </div>
+                
+                <div class="portfolio-search-container">
+                    <div class="portfolio-search-box">
+                        <input type="text" id="portfolioSearch" placeholder="输入作者名、晶体名称或分类...">
+                        <button type="button" id="portfolioSearchButton" class="portfolio-search-btn">
+                            <i class="fas fa-search"></i>
+                            <span>搜索</span>
+                        </button>
+                        <button type="button" id="portfolioClearSearch" class="portfolio-clear-btn" style="display: none;">
+                            <i class="fas fa-times"></i>
+                            <span>清除</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="safety-container">
+            <div class="safety-content">
+    <h1>晶体作品集<br><span>大佬作品展示</span></h1>
+    
+    <div class="crystal-decoration top-left"><i class="fas fa-gem"></i></div>
+    <div class="crystal-decoration bottom-right"><i class="fas fa-gem"></i></div>
+</div>
+
+            <nav class="safety-nav">
+                <h3>内容导航</h3>
+                <ul>
+                    <li><a href="#copper-sulfate">硫酸铜</a></li>
+                    <li><a href="#x1">铬明矾</a></li>
+                    <li><a href="#sulfate2">硫酸亚铁铵</a></li>
+                    <li><a href="#sulfate3">草酸铝（铬）酸钠</a></li>
+                    <li><a href="#sulfate4">其他晶体</a></li>
+                    <li><a href="#sulfate5">饼の美学</a></li>
+                    <li><a href="index.html">返回首页</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+    
+    <script src="portfolio.js"></script>
+    <script src="script.js"></script>
+    <script src="components.js"></script>
+    
+    <script>
+        // 折叠/展开搜索栏功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchToggle = document.getElementById('portfolioSearchToggle');
+            const searchContent = document.getElementById('portfolioSearchContent');
+            const toggleArrow = document.querySelector('.toggle-arrow');
+
+            // 默认折叠状态 - 使用CSS类控制
+            searchContent.classList.remove('expanded');
+            
+            searchToggle.addEventListener('click', function() {
+                if (searchContent.classList.contains('expanded')) {
+                    // 折叠
+                    searchContent.classList.remove('expanded');
+                    toggleArrow.style.transform = 'rotate(0deg)';
+                } else {
+                    // 展开
+                    searchContent.classList.add('expanded');
+                    toggleArrow.style.transform = 'rotate(180deg)';
+                }
+            });
+
+            // 搜索功能
+            const searchInput = document.getElementById('portfolioSearch');
+            const searchButton = document.getElementById('portfolioSearchButton');
+            const clearButton = document.getElementById('portfolioClearSearch');
+
+            function performSearch() {
+                const searchTerm = searchInput.value.trim().toLowerCase();
+                
+                if (searchTerm === '') {
+                    clearSearch();
+                    return;
+                }
+
+                const works = document.querySelectorAll('.portfolio-work');
+                let matchCount = 0;
+
+                works.forEach(work => {
+                    const workData = work.getAttribute('data-search').toLowerCase();
+                    const isMatch = workData.includes(searchTerm);
+                    
+                    if (isMatch) {
+                        work.style.display = 'block';
+                        work.classList.add('portfolio-work-matched');
+                        matchCount++;
+                    } else {
+                        work.style.display = 'none';
+                        work.classList.remove('portfolio-work-matched');
+                    }
+                });
+
+                clearButton.style.display = 'flex';
+            }
+
+            function clearSearch() {
+                searchInput.value = '';
+                const works = document.querySelectorAll('.portfolio-work');
+                works.forEach(work => {
+                    work.style.display = 'block';
+                    work.classList.remove('portfolio-work-matched');
+                });
+                clearButton.style.display = 'none';
+            }
+
+            searchButton.addEventListener('click', performSearch);
+            clearButton.addEventListener('click', clearSearch);
+
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            // 输入时实时搜索
+            searchInput.addEventListener('input', function() {
+                if (this.value.trim() === '') {
+                    clearSearch();
+                } else {
+                    performSearch();
+                }
+            });
+        });
+
+        // 原有的滚动导航代码保持不变...
+        document.querySelectorAll('.safety-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 100;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                document.querySelectorAll('.safety-nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.safety-nav a[href^="#"]');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop - 150) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+>>>>>>> ca3f345e54aa8670faf05de6cdf3c9d88f198d00

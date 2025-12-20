@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -539,4 +540,547 @@
         });
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CrystalLab - 年度晶体投票，参与评选最佳晶体培养项目">
+    <meta name="keywords" content="年度晶体投票,晶体评选,晶体培养,硫酸铜,磷酸二氢钾,金属铋">
+    <meta name="author" content="CrystalLab团队">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CrystalLab">
+    <meta property="og:title" content="年度晶体投票 - CrystalLab">
+    <meta property="og:description" content="参与评选年度最佳晶体培养项目！">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://crystal-lab.org/vote.html">
+    <meta property="og:image" content="https://crystal-lab.org/og.png">
+    <title>年度晶体投票 - CrystalLab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="content.css">
+    <link rel="icon" href="favicon.ico" type="image/png">
+    <meta name="google-adsense-account" content="ca-pub-9337526323324673">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9337526323324673"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <section class="hero secondary-hero vote-hero">
+        <div class="crystal"><i class="fas fa-diamond"></i></div>
+        <div class="crystal"><i class="fas fa-diamond"></i></div>
+        <div class="crystal"><i class="fas fa-diamond"></i></div>
+        <div class="crystal"><i class="fas fa-diamond"></i></div>
+        <div class="crystal"><i class="fas fa-diamond"></i></div>
+        <div class="crystal"><i class="fas fa-diamond"></i></div>
+        
+        <div class="hero-content">
+            <h2>年度<span>晶体</span>评选</h2>
+            <p>投票选出您心中最优秀的晶体培养项目，共同评选年度最佳晶体</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="vote-container">
+            <div class="vote-content">
+                <h1>年度晶体投票</h1>
+                <p class="vote-intro">
+                    欢迎参与CrystalLab年度晶体评选！从以下三个类别的晶体中，选择您认为最具代表性、最有价值或最值得推荐的晶体项目。
+                    每个类别都有独特的候选晶体，请仔细阅读介绍后做出您的选择。
+                </p>
+
+                <!-- 入门晶体类别 -->
+                <div class="vote-category">
+                    <div class="category-header">
+                        <h2><i class="fas fa-seedling"></i> 入门晶体</h2>
+                        <p class="category-subtitle">适合新手的晶体培养项目 · 操作简单 · 成功率高</p>
+                    </div>
+                    <div class="vote-grid" id="beginnerOptions"></div>
+                </div>
+
+                <!-- 进阶晶体类别 -->
+                <div class="vote-category">
+                    <div class="category-header">
+                        <h2><i class="fas fa-rocket"></i> 进阶晶体</h2>
+                        <p class="category-subtitle">挑战更高难度 · 探索晶体化学的深度</p>
+                    </div>
+                    <div class="vote-grid" id="advancedOptions"></div>
+                </div>
+
+                <!-- 单质晶体类别 -->
+                <div class="vote-category">
+                    <div class="category-header">
+                        <h2><i class="fas fa-atom"></i> 单质晶体</h2>
+                        <p class="category-subtitle">探索元素晶体的独特魅力</p>
+                    </div>
+                    <div class="vote-grid" id="elementOptions"></div>
+                </div>
+
+                <div class="vote-actions">
+                    <button id="submitVote" class="submit-vote-btn" disabled>
+                        <i class="fas fa-trophy"></i>
+                        提交年度投票
+                    </button>
+                    <div id="voteMessage" class="vote-message"></div>
+                </div>
+
+                <div class="vote-results" id="voteResults" style="display: none;">
+                    <div class="results-header">
+                        <h3><i class="fas fa-chart-bar"></i> 当前投票结果</h3>
+                        <div class="total-votes">总投票数: <span id="totalVotes">0</span></div>
+                    </div>
+                    <div id="resultsContainer"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+    <script>
+        const WORKER_URL = 'https://crystal-vote-worker.enderwolf9487.workers.dev';
+        
+        // 年度投票选项数据（按类别分组）
+        const voteOptions = {
+            // 入门晶体
+            beginner: [
+                {
+                    id: 'copper_sulfate',
+                    name: '硫酸铜',
+                    description: '初次晶体制作，可以做到送女朋友的级别吗？',
+                    features: '蓝色晶体 · 简单盐类'
+                },
+                {
+                    id: 'potassium_alum',
+                    name: '硫酸铝钾',
+                    description: '经典的八面体晶体，生长速度快且易成型，是新手入门的首选',
+                    features: '海纳百川 · 明矾系列'
+                },
+                {
+                    id: 'chrome_alum',
+                    name: '铬明矾',
+                    description: '拥有深邃的紫罗兰色，是最具代表性的明矾晶体之一',
+                    features: '深紫晶体 · 明矾系列'
+                },
+                {
+                    id: 'sodium_chloride',
+                    name: '氯化钠晶体',
+                    description: '生活中最常见的食盐，想培育出完美正方体有难度',
+                    features: '透明正方 · 厨房化学'
+                },
+                {
+                    id: 'nickel_sulfate',
+                    name: '硫酸镍',
+                    description: '可以做出键帽形态的硫酸镍，制作之前需要了解什么呢？',
+                    features: '绿黄色晶 · 致癌物质'
+                },
+                {
+                    id: 'ferrous_ammonium_sulfate',
+                    name: '硫酸亚铁铵',
+                    description: '这种塔顿复盐能长出淡绿色的规则晶体，在制作前又有哪些性质必须了解？',
+                    features: '淡绿色晶 · 不易氧化'
+                }
+            ],
+            
+            // 进阶晶体
+            advanced: [
+                {
+                    id: 'potassium_dihydrogen_phosphate',
+                    name: '磷酸二氢钾',
+                    description: '高透明度、适合培养大单晶',
+                    features: '透明晶体 · 光学材料'
+                },
+                {
+                    id: 'manganese_sulfate',
+                    name: '硫酸锰',
+                    description: '第一个介绍的粉晶体，好做吗？',
+                    features: '粉色晶体 · 塔盾复盐'
+                },
+                {
+                    id: 'potassium_ferrioxalate',
+                    name: '三草酸合铁（III）酸钾',
+                    description: '化学美学与结构复杂度的代表晶体之一',
+                    features: '绿色晶体 · 光致变色材料'
+                },
+                {
+                    id: 'potassium_ferricyanide',
+                    name: '铁氰化钾',
+                    description: '极具魅力的深红"血钻"，挑战你的晶体保存与封存工艺',
+                    features: '深红晶体 · 需防风化'
+                },
+                {
+                    id: 'ammonium_vanadium_sulfate',
+                    name: '硫酸钒铵',
+                    description: '蓝紫色的明矾，多彩的钒盐之一',
+                    features: '蓝紫晶体 · 明矾系列'
+                },
+                {
+                    id: 'urea_iron_nitrate',
+                    name: '硝酸脲铁',
+                    description: '湖蓝色的铁氮复合肥料，极其适合新手的冷门配合物',
+                    features: '湖蓝晶体 · 简单易养'
+                }
+            ],
+            
+            // 单质晶体
+            element: [
+                {
+                    id: 'bismuth',
+                    name: '金属铋',
+                    description: '为什么铋晶体这么简单制作？它有什么要注意的点吗？',
+                    features: '简单制作 · 彩色晶体'
+                },
+                {
+                    id: 'electrolytic_copper',
+                    name: '电解铜',
+                    description: '通过电解法制备的晶体，具有独特的光泽和结构，制作过程需要注意什么？',
+                    features: '导电晶体 · 电解生长'
+                },
+                {
+                    id: 'iodine',
+                    name: '碘晶体',
+                    description: '拥有迷人光泽的紫黑色晶体，利用升华凝华法制作时需要注意什么？',
+                    features: '易升华 · 注意防护'
+                },
+                {
+                    id: 'silver',
+                    name: '银单质',
+                    description: '通过电化学还原或置换制备，这种贵金属晶体具有极高的光泽和独特的树枝状结构',
+                    features: '闪耀光泽 · 贵金属'
+                }
+            ]
+        };
+
+        let selectedOption = null;
+        let hasVoted = false;
+        let pageInitialized = false;
+
+        // 页面加载状态管理
+        function setPageLoaded() {
+            if (!pageInitialized) {
+                pageInitialized = true;
+                if (window.stop) {
+                    window.stop();
+                }
+                document.body.classList.remove('loading');
+                console.log('页面加载完成');
+            }
+        }
+
+        // 带超时的初始化
+        function initializeWithTimeout() {
+            const timeoutId = setTimeout(() => {
+                console.log('初始化超时，强制完成页面加载');
+                setPageLoaded();
+            }, 5000);
+
+            initializeVotePage().finally(() => {
+                clearTimeout(timeoutId);
+                setPageLoaded();
+            });
+        }
+
+        // 初始化投票页面
+        async function initializeVotePage() {
+            try {
+                await Promise.all([
+                    renderVoteOptions(),
+                    loadVoteResults(),
+                    checkVotingStatus()
+                ]);
+                console.log('年度投票页面初始化完成');
+            } catch (error) {
+                console.error('初始化失败:', error);
+            }
+        }
+
+        // 渲染投票选项（按类别）
+        function renderVoteOptions() {
+            return new Promise((resolve) => {
+                // 渲染入门晶体
+                const beginnerContainer = document.getElementById('beginnerOptions');
+                beginnerContainer.innerHTML = '';
+                voteOptions.beginner.forEach((option, index) => {
+                    const optionElement = createOptionElement(option, 'beginner');
+                    beginnerContainer.appendChild(optionElement);
+                });
+
+                // 渲染进阶晶体
+                const advancedContainer = document.getElementById('advancedOptions');
+                advancedContainer.innerHTML = '';
+                voteOptions.advanced.forEach((option, index) => {
+                    const optionElement = createOptionElement(option, 'advanced');
+                    advancedContainer.appendChild(optionElement);
+                });
+
+                // 渲染单质晶体
+                const elementContainer = document.getElementById('elementOptions');
+                elementContainer.innerHTML = '';
+                voteOptions.element.forEach((option, index) => {
+                    const optionElement = createOptionElement(option, 'element');
+                    elementContainer.appendChild(optionElement);
+                });
+
+                resolve();
+            });
+        }
+
+        // 创建投票选项元素（简化版，无难度和icon）
+        function createOptionElement(option, category) {
+            const optionElement = document.createElement('div');
+            optionElement.className = 'vote-option';
+            optionElement.dataset.optionId = option.id;
+            optionElement.dataset.category = category;
+            
+            optionElement.innerHTML = `
+                <div class="crystal-name">${option.name}</div>
+                <div class="crystal-features">${option.features}</div>
+                <div class="crystal-description">${option.description}</div>
+                <div class="vote-stats">
+                    <div class="vote-count">票数: <span id="count_${option.id}">0</span></div>
+                    <div class="vote-percentage"><span id="percent_${option.id}">0</span>%</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress_${option.id}"></div>
+                </div>
+            `;
+
+            optionElement.addEventListener('click', () => selectOption(option.id, category));
+            return optionElement;
+        }
+
+        // 选择投票选项
+        function selectOption(optionId, category) {
+            if (hasVoted) return;
+
+            // 取消之前的选择
+            if (selectedOption) {
+                const prevOption = document.querySelector(`[data-option-id="${selectedOption}"]`);
+                if (prevOption) prevOption.classList.remove('selected');
+            }
+
+            // 选择新的选项
+            selectedOption = optionId;
+            const currentOption = document.querySelector(`[data-option-id="${selectedOption}"]`);
+            if (currentOption) {
+                currentOption.classList.add('selected');
+                
+                // 滚动到选中的选项
+                currentOption.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            }
+
+            // 启用提交按钮
+            document.getElementById('submitVote').disabled = false;
+        }
+
+        // 提交投票
+        async function submitVote() {
+            if (!selectedOption || hasVoted) return;
+
+            const submitBtn = document.getElementById('submitVote');
+            const messageDiv = document.getElementById('voteMessage');
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 提交中...';
+
+            try {
+                const response = await fetch(`${WORKER_URL}/api/vote`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        optionId: selectedOption,
+                        voterId: generateVoterId()
+                    })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    messageDiv.className = 'vote-message success';
+                    messageDiv.innerHTML = '<i class="fas fa-check-circle"></i> 投票成功！感谢您参与年度晶体评选。';
+                    hasVoted = true;
+                    submitBtn.style.display = 'none';
+                    
+                    // 记录本地投票状态
+                    localStorage.setItem(`annual_voted_${generateVoterId()}`, 'true');
+                    
+                    // 更新结果显示
+                    loadVoteResults();
+                    
+                    // 显示感谢消息
+                    setTimeout(() => {
+                        const thanksDiv = document.createElement('div');
+                        thanksDiv.className = 'vote-thanks';
+                        thanksDiv.innerHTML = `
+                            <h3><i class="fas fa-award"></i> 感谢您的投票！</h3>
+                            <p>投票结果将在年度评选中公布，敬请期待最终获奖晶体！</p>
+                            <p>您可以在下方查看实时投票结果。</p>
+                        `;
+                        document.querySelector('.vote-actions').insertAdjacentElement('beforebegin', thanksDiv);
+                    }, 1000);
+                } else {
+                    throw new Error(result.error || '投票失败');
+                }
+            } catch (error) {
+                messageDiv.className = 'vote-message error';
+                messageDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${error.message}`;
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-trophy"></i> 提交年度投票';
+            }
+        }
+
+        // 加载投票结果
+        async function loadVoteResults() {
+            try {
+                const response = await fetch(`${WORKER_URL}/api/vote/results`);
+                const results = await response.json();
+
+                if (results.success) {
+                    displayResults(results.data);
+                }
+            } catch (error) {
+                console.error('加载投票结果失败:', error);
+                // 显示空结果
+                displayEmptyResults();
+            }
+        }
+
+        // 显示投票结果
+        function displayResults(data) {
+            const resultsContainer = document.getElementById('voteResults');
+            const totalVotesSpan = document.getElementById('totalVotes');
+            const container = document.getElementById('resultsContainer');
+
+            resultsContainer.style.display = 'block';
+            totalVotesSpan.textContent = data.totalVotes || 0;
+
+            // 更新每个选项的票数和百分比
+            const allOptions = [...voteOptions.beginner, ...voteOptions.advanced, ...voteOptions.element];
+            allOptions.forEach(option => {
+                const optionData = data.options?.[option.id] || { votes: 0, percentage: 0 };
+                
+                const countElement = document.getElementById(`count_${option.id}`);
+                const percentElement = document.getElementById(`percent_${option.id}`);
+                const progressElement = document.getElementById(`progress_${option.id}`);
+
+                if (countElement) countElement.textContent = optionData.votes;
+                if (percentElement) percentElement.textContent = optionData.percentage.toFixed(1);
+                if (progressElement) progressElement.style.width = `${optionData.percentage}%`;
+            });
+
+            // 显示详细结果列表，按类别分组
+            container.innerHTML = '';
+            
+            // 合并所有选项
+            const allCrystals = allOptions.map(option => ({
+                ...option,
+                ...(data.options?.[option.id] || { votes: 0, percentage: 0 }),
+                category: voteOptions.beginner.includes(option) ? '入门晶体' : 
+                         voteOptions.advanced.includes(option) ? '进阶晶体' : '单质晶体'
+            })).sort((a, b) => b.votes - a.votes);
+
+            // 按类别分组显示
+            const categories = {
+                '入门晶体': allCrystals.filter(c => c.category === '入门晶体'),
+                '进阶晶体': allCrystals.filter(c => c.category === '进阶晶体'),
+                '单质晶体': allCrystals.filter(c => c.category === '单质晶体')
+            };
+
+            Object.entries(categories).forEach(([categoryName, crystals]) => {
+                if (crystals.length > 0) {
+                    const categoryHeader = document.createElement('div');
+                    categoryHeader.className = 'results-category-header';
+                    categoryHeader.innerHTML = `<h4>${categoryName}</h4>`;
+                    container.appendChild(categoryHeader);
+
+                    crystals.forEach((crystal, index) => {
+                        const resultItem = document.createElement('div');
+                        resultItem.className = 'vote-option result-item';
+                        resultItem.innerHTML = `
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div style="flex: 1;">
+                                    <strong>#${index + 1} ${crystal.name}</strong>
+                                    <div style="color: var(--text-light); font-size: 0.9rem; margin-top: 0.25rem;">
+                                        ${crystal.features}
+                                    </div>
+                                    <div style="color: var(--text-light); font-size: 0.85rem; margin-top: 0.5rem;">
+                                        ${crystal.votes} 票 (${crystal.percentage.toFixed(1)}%)
+                                    </div>
+                                </div>
+                                <div class="progress-bar" style="width: 40%; margin: 0 1rem;">
+                                    <div class="progress-fill" style="width: ${crystal.percentage}%;"></div>
+                                </div>
+                            </div>
+                        `;
+                        container.appendChild(resultItem);
+                    });
+                }
+            });
+        }
+
+        // 显示空结果
+        function displayEmptyResults() {
+            const container = document.getElementById('resultsContainer');
+            container.innerHTML = `
+                <div class="no-results">
+                    <i class="fas fa-chart-line"></i>
+                    <p>暂无投票数据，成为第一个投票者吧！</p>
+                </div>
+            `;
+        }
+
+        // 检查投票状态
+        function checkVotingStatus() {
+            const voterId = getVoterId();
+            if (voterId) {
+                hasVoted = localStorage.getItem(`annual_voted_${voterId}`) === 'true';
+                if (hasVoted) {
+                    document.getElementById('submitVote').style.display = 'none';
+                    document.getElementById('voteMessage').className = 'vote-message success';
+                    document.getElementById('voteMessage').innerHTML = '<i class="fas fa-info-circle"></i> 您已经参与过年度投票，感谢您的支持！';
+                    document.getElementById('voteMessage').style.display = 'block';
+                }
+            }
+        }
+
+        // 生成投票者ID
+        function generateVoterId() {
+            let voterId = localStorage.getItem('annualVoterId');
+            if (!voterId) {
+                voterId = 'annual_voter_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+                localStorage.setItem('annualVoterId', voterId);
+            }
+            return voterId;
+        }
+
+        function getVoterId() {
+            return localStorage.getItem('annualVoterId');
+        }
+
+        // 事件监听
+        document.getElementById('submitVote').addEventListener('click', submitVote);
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM内容加载完成，开始初始化年度投票页面');
+            initializeWithTimeout();
+        });
+
+        window.addEventListener('load', function() {
+            console.log('窗口加载完成');
+            setTimeout(setPageLoaded, 1000);
+        });
+    </script>
+</body>
+>>>>>>> ca3f345e54aa8670faf05de6cdf3c9d88f198d00
 </html>

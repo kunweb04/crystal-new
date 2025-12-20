@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -648,4 +649,656 @@
         });
     </script>
 </body>
+=======
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CrystalLab - 晶体培养指南网站，提供从硫酸铜、磷酸二氢钾到金属铋等多种晶体的详细培养教程，也收录了许多精美的晶体作品">
+    <meta name="keywords" content="晶体培养,晶体化学,电解铜晶体,电解铜,氯化铜,树枝晶,单质晶体,晶体制作,结晶艺术,电化学结晶">
+    <meta name="author" content="CrystalLab团队">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CrystalLab">
+    <meta property="og:title" content="CrystalLab - 电解铜晶体">
+    <meta property="og:description" content="学习如何通过硫酸铜和氯化铜两种体系制备美丽的电解铜树枝晶，从电解液配置到电化学结晶的完整步骤">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://crystal-lab.org/electrolytic-copper.html">
+    <meta property="og:image" content="https://crystal-lab.org/og.png">
+    <title>晶体化学指南 - 电解铜篇 - CrystalLab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="content.css?v=1.0.2">
+    <link rel="icon" href="favicon.ico" type="image/png">
+    <meta name="google-adsense-account" content="ca-pub-9337526323324673">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9337526323324673"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <div class="safety-container">
+            <div class="safety-content">
+                <h1>晶体化学指南<br><span>电解铜篇</span></h1>
+
+                <img src="p/电解铜3.jpg" alt="电解铜" class="content-image">
+                <p style="text-align:center;color:var(--accent)">图源：关关</p>
+
+                <div class="crystal-decoration top-left"><i class="fas fa-gem"></i></div>
+                <div class="crystal-decoration bottom-right"><i class="fas fa-gem"></i></div>
+
+                <section id="quick-start">
+                    <h2>🎯 预览</h2>
+                    <div class="method-card">
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>项目概览：</strong>
+                                <ul>
+                                    <li>难度等级：★★☆☆☆ (中级)</li>
+                                    <li>制备周期：1-3天</li>
+                                    <li>成功率：75%</li>
+                                    <li>推荐人群：有电化学基础者</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>所需材料：</strong>
+                                <ul>
+                                    <li>硫酸铜、稀硫酸/盐酸、氯化铵</li>
+                                    <li>可调稳流直流电源</li>
+                                    <li>铜电极(阳极和阴极)</li>
+                                    <li>电解容器、导线、光亮剂</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="basic">
+                    <h2>一、基础认识</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-flask"></i> 1.1 电化学特性</h3>
+                        <p class="chemical-formula">电解反应：Cu²⁺ + 2e⁻ → Cu (阴极还原)</p>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">外观特征</div>
+                                <div class="step-detail">金属红色树枝状结晶，具有金属光泽和分形结构</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">晶体形态</div>
+                                <div class="step-detail">典型树枝晶、分形结构、枝蔓晶</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">晶系</div>
+                                <div class="step-detail">面心立方晶系，金属铜的标准晶型</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-atom"></i> 1.2 结构特点</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">金属晶体结构</div>
+                                <div class="step-detail">面心立方堆积，配位数为12</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">电学特性</div>
+                                <div class="step-detail">优良的导电性和延展性</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">结晶习性</div>
+                                <div class="step-detail">电场作用下易形成树枝状分形结晶</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="experiment">
+                    <h2>二、实验与制备</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-vial"></i> 2.1 硫酸体系电解液</h3>
+                        <p>目标：配制500ml硫酸铜电解液</p>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">基础配方</div>
+                                <div class="step-detail">200g/L 硫酸铜 + 50mL/L 浓硫酸 + 蒸馏水</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">配制步骤</div>
+                                <div class="step-detail">先将硫酸铜溶于400mL温水，冷却后缓慢加入浓硫酸，最后加水至500mL</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">优化配方</div>
+                                <div class="step-detail">添加少量盐酸(0.1g/L)或明胶可改善结晶质量</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-vial"></i> 2.2 含氯体系电解液</h3>
+                        
+                        <div class="method-card">
+                            <h4><i class="fas fa-flask"></i> 方法一：硫酸铜-盐酸-氯化铵混合体系</h4>
+                            <p>目标：配制500ml含氯电解液</p>
+                            <div class="step-list">
+                                <div class="step-item">
+                                    <div class="step-title">基础配方</div>
+                                    <div class="step-detail">200g/L 硫酸铜 + 30mL/L 浓盐酸 + 20g/L 氯化铵 + 蒸馏水</div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">配制步骤</div>
+                                    <div class="step-detail">将硫酸铜和氯化铵溶于400mL温水，加入浓盐酸，最后加水至500mL</div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">体系特点</div>
+                                    <div class="step-detail">氯离子促进树枝晶形成，结晶更快速，形态更丰富</div>
+                                </div>
+                            </div>
+                            
+                            <div class="formula-box">
+                                <div class="formula-title">化学反应：</div>
+                                CuSO₄ + 2NH₄Cl → CuCl₂ + (NH₄)₂SO₄<br>
+                                电解液中同时存在Cu²⁺和Cl⁻，促进树枝晶形成
+                            </div>
+                        </div>
+                        
+                        <div class="method-card">
+                            <h4><i class="fas fa-flask"></i> 方法二：纯盐酸体系</h4>
+                            <p>目标：配制500ml纯盐酸电解液</p>
+                            <div class="step-list">
+                                <div class="step-item">
+                                    <div class="step-title">基础配方</div>
+                                    <div class="step-detail">200g/L 硫酸铜 + 50-100mL/L 浓盐酸 + 蒸馏水</div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">配制步骤</div>
+                                    <div class="step-detail">将硫酸铜溶于400mL温水，缓慢加入浓盐酸，最后加水至500mL</div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">体系特点</div>
+                                    <div class="step-detail">高氯离子浓度，树枝晶生长更迅速，形态更细密复杂</div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">配方说明</div>
+                                    <div class="step-detail">盐酸酸化硫酸铜溶液，提供高浓度氯离子促进树枝晶生长</div>
+                                </div>
+                            </div>
+                            
+                            <div class="formula-box">
+                                <div class="formula-title">纯盐酸体系反应：</div>
+                                CuSO₄ + 2HCl → CuCl₂ + H₂SO₄ (部分反应)<br>
+                                电解液中同时存在Cu²⁺、SO₄²⁻和Cl⁻，高氯离子浓度显著增强电化学极化，促进树枝晶分形生长
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-bolt"></i> 2.3 电解装置搭建</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">电源选择</div>
+                                <div class="step-detail">
+                                    推荐使用可调稳流直流电源<br>
+                                    需能调节到个位数毫安级别<br>
+                                    可购买实验室用直流稳压电源或自制可调电源
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">电极选择</div>
+                                <div class="step-detail">
+                                    阳极：纯铜板或铜棒<br>
+                                    阴极：铜片、铜丝或不锈钢片
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">电极间距</div>
+                                <div class="step-detail">阴阳极间距3-5cm为佳，距离过近易短路</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-seedling"></i> 2.4 硫酸体系电解</h3>
+                        <div class="note">
+                            <strong>💡 标准电解法</strong>
+                            <p>材料：硫酸铜电解液、直流电源、电极、电解容器</p>
+                            
+                            <div class="step-list">
+                                <div class="step-item">
+                                    <div class="step-title">初始设置</div>
+                                    <div class="step-detail">
+                                        连接电路，阴极接电源负极，阳极接正极
+                                        <div class="note">
+                                            确保电极不接触，防止短路
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">开始电解</div>
+                                    <div class="step-detail">
+                                        设置稳流模式，电流调至100-200mA，观察阴极铜沉积
+                                        <div class="note">
+                                            初始电流宜小，待晶体开始生长后逐步调整
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">过程监控</div>
+                                    <div class="step-detail">
+                                        电解1-3小时，定期观察晶体生长情况
+                                        <div class="note">
+                                            注意事项：<br>
+                                            - 控制电流密度，避免沉积过快<br>
+                                            - 保持电解液温度20-30℃<br>
+                                            - 定期搅拌电解液使浓度均匀
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-seedling"></i> 2.5 含氯体系电解</h3>
+                        <div class="note">
+                            <strong>💡 树枝晶快速生长法</strong>
+                            <p>材料：含氯电解液、直流电源、电极、电解容器</p>
+                            
+                            <div class="step-list">
+                                <div class="step-item">
+                                    <div class="step-title">快速启动</div>
+                                    <div class="step-detail">
+                                        连接电路，设置稳流模式，电流调至200mA
+                                        <div class="note">
+                                            新手建议从200mA开始，后续可逐步提高
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">树枝晶形成</div>
+                                    <div class="step-detail">
+                                        电解30-60分钟即可观察到明显树枝晶生长
+                                        <div class="note">
+                                            氯离子促进尖端放电，加速树枝晶形成
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">形态控制</div>
+                                    <div class="step-detail">
+                                        通过调节电流和电极形状控制树枝晶分形结构
+                                        <div class="note">
+                                            注意事项：<br>
+                                            - 电流越高，树枝晶分支越细密<br>
+                                            - 电极尖端越尖锐，树枝晶生长越定向<br>
+                                            - 电解时间越长，分形结构越复杂
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">晶体收集</div>
+                                    <div class="step-detail">
+                                        断电后小心取出阴极，用蒸馏水冲洗晶体
+                                        <div class="note">
+                                            含氯体系晶体更脆弱，操作需格外小心
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-sparkles"></i> 2.6 表面处理与光亮剂使用</h3>
+                        <div class="note">
+                            <strong>💡 改善晶体表面质量</strong>
+                            <p>材料：铜光亮剂、钝化剂</p>
+                            
+                            <div class="step-list">
+                                <div class="step-item">
+                                    <div class="step-title">光亮剂作用</div>
+                                    <div class="step-detail">
+                                        防止铜表面被溶液腐蚀，使电镀出的铜更光亮
+                                        <div class="note">
+                                            市售铜光亮剂可显著改善晶体表面光洁度
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">使用方法</div>
+                                    <div class="step-detail">
+                                        按产品说明添加适量光亮剂至电解液中
+                                        <div class="note">
+                                            一般添加量为0.5-2mL/L电解液
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">钝化处理</div>
+                                    <div class="step-detail">
+                                        电解完成后可使用钝化剂处理晶体表面
+                                        <div class="note">
+                                            防止晶体氧化变色，保持金属光泽
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">注意事项</div>
+                                    <div class="step-detail">
+                                        若电出的铜表面粗糙，建议使用光亮剂
+                                        <div class="note">
+                                            粗糙表面通常是铜被溶液腐蚀所致
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-project-diagram"></i> 2.7 三体系对比</h3>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>硫酸体系：</strong>
+                                <ul>
+                                    <li>结晶速度适中，可控性好</li>
+                                    <li>晶体结构相对致密</li>
+                                    <li>操作相对安全</li>
+                                    <li>适合初学者练习</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>混合氯体系：</strong>
+                                <ul>
+                                    <li>结晶速度快，效率高</li>
+                                    <li>树枝晶形态更丰富</li>
+                                    <li>分形结构更明显</li>
+                                    <li>适合艺术创作</li>
+                                </ul>
+                            </div>
+                            <div class="pros">
+                                <strong>纯盐酸体系：</strong>
+                                <ul>
+                                    <li>结晶速度最快</li>
+                                    <li>树枝晶形态最复杂细密</li>
+                                    <li>适合制作精细分形结构</li>
+                                    <li>氯离子浓度最高</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="safety">
+                    <h2>三、安全与注意事项</h2>
+                    <div class="warning-box">
+                        <h3><i class="fas fa-exclamation-triangle"></i> 3.1 电安全</h3>
+                        <ul>
+                            <li>使用隔离变压器或低压直流电源，避免触电风险</li>
+                            <li>电解过程中不要触摸电极和电解液</li>
+                            <li>确保所有电路连接牢固，防止短路</li>
+                            <li>电解容器应放置在绝缘垫上</li>
+                        </ul>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-shield-alt"></i> 3.2 化学安全</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">酸液防护</div>
+                                <div class="step-detail">浓硫酸和浓盐酸有强腐蚀性，配制时戴防护眼镜和手套</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">氯气防护</div>
+                                <div class="step-detail">含氯体系可能产生微量氯气，需在通风良好处操作</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">废液处理</div>
+                                <div class="step-detail">含铜废液需专门收集，不可直接倒入下水道</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="gallery">
+                    <h2>四、成果展示与质量评估</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-gem"></i> 优质晶体特征</h3>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>优质树枝晶：</strong>
+                                <ul>
+                                    <li>颜色纯正，呈金属红色</li>
+                                    <li>分形结构清晰，分支均匀</li>
+                                    <li>形态规整，层次分明</li>
+                                    <li>结构牢固，不易破碎</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>问题晶体：</strong>
+                                <ul>
+                                    <li>颜色发暗 - 杂质污染或氧化</li>
+                                    <li>结构疏松 - 电流密度过大</li>
+                                    <li>形态畸形 - 电场分布不均</li>
+                                    <li>沉积不均 - 电解液浓度不当</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="troubleshooting">
+                    <h2>五、问题诊断与解决</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-stethoscope"></i> 常见问题排查</h3>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题一：晶体生长缓慢</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>电流过小、电解液浓度低、温度过低</li>
+                                <li><strong>解决方案：</strong>适当提高电流，增加电解液浓度，提高环境温度</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题二：树枝晶不形成</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>电流密度过小、电解液成分不当</li>
+                                <li><strong>解决方案：</strong>提高电流密度，改用含氯体系，确保氯离子浓度</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题三：晶体易脱落</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>沉积过快、电极表面不洁</li>
+                                <li><strong>解决方案：</strong>降低电流密度，抛光电极表面，延长电解时间</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题四：晶体表面粗糙</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>铜被溶液腐蚀、电流密度过大</li>
+                                <li><strong>解决方案：</strong>使用光亮剂、降低电流密度、优化电解液配方</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="advanced">
+                    <h2>六、进阶技巧</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-microscope"></i> 6.1 微观控制</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">脉冲电解</div>
+                                <div class="step-detail">使用脉冲电源可获得更精细的树枝晶结构</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">温度梯度控制</div>
+                                <div class="step-detail">通过控制电解液温度梯度引导树枝晶生长方向</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">电极形状设计</div>
+                                <div class="step-detail">使用特定形状的阴极获得预设形态的树枝晶</div>
+                            </div>
+                        </div>
+
+                        <h3><i class="fas fa-palette"></i> 6.2 艺术创作</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">彩色电解铜</div>
+                                <div class="step-detail">通过控制氧化条件获得红、紫、蓝等彩色效果</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">复合电沉积</div>
+                                <div class="step-detail">在铜基底上电沉积其他金属形成复合树枝晶</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">3D树枝晶结构</div>
+                                <div class="step-detail">通过多层电沉积构建三维树枝晶网络</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="application">
+                    <h2>七、应用领域</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-industry"></i> 7.1 工业与科技应用</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">电子工业</div>
+                                <div class="step-detail">印刷电路板电镀、电子元器件制造</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">材料科学</div>
+                                <div class="step-detail">纳米材料制备、功能材料研究</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">电化学研究</div>
+                                <div class="step-detail">电极过程动力学、分形生长机理研究</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">艺术创作</div>
+                                <div class="step-detail">金属艺术品制作、装饰材料开发</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 文章广告 -->
+                <div class="ad-container article-ad">
+                    <ins class="adsbygoogle"
+                         style="display:block; text-align:center;"
+                         data-ad-layout="in-article"
+                         data-ad-format="fluid"
+                         data-ad-client="ca-pub-9337526323324673"
+                         data-ad-slot="6874868877"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+
+            <nav class="safety-nav">
+                <h3>内容导航</h3>
+                <ul>
+                    <li><a href="#basic">基础认识</a></li>
+                    <li><a href="#experiment">实验制备</a></li>
+                    <li><a href="#safety">安全事项</a></li>
+                    <li><a href="#gallery">质量评估</a></li>
+                    <li><a href="#troubleshooting">问题诊断</a></li>
+                    <li><a href="#advanced">进阶技巧</a></li>
+                    <li><a href="#application">应用领域</a></li>
+                    <li><a href="index.html">返回首页</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        document.querySelectorAll('.safety-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 100;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                document.querySelectorAll('.safety-nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.safety-nav a[href^="#"]');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop - 150) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        // 研究方向标签切换
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.research-tab');
+            const contents = document.querySelectorAll('.research-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // 移除所有active类
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    // 添加当前active类
+                    this.classList.add('active');
+                    const tabId = this.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+            
+            // 根据URL哈希自动激活对应标签
+            const hash = window.location.hash;
+            if (hash && hash.startsWith('#branch-')) {
+                const branchId = hash.replace('#branch-', '');
+                const tab = document.querySelector(`.research-tab[data-tab="${branchId}"]`);
+                if (tab) {
+                    setTimeout(() => tab.click(), 100);
+                }
+            }
+        });
+    </script>
+</body>
+>>>>>>> ca3f345e54aa8670faf05de6cdf3c9d88f198d00
 </html>
