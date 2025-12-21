@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 name = "crystal-lab-vote"
 compatibility_date = "2023-10-01"
 
@@ -7,14 +6,4 @@ compatibility_date = "2023-10-01"
 binding = "CRYSTAL_VOTES"
 id = "fcc66645f21349a0af74b0f79e8081fa"
 
-=======
-name = "crystal-lab-vote"
-compatibility_date = "2023-10-01"
-
-# KV 命名空间配置
-[[kv_namespaces]]
-binding = "CRYSTAL_VOTES"
-id = "fcc66645f21349a0af74b0f79e8081fa"
-
->>>>>>> ca3f345e54aa8670faf05de6cdf3c9d88f198d00
 [env.development]
