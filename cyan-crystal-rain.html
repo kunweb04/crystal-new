@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CrystalLab - 青晶雨培养完整教程 - 六钼酸合钴(III)酸铵晶体制备，包含实验步骤、安全注意事项、问题排查和保存方法">
+    <meta name="keywords" content="晶体培养,青晶雨,六钼酸合钴(III)酸铵,硫酸钴,仲钼酸铵,过硫酸钾,晶雨制作,结晶艺术,重金属晶雨">
+    <meta name="author" content="CrystalLab团队">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CrystalLab">
+    <meta property="og:title" content="CrystalLab - 青晶雨">
+    <meta property="og:description" content="学习如何制备青晶雨（六钼酸合钴(III)酸铵），掌握杂多酸配合物晶体的制备技术">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://crystal-lab.org/cyan-crystal-rain.html">
+    <meta property="og:image" content="https://crystal-lab.org/og-cyan.png">
+    <title>晶体化学指南 - 青晶雨篇 - CrystalLab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="content.css">
+    <link rel="icon" href="favicon.ico" type="image/png">
+    <meta name="google-adsense-account" content="ca-pub-9337526323324673">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9337526323324673"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <div class="safety-container">
+            <div class="safety-content">
+                <h1>晶体化学指南<br><span>青晶雨篇</span></h1>
+
+                <div class="crystal-decoration top-left"><i class="fas fa-gem"></i></div>
+                <div class="crystal-decoration bottom-right"><i class="fas fa-gem"></i></div>
+
+                <img src="p/青晶雨.jpg" alt="青晶雨" class="content-image">
+                <p style="text-align:center;color:var(--accent)">图源：迷路的野指针</p>
+
+                <section id="quick-start">
+                    <h2>🎯 预览</h2>
+                    <div class="method-card">
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>项目概览：</strong>
+                                <ul>
+                                    <li>难度等级：★★★☆☆ (高级)</li>
+                                    <li>制备周期：3-4小时</li>
+                                    <li>成功率：60%</li>
+                                    <li>推荐人群：有化学实验经验者</li>
+                                    <li>推荐指数：★★☆☆☆ (不推荐)</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>所需材料：</strong>
+                                <ul>
+                                    <li>硫酸钴 (CoSO₄·7H₂O)</li>
+                                    <li>仲钼酸铵 [(NH₄)₆Mo₇O₂₄·4H₂O]</li>
+                                    <li>过硫酸钾 (K₂S₂O₈)</li>
+                                    <li>蒸馏水</li>
+                                    <li>50mL烧杯、100mL烧杯</li>
+                                    <li>表面皿、西林瓶/螺口瓶</li>
+                                    <li>电子秤、磁力搅拌器/玻璃棒</li>
+                                    <li>过滤装置</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="basic">
+                    <h2>一、基础认识</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-flask"></i> 1.1 化学特性</h3>
+                        <p class="chemical-formula">化学式：(NH₄)₃H₆[CoMo₆O₂₄]·xH₂O</p>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">系统名称</div>
+                                <div class="step-detail">六钼酸合钴(III)酸铵</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">外观特征</div>
+                                <div class="step-detail">青色至蓝绿色晶体，在溶液中形成悬浮晶雨</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">配合物类型</div>
+                                <div class="step-detail">杂多酸配合物，Anderson型结构</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">稳定性</div>
+                                <div class="step-detail">晶体不稳定，久置会失去折光性且易变白</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-atom"></i> 1.2 结构特点</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">Anderson结构</div>
+                                <div class="step-detail">
+                                    中心Co³⁺被6个MoO₆八面体包围<br>
+                                    形成[CoMo₆O₂₄]³⁻阴离子簇<br>
+                                    铵离子作为抗衡离子
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">晶体特性</div>
+                                <div class="step-detail">青色晶体，在水中溶解度适中</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">颜色成因</div>
+                                <div class="step-detail">
+                                    Co³⁺(d⁶)在八面体场中的d-d电子跃迁<br>
+                                    钼酸根配体的电荷转移跃迁<br>
+                                    综合呈现青色
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="warning-box" style="border-color: #e74c3c; background-color: rgba(231, 76, 60, 0.1);">
+                        <h3><i class="fas fa-exclamation-triangle"></i> 重要提示</h3>
+                        <ul>
+                            <li><strong>不推荐实验：</strong>此晶体不稳定，久置会失去折光性且易变白，综合体验感较差</li>
+                            <li><strong>毒性警告：</strong>钼为重金属元素，对人体及生物有害</li>
+                            <li><strong>废液处理：</strong>必须进行无毒化处理后才能排入生活用水</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="experiment">
+                    <h2>二、实验与制备</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-vial"></i> 2.1 实验步骤</h3>
+                        <div class="note">
+                            <strong>💡 青晶雨制备法</strong>
+                            <p>材料：硫酸钴、仲钼酸铵、过硫酸钾、蒸馏水、烧杯、表面皿、西林瓶</p>
+                            
+                            <div class="step-list">
+                                <div class="step-item">
+                                    <div class="step-title">步骤一：配制硫酸钴溶液</div>
+                                    <div class="step-detail">
+                                        称取2.8g硫酸钴于50mL烧杯中，加入20mL水后搅拌半分钟
+                                        <div class="note">
+                                            硫酸钴溶液呈玫瑰红色
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">步骤二：配制仲钼酸铵溶液</div>
+                                    <div class="step-detail">
+                                        称取12.4g仲钼酸铵于另一50mL烧杯中，加30mL水后搅拌半分钟
+                                        <div class="note">
+                                            仲钼酸铵溶液为无色或淡黄色
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">步骤三：混合溶液</div>
+                                    <div class="step-detail">
+                                        将两烧杯中溶液倒入100mL烧杯中混合，此时溶液呈暗红色
+                                        <div class="note">
+                                            持续加热并充分搅拌
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">步骤四：加入过硫酸钾</div>
+                                    <div class="step-detail">
+                                        当烧杯中溶质基本完全溶解时，向其中加入2g过硫酸钾
+                                        <div class="note">
+                                            不断搅拌至溶液沸腾，沸腾3-5分钟
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">步骤五：过滤与冷却</div>
+                                    <div class="step-detail">
+                                        溶液沸腾3-5分钟后趁热过滤，滤液静置1-2小时至冷却室温
+                                        <div class="note">
+                                            冷却后大量绿色晶体析出
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">步骤六：二次处理</div>
+                                    <div class="step-detail">
+                                        对原先滤液再次过滤，取滤渣于100mL烧杯中
+                                        <div class="note">
+                                            向其中加入80mL水
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">步骤七：装瓶保存</div>
+                                    <div class="step-detail">
+                                        将烧杯中的溶液倒入西林瓶中，盖紧瓶盖
+                                        <div class="note">
+                                            成品即为"青晶雨"
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">步骤八：清理工作</div>
+                                    <div class="step-detail">
+                                        将所有仪器洗净并收好，清理桌面，完成实验
+                                        <div class="note">
+                                            特别注意含钼废液的处理，必须进行无害化处理
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-lightbulb"></i> 2.2 反应原理</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">反应方程式</div>
+                                <div class="step-detail">
+                                    14CoSO₄ + 12(NH₄)₆Mo₇O₂₄ + 7K₂S₂O₈ + 48H₂O →<br>
+                                    15(NH₄)₂SO₄ + 7K₂SO₄ + 6H₂SO₄ + 14(NH₄)₃H₆[CoMo₆O₂₄]
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">氧化过程</div>
+                                <div class="step-detail">过硫酸钾将Co²⁺氧化为Co³⁺，形成稳定的杂多酸配合物</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">配位过程</div>
+                                <div class="step-detail">Co³⁺与钼酸根配体形成Anderson型杂多酸阴离子</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-exclamation-triangle"></i> 2.3 实验注意事项</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">加热控制</div>
+                                <div class="step-detail">加热至沸腾即可，避免过度加热导致分解</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">过滤时机</div>
+                                <div class="step-detail">必须趁热过滤，冷却后过滤困难</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">结晶控制</div>
+                                <div class="step-detail">静置冷却时间不宜过长，1-2小时为宜</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="safety">
+                    <h2>三、安全与注意事项</h2>
+                    
+                    <div class="warning-box" style="border-color: #e74c3c; background-color: rgba(231, 76, 60, 0.1);">
+                        <h3><i class="fas fa-skull-crossbones"></i> 3.1 重金属毒性警告</h3>
+                        <ul>
+                            <li><strong>钼的毒性：</strong>钼为重金属元素，对人体及生物有害</li>
+                            <li><strong>钴的毒性：</strong>钴化合物有一定毒性，避免接触</li>
+                            <li><strong>全程防护：</strong>实验必须全程戴好防护手套、护目镜和实验服</li>
+                            <li><strong>通风要求：</strong>必须在通风良好或通风橱内进行操作</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <h3><i class="fas fa-exclamation-triangle"></i> 3.2 废液处理</h3>
+                        <ul>
+                            <li><strong>专门收集：</strong>所有含钼、钴废液必须专门收集，不可倒入普通下水道</li>
+                            <li><strong>无害化处理：</strong>废液需进行化学处理（如沉淀、吸附）后，交由专业机构处理</li>
+                            <li><strong>生活用水排放：</strong>必须进行无毒处理后排入生活用水</li>
+                            <li><strong>容器清洗：</strong>接触过钼盐、钴盐的容器需用稀酸清洗后再用水冲洗</li>
+                        </ul>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-shield-alt"></i> 3.3 应急处理</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">皮肤接触</div>
+                                <div class="step-detail">立即用大量清水冲洗15分钟，如有不适及时就医</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">眼睛接触</div>
+                                <div class="step-detail">立即用流动清水冲洗15分钟，并立即就医</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">误食处理</div>
+                                <div class="step-detail">立即漱口，饮用牛奶或蛋清，并立即就医</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">泄漏处理</div>
+                                <div class="step-detail">用沙土或专用吸附剂覆盖，收集后按危险废物处理</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="gallery">
+                    <h2>四、成果展示与质量评估</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-gem"></i> 青晶雨特征</h3>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>优质青晶雨：</strong>
+                                <ul>
+                                    <li>晶体呈鲜艳的青绿色</li>
+                                    <li>晶体分布均匀，悬浮性好</li>
+                                    <li>溶液澄清，便于观察</li>
+                                    <li>晶雨效果明显</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>稳定性问题：</strong>
+                                <ul>
+                                    <li>晶体不稳定，久置会变白</li>
+                                    <li>容易失去折光性</li>
+                                    <li>保存时间短</li>
+                                    <li>综合体验感较差</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="warning-box">
+                        <h3><i class="fas fa-exclamation-circle"></i> 重要提醒</h3>
+                        <p>由于青晶雨的稳定性问题，不推荐长期保存或作为观赏工艺品。如需展示，建议在制备后短时间内进行观察和摄影。</p>
+                    </div>
+                </section>
+
+                <section id="troubleshooting">
+                    <h2>五、问题诊断与解决</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-stethoscope"></i> 常见问题排查</h3>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题一：晶体颜色不正</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>氧化不完全、杂质影响、pH不当</li>
+                                <li><strong>解决方案：</strong>确保过硫酸钾添加充分、使用纯试剂、控制反应条件</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题二：晶体析出量少</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>浓度不足、冷却过快、过滤不当</li>
+                                <li><strong>解决方案：</strong>确保溶液浓度、控制冷却速度、正确过滤</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题三：晶体迅速变白</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>晶体不稳定、光照影响、杂质催化</li>
+                                <li><strong>解决方案：</strong>这是本晶体的固有缺陷，无有效解决方法</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题四：溶液浑浊</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>过滤不彻底、杂质污染</li>
+                                <li><strong>解决方案：</strong>重新过滤溶液，确保容器洁净</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="science">
+                    <h2>六、科学原理</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-atom"></i> 6.1 杂多酸化学</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">Anderson结构</div>
+                                <div class="step-detail">[CoMo₆O₂₄]³⁻为Anderson型杂多酸阴离子，中心Co³⁺被6个MoO₆八面体包围</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">氧化还原</div>
+                                <div class="step-detail">过硫酸钾将Co²⁺氧化为Co³⁺，形成稳定的高价态配合物</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">配位化学</div>
+                                <div class="step-detail">Co³⁺与钼酸根形成稳定的杂多酸配合物，铵离子作为抗衡离子</div>
+                            </div>
+                        </div>
+
+                        <h3><i class="fas fa-eye"></i> 6.2 颜色与稳定性</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">颜色成因</div>
+                                <div class="step-detail">Co³⁺的d-d跃迁与配体到金属的电荷转移跃迁共同作用</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">不稳定性</div>
+                                <div class="step-detail">Anderson型杂多酸在溶液中可能发生分解或结构变化</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">光敏性</div>
+                                <div class="step-detail">可能对光敏感，导致颜色褪去或结构变化</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="application">
+                    <h2>七、应用与展示</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-palette"></i> 7.1 展示建议</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">短期观赏</div>
+                                <div class="step-detail">制备后可短时间内作为观赏品，展现杂多酸晶体的独特色彩</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">科学演示</div>
+                                <div class="step-detail">可用于演示杂多酸化学、氧化还原反应和配位化学</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">摄影素材</div>
+                                <div class="step-detail">青绿色晶体在溶液中悬浮的独特效果，是极佳的摄影素材</div>
+                            </div>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 展示限制</h4>
+                            <p>由于晶体稳定性差，不建议作为长期观赏工艺品。装瓶后的西林瓶/螺口瓶应小心保管以防破裂，且需明确标注制备日期和有效期。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="preservation">
+                    <h2>八、保存与维护</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-box"></i> 8.1 保存方法</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">短期保存</div>
+                                <div class="step-detail">密封保存于西林瓶中，避免光照和温度变化</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">避光存放</div>
+                                <div class="step-detail">严格避光保存，光照会加速晶体变质</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">温度稳定</div>
+                                <div class="step-detail">存放在温度稳定的阴凉处</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">防破损</div>
+                                <div class="step-detail">小心保管防止玻璃瓶破裂</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">保存期限</div>
+                                <div class="step-detail">建议制备后一周内观察，之后晶体质量会显著下降</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="author-card">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <div class="author-info">
+                        <p class="author-title">本章作者</p>
+                        <h3>不会炼金的阿贝少</h3>
+                        <div class="author-social">
+                            <span class="social-tag"><i class="fas fa-flask"></i> 晶体专家</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ad-container article-ad">
+                    <ins class="adsbygoogle"
+                         style="display:block; text-align:center;"
+                         data-ad-layout="in-article"
+                         data-ad-format="fluid"
+                         data-ad-client="ca-pub-9337526323324673"
+                         data-ad-slot="6874868877"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+
+            <nav class="safety-nav">
+                <h3>内容导航</h3>
+                <ul>
+                    <li><a href="#basic">基础认识</a></li>
+                    <li><a href="#experiment">实验制备</a></li>
+                    <li><a href="#safety">安全事项</a></li>
+                    <li><a href="#gallery">质量评估</a></li>
+                    <li><a href="#troubleshooting">问题诊断</a></li>
+                    <li><a href="#science">科学原理</a></li>
+                    <li><a href="#application">应用展示</a></li>
+                    <li><a href="#preservation">保存维护</a></li>
+                    <li><a href="index.html">返回首页</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        document.querySelectorAll('.safety-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 100;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                document.querySelectorAll('.safety-nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.safety-nav a[href^="#"]');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop - 150) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
