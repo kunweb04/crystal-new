@@ -1,94 +1,117 @@
-// 上传端点配置
-const UPLOAD_ENDPOINTS = {
-    production: 'https://upload.your-workers-domain.workers.dev/upload',
-    development: 'http://localhost:8787/upload'
+// 上传配置
+const UPLOAD_CONFIG = {
+    endpoint: 'https://crystallab-upload.enderwolf9487.workers.dev',
+    
+    // 文件大小限制
+    limits: {
+        image: 10 * 1024 * 1024, // 10MB
+        video: 100 * 1024 * 1024, // 100MB
+        document: 20 * 1024 * 1024 // 20MB
+    }
 };
 
-// 自动检测环境
-function getUploadEndpoint() {
-    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-        return UPLOAD_ENDPOINTS.development;
-    }
-    return UPLOAD_ENDPOINTS.production;
-}
-
-// 主上传函数
-async function uploadToBackend(formData) {
-    const endpoint = getUploadEndpoint();
-    
-    try {
-        const response = await fetch(endpoint, {
-            method: 'POST',
-            body: formData
-        });
-        
-        if (!response.ok) {
-            throw new Error(`服务器错误: ${response.status}`);
-        }
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            return {
-                success: true,
-                data: result,
-                message: result.message || '提交成功！'
-            };
-        } else {
-            throw new Error(result.message || '上传失败');
-        }
-    } catch (error) {
-        console.error('上传失败:', error);
-        throw error;
-    }
-}
-
-// 文件验证
-function validateFile(file, options = {}) {
-    const { maxSize = 10 * 1024 * 1024 } = options;
-    
-    if (file.size > maxSize) {
-        return {
-            valid: false,
-            error: `文件太大，最大 ${formatFileSize(maxSize)}`
-        };
+class UploadHandler {
+    constructor() {
+        this.queue = [];
+        this.isUploading = false;
     }
     
-    return { valid: true };
-}
-
-// 格式化文件大小
-function formatFileSize(bytes) {
-    if (bytes < 1024) return bytes + ' Bytes';
-    if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
-    return (bytes / (1024 * 1024)).toFixed(1) + ' MB';
-}
-
-// 创建表单数据
-function createUploadFormData(data, source) {
-    const formData = new FormData();
-    formData.append('source', source);
-    
-    // 添加所有数据
-    Object.keys(data).forEach(key => {
-        if (data[key] instanceof File) {
-            formData.append(key, data[key]);
-        } else if (Array.isArray(data[key])) {
-            data[key].forEach(item => {
-                formData.append(key, item);
+    async upload(data, source = 'contribute') {
+        try {
+            const formData = new FormData();
+            formData.append('source', source);
+            formData.append('timestamp', new Date().toISOString());
+            
+            // 添加所有数据到 FormData
+            Object.keys(data).forEach(key => {
+                if (data[key] instanceof File) {
+                    formData.append(key, data[key]);
+                } else if (Array.isArray(data[key]) && data[key].every(item => item instanceof File)) {
+                    data[key].forEach(file => {
+                        formData.append(key, file);
+                    });
+                } else {
+                    formData.append(key, String(data[key]));
+                }
             });
-        } else {
-            formData.append(key, data[key]);
+            
+            const response = await fetch(UPLOAD_CONFIG.endpoint, {
+                method: 'POST',
+                body: formData
+            });
+            
+            if (!response.ok) {
+                const errorText = await response.text();
+                throw new Error(`上传失败: ${response.status} ${errorText}`);
+            }
+            
+            const result = await response.json();
+            
+            if (result.success) {
+                return {
+                    success: true,
+                    data: result,
+                    message: result.message || '提交成功'
+                };
+            } else {
+                throw new Error(result.message || '上传失败');
+            }
+        } catch (error) {
+            console.error('Upload error:', error);
+            throw error;
         }
-    });
+    }
     
-    return formData;
+    validateFile(file, type = 'image') {
+        const maxSize = UPLOAD_CONFIG.limits[type] || UPLOAD_CONFIG.limits.image;
+        
+        if (file.size > maxSize) {
+            return {
+                valid: false,
+                error: `文件大小不能超过 ${this.formatFileSize(maxSize)}`
+            };
+        }
+        
+        return { valid: true };
+    }
+    
+    formatFileSize(bytes) {
+        if (bytes === 0) return '0 Bytes';
+        const k = 1024;
+        const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+        const i = Math.floor(Math.log(bytes) / Math.log(k));
+        return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+    }
+    
+    createFormDataFromElements(formId) {
+        const form = document.getElementById(formId);
+        if (!form) return null;
+        
+        const formData = new FormData();
+        const elements = form.elements;
+        
+        for (let i = 0; i < elements.length; i++) {
+            const element = elements[i];
+            
+            if (element.type === 'file') {
+                // 处理文件输入
+                if (element.files) {
+                    for (let j = 0; j < element.files.length; j++) {
+                        formData.append(element.name, element.files[j]);
+                    }
+                }
+            } else if (element.type === 'checkbox' || element.type === 'radio') {
+                if (element.checked) {
+                    formData.append(element.name, element.value);
+                }
+            } else if (element.type !== 'submit' && element.type !== 'button') {
+                formData.append(element.name, element.value);
+            }
+        }
+        
+        return formData;
+    }
 }
 
-// 导出函数
-window.CrystalUpload = {
-    uploadToBackend,
-    validateFile,
-    formatFileSize,
-    createUploadFormData
-};
+// 创建全局实例
+window.crystalUpload = new UploadHandler();

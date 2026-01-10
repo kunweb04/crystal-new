@@ -500,9 +500,7 @@
         }
         
         async function uploadToBackend(formData) {
-            const UPLOAD_ENDPOINT = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-                ? 'http://localhost:8787/upload' 
-                : 'https://upload.crystal-lab.org/upload';
+            const UPLOAD_ENDPOINT = 'https://crystal-lab-upload.your-account.workers.dev/upload';
             
             try {
                 const response = await fetch(UPLOAD_ENDPOINT, {
@@ -563,7 +561,6 @@
     </script>
     
     <style>
-        /* 文件上传预览样式 */
         .file-upload-container {
             margin-top: 0.5rem;
         }
@@ -614,7 +611,6 @@
             background: rgba(231, 76, 60, 0.1);
         }
         
-        /* 消息样式 */
         .vote-message.success {
             background: rgba(46, 204, 113, 0.1);
             color: #27ae60;
