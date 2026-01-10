@@ -114,21 +114,45 @@
                         </div>
                         
                         <div class="form-group">
+                            <label for="contribute-crystal-type"><i class="fas fa-gem"></i> 晶体类型（选填）</label>
+                            <input type="text" id="contribute-crystal-type" placeholder="例如：硫酸铜、磷酸二氢钾、明矾等">
+                        </div>
+                        
+                        <div class="form-group">
                             <label><i class="fas fa-image"></i> 图片上传</label>
-                            <input type="file" id="contribute-images" accept="image/*" multiple>
-                            <div class="form-note">支持JPG、PNG格式，单张图片不超过10MB，最多可上传10张</div>
+                            <div class="file-upload-container">
+                                <input type="file" id="contribute-images" accept="image/*" multiple>
+                                <div class="file-preview" id="contribute-images-preview"></div>
+                            </div>
+                            <div class="form-note">支持JPG、PNG、GIF、WEBP格式，单张图片不超过10MB，最多可上传10张</div>
                         </div>
                         
                         <div class="form-group">
                             <label><i class="fas fa-video"></i> 视频上传（选填）</label>
-                            <input type="file" id="contribute-videos" accept="video/*">
-                            <div class="form-note">支持MP4、MOV格式，视频不超过100MB</div>
+                            <div class="file-upload-container">
+                                <input type="file" id="contribute-videos" accept="video/*">
+                                <div class="file-preview" id="contribute-videos-preview"></div>
+                            </div>
+                            <div class="form-note">支持MP4、MOV、AVI格式，视频不超过100MB</div>
                         </div>
                         
                         <div class="form-group">
                             <label><i class="fas fa-file"></i> 文档上传（选填）</label>
-                            <input type="file" id="contribute-documents" accept=".pdf,.doc,.docx,.txt">
-                            <div class="form-note">支持PDF、DOC、DOCX、TXT格式，单个文件不超过20MB</div>
+                            <div class="file-upload-container">
+                                <input type="file" id="contribute-documents" accept=".pdf,.doc,.docx,.txt,.md">
+                                <div class="file-preview" id="contribute-documents-preview"></div>
+                            </div>
+                            <div class="form-note">支持PDF、DOC、DOCX、TXT、MD格式，单个文件不超过20MB</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contribute-image-links"><i class="fas fa-link"></i> 图片链接（选填，已上传图片则无需填写）</label>
+                            <textarea id="contribute-image-links" rows="3" placeholder="请输入图片链接，每行一个链接"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contribute-video-links"><i class="fas fa-link"></i> 视频链接（选填，已上传视频则无需填写）</label>
+                            <input type="text" id="contribute-video-links" placeholder="请输入视频链接（如B站、YouTube链接）">
                         </div>
                         
                         <div class="form-group">
@@ -211,8 +235,16 @@
                         
                         <div class="form-group">
                             <label><i class="fas fa-image"></i> 参考图片（选填）</label>
-                            <input type="file" id="suggestion-images" accept="image/*" multiple>
+                            <div class="file-upload-container">
+                                <input type="file" id="suggestion-images" accept="image/*" multiple>
+                                <div class="file-preview" id="suggestion-images-preview"></div>
+                            </div>
                             <div class="form-note">支持JPG、PNG格式，可用于说明问题或展示参考设计</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="suggestion-image-links"><i class="fas fa-link"></i> 参考图片链接（选填）</label>
+                            <textarea id="suggestion-image-links" rows="3" placeholder="请输入参考图片链接，每行一个链接"></textarea>
                         </div>
                         
                         <div class="form-group">
@@ -257,10 +289,11 @@
             <nav class="contribute-nav">
                 <h3>页面导航</h3>
                 <ul>
-                    <li><a href="#contribute-section">作品投稿</a></li>
-                    <li><a href="#suggestion-section"> 建议反馈</a></li>
-                    <li><a href="acknowledgements.html">鸣谢页面</a></li>
-                    <li><a href="index.html">返回首页</a></li>
+                    <li><a href="#contribute-section"><i class="fas fa-upload"></i> 作品投稿</a></li>
+                    <li><a href="#suggestion-section"><i class="fas fa-comment"></i> 建议反馈</a></li>
+                    <li><a href="portfolio.html"><i class="fas fa-images"></i> 作品集</a></li>
+                    <li><a href="acknowledgements.html"><i class="fas fa-hands-helping"></i> 鸣谢页面</a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i> 返回首页</a></li>
                 </ul>
             </nav>
         </div>
@@ -272,6 +305,59 @@
     <script src="upload-handler.js"></script>
     
     <script>
+        // 文件预览功能
+        function initFilePreview() {
+            const fileInputs = document.querySelectorAll('input[type="file"]');
+            
+            fileInputs.forEach(input => {
+                const previewId = input.id + '-preview';
+                const previewContainer = document.getElementById(previewId);
+                
+                if (previewContainer) {
+                    input.addEventListener('change', function(e) {
+                        previewContainer.innerHTML = '';
+                        const files = Array.from(e.target.files);
+                        
+                        files.forEach(file => {
+                            const fileItem = document.createElement('div');
+                            fileItem.className = 'file-item';
+                            
+                            const fileName = document.createElement('span');
+                            fileName.className = 'file-name';
+                            fileName.textContent = file.name;
+                            
+                            const fileSize = document.createElement('span');
+                            fileSize.className = 'file-size';
+                            fileSize.textContent = formatFileSize(file.size);
+                            
+                            const removeBtn = document.createElement('button');
+                            removeBtn.className = 'file-remove';
+                            removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                            removeBtn.addEventListener('click', function() {
+                                // 创建一个新的FileList来移除文件比较麻烦，这里简单重置输入
+                                input.value = '';
+                                previewContainer.innerHTML = '';
+                            });
+                            
+                            fileItem.appendChild(fileName);
+                            fileItem.appendChild(fileSize);
+                            fileItem.appendChild(removeBtn);
+                            previewContainer.appendChild(fileItem);
+                        });
+                    });
+                }
+            });
+        }
+        
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+        
+        // 导航滚动
         document.querySelectorAll('.contribute-nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -314,15 +400,19 @@
             });
         });
         
+        // 投稿提交
         document.getElementById('submit-contribute').addEventListener('click', function() {
             const type = document.getElementById('contribute-type').value;
             const title = document.getElementById('contribute-title').value;
             const author = document.getElementById('contribute-author').value;
             const contact = document.getElementById('contribute-contact').value;
             const description = document.getElementById('contribute-description').value;
+            const crystalType = document.getElementById('contribute-crystal-type').value;
             const images = document.getElementById('contribute-images').files;
             const videos = document.getElementById('contribute-videos').files;
             const documents = document.getElementById('contribute-documents').files;
+            const imageLinks = document.getElementById('contribute-image-links').value;
+            const videoLinks = document.getElementById('contribute-video-links').value;
             
             if (!type || !title || !author || !description) {
                 showMessage('contribute-message', '请填写所有必填字段', 'error');
@@ -336,6 +426,9 @@
             formData.append('author', author);
             formData.append('contact', contact);
             formData.append('description', description);
+            formData.append('crystal_type', crystalType);
+            formData.append('image_links', imageLinks);
+            formData.append('video_links', videoLinks);
             
             for (let i = 0; i < images.length; i++) {
                 formData.append('images', images[i]);
@@ -349,9 +442,10 @@
                 formData.append('documents', documents[i]);
             }
             
-            submitFormData(formData, 'contribute-message');
+            submitFormData(formData, 'contribute-message', 'submit-contribute');
         });
         
+        // 建议提交
         document.getElementById('submit-suggestion').addEventListener('click', function() {
             const type = document.getElementById('suggestion-type').value;
             const title = document.getElementById('suggestion-title').value;
@@ -360,6 +454,7 @@
             const description = document.getElementById('suggestion-description').value;
             const page = document.getElementById('suggestion-page').value;
             const images = document.getElementById('suggestion-images').files;
+            const imageLinks = document.getElementById('suggestion-image-links').value;
             
             if (!type || !title || !author || !description) {
                 showMessage('suggestion-message', '请填写所有必填字段', 'error');
@@ -374,17 +469,19 @@
             formData.append('contact', contact);
             formData.append('description', description);
             formData.append('page', page);
+            formData.append('image_links', imageLinks);
             
             for (let i = 0; i < images.length; i++) {
                 formData.append('images', images[i]);
             }
             
-            submitFormData(formData, 'suggestion-message');
+            submitFormData(formData, 'suggestion-message', 'submit-suggestion');
         });
         
-        function submitFormData(formData, messageElementId) {
-            const submitBtn = event.target;
+        function submitFormData(formData, messageElementId, buttonId) {
+            const submitBtn = document.getElementById(buttonId);
             const originalText = submitBtn.innerHTML;
+            
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 提交中...';
             submitBtn.disabled = true;
             
@@ -400,6 +497,34 @@
                     submitBtn.innerHTML = originalText;
                     submitBtn.disabled = false;
                 });
+        }
+        
+        async function uploadToBackend(formData) {
+            const UPLOAD_ENDPOINT = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
+                ? 'http://localhost:8787/upload' 
+                : 'https://upload.crystal-lab.org/upload';
+            
+            try {
+                const response = await fetch(UPLOAD_ENDPOINT, {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (!response.ok) {
+                    throw new Error(`服务器错误: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    return result;
+                } else {
+                    throw new Error(result.message || '上传失败');
+                }
+            } catch (error) {
+                console.error('上传失败:', error);
+                throw error;
+            }
         }
         
         function showMessage(elementId, message, type) {
@@ -418,6 +543,11 @@
             inputs.forEach(input => {
                 if (input.type === 'file') {
                     input.value = '';
+                    const previewId = input.id + '-preview';
+                    const previewContainer = document.getElementById(previewId);
+                    if (previewContainer) {
+                        previewContainer.innerHTML = '';
+                    }
                 } else if (input.tagName === 'SELECT') {
                     input.selectedIndex = 0;
                 } else {
@@ -425,6 +555,79 @@
                 }
             });
         }
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initFilePreview();
+        });
     </script>
+    
+    <style>
+        /* 文件上传预览样式 */
+        .file-upload-container {
+            margin-top: 0.5rem;
+        }
+        
+        .file-preview {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .file-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.8rem 1rem;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            border: 1px solid rgba(22, 160, 133, 0.2);
+        }
+        
+        .file-name {
+            flex: 1;
+            font-weight: 500;
+            color: var(--primary);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        
+        .file-size {
+            margin: 0 1rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        
+        .file-remove {
+            background: none;
+            border: none;
+            color: #e74c3c;
+            cursor: pointer;
+            padding: 0.3rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .file-remove:hover {
+            background: rgba(231, 76, 60, 0.1);
+        }
+        
+        /* 消息样式 */
+        .vote-message.success {
+            background: rgba(46, 204, 113, 0.1);
+            color: #27ae60;
+            border: 1px solid rgba(46, 204, 113, 0.2);
+            display: block;
+        }
+        
+        .vote-message.error {
+            background: rgba(231, 76, 60, 0.1);
+            color: #c0392b;
+            border: 1px solid rgba(231, 76, 60, 0.2);
+            display: block;
+        }
+    </style>
 </body>
 </html>
