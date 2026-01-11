@@ -393,3 +393,264 @@
     .section-title h2 { font-size: 1.9rem; }
     .card-btn { padding: 0.9rem 1.6rem; min-width: 140px; font-size: 1rem; }
 }
+
+/* 在原文件末尾添加以下响应式优化 */
+
+@media (max-width: 1100px) {
+    .container {
+        padding: 4rem 1.5rem 3rem;
+    }
+    
+    .section-title {
+        margin-bottom: 3.5rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2.4rem;
+    }
+    
+    .section-title p {
+        font-size: 1.15rem;
+        margin-top: 2rem;
+    }
+    
+    .card-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .secondary-hero {
+        height: 60vh;
+    }
+    
+    .modal-content {
+        padding: 2.5rem;
+    }
+    
+    .modal-header h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 3rem 1rem 2rem;
+    }
+    
+    .section-title {
+        margin-bottom: 2.5rem;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+    
+    .section-title h2::after {
+        bottom: -12px;
+        width: 100px;
+    }
+    
+    .section-title p {
+        font-size: 1.1rem;
+        margin-top: 1.5rem;
+        line-height: 1.6;
+    }
+    
+    .card-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-top: 1.5rem;
+    }
+    
+    .card {
+        margin: 0 0.5rem;
+    }
+    
+    .card-content {
+        padding: 1.8rem;
+    }
+    
+    .card h3 {
+        font-size: 1.5rem;
+        gap: 12px;
+    }
+    
+    .card h3 i {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .card p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+    
+    .card-author {
+        margin-bottom: 1.5rem;
+    }
+    
+    .card-btn,
+    .submit-btn,
+    .accept-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 1rem 1.8rem;
+        min-width: auto;
+        font-size: 1rem;
+    }
+    
+    .diagonal-banner {
+        top: 15px;
+        left: -35px;
+        padding: 5px 40px;
+        font-size: 0.75rem;
+        letter-spacing: 1.2px;
+    }
+    
+    .diagonal-banner.slim {
+        top: 13px;
+        left: -36px;
+        padding: 4px 50px;
+        font-size: 0.72rem;
+    }
+    
+    .warning-box {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 12px;
+    }
+    
+    .warning-box h3 {
+        font-size: 1.3rem;
+    }
+    
+    .warning-box li {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .secondary-hero {
+        height: 50vh;
+        clip-path: polygon(0 0, 100% 0, 100% 98%, 0 100%);
+    }
+    
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.2rem;
+    }
+    
+    .disclaimer-modal.active {
+        padding: 1rem;
+    }
+    
+    .modal-content {
+        padding: 1.5rem;
+        width: 95%;
+        max-height: 85vh;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.7rem;
+    }
+    
+    .close-btn {
+        top: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-title h2 {
+        font-size: 1.7rem;
+    }
+    
+    .section-title p {
+        font-size: 1rem;
+    }
+    
+    .card {
+        border-radius: 16px;
+    }
+    
+    .card-img {
+        height: 220px;
+    }
+    
+    .card-content {
+        padding: 1.5rem;
+    }
+    
+    .card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .card p {
+        font-size: 0.95rem;
+    }
+    
+    .author-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+    }
+    
+    .author-tag {
+        font-size: 0.8rem;
+        padding: 3px 8px;
+    }
+    
+    .diagonal-banner {
+        top: 12px;
+        left: -28px;
+        padding: 4px 35px;
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+    
+    .diagonal-banner.slim {
+        top: 11px;
+        left: -32px;
+        padding: 3px 45px;
+        font-size: 0.68rem;
+    }
+    
+    .secondary-hero {
+        height: 40vh;
+    }
+    
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .modal-content {
+        padding: 1.2rem;
+        border-radius: 16px;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .ad-container {
+        margin: 20px auto;
+    }
+    
+    .middle-ad,
+    .article-ad,
+    .bottom-ad {
+        max-width: 100%;
+    }
+}

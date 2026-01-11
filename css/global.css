@@ -403,3 +403,269 @@ footer::before {
     nav ul { gap: 0.8rem; }
     nav a { font-size: 1rem; }
 }
+/* 在原文件末尾添加以下响应式优化 */
+
+@media (max-width: 1100px) {
+    .header-container {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 0.8rem 5%;
+    }
+    
+    nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+    
+    .search-box {
+        width: 100%;
+        max-width: 400px;
+        margin-top: 0.5rem;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3.5rem;
+    }
+    
+    .crystal-decoration {
+        font-size: 6rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 1rem 4%;
+    }
+    
+    .header-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .logo {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .logo h1 {
+        font-size: 1.8rem;
+    }
+    
+    .logo i {
+        font-size: 1.6rem;
+    }
+    
+    nav {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    nav ul {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 1.2rem;
+        padding: 0.5rem 0;
+    }
+    
+    nav a {
+        font-size: 1rem;
+        white-space: nowrap;
+        padding: 0.5rem 0.8rem;
+    }
+    
+    .search-box {
+        width: 100%;
+        max-width: none;
+        margin-top: 0.8rem;
+    }
+    
+    .search-box input {
+        font-size: 1rem;
+    }
+    
+    body {
+        padding-top: 80px; /* 为固定头部留出空间 */
+    }
+    
+    footer {
+        padding: 5rem 1.5rem 2rem;
+        clip-path: polygon(0 3%, 100% 0, 100% 100%, 0 100%);
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .footer-column h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-column h3::after {
+        width: 50px;
+    }
+    
+    .footer-column ul li {
+        margin-bottom: 1rem;
+    }
+    
+    .footer-column ul li a {
+        font-size: 1rem;
+        gap: 10px;
+    }
+    
+    .footer-column p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+    
+    .social-links {
+        gap: 1.2rem;
+        margin-top: 1.5rem;
+    }
+    
+    .social-links a {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    .copyright {
+        padding-top: 4rem;
+        margin-top: 4rem;
+        font-size: 0.95rem;
+    }
+    
+    .crystal-decoration {
+        display: none; /* 在小屏幕上隐藏装饰性水晶 */
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 0.8rem 3%;
+    }
+    
+    .logo h1 {
+        font-size: 1.6rem;
+    }
+    
+    .logo i {
+        font-size: 1.4rem;
+    }
+    
+    nav ul {
+        gap: 0.8rem;
+    }
+    
+    nav a {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .search-box {
+        padding: 0.6rem 1.2rem;
+    }
+    
+    .search-box input {
+        font-size: 0.95rem;
+    }
+    
+    .search-box button {
+        font-size: 1rem;
+    }
+    
+    footer {
+        padding: 4rem 1rem 1.5rem;
+    }
+    
+    .footer-column h3 {
+        font-size: 1.3rem;
+    }
+    
+    .footer-column ul li a {
+        font-size: 0.95rem;
+    }
+    
+    .footer-column p {
+        font-size: 0.95rem;
+    }
+    
+    .social-links {
+        gap: 1rem;
+    }
+    
+    .social-links a {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+    
+    .copyright {
+        font-size: 0.9rem;
+    }
+}
+
+/* 添加移动端触摸优化 */
+@media (hover: none) and (pointer: coarse) {
+    /* 增大触摸目标 */
+    nav a,
+    .search-box button,
+    .social-links a,
+    .card-btn,
+    .submit-btn,
+    .accept-btn,
+    .close-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* 移除不必要的悬停效果 */
+    .card:hover {
+        transform: none;
+    }
+    
+    .card-btn:hover,
+    .submit-btn:hover,
+    .accept-btn:hover {
+        transform: translateY(-3px);
+    }
+    
+    /* 改善滚动体验 */
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* 防止双击缩放 */
+    button,
+    a,
+    input,
+    select,
+    textarea {
+        touch-action: manipulation;
+    }
+}
+
+/* 修复iOS Safari的滚动问题 */
+@supports (-webkit-touch-callout: none) {
+    body {
+        height: -webkit-fill-available;
+    }
+    
+    .hero {
+        min-height: -webkit-fill-available;
+        height: auto;
+    }
+}
+
+/* 修复Android Chrome的100vh问题 */
+.hero {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+}

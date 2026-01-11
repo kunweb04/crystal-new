@@ -232,3 +232,210 @@
     .contribute-content h2 { font-size: 2.2rem; }
     .form-section, .initiative-card { padding: 2rem; }
 }
+/* 在原文件末尾添加以下响应式优化 */
+
+@media (max-width: 1100px) {
+    .contribute-container {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 3rem 1rem;
+    }
+    
+    .contribute-nav {
+        position: static;
+        order: -1;
+        margin-bottom: 2rem;
+    }
+    
+    .contribute-nav ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+    
+    .contribute-nav a {
+        min-width: 180px;
+        justify-content: center;
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .contribute-content {
+        padding: 3rem;
+    }
+    
+    .contribute-content h1 {
+        font-size: 3.2rem;
+    }
+    
+    .contribute-content h2 {
+        font-size: 2.2rem;
+        margin: 3.5rem 0 1.8rem;
+    }
+    
+    .initiative-card,
+    .form-section {
+        padding: 2.5rem;
+        margin: 2.5rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .contribute-container {
+        padding: 2rem 0.5rem;
+    }
+    
+    .contribute-content {
+        padding: 1.5rem;
+        border-radius: 16px;
+        margin: 0;
+    }
+    
+    .contribute-content h1 {
+        font-size: 2.5rem;
+        padding-bottom: 1rem;
+    }
+    
+    .contribute-content h1::after {
+        width: 150px;
+    }
+    
+    .contribute-content h1 span {
+        font-size: 0.5em;
+        margin-top: 0.5rem;
+    }
+    
+    .contribute-content h2 {
+        font-size: 1.8rem;
+        margin: 2.5rem 0 1.5rem;
+        padding-left: 1.2rem;
+    }
+    
+    .contribute-content h2::before {
+        width: 12px;
+        height: 12px;
+        box-shadow: 0 0 0 4px rgba(22, 160, 133, 0.2);
+    }
+    
+    .initiative-card {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 16px;
+    }
+    
+    .initiative-card h3 {
+        font-size: 1.4rem;
+        gap: 0.6rem;
+    }
+    
+    .invitation-list li {
+        padding-left: 1.5rem;
+        margin-bottom: 0.6rem;
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+    
+    .invitation-list li::before {
+        font-size: 1rem;
+    }
+    
+    .form-section {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+        border-radius: 16px;
+    }
+    
+    .form-section::before {
+        width: 4px;
+    }
+    
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group label {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        padding: 1rem 1.2rem;
+        font-size: 1rem;
+        border-radius: 10px;
+    }
+    
+    .form-note {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+    
+    .submit-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .contribute-nav {
+        padding: 1.5rem;
+        margin: 0 0 1.5rem;
+        border-radius: 16px;
+    }
+    
+    .contribute-nav h3 {
+        font-size: 1.4rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .contribute-nav ul {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .contribute-nav a {
+        min-width: auto;
+        justify-content: flex-start;
+        padding: 1rem 1.2rem;
+        transform: none !important;
+    }
+    
+    .contribute-nav a:hover {
+        transform: translateX(5px) !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .contribute-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .contribute-content h2 {
+        font-size: 1.5rem;
+        padding-left: 1rem;
+    }
+    
+    .contribute-content h2::before {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .initiative-card h3 {
+        font-size: 1.3rem;
+    }
+    
+    .invitation-list li {
+        font-size: 0.9rem;
+    }
+    
+    .form-group input[type="file"] {
+        padding: 0.8rem;
+    }
+    
+    .contribute-nav a {
+        padding: 0.9rem 1rem;
+        font-size: 0.95rem;
+    }
+}
