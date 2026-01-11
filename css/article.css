@@ -178,7 +178,6 @@
     box-shadow: 0 5px 15px rgba(22, 160, 133, 0.15);
 }
 
-/* Method Card & Components */
 .method-card {
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
     border-radius: 20px;
@@ -264,7 +263,6 @@
 .step-detail li { margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative; }
 .step-detail li::before { content: '•'; position: absolute; left: 0; color: var(--accent); font-size: 1.3rem; }
 
-/* Helpers */
 .pros-cons {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -360,7 +358,6 @@
 .qa-item h4 { color: var(--primary); font-size: 1.4rem; display: flex; align-items: center; gap: 1rem; }
 
 @media (max-width: 768px) {
-    /* 核心修复：将 Grid 布局重置为 Flex 垂直布局，解决侧边栏挤压内容的问题 */
     .safety-container { 
         display: flex; 
         flex-direction: column; 
@@ -374,7 +371,7 @@
         padding: 2rem 1.5rem; 
         border-radius: 16px; 
         margin: 0; 
-        width: 100%; /* 让内容占满容器宽度 */
+        width: 100%; 
         box-sizing: border-box;
         overflow-wrap: break-word; 
         word-wrap: break-word; 
@@ -384,7 +381,7 @@
     .safety-content h1 { 
         font-size: 2.5rem; 
         margin-bottom: 2rem; 
-        word-break: break-word; /* 修复 keep-all 在手机上可能导致的溢出 */
+        word-break: break-word; 
         overflow-wrap: break-word; 
     }
 
@@ -408,7 +405,7 @@
         margin: 0 0 2rem; 
         width: 100%; 
         box-sizing: border-box;
-        order: 2; /* 可选：让导航栏显示在内容下方 */
+        order: 2; 
     }
     .safety-nav a { padding: 1rem 1.2rem; min-width: 160px; }
     
