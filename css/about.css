@@ -1,0 +1,188 @@
+.acknowledgements-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.hero.acknowledgements-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(26, 37, 47, 0.85)), url('../p/关关-背景图1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 70vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.acknowledgements-content {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.97) 0%, rgba(250, 252, 255, 0.97) 100%);
+    border-radius: 28px;
+    padding: 4.5rem;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+.acknowledgements-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 15% 85%, rgba(26, 188, 156, 0.05) 0%, transparent 25%),
+                radial-gradient(circle at 85% 15%, rgba(52, 152, 219, 0.05) 0%, transparent 25%);
+    pointer-events: none;
+}
+
+.acknowledgements-content h1 {
+    font-size: 4rem;
+    margin-bottom: 2.5rem;
+    color: var(--primary);
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1.8rem;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.acknowledgements-content h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 5px;
+    background: linear-gradient(to right, var(--primary), var(--accent));
+    border-radius: 3px;
+}
+
+.acknowledgements-intro {
+    text-align: center;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 4rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.special-thanks-section {
+    text-align: center;
+    margin: 5rem 0 4rem;
+    padding: 3rem;
+    background: linear-gradient(15deg, rgba(42, 92, 132, 0.05) 0%, rgba(93, 168, 179, 0.05) 100%);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.special-thanks-header h2 { font-size: 2.8rem; color: var(--primary); font-family: 'Playfair Display', serif; margin-bottom: 1.5rem; }
+.special-thanks-desc { font-size: 1.2rem; color: var(--text-light); }
+
+.contributor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+    margin: 4rem 0;
+}
+
+.honor-card {
+    background: #f9fbfd;
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(93, 168, 179, 0.2);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.honor-card:hover { transform: translateY(-5px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08); }
+
+.honor-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: linear-gradient(45deg, #2A5C84, #5DA8B3);
+    color: white !important;
+    border-radius: 20px;
+    font-size: 0.85em;
+    margin-bottom: 1.2rem;
+    font-weight: 500;
+}
+
+.honor-card h3 { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--primary-dark); font-weight: 600; }
+.honor-card p { color: var(--text-light); line-height: 1.7; }
+
+.honor-card.kerbal-special::before {
+    content: ''; position: absolute; background: url('p/kerbal123.png') center/cover no-repeat;
+    width: 100px; height: 100px; right: 10px; top: 20px; opacity: 0.5; transform: rotate(15deg);
+}
+.honor-card.cpsa-special::before {
+    content: ''; position: absolute; background: url('p/cpsa.png') center/cover no-repeat;
+    width: 70px; height: 100px; right: 20px; top: 20px; opacity: 0.5;
+}
+.honor-card.duya-special::before {
+    content: ''; position: absolute; background: url('p/渡鸦.png') center/cover no-repeat;
+    width: 80px; height: 140px; right: 20px; top: 30px; opacity: 0.5;
+}
+.honor-card.changjie-special::before {
+    content: ''; position: absolute; background: url('p/长街.png') center/cover no-repeat;
+    width: 100px; height: 100px; right: 20px; top: 30px; opacity: 0.5;
+}
+.honor-card.zbh::before {
+    content: ''; position: absolute; background: url('p/zhb.png') center/cover no-repeat;
+    width: 120px; height: 120px; right: 20px; top: 30px; opacity: 0.5;
+}
+
+.extended-thanks-section {
+    background: linear-gradient(145deg, rgba(248, 250, 252, 0.95) 0%, rgba(240, 245, 250, 0.95) 100%);
+    border-radius: 22px;
+    padding: 3rem;
+    margin: 3.5rem 0;
+    text-align: center;
+    position: relative;
+    border: 1px solid rgba(22, 160, 133, 0.12);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.05);
+}
+
+.extended-thanks-section h2 { font-size: 2.5rem; margin-bottom: 2rem; color: var(--primary-dark); font-family: 'Playfair Display', serif; }
+.extended-names { background: rgba(255, 255, 255, 0.7); border-radius: 16px; padding: 2.2rem; margin: 2rem auto 2.5rem; max-width: 900px; }
+.extended-names p { font-size: 1.2rem; line-height: 1.8; color: var(--text); }
+.thanks-message { font-size: 1.15rem; color: var(--text-light); font-style: italic; }
+
+.team-section { margin: 6rem 0 4rem; }
+.hero-title { text-align: center; margin-bottom: 4rem; }
+.hero-title h1 { font-size: 3.5rem; display: inline-block; padding-bottom: 1rem; position: relative; }
+.hero-title h1::after { content: ''; position: absolute; width: 120px; height: 4px; background: linear-gradient(90deg, var(--primary), var(--accent)); left: 50%; transform: translateX(-50%); bottom: 0; }
+
+.team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; padding: 20px; }
+
+.member-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(249, 251, 253, 0.95));
+    padding: 2.5rem; border-radius: 24px; box-shadow: 0 16px 40px rgba(42, 92, 132, 0.08);
+    transition: var(--transition); position: relative; overflow: hidden;
+}
+.member-card:hover { transform: translateY(-10px); box-shadow: 0 24px 48px rgba(42, 92, 132, 0.12); }
+.member-name { text-align: center; color: var(--primary); font-size: 1.8rem; margin-bottom: 0.5rem; }
+.member-role { text-align: center; color: var(--accent-secondary); font-weight: 600; margin-bottom: 1.5rem; }
+.member-desc { color: #555; text-align: justify; line-height: 1.8; }
+
+.final-thanks {
+    text-align: center; padding: 5rem 2rem;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
+    border-radius: 20px; margin-top: 4rem; border: 2px dashed var(--accent-light);
+}
+.final-thanks h2 { font-size: 2.8rem; color: var(--primary); margin-bottom: 1.5rem; font-family: 'Playfair Display', serif; }
+.final-thanks p { font-size: 1.3rem; color: var(--text-light); margin-bottom: 3rem; }
+
+@media (max-width: 768px) {
+    .acknowledgements-content { padding: 2.5rem; }
+    .acknowledgements-content h1 { font-size: 3rem; }
+    .contributor-grid, .team-grid { grid-template-columns: 1fr; }
+}

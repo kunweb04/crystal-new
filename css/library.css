@@ -1,0 +1,82 @@
+.library-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.library-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.library-card {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.library-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--accent-light), var(--accent-secondary));
+}
+
+.library-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+}
+
+.doc-icon {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--accent-light), var(--accent-secondary));
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2.2rem;
+    box-shadow: 0 8px 20px rgba(22, 160, 133, 0.3);
+}
+
+.doc-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.doc-content h3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+    color: var(--primary-dark);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.doc-meta { margin: 1rem 0; flex-grow: 1; }
+.doc-meta p { margin-bottom: 0.6rem; color: var(--text-light); display: flex; align-items: center; gap: 0.8rem; font-size: 1rem; }
+.doc-meta i { color: var(--accent); width: 16px; }
+
+.doc-actions { display: flex; gap: 1rem; margin-top: 1.5rem; }
+
+@media (max-width: 768px) {
+    .library-grid { grid-template-columns: 1fr; gap: 1.8rem; }
+    .library-card { padding: 2rem; flex-direction: column; text-align: center; }
+    .doc-icon { align-self: center; }
+    .doc-meta p { justify-content: center; }
+    .doc-actions { flex-direction: column; }
+}
