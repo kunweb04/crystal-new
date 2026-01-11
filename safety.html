@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CrystalLab - 晶体培养指南网站，提供从硫酸铜、磷酸二氢钾到金属铋等多种晶体的详细培养教程，也收录了许多精美的晶体作品=">
-    <meta name="keywords" content="晶体培养,晶体化学,结晶艺术,晶体摄影,溶液配置,晶体保存">
+    <meta name="description" content="CrystalLab - 晶体化学指南安全与操作规范篇，包含基本安全守则、个人防护、化学品处理、废液处置等完整安全指南">
+    <meta name="keywords" content="晶体化学安全,实验安全规范,化学品防护,废液处理,实验室安全,晶体培养安全">
     <meta name="author" content="CrystalLab团队">
     <meta name="robots" content="index, follow">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="CrystalLab">
-    <meta property="og:title" content="CrystalLab - 安全与操作规范">
-    <meta property="og:description" content="学习如何安全地进行晶体培养实验，掌握基本的操作规范和废液处理方法。">
+    <meta property="og:title" content="CrystalLab - 安全与操作规范篇">
+    <meta property="og:description" content="晶体化学实验的完整安全指南，确保您的实验过程安全、规范、环保">
     <meta property="og:locale" content="zh_CN">
     <meta property="og:url" content="https://crystal-lab.org/safety.html">
     <meta property="og:image" content="https://crystal-lab.org/og.png">
-    <title>安全与操作规范 - CrystalLab</title>
+    <title>晶体化学指南 - 安全与操作规范篇 - CrystalLab</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css">
@@ -29,38 +29,588 @@
     <div id="navbar-container"></div>
 
     <div class="container">
-        <div class="contribute-container">
-            <div class="contribute-content">
-                <h1>晶体化学指南<br><span style="font-size:0.6em; color:var(--accent)">安全与操作规范篇</span></h1>
+        <div class="safety-container">
+            <div class="safety-content">
+                <h1>晶体化学指南<br><span>安全与操作规范篇</span></h1>
 
-                <section id="safety">
-                    <h2>基本安全守则</h2>
+                <div class="crystal-decoration top-left"><i class="fas fa-gem"></i></div>
+                <div class="crystal-decoration bottom-right"><i class="fas fa-gem"></i></div>
+
+                <section id="quick-start">
+                    <h2>🎯 安全预览</h2>
                     <div class="method-card">
-                        <ul class="step-list">
-                            <li class="step-item">
-                                <div class="step-title">避免皮肤接触</div>
-                                <div class="step-detail">处理溶液时请佩戴乳胶手套或丁腈手套，防止化学物质渗透皮肤。</div>
-                            </li>
-                            <li class="step-item">
-                                <div class="step-title">防护措施到位</div>
-                                <div class="step-detail">进行实验时应佩戴护目镜，必要时使用口罩或面罩，确保环境通风良好。</div>
-                            </li>
-                            <li class="step-item">
-                                <div class="step-title">慎重对待毒性晶体</div>
-                                <div class="step-detail">如重铬酸钾（或其他具有一定毒性的晶体），务必采取严格的防护措施，避免摄入或吸入粉尘。</div>
-                            </li>
-                            <li class="step-item">
-                                <div class="step-title">使用专业器材</div>
-                                <div class="step-detail">建议使用玻璃搅拌棒或实验室级别的工具搅拌溶液，而非随手可得的餐具（除非你想学某个lz用筷子搅拌溶液后下意识嗦一口）。</div>
-                            </li>
-                            <li class="step-item">
-                                <div class="step-title">晶体直接接触</div>
-                                <div class="step-detail">无论你的是已经喷漆、还是涂好指甲油的，都不要用手直接触碰。</div>
-                            </li>
-                        </ul>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>核心安全原则：</strong>
+                                <ul>
+                                    <li>防护第一，安全至上</li>
+                                    <li>了解化学品，知其毒性</li>
+                                    <li>规范操作，避免意外</li>
+                                    <li>环保处置，责任在心</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>严禁行为：</strong>
+                                <ul>
+                                    <li>皮肤直接接触化学品</li>
+                                    <li>无防护操作有毒物质</li>
+                                    <li>废液随意倾倒</li>
+                                    <li>使用非专业器材替代</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </section>
-                
+
+                <section id="basic-rules">
+                    <h2>一、基本安全守则</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-shield-alt"></i> 1.1 个人防护基本原则</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">避免皮肤接触</div>
+                                <div class="step-detail">
+                                    处理所有化学溶液时必须佩戴乳胶手套或丁腈手套
+                                    <div class="note">
+                                        选择要点：<br>
+                                        - 乳胶手套：防弱酸弱碱<br>
+                                        - 丁腈手套：防有机溶剂、耐腐蚀性更强<br>
+                                        - 检查完整性：使用前检查手套有无破损
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">眼部防护</div>
+                                <div class="step-detail">
+                                    进行实验时必须佩戴护目镜，必要时使用全面罩
+                                    <div class="note">
+                                        特别提示：<br>
+                                        - 处理加热溶液时务必佩戴<br>
+                                        - 操作粉末状化学品时必需<br>
+                                        - 护目镜应完全贴合面部，无缝隙
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">呼吸防护</div>
+                                <div class="step-detail">
+                                    处理粉末状化学品或挥发物时佩戴口罩
+                                    <div class="note">
+                                        口罩选择：<br>
+                                        - 普通防尘口罩：防粉末<br>
+                                        - N95口罩：防细小颗粒<br>
+                                        - 活性炭口罩：防有机蒸汽
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">身体防护</div>
+                                <div class="step-detail">
+                                    穿着实验服或工作服，避免化学物质污染日常衣物
+                                    <div class="note">
+                                        实验服要求：<br>
+                                        - 棉质或防化材质<br>
+                                        - 长袖设计<br>
+                                        - 前部完全遮盖
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-exclamation-triangle"></i> 1.2 毒性晶体特别警示</h3>
+                        <div class="warning-box">
+                            <h4><i class="fas fa-skull-crossbones"></i> 高风险化学品清单</h4>
+                            <ul>
+                                <li><strong>重铬酸钾(K₂Cr₂O₇)：</strong>强氧化剂，六价铬化合物，致癌物</li>
+                                <li><strong>钒化合物：</strong>中等毒性，对呼吸系统、肝脏、肾脏有损害</li>
+                                <li><strong>铬明矾：</strong>含六价铬，具有一定毒性</li>
+                                <li><strong>钴化合物：</strong>中等毒性，可能引起过敏和器官损害</li>
+                                <li><strong>铅化合物：</strong>神经毒性，累积性毒物</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">防护升级要求</div>
+                                <div class="step-detail">
+                                    处理上述化学品时必须采取升级防护：
+                                    <ul>
+                                        <li>必须在通风橱或通风极好处操作</li>
+                                        <li>佩戴双层手套（丁腈+乳胶）</li>
+                                        <li>使用防化面罩或全面罩</li>
+                                        <li>操作后立即彻底清洁</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-tools"></i> 1.3 器材使用规范</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">专业器材要求</div>
+                                <div class="step-detail">
+                                    必须使用实验室专用器材：
+                                    <ul>
+                                        <li><strong>搅拌工具：</strong>玻璃搅拌棒、聚四氟乙烯搅拌棒</li>
+                                        <li><strong>加热设备：</strong>电热板、水浴锅、专业加热套</li>
+                                        <li><strong>容器：</strong>化学玻璃器皿（烧杯、量筒、培养皿）</li>
+                                        <li><strong>称量工具：</strong>电子天平、称量纸</li>
+                                    </ul>
+                                    <div class="note warning">
+                                        <strong>⚠️ 严禁使用：</strong><br>
+                                        - 餐具（筷子、勺子等）搅拌溶液<br>
+                                        - 食品容器盛装化学品<br>
+                                        - 家用电器加热化学品
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="crystal-handling">
+                    <h2>二、晶体直接接触规范</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-hands"></i> 2.1 晶体操作原则</h3>
+                        <div class="warning-box">
+                            <h4><i class="fas fa-ban"></i> 绝对禁止行为</h4>
+                            <ul>
+                                <li>无论晶体是否经过处理（喷漆、涂指甲油等），都不可用手直接触碰</li>
+                                <li>禁止将晶体放入口中或靠近面部</li>
+                                <li>避免在无防护情况下长时间观察晶体</li>
+                                <li>严禁将晶体作为装饰佩戴（项链、耳环等）</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">安全操作工具</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li><strong>镊子：</strong>不锈钢或塑料镊子，用于夹取晶体</li>
+                                        <li><strong>药勺：</strong>专用药勺，避免交叉污染</li>
+                                        <li><strong>培养皿：</strong>用于临时放置和观察晶体</li>
+                                        <li><strong>样品瓶：</strong>密封保存，避免直接接触</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">处理已保护晶体</div>
+                                <div class="step-detail">
+                                    即使晶体已经过处理，仍需谨慎：
+                                    <ul>
+                                        <li>涂层可能破损，内部化学品仍会暴露</li>
+                                        <li>涂层材料可能含有其他化学物质</li>
+                                        <li>长期保存可能发生涂层退化</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="ventilation-environment">
+                    <h2>三、通风与环境安全</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-wind"></i> 3.1 通风要求</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">操作环境选择</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li><strong>理想环境：</strong>实验室通风橱</li>
+                                        <li><strong>次选环境：</strong>开窗通风良好的房间</li>
+                                        <li><strong>最低要求：</strong>使用排气扇增强空气流动</li>
+                                        <li><strong>严禁环境：</strong>密闭小空间、卧室、厨房</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">特殊操作通风要求</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li><strong>加热操作：</strong>必须确保良好通风</li>
+                                        <li><strong>粉末操作：</strong>在通风处进行，避免扬尘</li>
+                                        <li><strong>挥发性物质：</strong>必须在通风橱操作</li>
+                                        <li><strong>有毒气体产生：</strong>专业通风设备必需</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-home"></i> 3.2 实验区域管理</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">实验区设置</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li>划定专用实验区域，与非实验区分开</li>
+                                        <li>实验台面铺设防化垫或塑料布</li>
+                                        <li>配备灭火器、洗眼器、急救箱</li>
+                                        <li>保持通道畅通，无杂物堆积</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">家庭实验特别提醒</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li>避免在厨房操作，防止食物污染</li>
+                                        <li>禁止在卧室操作，防止睡眠环境污染</li>
+                                        <li>远离儿童和宠物活动区域</li>
+                                        <li>告知家人实验时间，保持联系畅通</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="cleanup-waste">
+                    <h2>四、操作后清理与废液处理</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-broom"></i> 4.1 操作后清洁程序</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">台面清洁</div>
+                                <div class="step-detail">
+                                    实验完成后立即清洁：
+                                    <ol>
+                                        <li>用纸巾或抹布擦拭可见化学品</li>
+                                        <li>使用中性清洁剂清洗台面</li>
+                                        <li>清水擦拭，去除清洁剂残留</li>
+                                        <li>检查有无遗漏污染点</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">器材清洗</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li>立即清洗使用过的器材</li>
+                                        <li>根据化学品性质选择清洗方法</li>
+                                        <li>彻底冲洗，确保无残留</li>
+                                        <li>干燥后妥善存放</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-hands-wash"></i> 4.2 个人清洁</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">洗手规范</div>
+                                <div class="step-detail">
+                                    操作完毕后必须彻底清洗双手：
+                                    <ol>
+                                        <li>先用流水冲洗30秒</li>
+                                        <li>使用肥皂或洗手液全面清洗</li>
+                                        <li>特别注意指甲缝和指间</li>
+                                        <li>再次流水冲洗干净</li>
+                                        <li>用干净毛巾擦干</li>
+                                    </ol>
+                                    <div class="note warning">
+                                        <strong>⚠️ 重要：</strong>无论是否佩戴手套，操作后都必须洗手！
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">衣物处理</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li>实验后更换衣物</li>
+                                        <li>受污染衣物单独清洗</li>
+                                        <li>严重污染衣物应考虑废弃</li>
+                                        <li>不要将实验服与日常衣物混洗</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-trash-alt"></i> 4.3 废液处理规范</h3>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-ban"></i> 严禁行为</h4>
+                            <ul>
+                                <li><strong>绝对禁止</strong>将化学废液直接倒入下水道</li>
+                                <li>禁止将废液倒入土壤、河流等自然环境</li>
+                                <li>不得将废液混入生活垃圾</li>
+                                <li>不可将不同废液随意混合</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">废液分类收集</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li><strong>重金属废液：</strong>含铜、铬、钴、铅等单独收集</li>
+                                        <li><strong>酸碱废液：</strong>中和后处理，避免剧烈反应</li>
+                                        <li><strong>有机废液：</strong>单独收集，防火防爆</li>
+                                        <li><strong>含氰/含汞废液：</strong>特别危险，专业处理</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">处理原则</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li><strong>减量化：</strong>尽量减少废液产生</li>
+                                        <li><strong>无害化：</strong>通过化学方法降低毒性</li>
+                                        <li><strong>资源化：</strong>回收有价值成分</li>
+                                        <li><strong>专业化：</strong>危险废液交专业机构</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">常见废液处理方法</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li><strong>重金属沉淀法：</strong>加入碱生成氢氧化物沉淀</li>
+                                        <li><strong>还原处理：</strong>如六价铬还原为三价铬</li>
+                                        <li><strong>中和处理：</strong>调节pH至中性</li>
+                                        <li><strong>稀释法：</strong>大量水稀释后少量排放（仅限低毒）</li>
+                                    </ul>
+                                    <div class="note">
+                                        <strong>💡 提示：</strong>具体处理方法请参考各晶体教程的废液处理部分
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="emergency-response">
+                    <h2>五、应急处理</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-first-aid"></i> 5.1 常见事故应急处理</h3>
+                        
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">皮肤接触</div>
+                                <div class="step-detail">
+                                    <strong>立即处理步骤：</strong>
+                                    <ol>
+                                        <li>立即脱去污染衣物</li>
+                                        <li>用大量流动清水冲洗至少15分钟</li>
+                                        <li>使用温和肥皂清洗（如情况允许）</li>
+                                        <li>就医时告知医生化学品名称</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">眼睛接触</div>
+                                <div class="step-detail">
+                                    <strong>紧急处理：</strong>
+                                    <ol>
+                                        <li>立即用流动清水或生理盐水冲洗</li>
+                                        <li>冲洗时撑开眼睑，确保充分冲洗</li>
+                                        <li>冲洗时间至少15-20分钟</li>
+                                        <li>立即就医，不要揉眼睛</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">吸入</div>
+                                <div class="step-detail">
+                                    <strong>处理步骤：</strong>
+                                    <ol>
+                                        <li>立即移至空气新鲜处</li>
+                                        <li>保持呼吸道通畅</li>
+                                        <li>如呼吸困难，立即就医，告知吸入物质</li>
+                                    </ol>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">误食</div>
+                                <div class="step-detail">
+                                    <strong>紧急处理：</strong>
+                                    <ol>
+                                        <li>立即漱口，不要催吐（除非医生指导）</li>
+                                        <li>喝适量牛奶或水稀释（如意识清醒）</li>
+                                        <li>立即就医，携带化学品容器或标签</li>
+                                        <li>不要自行服用解毒剂</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-phone-alt"></i> 5.2 应急联系信息</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">紧急联系电话</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li><strong>急救电话：</strong>120（中国）</li>
+                                        <li><strong>中毒控制中心：</strong>当地中毒控制中心电话</li>
+                                        <li><strong>化学品生产商：</strong>产品标签上的应急电话</li>
+                                        <li><strong>环保部门：</strong>12369（中国环保举报热线）</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">必备信息准备</div>
+                                <div class="step-detail">
+                                    实验前应准备好：
+                                    <ul>
+                                        <li>所用化学品的MSDS（材料安全数据表）</li>
+                                        <li>附近医院的地址和电话</li>
+                                        <li>紧急联系人电话</li>
+                                        <li>实验地址的准确描述</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="specific-chemicals">
+                    <h2>六、特定化学品安全要点</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-flask"></i> 6.1 常见晶体化学品安全摘要</h3>
+                        
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">硫酸铜</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li><strong>毒性：</strong>中等毒性，刺激皮肤和眼睛</li>
+                                        <li><strong>防护：</strong>手套、护目镜、口罩</li>
+                                        <li><strong>废液：</strong>碱沉淀法回收铜</li>
+                                        <li><strong>注意：</strong>警惕染色硫酸铜骗局</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">钒化合物（硫酸钒铵等）</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li><strong>毒性：</strong>中等毒性，损害呼吸系统和器官</li>
+                                        <li><strong>防护：</strong>必须在通风橱操作，全面防护</li>
+                                        <li><strong>废液：</strong>专业处理，不可随意排放</li>
+                                        <li><strong>注意：</strong>LD₅₀约100 mg/kg（大鼠口服）</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">钴化合物（红晶雨等）</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li><strong>毒性：</strong>中等毒性，可能引起过敏</li>
+                                        <li><strong>防护：</strong>手套、护目镜、通风</li>
+                                        <li><strong>废液：</strong>碱沉淀法处理</li>
+                                        <li><strong>注意：</strong>LD₅₀约500-1000 mg/kg</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">镍化合物（硫酸镍、氯化镍等）</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li><strong>毒性：</strong>中等毒性，常见过敏原，可能引起接触性皮炎</li>
+                                        <li><strong>过敏风险：</strong>部分人群对镍高度敏感，皮肤接触可能导致严重过敏反应</li>
+                                        <li><strong>防护：</strong>必须佩戴手套操作，皮肤敏感者需格外谨慎</li>
+                                        <li><strong>废液：</strong>碱沉淀法处理，生成氢氧化镍沉淀</li>
+                                        <li><strong>注意：</strong>操作后彻底清洁，避免长期接触</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="step-item">
+                                <div class="step-title">硫酸与稀土氧化物</div>
+                                <div class="step-detail">
+                                    <ul>
+                                        <li><strong>危险性：</strong>z中高，需专业实验室条件</li>
+                                        <li><strong>硫酸危险性：</strong>强腐蚀性，浓硫酸遇水放热，可导致严重灼伤</li>
+                                        <li><strong>稀土氧化物：</strong>部分具有放射性（如钍、铀化合物），需特殊防护</li>
+                                        <li><strong>操作要求：</strong>
+                                            <ul>
+                                                <li>必须在专业化学实验室操作</li>
+                                                <li>穿戴防酸服、面罩、耐酸手套</li>
+                                                <li>通风橱内操作，且有应急冲洗设备</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>废液处理：</strong>专业机构处理，严禁自行处置</li>
+                                        <li><strong>特别警示：</strong>非专业人士严禁尝试，具有极高安全风险</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="summary">
+                    <h2>七、安全黄金法则</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-award"></i> 安全操作十大原则</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">防护第一原则</div>
+                                <div class="step-detail">没有充分防护，绝不开始实验</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">了解优先原则</div>
+                                <div class="step-detail">不了解的化学品绝不使用</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">通风必需原则</div>
+                                <div class="step-detail">无良好通风，不进行实验</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">器材专用原则</div>
+                                <div class="step-detail">实验器材绝不与生活用品混用</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">废液负责原则</div>
+                                <div class="step-detail">对产生的每一滴废液负责</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">清洁彻底原则</div>
+                                <div class="step-detail">实验后必须彻底清洁</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">应急准备原则</div>
+                                <div class="step-detail">实验前必须了解应急处理方法</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">不存侥幸原则</div>
+                                <div class="step-detail">安全无小事，绝不抱侥幸心理</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">持续学习原则</div>
+                                <div class="step-detail">不断学习安全知识，提升安全意识</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">责任担当原则</div>
+                                <div class="step-detail">对自身安全、他人安全和环境安全负责</div>
+                            </div>
+                        </div>
+                        
+                        <div class="final-thanks" style="margin-top: 3rem;">
+                            <h2>安全第一，探索无限</h2>
+                            <p>遵循安全规范，让晶体化学之旅更加精彩、更加安全</p>
+                        </div>
+                    </div>
+                </section>
+
                 <!-- 文章广告 -->
                 <div class="ad-container article-ad">
                     <ins class="adsbygoogle"
@@ -73,33 +623,18 @@
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
-
-                <section id="cleanup">
-                    <h2>操作后的清理与废液处理</h2>
-                    <div class="method-card">
-                        <ul class="step-list">
-                            <li class="step-item">
-                                <div class="step-title">作后清洁</div>
-                                <div class="step-detail">实验完成后，立即清洗台面，避免残留化学物质污染环境或造成意外接触。</div>
-                            </li>
-                            <li class="step-item">
-                                <div class="step-title">洗手消毒</div>
-                                <div class="step-detail">操作完毕后务必彻底清洗双手，确保无化学残留。</div>
-                            </li>
-                            <li class="step-item">
-                                <div class="step-title">废液处理</div>
-                                <div class="step-detail">不得随意将废液倒入下水道，需根据化学性质进行还原处理或无害化处理，确保环保与安全。</div>
-                            </li>
-                        </ul>
-                    </div>
-                </section>
             </div>
 
             <nav class="safety-nav">
                 <h3>内容导航</h3>
                 <ul>
-                    <li><a href="#safety">基本安全守则</a></li>
-                    <li><a href="#cleanup">清理与废液处理</a></li>
+                    <li><a href="#basic-rules">基本安全守则</a></li>
+                    <li><a href="#crystal-handling">晶体接触规范</a></li>
+                    <li><a href="#ventilation-environment">通风与环境</a></li>
+                    <li><a href="#cleanup-waste">清理与废液处理</a></li>
+                    <li><a href="#emergency-response">应急处理</a></li>
+                    <li><a href="#specific-chemicals">特定化学品安全</a></li>
+                    <li><a href="#summary">安全黄金法则</a></li>
                     <li><a href="index.html">返回首页</a></li>
                 </ul>
             </nav>
@@ -109,9 +644,10 @@
     <div id="footer-container"></div>
 
     <script src="components.js"></script>
+    <script src="script.js"></script>
     
     <script>
-        document.querySelectorAll('.contribute-nav a[href^="#"]').forEach(anchor => {
+        document.querySelectorAll('.safety-nav a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
@@ -123,7 +659,7 @@
                     behavior: 'smooth'
                 });
                 
-                document.querySelectorAll('.contribute-nav a').forEach(link => {
+                document.querySelectorAll('.safety-nav a').forEach(link => {
                     link.classList.remove('active');
                 });
                 this.classList.add('active');
@@ -132,7 +668,7 @@
         
         window.addEventListener('scroll', function() {
             const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.contribute-nav a[href^="#"]');
+            const navLinks = document.querySelectorAll('.safety-nav a[href^="#"]');
             
             let currentSection = '';
             
