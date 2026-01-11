@@ -224,30 +224,20 @@
 @media (max-width: 1100px) {
     .contribute-container { grid-template-columns: 1fr; gap: 3.5rem; padding: 3rem 1rem; }
     .contribute-nav { position: static; order: -1; margin-bottom: 2.5rem; }
-}
-
-@media (max-width: 768px) {
-    .contribute-content { padding: 2rem; }
-    .contribute-content h1 { font-size: 2.9rem; }
-    .contribute-content h2 { font-size: 2.2rem; }
-    .form-section, .initiative-card { padding: 2rem; }
-}
-@media (max-width: 1100px) {
-    .contribute-container { grid-template-columns: 1fr; gap: 3.5rem; padding: 3rem 1rem; }
-    .contribute-nav { position: static; order: -1; margin-bottom: 2.5rem; }
     .contribute-content h1 { font-size: 3.4rem; }
     .contribute-nav ul { flex-direction: row; flex-wrap: wrap; justify-content: center; }
     .contribute-nav a { min-width: 200px; justify-content: center; }
 }
 @media (max-width: 768px) {
-    .contribute-content { padding: 2rem; border-radius: 20px; margin: 0; }
-    .contribute-content h1 { font-size: 2.9rem; }
-    .contribute-content h2 { font-size: 2.2rem; }
-    .contribute-method-card, .form-section, .initiative-card { padding: 2rem; margin: 2rem 0; }
+    .contribute-content { padding: 2rem 1.5rem; border-radius: 20px; margin: 0; width: calc(100% - 3rem); max-width: 100%; overflow-wrap: break-word; word-wrap: break-word; hyphens: auto; }
+    .contribute-content h1 { font-size: 2.9rem; word-break: keep-all; }
+    .contribute-content h2 { font-size: 2.2rem; word-break: keep-all; }
+    .contribute-content p, .initiative-card p, .form-section p, .form-note, .invitation-list li { font-size: 1rem; line-height: 1.6; overflow-wrap: break-word; word-wrap: break-word; min-width: 0; }
+    .contribute-method-card, .form-section, .initiative-card { padding: 2rem; margin: 2rem 0; width: 100%; box-sizing: border-box; }
     .contribute-step-item { margin-bottom: 1.8rem; padding: 1.2rem; display: flex; flex-direction: column; }
     .contribute-step-item::before { position: relative; top: auto; left: auto; margin-bottom: 0.8rem; align-self: flex-start; }
     .contribute-step-title { font-size: 1.2rem; padding-left: 0; margin-bottom: 0.8rem; order: 1; }
-    .contribute-step-detail { font-size: 1rem; padding-left: 0; line-height: 1.6; order: 2; }
+    .contribute-step-detail { font-size: 1rem; padding-left: 0; line-height: 1.6; order: 2; overflow-wrap: break-word; min-width: 0; }
     .contribute-step-detail ul { margin: 0.5rem 0; }
     .contribute-step-detail li { margin-bottom: 0.3rem; padding-left: 1rem; }
     .contribute-nav { padding: 1.8rem; margin: 0 0 2rem; }
@@ -255,16 +245,16 @@
     .warning-box, .form-section { padding: 1.8rem; margin: 1.8rem 0; }
 }
 @media (max-width: 480px) {
-    .contribute-container { padding: 1.5rem 0.5rem; }
-    .contribute-content { padding: 1.5rem; margin: 0; }
-    .contribute-content h1 { font-size: 2.5rem; }
-    .contribute-content h2 { font-size: 2rem; padding-left: 1.2rem; }
+    .contribute-container { padding: 1.5rem 0.5rem; width: 100%; box-sizing: border-box; }
+    .contribute-content { padding: 1.5rem 1rem; margin: 0; width: 100%; min-width: 0; }
+    .contribute-content h1 { font-size: 2.5rem; line-height: 1.3; }
+    .contribute-content h2 { font-size: 2rem; padding-left: 1.2rem; line-height: 1.3; }
     .contribute-content h2::before { width: 12px; height: 12px; }
     .contribute-method-card, .form-section, .initiative-card { padding: 1.5rem; margin: 1.5rem 0; }
     .contribute-step-item { margin-bottom: 1.5rem; padding: 1rem; }
     .contribute-step-item::before { width: 24px; height: 24px; font-size: 0.9rem; margin-bottom: 0.6rem; }
     .contribute-step-title { font-size: 1.1rem; padding-left: 0; margin-bottom: 0.6rem; }
-    .contribute-step-detail { font-size: 0.95rem; padding-left: 0; line-height: 1.5; }
+    .contribute-step-detail { font-size: 0.95rem; padding-left: 0; line-height: 1.5; word-break: break-word; hyphens: auto; }
     .contribute-nav { padding: 1.5rem; margin: 0 0 1.5rem; }
     .contribute-nav ul { flex-direction: column; }
     .contribute-nav a { min-width: auto; justify-content: flex-start; padding: 1rem 1.2rem; }
