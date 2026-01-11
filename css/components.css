@@ -394,3 +394,11 @@
     .card-btn { padding: 0.9rem 1.6rem; min-width: 140px; font-size: 1rem; }
 }
 
+@media (max-width: 768px) {
+    .diagonal-banner { top: 14px; left: -32px; padding: 5px 40px; font-size: 0.75rem; letter-spacing: 1.2px; }
+    .diagonal-banner.slim { top: 13px; left: -36px; padding: 4px 50px; font-size: 0.72rem; }
+}
+@media (max-width: 480px) {
+    .diagonal-banner { top: 12px; left: -28px; padding: 4px 35px; font-size: 0.7rem; letter-spacing: 1px; }
+    .diagonal-banner.slim { top: 11px; left: -32px; padding: 3px 45px; font-size: 0.68rem; }
+}

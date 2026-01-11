@@ -133,3 +133,26 @@
     .category-card { flex-direction: column; text-align: center; gap: 1rem; }
     .category-card-img { width: 100px; height: 100px; }
 }
+@media (max-width: 1100px) {
+    .classification-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .category-header { flex-direction: column; text-align: center; gap: 1rem; }
+    .category-header i { width: 50px; height: 50px; font-size: 1.5rem; }
+    .category-header h3 { font-size: 1.6rem; }
+}
+@media (max-width: 768px) {
+    .secondary-hero { height: 60vh; clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); }
+    .classification-category { padding: 1.8rem; }
+    .category-card { flex-direction: column; text-align: center; gap: 1rem; }
+    .category-card-img { width: 100px; height: 100px; }
+    .author-tag { font-size: 0.8rem; padding: 3px 8px; }
+}
+@media (max-width: 480px) {
+    .secondary-hero { height: 50vh; }
+    .classification-category { padding: 1.2rem; margin: 0 0.5rem; }
+    .category-header h3 { font-size: 1.4rem; }
+    .category-description { font-size: 1rem; }
+    .category-card { padding: 1rem; }
+    .category-card h4 { font-size: 1.1rem; }
+    .category-card p { font-size: 0.9rem; }
+    .author-tag { font-size: 0.75rem; padding: 2px 6px; }
+}
