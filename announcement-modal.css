@@ -1,299 +1,222 @@
-.announcement-modal {
+/* --- 核心容器與遮罩升級 --- */
+#announcementModal.announcement-modal {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  width: 100vw;
+  height: 100vh;
+  /* 升級點1：背景黑色稍微加深，模糊度提升，讓視覺更聚焦 */
+  background: rgba(0, 0, 0, 0.85) !important;
   z-index: 3000;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px); /* 模糊度從 8px 提升到 12px */
+  -webkit-backdrop-filter: blur(12px);
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transition: all 0.4s ease; /* 改為 all，讓背景變化也更柔和 */
+  margin: 0;
+  padding: 0;
 }
 
-.announcement-modal.active {
-  display: flex;
-  opacity: 1;
+#announcementModal.active {
+  display: flex !important;
+  opacity: 1 !important;
 }
 
-.announcement-content {
-  background: linear-gradient(145deg, #f8fafc 0%, #e2e8f0 100%);
-  border-radius: 20px;
-  width: 90%;
-  max-width: 600px;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 25px 50px rgba(0,0,0,0.3);
-  border: 1px solid rgba(255,255,255,0.3);
-  transform: translateY(20px);
-  transition: transform 0.4s ease;
+/* --- 內容主體框升級 --- */
+#announcementModal .announcement-content {
+  /* 升級點2：漸變背景稍微調亮一點點，看起來更通透 */
+  background: linear-gradient(160deg, #ffffff 0%, #f0f4f8 100%) !important;
+  border-radius: 24px !important; /* 圓角稍微加大一點點 */
+  width: 90% !important;
+  max-width: 580px !important; /* 稍微收窄一點點，更顯精緻 */
+  overflow: hidden !important;
+  position: relative !important;
+  /* 升級點3：高級雙層陰影。一層窄而深，一層寬而淺，製造懸浮感 */
+  box-shadow: 
+    0 10px 30px -10px rgba(0,0,0,0.2),
+    0 25px 60px -15px rgba(0,0,0,0.3) !important;
+  /* 邊框改用更細膩的內發光效果 */
+  border: 1px solid rgba(255,255,255,0.5) !important;
+  border-top-color: rgba(255,255,255,0.8) !important; /* 頂部邊框更亮，模擬光照 */
+  
+  transform: translateY(30px) scale(0.95); /* 初始狀態稍微縮小一點 */
+  /* 升級點4：更Q彈絲滑的入場曲線 */
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  
+  display: flex !important;
+  flex-direction: column !important;
+  opacity: 0 !important; /* 初始透明，配合 active 變為 1 */
+  visibility: visible !important;
 }
 
-.announcement-modal.active .announcement-content {
-  transform: translateY(0);
+#announcementModal.active .announcement-content {
+  transform: translateY(0) scale(1) !important;
+  opacity: 1 !important;
 }
 
-.announcement-header {
-  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-  padding: 2rem;
+/* --- 頭部區域升級 --- */
+#announcementModal .announcement-header {
+  /* 調整漸變角度，讓光影流動感更強 */
+  background: linear-gradient(160deg, var(--primary), var(--primary-dark)) !important;
+  padding: 3rem 2rem !important;
   text-align: center;
   position: relative;
-  color: white;
+  color: white !important;
+  /* 增加底部一個微妙的內陰影分割線 */
+  box-shadow: inset 0 -1px 0 rgba(255,255,255,0.1);
 }
 
-.announcement-header h3 {
-  font-size: 2rem;
-  margin: 0;
-  font-family: 'Playfair Display', serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
+#announcementModal .announcement-header h3 {
+  margin: 0 !important;
+  font-size: 2.2rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 1.2px;
+  color: white !important;
+  /* 升級點5：文字增加柔和的發光陰影，立體感up */
+  text-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.announcement-header h3 i {
-  font-size: 1.8rem;
-  color: var(--accent-light);
-}
-
-.close-btn {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  background: transparent;
-  border: none;
-  color: white;
-  font-size: 1.5rem;
+/* --- 關閉按鈕優化 --- */
+#announcementModal .close-btn {
+  position: absolute !important;
+  top: 1.5rem !important;
+  right: 1.5rem !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  font-size: 1.8rem !important;
   cursor: pointer;
-  transition: transform 0.3s ease;
-  width: 40px;
-  height: 40px;
+  transition: all 0.3s ease;
+  z-index: 10;
+  width: 42px;
+  height: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
+  /* 默認帶一個極淡的背景 */
+  background: rgba(255,255,255,0.05);
 }
 
-.close-btn:hover {
-  color: var(--accent-light);
-  transform: rotate(90deg);
-  background: rgba(255,255,255,0.1);
+#announcementModal .close-btn:hover {
+  color: white !important;
+  transform: rotate(90deg) scale(1.1);
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(255,255,255,0.3); /* 懸停發光 */
 }
 
-.announcement-body {
-  padding: 2.5rem;
+/* --- 內容區域優化 --- */
+#announcementModal .announcement-body {
+  padding: 2.5rem !important;
+  background: transparent !important;
+  /* 使用深灰色代替純黑，更柔和 */
+  color: var(--text, #2d3748) !important;
+  line-height: 1.7; /* 增加行高，閱讀更舒適 */
 }
 
-.version-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
+#announcementModal .version-info {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 2rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(22, 160, 133, 0.2);
+  border-bottom: 1px dashed rgba(22, 160, 133, 0.3); /* 改為虛線更精緻 */
 }
 
-.version-badge {
-  background: var(--accent);
-  color: white;
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
+#announcementModal .version-badge {
+  background: var(--accent) !important;
+  color: white !important;
+  padding: 0.5rem 1.2rem; /* 稍微加大內邊距 */
+  border-radius: 30px;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(22, 160, 133, 0.4); /* 陰影加深一點 */
   letter-spacing: 0.5px;
-  box-shadow: 0 4px 10px rgba(22, 160, 133, 0.3);
 }
 
-.version-date {
-  color: var(--text-light);
-  font-size: 0.9rem;
-  font-weight: 500;
-}
-
-.update-log, .daily-tip {
+/* --- 更新日誌框深度優化 --- */
+#announcementModal .update-log, 
+#announcementModal .daily-tip {
   margin-bottom: 2.5rem;
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  padding: 1.8rem;
-  border-left: 4px solid var(--accent);
+  /* 升級點6：這裡也加入毛玻璃效果，製造層中層的感覺 */
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-radius: 16px;
+  padding: 2rem !important;
+  border-left: 5px solid var(--accent) !important;
+  /* 增加一個微弱的邊框和陰影 */
+  border: 1px solid rgba(255,255,255,0.4);
+  border-left-width: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
 }
 
-.update-log h4, .daily-tip h4 {
-  font-size: 1.5rem;
-  margin-bottom: 1.2rem;
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* --- 底部與按鈕升級 --- */
+#announcementModal .announcement-footer {
+  padding: 2rem 2.5rem !important;
+  /* 背景更透明，融合感更好 */
+  background: rgba(255, 255, 255, 0.4) !important;
+  backdrop-filter: blur(5px);
+  text-align: center !important;
+  border-top: 1px solid rgba(22, 160, 133, 0.1);
 }
 
-.update-log h4 i, .daily-tip h4 i {
-  color: var(--accent);
-  font-size: 1.3rem;
-}
-
-.update-log ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-.update-log li {
-  margin-bottom: 0.8rem;
-  padding-left: 1.5rem;
-  position: relative;
-  line-height: 1.6;
-}
-
-.update-log li::before {
-  content: '•';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-size: 1.5rem;
-}
-
-.daily-tip p {
-  line-height: 1.7;
-  color: var(--text);
-  margin: 0;
-  font-size: 1.1rem;
-}
-
-.announcement-footer {
-  padding: 0 2.5rem 2.5rem;
-  text-align: center;
-}
-
-.accept-btn {
-  display: inline-block;
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  font-weight: 500;
-  font-size: 1.1rem;
+#announcementModal .accept-btn {
+  background: var(--accent) !important;
+  /* 也可以給按鈕加一個微妙的漸變 */
+  background: linear-gradient(135deg, var(--accent), #1abc9c) !important;
+  color: white !important;
+  border: none !important;
+  padding: 1.1rem 3.5rem !important; /* 按鈕更大氣 */
+  border-radius: 50px !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
   cursor: pointer;
-  transition: var(--transition);
-  box-shadow: 0 6px 15px rgba(26, 188, 156, 0.4);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px -5px rgba(22, 160, 133, 0.5); /* 默認就有漂亮的投影 */
   position: relative;
   overflow: hidden;
-  z-index: 1;
 }
 
-.accept-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-  transition: 0.5s;
+/* 升級點7：按鈕懸停效果更細膩，亮度提升 */
+#announcementModal .accept-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 25px -8px rgba(22, 160, 133, 0.6);
+  filter: brightness(1.1); /* 變亮一點 */
 }
 
-.accept-btn:hover::before {
-  left: 100%;
+#announcementModal .accept-btn:active {
+  transform: translateY(-1px) scale(0.98);
+  box-shadow: 0 5px 15px -5px rgba(22, 160, 133, 0.5);
+  filter: brightness(0.95);
 }
 
-.accept-btn:hover {
-  background: var(--accent-light);
-  transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(26, 188, 156, 0.5);
-}
-
-.crystal-decoration {
-  position: absolute;
-  color: var(--accent);
-  opacity: 0.1;
-  font-size: 6rem;
-  z-index: -1;
+/* --- 水晶裝飾微調 --- */
+#announcementModal .crystal-decoration {
+  position: absolute !important;
+  font-size: 7rem; /* 稍微變大 */
+  color: var(--primary);
+  opacity: 0.06; /* 透明度稍微增加一點點 */
+  z-index: 0;
   pointer-events: none;
+  filter: blur(1px); /* 給水晶一點點模糊，增加景深感 */
 }
 
-.crystal-decoration.top-left {
-  top: 20px;
-  left: 20px;
-  animation: float 12s infinite ease-in-out;
+#announcementModal .crystal-decoration.top-left {
+  top: -20px !important;
+  left: -30px !important;
+  animation: float 14s infinite ease-in-out;
 }
 
-.crystal-decoration.bottom-right {
-  bottom: 20px;
-  right: 20px;
+#announcementModal .crystal-decoration.bottom-right {
+  bottom: -20px !important;
+  right: -30px !important;
   transform: rotate(180deg);
-  animation: float 15s infinite ease-in-out reverse;
+  animation: float 18s infinite ease-in-out reverse;
 }
 
 @keyframes float {
   0% { transform: translateY(0) rotate(0deg); }
-  50% { transform: translateY(-10px) rotate(5deg); }
+  50% { transform: translateY(-15px) rotate(8deg); }
   100% { transform: translateY(0) rotate(0deg); }
-}
-
-@media (max-width: 768px) {
-  .announcement-content {
-    width: 95%;
-    margin: 1rem;
-  }
-  
-  .announcement-header {
-    padding: 1.5rem;
-  }
-  
-  .announcement-header h3 {
-    font-size: 1.7rem;
-  }
-  
-  .announcement-body {
-    padding: 1.5rem;
-  }
-  
-  .update-log, .daily-tip {
-    padding: 1.2rem;
-    margin-bottom: 1.8rem;
-  }
-  
-  .update-log h4, .daily-tip h4 {
-    font-size: 1.3rem;
-  }
-  
-  .announcement-footer {
-    padding: 0 1.5rem 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .announcement-header h3 {
-    font-size: 1.5rem;
-  }
-  
-  .announcement-body {
-    padding: 1.2rem;
-  }
-  
-  .update-log, .daily-tip {
-    padding: 1rem;
-  }
-  
-  .update-log h4, .daily-tip h4 {
-    font-size: 1.2rem;
-  }
-  
-  .update-log li, .daily-tip p {
-    font-size: 1rem;
-  }
-  
-  .accept-btn {
-    padding: 0.9rem 2rem;
-    font-size: 1rem;
-  }
-  
-  .version-info {
-    flex-direction: column;
-    gap: 0.5rem;
-    align-items: flex-start;
-  }
 }
