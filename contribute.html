@@ -62,7 +62,7 @@
                             <ul>
                                 <li>图片清晰，能够展示晶体细节</li>
                                 <li>附上晶体名称、培养方法和心得体会</li>
-                                <li>视频长度建议在3分钟以内</li>
+                                <li>视频长度建议在3至5分钟以内</li>
                                 <li>原创作品，不侵犯他人版权</li>
                                 <li>遵守实验室安全规范</li>
                             </ul>
@@ -160,7 +160,7 @@
                         <div class="form-group">
                             <div class="form-note">
                                 <strong><i class="fas fa-info-circle"></i> 注意事项：</strong> 
-                                上传内容应符合相关法律法规，不包含侵权、违法或不当内容。我们将在3-7个工作日内审核您的投稿，通过后会在网站相关位置展示。
+                                上传内容应符合相关法律法规，不包含侵权、违法或不当内容。我们将在7-14个工作日内审核您的投稿，通过后会在网站相关位置展示。
                             </div>
                         </div>
                         
@@ -617,185 +617,5 @@ document.addEventListener('DOMContentLoaded', function() {
     initFilePreview();
 });
     </script>
-    
-    <style>
-        .file-preview {
-            max-height: 200px;
-            overflow-y: auto;
-            margin-top: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            border: 1px solid rgba(22, 160, 133, 0.2);
-            border-radius: 8px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .file-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.8rem 1rem;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 8px;
-            border: 1px solid rgba(22, 160, 133, 0.2);
-            margin-bottom: 0.5rem;
-        }
-
-        .file-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .file-preview::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .file-preview::-webkit-scrollbar-track {
-            background: rgba(22, 160, 133, 0.1);
-            border-radius: 3px;
-        }
-
-        .file-preview::-webkit-scrollbar-thumb {
-            background: rgba(22, 160, 133, 0.3);
-            border-radius: 3px;
-        }
-
-        .file-preview::-webkit-scrollbar-thumb:hover {
-            background: rgba(22, 160, 133, 0.5);
-        }
-
-        .file-name {
-            flex: 1;
-            font-weight: 500;
-            color: var(--primary);
-            word-break: break-word;
-            padding-right: 10px;
-        }
-
-        .file-size {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin: 0 1rem;
-            white-space: nowrap;
-        }
-
-        .file-remove {
-            background: none;
-            border: none;
-            color: #e74c3c;
-            cursor: pointer;
-            padding: 0.3rem 0.5rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 30px;
-        }
-
-        .file-remove:hover {
-            background: rgba(231, 76, 60, 0.1);
-        }
-
-        .file-preview {
-            display: none;
-            max-height: 200px;
-            overflow-y: auto;
-            margin-top: 1rem;
-            flex-direction: column;
-            gap: 0.5rem;
-            border: 1px solid rgba(22, 160, 133, 0.2);
-            border-radius: 8px;
-            padding: 10px;
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .file-preview.has-files {
-            display: flex;
-        }
-
-        .file-preview::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .file-preview::-webkit-scrollbar-track {
-            background: rgba(22, 160, 133, 0.1);
-            border-radius: 3px;
-        }
-
-        .file-preview::-webkit-scrollbar-thumb {
-            background: rgba(22, 160, 133, 0.3);
-            border-radius: 3px;
-        }
-
-        .file-preview::-webkit-scrollbar-thumb:hover {
-            background: rgba(22, 160, 133, 0.5);
-        }
-
-        .file-name {
-            flex: 1;
-            font-weight: 500;
-            color: var(--primary);
-            word-break: break-word;
-            padding-right: 10px;
-        }
-
-        .file-size {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin: 0 1rem;
-            white-space: nowrap;
-        }
-
-        .file-remove {
-            background: none;
-            border: none;
-            color: #e74c3c;
-            cursor: pointer;
-            padding: 0.3rem 0.5rem;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-width: 30px;
-        }
-
-        .file-remove:hover {
-            background: rgba(231, 76, 60, 0.1);
-        }
-
-        @media (max-width: 768px) {
-            .file-preview.has-files {
-                max-height: 180px;
-            }
-            
-            .file-item {
-                flex-wrap: wrap;
-            }
-            
-            .file-name {
-                width: 100%;
-                margin-bottom: 5px;
-            }
-            
-            .file-size, .file-remove {
-                margin: 0 5px 0 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .file-preview.has-files {
-                max-height: 150px;
-                padding: 8px;
-            }
-            
-            .file-item {
-                padding: 0.6rem 0.8rem;
-            }
-        }
-
-    </style>
 </body>
 </html>
