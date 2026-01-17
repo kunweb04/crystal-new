@@ -46,11 +46,20 @@
         <div class="contribute-container">
             <div class="contribute-content">
                 <h1>分享您的<span>晶体智慧</span></h1>
+
+                <div class="type-nav">
+                    <button class="nav-item active" data-target="contribute-section">
+                        <i class="fas fa-upload"></i> 作品投稿
+                    </button>
+                    <button class="nav-item" data-target="suggestion-section">
+                        <i class="fas fa-comment-dots"></i> 建议反馈
+                    </button>
+                </div>
                 
                 <div class="crystal-decoration top-left"><i class="fas fa-gem"></i></div>
                 <div class="crystal-decoration bottom-right"><i class="fas fa-gem"></i></div>
                 
-                <section id="contribute-section">
+                <section id="contribute-section" class="section-tab active">
                     <h2>晶体作品投稿</h2>
                     
                     <div class="initiative-card">
@@ -83,15 +92,18 @@
                         
                         <div class="form-group">
                             <label for="contribute-type"><i class="fas fa-tag"></i> 投稿类型</label>
-                            <select id="contribute-type" required>
-                                <option value="" disabled selected>请选择投稿类型</option>
-                                <option value="作品展示">晶体作品展示</option>
-                                <option value="教程分享">培养教程分享</option>
-                                <option value="方法创新">创新方法分享</option>
-                                <option value="问题解决">问题解决方案</option>
-                                <option value="资料补充">研究资料补充</option>
-                                <option value="其他投稿">其他类型投稿</option>
-                            </select>
+                            <div class="select-wrapper">
+                                <select id="contribute-type" required>
+                                    <option value="" disabled selected>请选择投稿类型</option>
+                                    <option value="作品展示">晶体作品展示</option>
+                                    <option value="教程分享">培养教程分享</option>
+                                    <option value="方法创新">创新方法分享</option>
+                                    <option value="问题解决">问题解决方案</option>
+                                    <option value="资料补充">研究资料补充</option>
+                                    <option value="其他投稿">投稿晶体专文</option>
+                                    <option value="其他投稿">其他类型投稿</option>
+                                </select>
+                            </div>
                         </div>
                         
                         <div class="form-group">
@@ -173,7 +185,7 @@
                     </div>
                 </section>
                 
-                <section id="suggestion-section" style="margin-top: 6rem;">
+                <section id="suggestion-section" class="section-tab">
                     <h2>网站建议反馈</h2>
                     
                     <div class="initiative-card">
@@ -197,15 +209,17 @@
                         
                         <div class="form-group">
                             <label for="suggestion-type"><i class="fas fa-tag"></i> 建议类型</label>
-                            <select id="suggestion-type" required>
-                                <option value="" disabled selected>请选择建议类型</option>
-                                <option value="内容修正">内容错误修正</option>
-                                <option value="教程补充">教程内容补充</option>
-                                <option value="功能改进">网站功能改进</option>
-                                <option value="界面优化">界面设计优化</option>
-                                <option value="新功能建议">新功能需求</option>
-                                <option value="其他建议">其他类型建议</option>
-                            </select>
+                            <div class="select-wrapper">
+                                <select id="suggestion-type" required>
+                                    <option value="" disabled selected>请选择建议类型</option>
+                                    <option value="内容修正">内容错误修正</option>
+                                    <option value="教程补充">教程内容补充</option>
+                                    <option value="功能改进">网站功能改进</option>
+                                    <option value="界面优化">界面设计优化</option>
+                                    <option value="新功能建议">新功能需求</option>
+                                    <option value="其他建议">其他类型建议</option>
+                                </select>
+                            </div>
                         </div>
                         
                         <div class="form-group">
@@ -291,11 +305,11 @@
             <nav class="contribute-nav">
                 <h3>页面导航</h3>
                 <ul>
-                    <li><a href="#contribute-section"><i class="fas fa-upload"></i> 作品投稿</a></li>
-                    <li><a href="#suggestion-section"><i class="fas fa-comment"></i> 建议反馈</a></li>
-                    <li><a href="portfolio.html"><i class="fas fa-images"></i> 作品集</a></li>
-                    <li><a href="acknowledgements.html"><i class="fas fa-hands-helping"></i> 鸣谢页面</a></li>
-                    <li><a href="index.html"><i class="fas fa-home"></i> 返回首页</a></li>
+                    <li><a href="#contribute-section" class="nav-link" data-target="contribute-section"></i> 作品投稿</a></li>
+                    <li><a href="#suggestion-section" class="nav-link" data-target="suggestion-section"></i> 建议反馈</a></li>
+                    <li><a href="portfolio.html"></i> 作品集</a></li>
+                    <li><a href="acknowledgements.html"></i> 鸣谢页面</a></li>
+                    <li><a href="index.html"></i> 返回首页</a></li>
                 </ul>
             </nav>
         </div>
@@ -380,7 +394,6 @@ function removeFile(input, indexToRemove, previewContainer) {
     
     input.files = dt.files;
     
-    // 重新创建预览
     previewContainer.innerHTML = '';
     const updatedFiles = Array.from(input.files);
     
@@ -414,50 +427,71 @@ function removeFile(input, indexToRemove, previewContainer) {
     updatePreviewVisibility(previewContainer);
 }
 
-// 导航滚动
-document.querySelectorAll('.contribute-nav a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        const offset = 100;
-        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-        
-        window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
+function initTabSwitch() {
+    const typeNavItems = document.querySelectorAll('.type-nav .nav-item');
+    const navLinks = document.querySelectorAll('.contribute-nav .nav-link');
+    const sections = document.querySelectorAll('.section-tab');
+    
+    function switchTab(targetId) {
+        sections.forEach(section => {
+            section.classList.remove('active');
         });
         
-        document.querySelectorAll('.contribute-nav a').forEach(link => {
-            link.classList.remove('active');
-        });
-        this.classList.add('active');
-    });
-});
-
-window.addEventListener('scroll', function() {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.contribute-nav a[href^="#"]');
-    
-    let currentSection = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (window.scrollY >= sectionTop - 150) {
-            currentSection = section.getAttribute('id');
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+            targetSection.classList.add('active');
         }
+        
+        typeNavItems.forEach(item => {
+            if (item.dataset.target === targetId) {
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            if (link.dataset.target === targetId) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    }
+    
+    typeNavItems.forEach(item => {
+        item.addEventListener('click', function() {
+            switchTab(this.dataset.target);
+        });
     });
     
     navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${currentSection}`) {
-            link.classList.add('active');
-        }
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            switchTab(this.dataset.target);
+        });
     });
-});
+    
+    const otherLinks = document.querySelectorAll('.contribute-nav a:not(.nav-link)');
+    otherLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            if (this.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 100;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+}
 
-// 投稿提交
 document.getElementById('submit-contribute').addEventListener('click', function() {
     const type = document.getElementById('contribute-type').value;
     const title = document.getElementById('contribute-title').value;
@@ -502,7 +536,6 @@ document.getElementById('submit-contribute').addEventListener('click', function(
     submitFormData(formData, 'contribute-message', 'submit-contribute');
 });
 
-// 建议提交
 document.getElementById('submit-suggestion').addEventListener('click', function() {
     const type = document.getElementById('suggestion-type').value;
     const title = document.getElementById('suggestion-title').value;
@@ -612,9 +645,9 @@ function resetForm(formSection) {
     });
 }
 
-// 初始化
 document.addEventListener('DOMContentLoaded', function() {
     initFilePreview();
+    initTabSwitch();
 });
     </script>
 </body>
