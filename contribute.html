@@ -17,8 +17,10 @@
     <title>投稿与建议 - CrystalLab</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="content.css">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/contribute.css">
+    <link rel="stylesheet" href="css/home.css">
     <link rel="icon" href="favicon.ico" type="image/png">
     <meta name="google-adsense-account" content="ca-pub-9337526323324673">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9337526323324673" crossorigin="anonymous"></script>
@@ -561,17 +563,19 @@
     </script>
     
     <style>
-        .file-upload-container {
-            margin-top: 0.5rem;
-        }
-        
         .file-preview {
+            max-height: 200px;
+            overflow-y: auto;
             margin-top: 1rem;
             display: flex;
             flex-direction: column;
             gap: 0.5rem;
+            border: 1px solid rgba(22, 160, 133, 0.2);
+            border-radius: 8px;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.8);
         }
-        
+
         .file-item {
             display: flex;
             align-items: center;
@@ -580,49 +584,92 @@
             background: rgba(255, 255, 255, 0.9);
             border-radius: 8px;
             border: 1px solid rgba(22, 160, 133, 0.2);
+            margin-bottom: 0.5rem;
         }
-        
+
+        .file-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .file-preview::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .file-preview::-webkit-scrollbar-track {
+            background: rgba(22, 160, 133, 0.1);
+            border-radius: 3px;
+        }
+
+        .file-preview::-webkit-scrollbar-thumb {
+            background: rgba(22, 160, 133, 0.3);
+            border-radius: 3px;
+        }
+
+        .file-preview::-webkit-scrollbar-thumb:hover {
+            background: rgba(22, 160, 133, 0.5);
+        }
+
         .file-name {
             flex: 1;
             font-weight: 500;
             color: var(--primary);
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+            word-break: break-word;
+            padding-right: 10px;
         }
-        
+
         .file-size {
-            margin: 0 1rem;
             color: var(--text-light);
             font-size: 0.9rem;
+            margin: 0 1rem;
+            white-space: nowrap;
         }
-        
+
         .file-remove {
             background: none;
             border: none;
             color: #e74c3c;
             cursor: pointer;
-            padding: 0.3rem;
+            padding: 0.3rem 0.5rem;
             border-radius: 4px;
             transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 30px;
         }
-        
+
         .file-remove:hover {
             background: rgba(231, 76, 60, 0.1);
         }
-        
-        .vote-message.success {
-            background: rgba(46, 204, 113, 0.1);
-            color: #27ae60;
-            border: 1px solid rgba(46, 204, 113, 0.2);
-            display: block;
+
+        @media (max-width: 768px) {
+            .file-preview {
+                max-height: 180px;
+            }
+            
+            .file-item {
+                flex-wrap: wrap;
+            }
+            
+            .file-name {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+            
+            .file-size, .file-remove {
+                margin: 0 5px 0 0;
+            }
         }
-        
-        .vote-message.error {
-            background: rgba(231, 76, 60, 0.1);
-            color: #c0392b;
-            border: 1px solid rgba(231, 76, 60, 0.2);
-            display: block;
+
+        @media (max-width: 480px) {
+            .file-preview {
+                max-height: 150px;
+                padding: 8px;
+            }
+            
+            .file-item {
+                padding: 0.6rem 0.8rem;
+            }
         }
     </style>
 </body>
