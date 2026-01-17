@@ -307,259 +307,315 @@
     <script src="upload-handler.js"></script>
     
     <script>
-        // 文件预览功能
-        function initFilePreview() {
-            const fileInputs = document.querySelectorAll('input[type="file"]');
-            
-            fileInputs.forEach(input => {
-                const previewId = input.id + '-preview';
-                const previewContainer = document.getElementById(previewId);
+function initFilePreview() {
+    const fileInputs = document.querySelectorAll('input[type="file"]');
+    
+    fileInputs.forEach(input => {
+        const previewId = input.id + '-preview';
+        const previewContainer = document.getElementById(previewId);
+        
+        if (previewContainer) {
+            input.addEventListener('change', function(e) {
+                previewContainer.innerHTML = '';
+                const files = Array.from(e.target.files);
                 
-                if (previewContainer) {
-                    input.addEventListener('change', function(e) {
-                        previewContainer.innerHTML = '';
-                        const files = Array.from(e.target.files);
-                        
-                        files.forEach(file => {
-                            const fileItem = document.createElement('div');
-                            fileItem.className = 'file-item';
-                            
-                            const fileName = document.createElement('span');
-                            fileName.className = 'file-name';
-                            fileName.textContent = file.name;
-                            
-                            const fileSize = document.createElement('span');
-                            fileSize.className = 'file-size';
-                            fileSize.textContent = formatFileSize(file.size);
-                            
-                            const removeBtn = document.createElement('button');
-                            removeBtn.className = 'file-remove';
-                            removeBtn.innerHTML = '<i class="fas fa-times"></i>';
-                            removeBtn.addEventListener('click', function() {
-                                // 创建一个新的FileList来移除文件比较麻烦，这里简单重置输入
-                                input.value = '';
-                                previewContainer.innerHTML = '';
-                            });
-                            
-                            fileItem.appendChild(fileName);
-                            fileItem.appendChild(fileSize);
-                            fileItem.appendChild(removeBtn);
-                            previewContainer.appendChild(fileItem);
-                        });
+                files.forEach((file, index) => {
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'file-item';
+                    fileItem.dataset.index = index;
+                    
+                    const fileName = document.createElement('span');
+                    fileName.className = 'file-name';
+                    fileName.textContent = file.name;
+                    
+                    const fileSize = document.createElement('span');
+                    fileSize.className = 'file-size';
+                    fileSize.textContent = formatFileSize(file.size);
+                    
+                    const removeBtn = document.createElement('button');
+                    removeBtn.className = 'file-remove';
+                    removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                    removeBtn.type = 'button';
+                    removeBtn.addEventListener('click', function() {
+                        removeFile(input, fileItem.dataset.index, previewContainer);
                     });
-                }
-            });
-        }
-        
-        function formatFileSize(bytes) {
-            if (bytes === 0) return '0 Bytes';
-            const k = 1024;
-            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-            const i = Math.floor(Math.log(bytes) / Math.log(k));
-            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-        }
-        
-        // 导航滚动
-        document.querySelectorAll('.contribute-nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                const offset = 100;
-                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
-                
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
+                    
+                    fileItem.appendChild(fileName);
+                    fileItem.appendChild(fileSize);
+                    fileItem.appendChild(removeBtn);
+                    previewContainer.appendChild(fileItem);
                 });
                 
-                document.querySelectorAll('.contribute-nav a').forEach(link => {
-                    link.classList.remove('active');
-                });
-                this.classList.add('active');
-            });
-        });
-        
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.contribute-nav a[href^="#"]');
-            
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.scrollY >= sectionTop - 150) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        });
-        
-        // 投稿提交
-        document.getElementById('submit-contribute').addEventListener('click', function() {
-            const type = document.getElementById('contribute-type').value;
-            const title = document.getElementById('contribute-title').value;
-            const author = document.getElementById('contribute-author').value;
-            const contact = document.getElementById('contribute-contact').value;
-            const description = document.getElementById('contribute-description').value;
-            const crystalType = document.getElementById('contribute-crystal-type').value;
-            const images = document.getElementById('contribute-images').files;
-            const videos = document.getElementById('contribute-videos').files;
-            const documents = document.getElementById('contribute-documents').files;
-            const imageLinks = document.getElementById('contribute-image-links').value;
-            const videoLinks = document.getElementById('contribute-video-links').value;
-            
-            if (!type || !title || !author || !description) {
-                showMessage('contribute-message', '请填写所有必填字段', 'error');
-                return;
-            }
-            
-            const formData = new FormData();
-            formData.append('source', 'contribute');
-            formData.append('type', type);
-            formData.append('title', title);
-            formData.append('author', author);
-            formData.append('contact', contact);
-            formData.append('description', description);
-            formData.append('crystal_type', crystalType);
-            formData.append('image_links', imageLinks);
-            formData.append('video_links', videoLinks);
-            
-            for (let i = 0; i < images.length; i++) {
-                formData.append('images', images[i]);
-            }
-            
-            if (videos.length > 0) {
-                formData.append('videos', videos[0]);
-            }
-            
-            for (let i = 0; i < documents.length; i++) {
-                formData.append('documents', documents[i]);
-            }
-            
-            submitFormData(formData, 'contribute-message', 'submit-contribute');
-        });
-        
-        // 建议提交
-        document.getElementById('submit-suggestion').addEventListener('click', function() {
-            const type = document.getElementById('suggestion-type').value;
-            const title = document.getElementById('suggestion-title').value;
-            const author = document.getElementById('suggestion-author').value;
-            const contact = document.getElementById('suggestion-contact').value;
-            const description = document.getElementById('suggestion-description').value;
-            const page = document.getElementById('suggestion-page').value;
-            const images = document.getElementById('suggestion-images').files;
-            const imageLinks = document.getElementById('suggestion-image-links').value;
-            
-            if (!type || !title || !author || !description) {
-                showMessage('suggestion-message', '请填写所有必填字段', 'error');
-                return;
-            }
-            
-            const formData = new FormData();
-            formData.append('source', 'suggestion');
-            formData.append('type', type);
-            formData.append('title', title);
-            formData.append('author', author);
-            formData.append('contact', contact);
-            formData.append('description', description);
-            formData.append('page', page);
-            formData.append('image_links', imageLinks);
-            
-            for (let i = 0; i < images.length; i++) {
-                formData.append('images', images[i]);
-            }
-            
-            submitFormData(formData, 'suggestion-message', 'submit-suggestion');
-        });
-        
-        function submitFormData(formData, messageElementId, buttonId) {
-            const submitBtn = document.getElementById(buttonId);
-            const originalText = submitBtn.innerHTML;
-            
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 提交中...';
-            submitBtn.disabled = true;
-            
-            uploadToBackend(formData)
-                .then(response => {
-                    showMessage(messageElementId, '提交成功！感谢您的贡献。', 'success');
-                    resetForm(submitBtn.closest('.form-section'));
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                })
-                .catch(error => {
-                    showMessage(messageElementId, `提交失败：${error.message}`, 'error');
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                });
-        }
-        
-        async function uploadToBackend(formData) {
-            const UPLOAD_ENDPOINT = 'https://crystallab-upload.enderwolf9487.workers.dev/upload';
-            
-            try {
-                const response = await fetch(UPLOAD_ENDPOINT, {
-                    method: 'POST',
-                    body: formData
-                });
-                
-                if (!response.ok) {
-                    throw new Error(`服务器错误: ${response.status}`);
-                }
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    return result;
-                } else {
-                    throw new Error(result.message || '上传失败');
-                }
-            } catch (error) {
-                console.error('上传失败:', error);
-                throw error;
-            }
-        }
-        
-        function showMessage(elementId, message, type) {
-            const element = document.getElementById(elementId);
-            element.textContent = message;
-            element.className = `vote-message ${type}`;
-            element.style.display = 'block';
-            
-            setTimeout(() => {
-                element.style.display = 'none';
-            }, 5000);
-        }
-        
-        function resetForm(formSection) {
-            const inputs = formSection.querySelectorAll('input[type="text"], input[type="file"], textarea, select');
-            inputs.forEach(input => {
-                if (input.type === 'file') {
-                    input.value = '';
-                    const previewId = input.id + '-preview';
-                    const previewContainer = document.getElementById(previewId);
-                    if (previewContainer) {
-                        previewContainer.innerHTML = '';
-                    }
-                } else if (input.tagName === 'SELECT') {
-                    input.selectedIndex = 0;
-                } else {
-                    input.value = '';
-                }
+                updatePreviewVisibility(previewContainer);
             });
         }
+    });
+}
+
+function updatePreviewVisibility(previewContainer) {
+    if (previewContainer.children.length > 0) {
+        previewContainer.classList.add('has-files');
+    } else {
+        previewContainer.classList.remove('has-files');
+    }
+}
+
+function formatFileSize(bytes) {
+    if (bytes === 0) return '0 Bytes';
+    const k = 1024;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+}
+
+function removeFile(input, indexToRemove, previewContainer) {
+    const dt = new DataTransfer();
+    const files = Array.from(input.files);
+    
+    files.forEach((file, index) => {
+        if (index !== parseInt(indexToRemove)) {
+            dt.items.add(file);
+        }
+    });
+    
+    input.files = dt.files;
+    
+    // 重新创建预览
+    previewContainer.innerHTML = '';
+    const updatedFiles = Array.from(input.files);
+    
+    updatedFiles.forEach((file, index) => {
+        const fileItem = document.createElement('div');
+        fileItem.className = 'file-item';
+        fileItem.dataset.index = index;
         
-        // 初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            initFilePreview();
+        const fileName = document.createElement('span');
+        fileName.className = 'file-name';
+        fileName.textContent = file.name;
+        
+        const fileSize = document.createElement('span');
+        fileSize.className = 'file-size';
+        fileSize.textContent = formatFileSize(file.size);
+        
+        const removeBtn = document.createElement('button');
+        removeBtn.className = 'file-remove';
+        removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+        removeBtn.type = 'button';
+        removeBtn.addEventListener('click', function() {
+            removeFile(input, index, previewContainer);
         });
+        
+        fileItem.appendChild(fileName);
+        fileItem.appendChild(fileSize);
+        fileItem.appendChild(removeBtn);
+        previewContainer.appendChild(fileItem);
+    });
+    
+    updatePreviewVisibility(previewContainer);
+}
+
+// 导航滚动
+document.querySelectorAll('.contribute-nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        const offset = 100;
+        const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+        
+        window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+        });
+        
+        document.querySelectorAll('.contribute-nav a').forEach(link => {
+            link.classList.remove('active');
+        });
+        this.classList.add('active');
+    });
+});
+
+window.addEventListener('scroll', function() {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.contribute-nav a[href^="#"]');
+    
+    let currentSection = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.scrollY >= sectionTop - 150) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${currentSection}`) {
+            link.classList.add('active');
+        }
+    });
+});
+
+// 投稿提交
+document.getElementById('submit-contribute').addEventListener('click', function() {
+    const type = document.getElementById('contribute-type').value;
+    const title = document.getElementById('contribute-title').value;
+    const author = document.getElementById('contribute-author').value;
+    const contact = document.getElementById('contribute-contact').value;
+    const description = document.getElementById('contribute-description').value;
+    const crystalType = document.getElementById('contribute-crystal-type').value;
+    const images = document.getElementById('contribute-images').files;
+    const videos = document.getElementById('contribute-videos').files;
+    const documents = document.getElementById('contribute-documents').files;
+    const imageLinks = document.getElementById('contribute-image-links').value;
+    const videoLinks = document.getElementById('contribute-video-links').value;
+    
+    if (!type || !title || !author || !description) {
+        showMessage('contribute-message', '请填写所有必填字段', 'error');
+        return;
+    }
+    
+    const formData = new FormData();
+    formData.append('source', 'contribute');
+    formData.append('type', type);
+    formData.append('title', title);
+    formData.append('author', author);
+    formData.append('contact', contact);
+    formData.append('description', description);
+    formData.append('crystal_type', crystalType);
+    formData.append('image_links', imageLinks);
+    formData.append('video_links', videoLinks);
+    
+    for (let i = 0; i < images.length; i++) {
+        formData.append('images', images[i]);
+    }
+    
+    if (videos.length > 0) {
+        formData.append('videos', videos[0]);
+    }
+    
+    for (let i = 0; i < documents.length; i++) {
+        formData.append('documents', documents[i]);
+    }
+    
+    submitFormData(formData, 'contribute-message', 'submit-contribute');
+});
+
+// 建议提交
+document.getElementById('submit-suggestion').addEventListener('click', function() {
+    const type = document.getElementById('suggestion-type').value;
+    const title = document.getElementById('suggestion-title').value;
+    const author = document.getElementById('suggestion-author').value;
+    const contact = document.getElementById('suggestion-contact').value;
+    const description = document.getElementById('suggestion-description').value;
+    const page = document.getElementById('suggestion-page').value;
+    const images = document.getElementById('suggestion-images').files;
+    const imageLinks = document.getElementById('suggestion-image-links').value;
+    
+    if (!type || !title || !author || !description) {
+        showMessage('suggestion-message', '请填写所有必填字段', 'error');
+        return;
+    }
+    
+    const formData = new FormData();
+    formData.append('source', 'suggestion');
+    formData.append('type', type);
+    formData.append('title', title);
+    formData.append('author', author);
+    formData.append('contact', contact);
+    formData.append('description', description);
+    formData.append('page', page);
+    formData.append('image_links', imageLinks);
+    
+    for (let i = 0; i < images.length; i++) {
+        formData.append('images', images[i]);
+    }
+    
+    submitFormData(formData, 'suggestion-message', 'submit-suggestion');
+});
+
+function submitFormData(formData, messageElementId, buttonId) {
+    const submitBtn = document.getElementById(buttonId);
+    const originalText = submitBtn.innerHTML;
+    
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 提交中...';
+    submitBtn.disabled = true;
+    
+    uploadToBackend(formData)
+        .then(response => {
+            showMessage(messageElementId, '提交成功！感谢您的贡献。', 'success');
+            resetForm(submitBtn.closest('.form-section'));
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        })
+        .catch(error => {
+            showMessage(messageElementId, `提交失败：${error.message}`, 'error');
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
+}
+
+async function uploadToBackend(formData) {
+    const UPLOAD_ENDPOINT = 'https://crystallab-upload.enderwolf9487.workers.dev/upload';
+    
+    try {
+        const response = await fetch(UPLOAD_ENDPOINT, {
+            method: 'POST',
+            body: formData
+        });
+        
+        if (!response.ok) {
+            throw new Error(`服务器错误: ${response.status}`);
+        }
+        
+        const result = await response.json();
+        
+        if (result.success) {
+            return result;
+        } else {
+            throw new Error(result.message || '上传失败');
+        }
+    } catch (error) {
+        console.error('上传失败:', error);
+        throw error;
+    }
+}
+
+function showMessage(elementId, message, type) {
+    const element = document.getElementById(elementId);
+    element.textContent = message;
+    element.className = `vote-message ${type}`;
+    element.style.display = 'block';
+    
+    setTimeout(() => {
+        element.style.display = 'none';
+    }, 5000);
+}
+
+function resetForm(formSection) {
+    const inputs = formSection.querySelectorAll('input[type="text"], input[type="file"], textarea, select');
+    inputs.forEach(input => {
+        if (input.type === 'file') {
+            input.value = '';
+            const previewId = input.id + '-preview';
+            const previewContainer = document.getElementById(previewId);
+            if (previewContainer) {
+                previewContainer.innerHTML = '';
+                previewContainer.classList.remove('has-files');
+            }
+        } else if (input.tagName === 'SELECT') {
+            input.selectedIndex = 0;
+        } else {
+            input.value = '';
+        }
+    });
+}
+
+// 初始化
+document.addEventListener('DOMContentLoaded', function() {
+    initFilePreview();
+});
     </script>
     
     <style>
