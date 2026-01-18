@@ -24,6 +24,152 @@
     <link rel="icon" href="favicon.ico" type="image/png">
     <meta name="google-adsense-account" content="ca-pub-9337526323324673">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9337526323324673" crossorigin="anonymous"></script>
+    <style>
+        .custom-select {
+            position: relative;
+            width: 100%;
+        }
+        
+        .select-trigger {
+            width: 100%;
+            padding: 16px 50px 16px 22px;
+            background: white;
+            border: 2px solid rgba(22, 160, 133, 0.15);
+            border-radius: 14px;
+            font-size: 1rem;
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: 'Noto Sans SC', sans-serif;
+            font-weight: 500;
+            text-align: left;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            background-image: linear-gradient(135deg, rgba(22, 160, 133, 0.02), rgba(26, 188, 156, 0.02));
+            position: relative;
+            z-index: 10;
+        }
+        
+        .select-trigger:hover {
+            border-color: rgba(22, 160, 133, 0.3);
+            box-shadow: 0 6px 18px rgba(22, 160, 133, 0.08);
+            transform: translateY(-1px);
+        }
+        
+        .select-trigger:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(22, 160, 133, 0.15), 0 8px 24px rgba(22, 160, 133, 0.12);
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+        
+        .select-trigger::after {
+            content: '';
+            position: absolute;
+            right: 22px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-top: 8px solid var(--accent);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0.7;
+        }
+        
+        .select-trigger.open::after {
+            transform: translateY(-50%) rotate(180deg);
+            border-top-color: var(--accent-dark);
+            opacity: 1;
+        }
+        
+        .select-options {
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            width: 100%;
+            max-height: 300px;
+            overflow-y: auto;
+            background: white;
+            border: 2px solid rgba(22, 160, 133, 0.15);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            z-index: 1000;
+            display: none;
+            animation: dropdownFade 0.3s ease;
+        }
+        
+        .select-options.open {
+            display: block;
+        }
+        
+        .select-option {
+            padding: 14px 20px;
+            background: white;
+            color: #1e293b;
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: 'Noto Sans SC', sans-serif;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            position: relative;
+            text-align: left;
+            width: 100%;
+            border: none;
+        }
+        
+        .select-option:first-child {
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        
+        .select-option:last-child {
+            border-bottom: none;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        
+        .select-option:hover {
+            background: linear-gradient(135deg, rgba(22, 160, 133, 0.08), rgba(26, 188, 156, 0.08));
+            color: #0f766e;
+            padding-left: 26px;
+            font-weight: 600;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .select-option.selected {
+            background: linear-gradient(135deg, rgba(22, 160, 133, 0.15), rgba(26, 188, 156, 0.15));
+            color: #0f766e !important;
+            font-weight: 600;
+            border-left: 4px solid var(--accent);
+        }
+        
+        .select-option.selected::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 16px;
+            color: var(--accent);
+            font-size: 0.85rem;
+        }
+        
+        @keyframes dropdownFade {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .custom-select select {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div id="navbar-container"></div>
@@ -92,7 +238,7 @@
                         
                         <div class="form-group">
                             <label for="contribute-type"><i class="fas fa-tag"></i> 投稿类型</label>
-                            <div class="select-wrapper">
+                            <div class="custom-select">
                                 <select id="contribute-type" required>
                                     <option value="" disabled selected>请选择投稿类型</option>
                                     <option value="作品展示">晶体作品展示</option>
@@ -100,9 +246,18 @@
                                     <option value="方法创新">创新方法分享</option>
                                     <option value="问题解决">问题解决方案</option>
                                     <option value="资料补充">研究资料补充</option>
-                                    <option value="其他投稿">投稿晶体专文</option>
                                     <option value="其他投稿">其他类型投稿</option>
                                 </select>
+                                <div class="select-trigger">请选择投稿类型</div>
+                                <div class="select-options">
+                                    <button class="select-option" data-value="">请选择投稿类型</button>
+                                    <button class="select-option" data-value="作品展示">晶体作品展示</button>
+                                    <button class="select-option" data-value="教程分享">培养教程分享</button>
+                                    <button class="select-option" data-value="方法创新">创新方法分享</button>
+                                    <button class="select-option" data-value="问题解决">问题解决方案</button>
+                                    <button class="select-option" data-value="资料补充">研究资料补充</button>
+                                    <button class="select-option" data-value="其他投稿">其他类型投稿</button>
+                                </div>
                             </div>
                         </div>
                         
@@ -209,7 +364,7 @@
                         
                         <div class="form-group">
                             <label for="suggestion-type"><i class="fas fa-tag"></i> 建议类型</label>
-                            <div class="select-wrapper">
+                            <div class="custom-select">
                                 <select id="suggestion-type" required>
                                     <option value="" disabled selected>请选择建议类型</option>
                                     <option value="内容修正">内容错误修正</option>
@@ -219,6 +374,16 @@
                                     <option value="新功能建议">新功能需求</option>
                                     <option value="其他建议">其他类型建议</option>
                                 </select>
+                                <div class="select-trigger">请选择建议类型</div>
+                                <div class="select-options">
+                                    <button class="select-option" data-value="">请选择建议类型</button>
+                                    <button class="select-option" data-value="内容修正">内容错误修正</button>
+                                    <button class="select-option" data-value="教程补充">教程内容补充</button>
+                                    <button class="select-option" data-value="功能改进">网站功能改进</button>
+                                    <button class="select-option" data-value="界面优化">界面设计优化</button>
+                                    <button class="select-option" data-value="新功能建议">新功能需求</button>
+                                    <button class="select-option" data-value="其他建议">其他类型建议</button>
+                                </div>
                             </div>
                         </div>
                         
@@ -305,11 +470,11 @@
             <nav class="contribute-nav">
                 <h3>页面导航</h3>
                 <ul>
-                    <li><a href="#contribute-section" class="nav-link" data-target="contribute-section"></i> 作品投稿</a></li>
-                    <li><a href="#suggestion-section" class="nav-link" data-target="suggestion-section"></i> 建议反馈</a></li>
-                    <li><a href="portfolio.html"></i> 作品集</a></li>
-                    <li><a href="acknowledgements.html"></i> 鸣谢页面</a></li>
-                    <li><a href="index.html"></i> 返回首页</a></li>
+                    <li><a href="#contribute-section" class="nav-link" data-target="contribute-section"><i class="fas fa-upload"></i> 作品投稿</a></li>
+                    <li><a href="#suggestion-section" class="nav-link" data-target="suggestion-section"><i class="fas fa-comment"></i> 建议反馈</a></li>
+                    <li><a href="portfolio.html"><i class="fas fa-images"></i> 作品集</a></li>
+                    <li><a href="acknowledgements.html"><i class="fas fa-hands-helping"></i> 鸣谢页面</a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i> 返回首页</a></li>
                 </ul>
             </nav>
         </div>
@@ -321,6 +486,74 @@
     <script src="upload-handler.js"></script>
     
     <script>
+// 自定义下拉组件逻辑
+function initCustomSelects() {
+    document.querySelectorAll('.custom-select').forEach(container => {
+        const select = container.querySelector('select');
+        const trigger = container.querySelector('.select-trigger');
+        const options = container.querySelectorAll('.select-option');
+        const optionsContainer = container.querySelector('.select-options');
+        
+        // 设置初始显示值
+        const selectedOption = select.options[select.selectedIndex];
+        trigger.textContent = selectedOption ? selectedOption.text : '请选择';
+        
+        // 点击触发器打开/关闭下拉
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const isOpen = optionsContainer.classList.contains('open');
+            
+            // 关闭其他打开的下拉
+            document.querySelectorAll('.select-options.open').forEach(openOptions => {
+                if (openOptions !== optionsContainer) {
+                    openOptions.classList.remove('open');
+                    openOptions.parentElement.querySelector('.select-trigger').classList.remove('open');
+                }
+            });
+            
+            // 切换当前下拉
+            optionsContainer.classList.toggle('open');
+            trigger.classList.toggle('open');
+        });
+        
+        // 点击选项选择
+        options.forEach(option => {
+            option.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const value = option.getAttribute('data-value');
+                const text = option.textContent;
+                
+                // 更新显示
+                trigger.textContent = text;
+                trigger.classList.remove('open');
+                optionsContainer.classList.remove('open');
+                
+                // 更新隐藏的select元素
+                select.value = value;
+                
+                // 触发change事件
+                select.dispatchEvent(new Event('change'));
+                
+                // 更新选项选中状态
+                options.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+            });
+        });
+        
+        // 点击其他地方关闭下拉
+        document.addEventListener('click', () => {
+            optionsContainer.classList.remove('open');
+            trigger.classList.remove('open');
+        });
+        
+        // 防止下拉内部点击关闭
+        optionsContainer.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+    });
+}
+
+// 文件预览功能保持不变
 function initFilePreview() {
     const fileInputs = document.querySelectorAll('input[type="file"]');
     
@@ -427,6 +660,7 @@ function removeFile(input, indexToRemove, previewContainer) {
     updatePreviewVisibility(previewContainer);
 }
 
+// 选项卡切换功能
 function initTabSwitch() {
     const typeNavItems = document.querySelectorAll('.type-nav .nav-item');
     const navLinks = document.querySelectorAll('.contribute-nav .nav-link');
@@ -492,6 +726,7 @@ function initTabSwitch() {
     });
 }
 
+// 投稿提交
 document.getElementById('submit-contribute').addEventListener('click', function() {
     const type = document.getElementById('contribute-type').value;
     const title = document.getElementById('contribute-title').value;
@@ -536,6 +771,7 @@ document.getElementById('submit-contribute').addEventListener('click', function(
     submitFormData(formData, 'contribute-message', 'submit-contribute');
 });
 
+// 建议提交
 document.getElementById('submit-suggestion').addEventListener('click', function() {
     const type = document.getElementById('suggestion-type').value;
     const title = document.getElementById('suggestion-title').value;
@@ -639,15 +875,29 @@ function resetForm(formSection) {
             }
         } else if (input.tagName === 'SELECT') {
             input.selectedIndex = 0;
+            // 同时重置自定义下拉显示
+            const container = input.closest('.custom-select');
+            if (container) {
+                const trigger = container.querySelector('.select-trigger');
+                const selectedOption = input.options[input.selectedIndex];
+                trigger.textContent = selectedOption ? selectedOption.text : '请选择';
+                
+                // 重置选项选中状态
+                container.querySelectorAll('.select-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+            }
         } else {
             input.value = '';
         }
     });
 }
 
+// 初始化
 document.addEventListener('DOMContentLoaded', function() {
     initFilePreview();
     initTabSwitch();
+    initCustomSelects();
 });
     </script>
 </body>
