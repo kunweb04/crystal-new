@@ -438,9 +438,9 @@ footer::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     z-index: 2000;
     opacity: 0;
     visibility: hidden;
@@ -453,18 +453,25 @@ footer::before {
 }
 
 .mobile-menu-container {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     width: 80%;
     max-width: 320px;
     height: 100%;
-    background: linear-gradient(165deg, #2c3e50 0%, #1a252f 100%);
+    overflow-y: auto;
+    overflow-x: hidden; 
+    overscroll-behavior: contain;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     padding: 2rem;
     transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 24px 0 0 24px; 
+    height: auto; 
+    max-height: 100vh; 
+    background: linear-gradient(165deg, #2c3e50 0%, #1a252f 100%);
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
     border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -522,42 +529,49 @@ footer::before {
     transform: rotate(90deg);
 }
 
+.mobile-nav {
+    width: 100%;
+    margin-bottom: 2rem; 
+}
+
 .mobile-nav ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 15px; 
+    width: 100%;
 }
 
 .mobile-nav a {
+    position: relative;
     display: flex;
     align-items: center;
-    color: rgba(255, 255, 255, 0.85);
+    color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     font-size: 1.1rem;
-    padding: 14px 20px;
-    border-radius: 12px; 
+    padding: 10px 16px;
+    margin-bottom: 10px;
+    border-radius: 16px; 
+    background: rgba(255, 255, 255, 0.03);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
-    background: transparent;
+    border: 1px solid transparent;
     overflow: hidden;
 }
 
 .mobile-nav a i {
-    width: 30px;
-    text-align: center;
+    width: 25px;
     margin-right: 15px;
-    font-size: 1.1rem;
-    transition: transform 0.3s ease;
+    font-size: 1.15rem;
     color: var(--accent-light);
-    opacity: 0.8;
+    opacity: 0.7;
+    transition: all 0.3s ease;
 }
 
 .mobile-nav a:hover,
 .mobile-nav a:active {
     background: rgba(26, 188, 156, 0.15); 
     color: #ffffff;
-    transform: translateX(8px); 
+    transform: scale(1.02);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
 }
 
@@ -582,22 +596,26 @@ footer::before {
 .mobile-nav a:hover i {
     transform: scale(1.2); 
     opacity: 1;
-    color: #fff;
-    text-shadow: 0 0 10px var(--accent-light);
+    text-shadow: 0 0 8px var(--accent-light);
 }
 
 .mobile-search-box {
     margin-top: auto; 
-    margin-bottom: 1rem;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 0;
+    padding-bottom: 2rem;
+    width: 100%;
+    flex-shrink: 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    flex-shrink: 0;
 }
 
 .mobile-search-box form {
     display: flex;
     background: rgba(0, 0, 0, 0.2);
-    border-radius: 50px; 
-    padding: 0.5rem 0.5rem 0.5rem 1.2rem;
+    border-radius: 30px; 
+    padding: 5px 5px 5px 18px;
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
     align-items: center;
@@ -606,15 +624,17 @@ footer::before {
 .mobile-search-box form:focus-within {
     background: rgba(0, 0, 0, 0.4);
     border-color: var(--accent-light);
-    box-shadow: 0 0 15px rgba(26, 188, 156, 0.2);
 }
 
 .mobile-search-box input {
     background: transparent;
     border: none;
-    color: white;
-    width: 100%;
+    color: #1abc9c;
+    flex: 1;
     font-size: 0.95rem;
+    outline: none;
+    padding: 8px 0;
+    width: 100%;
     outline: none;
 }
 
@@ -630,7 +650,7 @@ footer::before {
     align-items: center;
     justify-content: center;
     transition: transform 0.3s ease;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .mobile-search-box button:active {

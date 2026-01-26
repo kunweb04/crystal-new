@@ -7,7 +7,6 @@ function loadComponents() {
             initMobileMenu();
         })
         .catch(error => {
-            // 备用 HTML (已更新包含移动端搜索框)
             document.getElementById('navbar-container').innerHTML = `
                 <header>
                     <div class="header-container">
@@ -23,9 +22,8 @@ function loadComponents() {
                                 <li><a href="contribute.html">联系投稿</a></li>
                             </ul>
                         </nav>
-                        <form class="search-box" method="get" action="https://cse.google.com/cse" target="_blank">
-                            <input type="hidden" name="cx" value="20995defc55444858">
-                            <input type="text" name="q" placeholder="搜索相关内容..." required>
+                        <form class="search-box" method="get" action="search.html">
+                            <input type="text" name="q" placeholder="搜索晶体相关内容..." required>
                             <button type="submit"><i class="fas fa-search"></i></button>
                         </form>
                         <button class="hamburger-menu" aria-label="菜单">
@@ -55,9 +53,8 @@ function loadComponents() {
                             </nav>
                             
                             <div class="mobile-search-box">
-                                <form method="get" action="https://cse.google.com/cse" target="_blank">
-                                    <input type="hidden" name="cx" value="20995defc55444858">
-                                    <input type="text" name="q" placeholder="搜索相关内容..." required>
+                                <form method="get" action="search.html">
+                                    <input type="text" name="q" placeholder="搜索晶体相关内容..." required>
                                     <button type="submit"><i class="fas fa-search"></i></button>
                                 </form>
                             </div>
@@ -66,7 +63,7 @@ function loadComponents() {
                 </header>
             `;
             initNavbar();
-            initMobileMenu(); // 即使是备用HTML也要初始化菜单
+            initMobileMenu();
         });
     
     fetch('footer.html')
@@ -80,17 +77,12 @@ function initNavbar() {
     window.addEventListener('scroll', function() {
         const header = document.querySelector('header');
         if(header) {
-            if(window.scrollY > 50) {
-                header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.15)';
-            } else {
-                header.style.boxShadow = '0 4px 15px rgba(0,0,0,0.1)';
-            }
+            header.style.boxShadow = window.scrollY > 50 ? '0 4px 15px rgba(0,0,0,0.15)' : '0 4px 15px rgba(0,0,0,0.1)';
         }
     });
     
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
+    document.querySelectorAll('nav a').forEach(link => {
         const linkPage = link.getAttribute('href');
         if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
             link.classList.add('active');
@@ -116,9 +108,7 @@ function initKeyboardShortcuts() {
     
     setTimeout(() => {
         const searchInput = document.querySelector('.search-box input[name="q"]');
-        if (searchInput) {
-            searchInput.placeholder = '搜索相关内容... (Ctrl+K)';
-        }
+        if (searchInput) searchInput.placeholder = '搜索相关内容... (Ctrl+K)';
     }, 1000);
 }
 
@@ -143,41 +133,30 @@ function initMobileMenu() {
         }
     }
     
-    if (closeMenuBtn) {
-        closeMenuBtn.addEventListener('click', closeMobileMenu);
-    }
+    if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMobileMenu);
     
     if (mobileMenuOverlay) {
         mobileMenuOverlay.addEventListener('click', function(e) {
-            if (e.target === mobileMenuOverlay) {
-                closeMobileMenu();
-            }
+            if (e.target === mobileMenuOverlay) closeMobileMenu();
         });
     }
     
     if (mobileMenuContainer) {
-        mobileMenuContainer.addEventListener('click', function(e) {
-            e.stopPropagation();
-        });
+        mobileMenuContainer.addEventListener('click', e => e.stopPropagation());
     }
     
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && mobileMenuOverlay && mobileMenuOverlay.classList.contains('active')) {
+        if (e.key === 'Escape' && mobileMenuOverlay?.classList.contains('active')) {
             closeMobileMenu();
         }
     });
     
-    const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-    mobileNavLinks.forEach(link => {
+    document.querySelectorAll('.mobile-nav a').forEach(link => {
         link.addEventListener('click', closeMobileMenu);
     });
     
     const mobileSearchForm = document.querySelector('.mobile-search-box form');
-    if (mobileSearchForm) {
-        mobileSearchForm.addEventListener('submit', closeMobileMenu);
-    }
+    if (mobileSearchForm) mobileSearchForm.addEventListener('submit', closeMobileMenu);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    loadComponents();
-});
+document.addEventListener('DOMContentLoaded', loadComponents);
