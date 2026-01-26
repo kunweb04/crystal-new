@@ -503,9 +503,17 @@ footer::before {
 }
 
 .mobile-logo h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     letter-spacing: 1px;
+    font-weight: 70;
+    font-family: 'Playfair Display', serif;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--accent-light), var(--accent-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    transition: var(--transition);
 }
 
 .close-menu-btn {
