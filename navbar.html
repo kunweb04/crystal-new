@@ -12,9 +12,44 @@
                 <li><a href="contribute.html">联系投稿</a></li>
             </ul>
         </nav>
-        <form class="search-box" method="get" action="search.html">
-            <input type="text" name="q" placeholder="搜索晶体相关内容..." required>
+        <form class="search-box" method="get" action="https://cse.google.com/cse" target="_blank">
+            <input type="hidden" name="cx" value="20995defc55444858">
+            <input type="text" name="q" placeholder="搜索相关内容..." required>
             <button type="submit"><i class="fas fa-search"></i></button>
         </form>
+        <button class="hamburger-menu" aria-label="菜单">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+    
+    <div class="mobile-menu-overlay">
+        <div class="mobile-menu-container">
+            <div class="mobile-menu-header">
+                <div class="mobile-logo">
+                    <i class="fas fa-crystal"></i>
+                    <h2>CrystalLab</h2>
+                </div>
+                <button class="close-menu-btn" aria-label="关闭菜单">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <nav class="mobile-nav">
+                <ul>
+                    <li><a href="crystal-classification.html">培养指南</a></li>
+                    <li><a href="portfolio.html">作品展示</a></li>
+                    <li><a href="acknowledgements.html">特别鸣谢</a></li>
+                    <li><a href="contribute.html">联系投稿</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-search-box">
+                <form method="get" action="https://cse.google.com/cse" target="_blank">
+                    <input type="hidden" name="cx" value="20995defc55444858">
+                    <input type="text" name="q" placeholder="搜索相关内容..." required>
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
     </div>
 </header>
