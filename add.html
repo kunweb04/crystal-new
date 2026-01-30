@@ -88,37 +88,64 @@
 
     async function refreshData() {
         try {
-            document.getElementById('status').innerText = '获取 14 天数据中...';
-            const accounts = await gapi.client.adsense.accounts.list();
-            const accountId = accounts.result.accounts[0].name;
+            document.getElementById('status').innerText = '正在计算日期并获取数据...';
             
-            // 请求过去14天的数据，并按 DATE 维度拆分
+            // 1. 获取账号信息
+            const accounts = await gapi.client.adsense.accounts.list();
+            if (!accounts.result.accounts) {
+                document.getElementById('status').innerText = '未找到 AdSense 账号';
+                return;
+            }
+            const accountId = accounts.result.accounts[0].name;
+
+            // 2. 手动计算 14 天的范围（避免枚举错误）
+            const end = new Date();
+            const start = new Date();
+            start.setDate(end.getDate() - 14); // 往前推 14 天
+
+            const formatDate = (d) => ({
+                year: d.getFullYear(),
+                month: d.getMonth() + 1,
+                day: d.getDate()
+            });
+
+            // 3. 发起 API 请求
             const response = await gapi.client.adsense.accounts.reports.generate({
                 account: accountId,
-                dateRange: 'LAST_14_DAYS', 
+                // v2 推荐使用明确的开始和结束日期对象
+                startDate: formatDate(start),
+                endDate: formatDate(end),
                 metrics: ['PAGE_VIEWS', 'ESTIMATED_EARNINGS', 'IMPRESSIONS', 'CLICKS'],
                 dimensions: ['DATE']
             });
 
             const rows = response.result.rows;
-            const totals = response.result.totals.cells;
+            if (!rows || rows.length === 0) {
+                document.getElementById('status').innerText = '该时段内无数据。';
+                return;
+            }
 
-            // 1. 更新昨日数据（通常是列表的最后一项或倒数第二项，取决于时差）
+            // 4. 更新 UI（昨日数据取最后一行）
             const yesterdayData = rows[rows.length - 1].cells;
             document.getElementById('pv_y').innerText = yesterdayData[1].value;
             document.getElementById('earn_y').innerText = '$' + yesterdayData[2].value;
             document.getElementById('imp_y').innerText = yesterdayData[3].value;
             document.getElementById('click_y').innerText = yesterdayData[4].value;
 
-            // 2. 准备图表数据
-            const labels = rows.map(r => r.cells[0].value); // 日期
+            // 5. 提取图表数据
+            const labels = rows.map(r => {
+                const d = r.cells[0].value; // 格式通常为 "YYYY-MM-DD"
+                return d.substring(5); // 截取 "MM-DD" 让图表更好看
+            });
             const pvData = rows.map(r => parseInt(r.cells[1].value));
             const earnData = rows.map(r => parseFloat(r.cells[2].value));
 
             renderChart(labels, pvData, earnData);
-            document.getElementById('status').innerText = '数据更新成功';
+            document.getElementById('status').innerText = '14天趋势加载完成';
+
         } catch (err) {
-            document.getElementById('status').innerText = '错误: ' + err.result.error.message;
+            console.error(err);
+            document.getElementById('status').innerText = 'API 错误: ' + (err.result ? err.result.error.message : '未知请求错误');
         }
     }
 
