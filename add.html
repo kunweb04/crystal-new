@@ -95,7 +95,7 @@
             // 请求过去14天的数据，并按 DATE 维度拆分
             const response = await gapi.client.adsense.accounts.reports.generate({
                 account: accountId,
-                dateRange: 'LAST_14_DAYS',
+                dateRange: 'LAST_14_DAYS', 
                 metrics: ['PAGE_VIEWS', 'ESTIMATED_EARNINGS', 'IMPRESSIONS', 'CLICKS'],
                 dimensions: ['DATE']
             });
