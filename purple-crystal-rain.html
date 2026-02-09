@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CrystalLab - 紫晶雨培养完整教程 - 硫酸二(乙二胺)合铜配合物晶体制备，包含详细实验步骤和科学原理">
+    <meta name="keywords" content="晶体培养,紫晶雨,硫酸铜,乙二胺,硫酸二(乙二胺)合铜,晶雨制作,配合物晶体,晶体化学">
+    <meta name="author" content="CrystalLab团队">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CrystalLab">
+    <meta property="og:title" content="CrystalLab - 紫晶雨">
+    <meta property="og:description" content="学习如何制备紫晶雨（硫酸二(乙二胺)合铜），掌握乙二胺铜配合物的颜色原理">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://crystal-lab.org/purple-crystal-rain.html">
+    <meta property="og:image" content="https://crystal-lab.org/og-purple.png">
+    <title>晶体化学指南 - 紫晶雨篇 - CrystalLab</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/article.css">
+    <link rel="icon" href="favicon.ico" type="image/png">
+    <meta name="google-adsense-account" content="ca-pub-9337526323324673">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9337526323324673"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <div class="safety-container">
+            <div class="safety-content">
+                <h1>晶体化学指南<br><span>紫晶雨篇</span></h1>
+
+                <div class="crystal-decoration top-left"><i class="fas fa-gem"></i></div>
+                <div class="crystal-decoration bottom-right"><i class="fas fa-gem"></i></div>
+
+                <img src="p/紫晶雨.jpg" alt="紫晶雨" class="content-image">
+                <p style="text-align:center;color:var(--accent)">图源：迷路的野指针</p>
+
+                <section id="quick-start">
+                    <h2>🎯 预览</h2>
+                    <div class="method-card">
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>项目概览：</strong>
+                                <ul>
+                                    <li>难度等级：★★☆☆☆ (中级)</li>
+                                    <li>制备周期：1-2小时</li>
+                                    <li>成功率：75%</li>
+                                    <li>推荐人群：有一定化学实验基础者</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>所需材料：</strong>
+                                <ul>
+                                    <li>硫酸铜 (CuSO<sub>4</sub>) 5g</li>
+                                    <li>乙二胺 (C<sub>2</sub>H<sub>8</sub>N<sub>2</sub>) 3mL 或乙二胺盐酸盐+氢氧化钠</li>
+                                    <li>蒸馏水、85-95%乙醇</li>
+                                    <li>250mL烧杯、锥形瓶、表面皿</li>
+                                    <li>西林瓶/螺口瓶、气泵</li>
+                                    <li>电子秤、磁力搅拌器/玻璃棒</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="basic">
+                    <h2>一、基础认识</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-flask"></i> 1.1 化学特性</h3>
+                        <p class="chemical-formula">化学式：[Cu(en)<sub>2</sub>]SO<sub>4</sub>·nH<sub>2</sub>O</p>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">系统名称</div>
+                                <div class="step-detail">硫酸二(乙二胺)合铜(II)</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">外观特征</div>
+                                <div class="step-detail">紫色晶体，在溶液中形成紫色悬浮晶雨</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">配合物类型</div>
+                                <div class="step-detail">铜(II)的乙二胺配合物，形成八面体结构</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">反应原理</div>
+                                <div class="step-detail">硫酸铜与乙二胺反应生成紫色的乙二胺合铜配合物</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-atom"></i> 1.2 结构特点</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">配位结构</div>
+                                <div class="step-detail">
+                                    中心Cu<sup>2+</sup>与2个乙二胺分子配位<br>
+                                    每个乙二胺作为双齿配体，提供两个N原子<br>
+                                    形成[Cu(en)<sub>2</sub>]<sup>2+</sup>阳离子
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">晶体特性</div>
+                                <div class="step-detail">紫色晶体，在85-95%乙醇中溶解度显著降低</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">颜色成因</div>
+                                <div class="step-detail">
+                                    [Cu(en)<sub>2</sub>]<sup>2+</sup>离子在可见光区有一个较宽的吸收带，中心约在~550 nm（黄绿色）附近<br>
+                                    根据补色原理，吸收黄绿色光后，透射和反射光主要为蓝紫色和红色光的混合，因此人眼感知为紫色
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="experiment">
+                    <h2>二、实验与制备</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-vial"></i> 2.1 实验步骤</h3>
+                        <div class="note">
+                            <strong>💡 紫晶雨制备法</strong>
+                            <p>材料：硫酸铜、乙二胺（或乙二胺盐酸盐+氢氧化钠）、蒸馏水、85-95%乙醇、烧杯、西林瓶</p>
+                            
+                            <div class="step-list">
+                                <div class="step-item">
+                                    <div class="step-title">步骤一：准备水溶液</div>
+                                    <div class="step-detail">
+                                        量取15mL水于250mL烧杯中备用
+                                        <div class="note">
+                                            使用蒸馏水可减少杂质干扰
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">步骤二：溶解硫酸铜</div>
+                                    <div class="step-detail">
+                                        称取5g硫酸铜加入烧杯中，搅拌至固体完全溶解
+                                        <div class="note">
+                                            硫酸铜溶液呈蓝色
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">步骤三：加入乙二胺（方法一）</div>
+                                    <div class="step-detail">
+                                        量取3mL乙二胺快速滴进烧杯中，溶液立刻变紫
+                                        <div class="note">
+                                            <strong>重要警告：</strong>无水乙二胺剧烈发烟，操作要迅速！
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">步骤三：加入乙二胺（方法二-推荐）</div>
+                                    <div class="step-detail">
+                                        用少量乙二胺盐酸盐和等摩尔量氢氧化钠加少量85-95%乙醇反应制成高浓度乙二胺溶液<br>
+                                        从该溶液中滴取3-5mL加入烧杯中即可
+                                        <div class="note">
+                                            <strong>优势：</strong>此方法更安全，避免了直接使用无水乙二胺的危险性<br>
+                                            <strong>原理：</strong>乙二胺盐酸盐与氢氧化钠反应生成乙二胺，氯化钠在乙醇中几乎不溶
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">步骤四：加入乙醇析晶</div>
+                                    <div class="step-detail">
+                                        在剧烈搅拌下向溶液逐滴加入75mL左右85-95%乙醇至紫色晶体基本完全析出
+                                        <div class="note">
+                                            <strong>重要：</strong>必须使用85-95%乙醇，不能用无水乙醇<br>
+                                            <strong>原因：</strong>无水乙醇会夺取配合物的结晶水，导致晶体颜色变浅，晶雨效果消失<br>
+                                            乙醇浓度需适中，太稀或太浓都会影响晶雨质量
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">步骤五：装瓶保存</div>
+                                    <div class="step-detail">
+                                        将溶液倒入西林瓶中，盖紧瓶盖
+                                        <div class="note">
+                                            成品即为"紫晶雨"
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">步骤六：清理工作</div>
+                                    <div class="step-detail">
+                                        将全部仪器洗净并收好，清理桌面
+                                        <div class="note">
+                                            特别注意含铜废液的处理，必须进行无害化处理
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-lightbulb"></i> 2.2 实验技巧</h3>
+                        <div class="note">
+                            <strong>💡 提高成功率的关键点</strong>
+                            <div class="step-list">
+                                <div class="step-item">
+                                    <div class="step-title">乙二胺添加速度</div>
+                                    <div class="step-detail">乙二胺应快速加入，避免挥发损失</div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">乙醇浓度控制</div>
+                                    <div class="step-detail">
+                                        <strong>必须使用85-95%乙醇</strong><br>
+                                        无水乙醇会夺取结晶水，导致浅紫色晶体且晶雨效果消失<br>
+                                        乙醇浓度需严格控制，太稀或太浓都会影响晶雨质量
+                                    </div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">乙醇添加控制</div>
+                                    <div class="step-detail">乙醇应逐滴加入并持续搅拌，过快会导致晶体团聚沉淀</div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">温度控制</div>
+                                    <div class="step-detail">室温下操作即可，无需额外加热</div>
+                                </div>
+                                <div class="step-item">
+                                    <div class="step-title">浓度控制</div>
+                                    <div class="step-detail">硫酸铜和乙二胺的比例影响配合物形成，按推荐比例操作</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="safety">
+                    <h2>三、安全与注意事项</h2>
+                    
+                    <div class="warning-box" style="border-color: #8e44ad; background-color: rgba(142, 68, 173, 0.1);">
+                        <h3><i class="fas fa-skull-crossbones"></i> 3.1 管制化学品警告</h3>
+                        <ul>
+                            <li><strong>乙二胺管制：</strong>乙二胺为国家管制危化品试剂，购买和使用需符合相关规定</li>
+                            <li><strong>操作要求：</strong>必须在通风良好的环境中操作，最好在通风橱内进行</li>
+                            <li><strong>发烟特性：</strong>无水乙二胺剧烈发烟，有强烈氨味，对呼吸道有刺激</li>
+                        </ul>
+                    </div>
+
+                    <div class="warning-box">
+                        <h3><i class="fas fa-exclamation-triangle"></i> 3.2 重金属安全</h3>
+                        <ul>
+                            <li><strong>铜离子毒性：</strong>Cu²⁺为重金属离子，对人体及生物有害</li>
+                            <li><strong>废液处理：</strong>实验废液必须进行无毒处理后排入生活用水</li>
+                            <li><strong>全程防护：</strong>实验应全程戴好手套，避免皮肤直接接触</li>
+                        </ul>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-shield-alt"></i> 3.3 操作安全</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">个人防护</div>
+                                <div class="step-detail">必须佩戴防护眼镜、实验服、手套和防毒面具（如使用乙二胺）</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">通风要求</div>
+                                <div class="step-detail">实验必须在通风良好或通风橱内进行，避免吸入有害气体</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">应急处理</div>
+                                <div class="step-detail">
+                                    皮肤接触：立即用大量清水冲洗15分钟<br>
+                                    眼睛接触：立即用流动清水冲洗15分钟，并立即就医<br>
+                                    吸入：立即移至新鲜空气处，必要时就医<br>
+                                    误食：立即漱口，饮用牛奶或蛋清，并立即就医
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="gallery">
+                    <h2>四、成果展示与质量评估</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-gem"></i> 优质紫晶雨特征</h3>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>优质紫晶雨：</strong>
+                                <ul>
+                                    <li>颜色鲜艳，呈深紫色</li>
+                                    <li>晶体细小均匀，悬浮性好</li>
+                                    <li>溶液澄清，晶体悬浮其中</li>
+                                    <li>摇晃后形成美丽雨滴效果</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>问题紫晶雨：</strong>
+                                <ul>
+                                    <li>颜色暗淡或偏浅 - 配位不完全或使用无水乙醇</li>
+                                    <li>晶体沉淀 - 乙醇添加过快或过量</li>
+                                    <li>溶液浑浊 - 杂质过多或反应不完全</li>
+                                    <li>晶体过大 - 结晶速度过快</li>
+                                    <li>晶雨效果消失 - 使用无水乙醇导致结晶水被夺取</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="troubleshooting">
+                    <h2>五、问题诊断与解决</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-stethoscope"></i> 常见问题排查</h3>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题一：晶体不析出或析出量少</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>乙二胺用量不足、乙醇添加过快、温度过高</li>
+                                <li><strong>解决方案：</strong>确保乙二胺用量足够、缓慢滴加乙醇、室温下操作</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题二：晶体颜色不正（偏蓝或偏浅）</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>配位不完全、使用无水乙醇、乙二胺挥发损失</li>
+                                <li><strong>解决方案：</strong>确保乙二胺快速加入、使用85-95%乙醇、控制操作条件</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题三：晶体迅速沉淀</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>乙醇过量、溶液浓度过高、晶体生长过快</li>
+                                <li><strong>解决方案：</strong>控制乙醇添加量、适当稀释溶液、降低结晶速度</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-triangle"></i> 问题四：晶雨效果消失</h4>
+                            <ul>
+                                <li><strong>可能原因：</strong>使用无水乙醇夺取了结晶水</li>
+                                <li><strong>解决方案：</strong>必须使用85-95%乙醇，无水乙醇会导致配合物失去结晶水</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="science">
+                    <h2>六、科学原理</h2>
+                    
+                    <div class="method-card">
+                        <h3><i class="fas fa-atom"></i> 6.1 颜色原理详解</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">吸收光谱</div>
+                                <div class="step-detail">
+                                    [Cu(en)<sub>2</sub>]<sup>2+</sup>离子在可见光区有一个较宽的吸收带<br>
+                                    吸收中心约在550 nm（黄绿色）附近<br>
+                                    这是由于Cu<sup>2+</sup>离子在八面体场中的d-d电子跃迁
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">补色原理</div>
+                                <div class="step-detail">
+                                    当黄绿色光被吸收后，透射和反射光主要为互补色<br>
+                                    黄绿色的互补色为蓝紫色和红色的混合<br>
+                                    因此人眼感知为紫色
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">乙醇浓度影响</div>
+                                <div class="step-detail">
+                                    85-95%乙醇既能降低配合物溶解度，又能保留结晶水<br>
+                                    无水乙醇会夺取结晶水，导致配合物结构改变，颜色变浅且晶雨效果消失
+                                </div>
+                            </div>
+                        </div>
+
+                        <h3><i class="fas fa-vial"></i> 6.2 配位化学原理</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">配位反应</div>
+                                <div class="step-detail">
+                                    Cu<sup>2+</sup> + 2en → [Cu(en)<sub>2</sub>]<sup>2+</sup><br>
+                                    乙二胺(en)作为双齿配体，与铜离子形成稳定的螯合物
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">乙醇的作用</div>
+                                <div class="step-detail">
+                                    1. 降低水的介电常数，增加离子间静电引力<br>
+                                    2. 降低配合物溶解度（相似相溶原理）<br>
+                                    3. 促进晶核形成和晶体生长<br>
+                                    4. <strong>85-95%乙醇能保留结晶水，无水乙醇会夺取结晶水</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="alternative-methods">
+                    <h2>七、不推荐的方法</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-times-circle"></i> 7.1 硫酸与钛反应法（不推荐）</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">反应原理</div>
+                                <div class="step-detail">
+                                    Ti + 2H<sub>2</sub>SO<sub>4</sub> → TiOSO<sub>4</sub> + SO<sub>2</sub>↑ + 2H<sub>2</sub>O<br>
+                                    理论上生成硫酸氧钛，可能呈现紫色
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">不推荐原因</div>
+                                <div class="step-detail">
+                                    <strong>水解问题：</strong>硫酸氧钛在酸性环境下仍易水解生成偏钛酸<br>
+                                    <strong>稳定性差：</strong>保存中逐渐失去原有颜色，不再具有晶雨性质<br>
+                                    <strong>操作危险：</strong>反应剧烈，可能产生有毒气体
+                                </div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">推荐替代</div>
+                                <div class="step-detail">使用乙二胺与硫酸铜反应的方法更安全、稳定、可靠</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="application">
+                    <h2>八、应用与展示</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-palette"></i> 8.1 艺术展示</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">工艺品制作</div>
+                                <div class="step-detail">装瓶后的西林瓶/螺口瓶可作为观赏用的工艺品，具有独特的装饰价值</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">科学展示</div>
+                                <div class="step-detail">可用于科学展览或教学演示，展示配位化学和颜色原理</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">摄影素材</div>
+                                <div class="step-detail">紫色晶体在溶液中漂浮的独特视觉效果，是极佳的摄影素材</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="preservation">
+                    <h2>九、保存与维护</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-box"></i> 9.1 保存方法</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">密封保存</div>
+                                <div class="step-detail">使用西林瓶或螺口瓶严格密封，防止挥发和污染</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">避光存放</div>
+                                <div class="step-detail">避免阳光直射，防止颜色变化或分解</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">温度稳定</div>
+                                <div class="step-detail">存放在阴凉处，避免剧烈温度变化影响晶体稳定性</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">定期检查</div>
+                                <div class="step-detail">定期检查晶体状态，如沉淀过多可轻轻摇晃恢复悬浮</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="author-card">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <div class="author-info">
+                        <p class="author-title">本章作者</p>
+                        <h3>不会炼金的阿贝少，迷路的野指针</h3>
+                        <div class="author-social">
+                            <span class="social-tag"><i class="fas fa-flask"></i> 晶体专家</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ad-container article-ad">
+                    <ins class="adsbygoogle"
+                         style="display:block; text-align:center;"
+                         data-ad-layout="in-article"
+                         data-ad-format="fluid"
+                         data-ad-client="ca-pub-9337526323324673"
+                         data-ad-slot="6874868877"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+
+            <nav class="safety-nav">
+                <h3>内容导航</h3>
+                <ul>
+                    <li><a href="#basic">基础认识</a></li>
+                    <li><a href="#experiment">实验制备</a></li>
+                    <li><a href="#safety">安全事项</a></li>
+                    <li><a href="#gallery">质量评估</a></li>
+                    <li><a href="#troubleshooting">问题诊断</a></li>
+                    <li><a href="#science">科学原理</a></li>
+                    <li><a href="#alternative-methods">不推荐方法</a></li>
+                    <li><a href="#application">应用展示</a></li>
+                    <li><a href="#preservation">保存维护</a></li>
+                    <li><a href="index.html">返回首页</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+    <script src="script.js"></script>
+    
+    <script>
+        document.querySelectorAll('.safety-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 100;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+                
+                document.querySelectorAll('.safety-nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.safety-nav a[href^="#"]');
+            
+            let currentSection = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (window.scrollY >= sectionTop - 150) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

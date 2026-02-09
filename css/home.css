@@ -219,9 +219,13 @@
         padding: 2.5rem 1.5rem;
         margin: 4rem 0;
         position: static;
-        overflow: visible;
+        overflow: hidden;
     }
-    
+
+    .featured-image:hover {
+        transform: none; 
+    }
+
     .featured-crystal::before {
         display: none;
     }
