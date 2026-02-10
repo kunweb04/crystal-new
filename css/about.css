@@ -116,28 +116,49 @@
     font-weight: 500;
 }
 
+.honor-card::before {
+    content: '\f3a5';
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 80px;
+    color: var(--accent-secondary);
+    opacity: 0.05;
+    transition: var(--transition);
+}
+
 .honor-card h3 { font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--primary-dark); font-weight: 600; }
 .honor-card p { color: var(--text-light); line-height: 1.7; }
 
 .honor-card.kerbal-special::before {
-    content: ''; position: absolute; background: url('p/kerbal123.png') center/cover no-repeat;
+    content: ''; position: absolute; background: url('../p/kerbal123.png') center/cover no-repeat;
     width: 100px; height: 100px; right: 10px; top: 20px; opacity: 0.5; transform: rotate(15deg);
 }
 .honor-card.cpsa-special::before {
-    content: ''; position: absolute; background: url('p/cpsa.png') center/cover no-repeat;
+    content: ''; position: absolute; background: url('../p/cpsa.png') center/cover no-repeat;
     width: 70px; height: 100px; right: 20px; top: 20px; opacity: 0.5;
 }
 .honor-card.duya-special::before {
-    content: ''; position: absolute; background: url('p/渡鸦.png') center/cover no-repeat;
+    content: ''; position: absolute; background: url('../p/渡鸦.png') center/cover no-repeat;
     width: 80px; height: 140px; right: 20px; top: 30px; opacity: 0.5;
 }
 .honor-card.changjie-special::before {
-    content: ''; position: absolute; background: url('p/长街.png') center/cover no-repeat;
+    content: ''; position: absolute; background: url('../p/长街.png') center/cover no-repeat;
     width: 100px; height: 100px; right: 20px; top: 30px; opacity: 0.5;
 }
 .honor-card.zbh::before {
-    content: ''; position: absolute; background: url('p/zhb.png') center/cover no-repeat;
+    content: ''; position: absolute; background: url('../p/zhb.png') center/cover no-repeat;
     width: 120px; height: 120px; right: 20px; top: 30px; opacity: 0.5;
+}
+.honor-card.abeishao-special::before {
+    content: ''; position: absolute; background: url('../p/阿贝少.png') center/cover no-repeat;
+    width: 120px; height: 140px; right: 20px; top: 30px; opacity: 0.5;
+}
+.honor-card.duocai-special::before {
+    content: ''; position: absolute; background: url('../p/多彩.png') center/cover no-repeat;
+    width: 120px; height: 145px; right: 20px; top: 30px; opacity: 0.5;
 }
 
 .extended-thanks-section {
