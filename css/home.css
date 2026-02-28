@@ -297,3 +297,328 @@
         line-height: 1.6;
     }
 }
+
+.theory-premium-section {
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.crystal-hero-card {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.decoration-lattice {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 300px;
+    height: 300px;
+    background-image: radial-gradient(var(--accent) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.crystal-card-inner {
+    display: flex;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 40px;
+    padding: 3.5rem;
+    box-shadow: 
+        0 10px 30px rgba(0,0,0,0.03),
+        0 30px 60px rgba(22, 160, 133, 0.08);
+    gap: 5rem;
+    align-items: center;
+}
+
+.crystal-visual {
+    flex: 0 0 42%;
+    position: relative;
+}
+
+.crystal-frame {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+    border-radius: 30px;
+    padding: 3rem;
+    box-shadow: inset 0 0 20px rgba(255,255,255,0.8);
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.crystal-frame img {
+    width: 100%;
+    max-width: 280px;
+    filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
+    transition: var(--transition);
+}
+
+.crystal-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(26, 188, 156, 0.15) 0%, transparent 70%);
+    z-index: 1;
+    animation: pulseGlow 6s infinite alternate;
+}
+
+.floating-tag {
+    position: absolute;
+    background: white;
+    padding: 8px 15px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    z-index: 3;
+    letter-spacing: 0.5px;
+}
+.tag-1 { top: 10%; right: -5%; }
+.tag-2 { bottom: 15%; left: -5%; }
+
+.info-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.category-tag {
+    color: var(--accent);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.read-time {
+    color: #999;
+    font-size: 0.85rem;
+}
+
+.crystal-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 1.8rem;
+    color: var(--primary-dark);
+}
+
+.highlight {
+    background: linear-gradient(transparent 70%, rgba(26, 188, 156, 0.15) 30%);
+}
+
+.description {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.9;
+    margin-bottom: 2.5rem;
+}
+
+.feature-dots {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.dot-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.dot-item i {
+    width: 32px;
+    height: 32px;
+    background: var(--light-gray);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+}
+
+.premium-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1.2rem 2.5rem;
+    background: var(--primary);
+    color: white;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(44, 62, 80, 0.2);
+}
+
+.premium-btn:hover {
+    background: var(--accent);
+    transform: translateX(5px);
+    box-shadow: 0 15px 30px rgba(22, 160, 133, 0.3);
+}
+
+@keyframes pulseGlow {
+    from { opacity: 0.5; transform: translate(-50%, -50%) scale(0.9); }
+    to { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+
+@media (max-width: 992px) {
+    .crystal-card-inner { flex-direction: column; padding: 2.5rem; gap: 3rem; }
+    .crystal-visual { width: 80%; }
+    .crystal-info h3 { font-size: 2.2rem; }
+}
+
+.tp-theory-section {
+    padding: 8rem 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.tp-section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.tp-hero-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.tp-bg-decoration {
+    position: absolute;
+    top: -10%;
+    right: -5%;
+    width: 300px;
+    height: 300px;
+    background-image: radial-gradient(var(--accent) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.15;
+    z-index: -1;
+}
+
+.tp-main-card {
+    display: flex;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 40px;
+    padding: 3.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03), 0 30px 60px rgba(22, 160, 133, 0.08);
+    gap: 4rem;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    -webkit-tap-highlight-color: transparent;
+}
+
+@media (min-width: 1025px) {
+    .tp-main-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 40px 80px rgba(22, 160, 133, 0.15);
+    }
+    .tp-main-card:hover .tp-image-frame img {
+        transform: scale(1.05) rotate(2deg);
+    }
+}
+
+.tp-visual-area { flex: 0 0 40%; position: relative; }
+
+.tp-image-frame {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4f8 100%);
+    border-radius: 30px;
+    padding: 2.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.tp-image-frame img { width: 100%; max-width: 280px; transition: 0.6s ease; }
+
+.tp-glow-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: transparent;
+    z-index: 1;
+}
+
+.tp-floating-tag {
+    position: absolute;
+    background: white;
+    padding: 8px 15px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.05);
+    z-index: 3;
+}
+.tp-tag-1 { top: 10%; right: -5%; }
+.tp-tag-2 { bottom: 15%; left: -5%; }
+
+.tp-meta-info { display: flex; justify-content: space-between; margin-bottom: 1.5rem; }
+.tp-category { color: var(--accent); text-transform: uppercase; font-size: 0.8rem; font-weight: 800; letter-spacing: 2px; }
+.tp-read-time { color: #999; font-size: 0.85rem; }
+
+.tp-main-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--primary-dark);
+}
+
+.tp-title-highlight { background: linear-gradient(transparent 70%, rgba(26, 188, 156, 0.15) 30%); }
+
+.tp-desc {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.tp-features { display: flex; gap: 1.5rem; }
+.tp-feature-item { display: flex; align-items: center; gap: 10px; font-size: 0.9rem; font-weight: 600; color: var(--primary); }
+.tp-feature-item i { width: 32px; height: 32px; background: #f0f4f8; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--accent); }
+
+@media (max-width: 1024px) {
+    .tp-theory-section { padding: 6rem 2.5rem; }
+    .tp-main-card { padding: 2.5rem; gap: 3rem; border-radius: 35px; }
+    .tp-visual-area { flex: 0 0 45%; }
+    .tp-main-title { font-size: 2.2rem; }
+    .tp-tag-1 { right: 0; }
+    .tp-tag-2 { left: 0; }
+}
+
+@media (max-width: 767px) {
+    .tp-theory-section { padding: 4rem 1.2rem; }
+    .tp-main-card { flex-direction: column; padding: 2.5rem 1.5rem; gap: 2.5rem; text-align: center; }
+    .tp-visual-area { width: 100%; max-width: 280px; }
+    .tp-meta-info { justify-content: center; gap: 20px; }
+    .tp-features { justify-content: center; flex-direction: column; align-items: center; gap: 1rem; }
+    .tp-main-title { font-size: 1.8rem; }
+    .tp-desc { font-size: 1rem; }
+    .tp-main-card:active { transform: scale(0.97); background: #ffffff; }
+}

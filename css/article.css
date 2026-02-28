@@ -310,7 +310,7 @@
 }
 
 .note {
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(22, 160, 133, 0.04);
     border-left: 4px solid var(--accent-secondary);
     padding: 1.5rem;
     margin: 1.5rem 0;
@@ -455,3 +455,12 @@
     .qa-item h4 { font-size: 1.2rem; }
     .qa-item p { padding-left: 0; }
 }
+
+.symmetry-table { width: 100%; border-collapse: collapse; margin: 2rem 0; background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+.symmetry-table th { background: var(--primary); color: white; padding: 1rem; font-weight: 600; }
+.symmetry-table td { padding: 1rem; border-bottom: 1px solid #eee; text-align: center; }
+.symmetry-table tr:last-child td { border-bottom: none; }
+.symmetry-table tr:hover { background: #f8f9fc; }
+.banner-note { background: rgba(22, 160, 133, 0.08); border-left: 6px solid var(--accent); padding: 2rem; border-radius: 0 16px 16px 0; margin: 2.5rem 0; }
+.banner-note h4 { color: var(--primary); margin-bottom: 0.8rem; }
+.overline { text-decoration: overline; }
