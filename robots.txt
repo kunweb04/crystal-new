@@ -1,0 +1,71 @@
+# CrystalLab 晶体培养指南 - Robots.txt
+# 网站: https://crystal-lab.org
+# 最后更新: 2025-03-01
+
+User-agent: *
+Allow: /
+
+# 禁止爬虫访问的目录和文件
+Disallow: /private/
+Disallow: /admin/
+Disallow: /temp/
+Disallow: /test/
+Disallow: /*.json$
+Disallow: /*.xml$
+
+# 允许访问站点地图
+Allow: /sitemap.xml
+
+# 站点地图位置
+Sitemap: https://crystal-lab.org/sitemap.xml
+
+# 爬虫访问频率建议（可选）
+# Crawl-delay: 10
+
+# ==================== 特定爬虫规则 ====================
+
+# Google 爬虫
+User-agent: Googlebot
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+# Bing 爬虫
+User-agent: Bingbot
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+# 百度爬虫
+User-agent: Baiduspider
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+# 360 搜索爬虫
+User-agent: 360Spider
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+# 搜狗爬虫
+User-agent: Sogou web spider
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+# 神马搜索爬虫
+User-agent: Yisouspider
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+# 禁止某些不友好的爬虫
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
