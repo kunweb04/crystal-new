@@ -1,3 +1,19 @@
+.portfolio-work {
+    position: relative;
+}
+
+.portfolio-work::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%; 
+    height: calc(100% - 3rem); 
+    z-index: 10;
+    background: transparent;
+}
+
 .portfolio-collapsible-search {
     max-width: 1200px;
     margin: 0 auto 2rem;
