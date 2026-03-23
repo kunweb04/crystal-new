@@ -622,3 +622,134 @@
     .tp-desc { font-size: 1rem; }
     .tp-main-card:active { transform: scale(0.97); background: #ffffff; }
 }
+
+.updates-carousel-section {
+    max-width: 1400px;
+    margin: 2rem auto 5rem;
+    padding: 0 2rem;
+}
+
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    position: relative;
+}
+
+.carousel-viewport {
+    overflow: hidden;
+    width: 100%;
+    border-radius: 24px;
+    padding: 1rem 0;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.update-card {
+    flex: 0 0 calc((100% - 4rem) / 3);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.update-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(22, 160, 133, 0.1);
+    border-color: rgba(22, 160, 133, 0.3);
+}
+
+.update-date {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 0.8rem;
+    font-family: monospace;
+}
+
+.update-badge {
+    align-self: flex-start;
+    background: rgba(22, 160, 133, 0.1);
+    color: var(--accent);
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1.2rem;
+}
+
+.update-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+    font-family: 'Playfair Display', serif;
+}
+
+.update-card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    flex-grow: 1;
+}
+
+.update-card a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+    align-self: flex-start;
+}
+
+.update-card a:hover {
+    color: var(--accent-light);
+    transform: translateX(6px);
+}
+
+.carousel-btn {
+    background: white;
+    border: 1px solid var(--border-color);
+    color: var(--primary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    transition: var(--transition);
+    flex-shrink: 0;
+    z-index: 2;
+    font-size: 1.2rem;
+}
+
+.carousel-btn:hover {
+    background: var(--btn-gradient);
+    color: white;
+    border-color: transparent;
+    transform: scale(1.1);
+    box-shadow: 0 10px 25px rgba(22, 160, 133, 0.3);
+}
+
+@media (max-width: 1024px) {
+    .update-card { flex: 0 0 calc((100% - 2rem) / 2); }
+}
+
+@media (max-width: 768px) {
+    .update-card { flex: 0 0 100%; }
+    .carousel-btn { display: none; }
+    .carousel-viewport { overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; }
+    .carousel-track { gap: 1rem; }
+    .update-card { scroll-snap-align: center; }
+}

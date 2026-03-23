@@ -59,6 +59,20 @@
             <a href="crystal-classification.html" class="featured-btn">开始探索</a>
         </div>
     </section>
+    <div class="updates-carousel-section">
+    <div class="section-title">
+        <h2>最新动态与更新</h2>
+        <p>CrystalLab 的最新进展、文章发布与版本记录</p>
+    </div>
+    
+    <div class="carousel-wrapper" id="carousel-wrapper">
+        <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+        <div class="carousel-viewport">
+            <div class="carousel-track" id="updates-track"></div>
+        </div>
+            <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>  
 
     <div class="container">
         <div class="section">
@@ -368,31 +382,26 @@
         </div>
     </div>
     <div id="announcementModal" class="announcement-modal">
-      <div class="announcement-content">
-        <div class="announcement-header">
-          <h3><i class="fas fa-bullhorn"></i> 更新公告</h3>
-          <button id="closeAnnouncement" class="close-btn">
-            <i class="fas fa-times"></i>
-          </button>
+        <div class="announcement-content">
+            <div class="announcement-header">
+            <h3><i class="fas fa-bullhorn"></i> 更新公告</h3>
+            <button id="closeAnnouncement" class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="announcement-body">
+            <div class="version-info">
+                <span class="version-badge">加载中...</span> <span class="version-date">加载中...</span> </div>
+            <div class="update-log">
+                <h4><i class="fas fa-sync-alt"></i> 更新日志</h4>
+                <ul id="modal-update-list">
+                </ul>
+            </div>
+            <h4 id="modal-footer-msg"><i class="fa-regular fa-comment"></i>欢迎投稿相关资讯！</h4>
+            </div>
+            <div class="announcement-footer">
+            <button id="acceptAnnouncement" class="accept-btn">知道了</button>
+            </div>
         </div>
-        <div class="announcement-body">
-          <div class="version-info">
-            <span class="version-badge">v1.0.05</span>
-            <span class="version-date">2026-3-13</span>
-          </div>
-          <div class="update-log">
-            <h4><i class="fas fa-sync-alt"></i> 更新日志</h4>
-            <ul>
-              <li>FAQ专文发布！</li>
-            </ul>
         </div>
-            <h4><i class="fa-regular fa-comment"></i> 本站成立满一周年啦！</h4>
-        </div>
-        <div class="announcement-footer">
-          <button id="acceptAnnouncement" class="accept-btn">知道了</button>
-        </div>
-      </div>
-    </div>
 
     <!--<div id="announcementModal" class="announcement-modal">
     <div class="scroll-container">
@@ -454,78 +463,21 @@
 
     <script src="components.js"></script>
     <script src="announcement-modal.js"></script>
-    
+    <script src="updates-data.js"></script>
     <script>
-        // 免责声明弹窗功能
-        const disclaimerModal = document.getElementById('disclaimerModal');
-        const disclaimerBtn = document.getElementById('disclaimer-btn');
-        const closeModal = document.getElementById('closeModal');
-        const acceptBtn = document.getElementById('acceptDisclaimer');
-
-        // 打开弹窗
-        if (disclaimerBtn) {
-            disclaimerBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                disclaimerModal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        }
-
-        // 关闭弹窗
-        function closeDisclaimer() {
-            disclaimerModal.classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        if (closeModal) {
-            closeModal.addEventListener('click', closeDisclaimer);
-        }
-        
-        if (acceptBtn) {
-            acceptBtn.addEventListener('click', closeDisclaimer);
-        }
-
-        // 点击弹窗外部关闭
-        if (disclaimerModal) {
-            disclaimerModal.addEventListener('click', function(e) {
-                if (e.target === disclaimerModal) {
-                    closeDisclaimer();
-                }
-            });
-        }
-
-        // 按ESC键关闭
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && disclaimerModal.classList.contains('active')) {
-                closeDisclaimer();
-            }
-        });
-
-        // 卡片悬停效果增强
-        const cards = document.querySelectorAll('.card');
-        cards.forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-15px)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
-        });
-
-        // 创建更多浮动水晶
+    function createExtraCrystals() {
         const hero = document.querySelector('.hero');
         if (hero) {
-            for (let i = 0; i < 3; i++) {
+            for (let i = 0; i < 3; i++) { 
                 const crystal = document.createElement('div');
                 crystal.className = 'crystal';
                 crystal.innerHTML = '<i class="fas fa-diamond"></i>';
+                crystal.style.position = 'absolute';
                 crystal.style.top = Math.random() * 90 + '%';
                 crystal.style.left = Math.random() * 90 + '%';
                 crystal.style.fontSize = (Math.random() * 1 + 1) + 'rem';
                 crystal.style.animationDelay = Math.random() * 5 + 's';
                 
-                // 随机颜色
                 const colors = [
                     'rgba(52, 152, 219, 0.8)', 
                     'rgba(26, 188, 156, 0.8)', 
@@ -535,41 +487,170 @@
                     'rgba(230, 126, 34, 0.8)'
                 ];
                 crystal.style.color = colors[Math.floor(Math.random() * colors.length)];
-                
-                // 添加闪耀动画
                 crystal.style.animation = `float ${8 + Math.random() * 4}s infinite ease-in-out, sparkle ${3 + Math.random() * 2}s infinite`;
-                
                 hero.appendChild(crystal);
             }
         }
+    }
 
-        // 页面加载动画
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                document.body.style.opacity = 1;
-            }, 100);
-            
-            // 添加卡片动画
-            const cards = document.querySelectorAll('.card');
-            cards.forEach((card, index) => {
-                setTimeout(() => {
-                    card.style.animation = 'fadeIn 0.8s ease forwards';
-                    card.style.opacity = '0';
-                }, index * 150);
+    document.addEventListener('DOMContentLoaded', function() {
+        createExtraCrystals();
+
+        const disclaimerModal = document.getElementById('disclaimerModal');
+        const disclaimerBtn = document.getElementById('disclaimer-btn');
+        const closeModal = document.getElementById('closeModal');
+        const acceptBtn = document.getElementById('acceptDisclaimer');
+
+        function closeDisclaimer() {
+            if (disclaimerModal) {
+                disclaimerModal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        if (disclaimerBtn) {
+            disclaimerBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                disclaimerModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
+        }
+        if (closeModal) closeModal.addEventListener('click', closeDisclaimer);
+        if (acceptBtn) acceptBtn.addEventListener('click', closeDisclaimer);
+        
+        if (disclaimerModal) {
+            disclaimerModal.addEventListener('click', function(e) {
+                if (e.target === disclaimerModal) closeDisclaimer();
+            });
+        }
+
+        const track = document.getElementById('updates-track');
+        const modalList = document.getElementById('modal-update-list');
+        const modalDate = document.querySelector('.version-date');
+        const modalBadge = document.querySelector('.version-badge');
+        const announcementModal = document.getElementById('announcementModal');
+
+        if (typeof updatesData !== 'undefined') {
+            if (track) {
+                track.innerHTML = updatesData.map(item => `
+                    <div class="update-card">
+                        <span class="update-date">${item.date}</span>
+                        <span class="update-badge">${item.badge}</span>
+                        <h3>${item.title}</h3>
+                        <p>${item.desc}</p>
+                        ${item.link ? `<a href="${item.link}">查看详情 →</a>` : ''}
+                    </div>
+                `).join('');
+            }
+
+            const latest = updatesData[0];
+            if (modalList) modalList.innerHTML = `<li>${latest.title}：${latest.desc}</li>`;
+            if (modalDate) modalDate.textContent = latest.date;
+            if (modalBadge && typeof CONFIG !== 'undefined') {
+                modalBadge.textContent = CONFIG.ANNOUNCEMENT_VERSION;
+            }
+        }
+
+        const wrapper = document.getElementById('carousel-wrapper');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const updateCards = document.getElementsByClassName('update-card');
+        
+        if (track && updateCards.length > 0) {
+            let currentSlideIndex = 0;
+            let autoPlayTimer = null;
+
+            const updatePosition = () => {
+                const cardWidth = updateCards[0].offsetWidth;
+                const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+                track.style.transform = `translateX(-${currentSlideIndex * (cardWidth + gap)}px)`;
+            };
+
+            const moveNext = () => {
+                const visibleCount = window.innerWidth > 1024 ? 3 : (window.innerWidth > 768 ? 2 : 1);
+                const maxIndex = Math.max(0, updateCards.length - visibleCount);
+                currentSlideIndex = (currentSlideIndex >= maxIndex) ? 0 : currentSlideIndex + 1;
+                updatePosition();
+            };
+
+            const movePrev = () => {
+                const visibleCount = window.innerWidth > 1024 ? 3 : (window.innerWidth > 768 ? 2 : 1);
+                const maxIndex = Math.max(0, updateCards.length - visibleCount);
+                currentSlideIndex = (currentSlideIndex <= 0) ? maxIndex : currentSlideIndex - 1;
+                updatePosition();
+            };
+
+            if(nextBtn) nextBtn.onclick = () => { moveNext(); resetTimer(); };
+            if(prevBtn) prevBtn.onclick = () => { movePrev(); resetTimer(); };
+
+            const startTimer = () => { if(!autoPlayTimer) autoPlayTimer = setInterval(moveNext, 4000); };
+            const stopTimer = () => { clearInterval(autoPlayTimer); autoPlayTimer = null; };
+            const resetTimer = () => { stopTimer(); startTimer(); };
+
+            if(wrapper) {
+                wrapper.onmouseenter = stopTimer;
+                wrapper.onmouseleave = startTimer;
+            }
+            window.addEventListener('resize', () => { currentSlideIndex = 0; updatePosition(); });
+            startTimer();
+        }
+
+        if (announcementModal && typeof CONFIG !== 'undefined') {
+            const showAnnouncement = () => {
+                const today = new Date().toDateString();
+                const lastSeenDate = localStorage.getItem('announcementLastSeenDate');
+                const lastSeenVersion = localStorage.getItem('announcementLastSeenVersion');
+                if (!lastSeenDate || lastSeenDate !== today || lastSeenVersion !== CONFIG.ANNOUNCEMENT_VERSION) {
+                    setTimeout(() => {
+                        announcementModal.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    }, 1500);
+                }
+            };
+
+            const closeAnnouncementModal = () => {
+                announcementModal.classList.remove('active');
+                document.body.style.overflow = '';
+                localStorage.setItem('announcementLastSeenDate', new Date().toDateString());
+                localStorage.setItem('announcementLastSeenVersion', CONFIG.ANNOUNCEMENT_VERSION);
+            };
+
+            const closeAnnBtn = document.getElementById('closeAnnouncement');
+            const acceptAnnBtn = document.getElementById('acceptAnnouncement');
+            if(closeAnnBtn) closeAnnBtn.onclick = closeAnnouncementModal;
+            if(acceptAnnBtn) acceptAnnBtn.onclick = closeAnnouncementModal;
+            showAnnouncement();
+        }
+
+        setTimeout(() => { document.body.style.opacity = 1; }, 100);
+
+        const cards = document.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+            setTimeout(() => {
+                card.style.animation = 'fadeIn 0.8s ease forwards';
+                card.style.opacity = '0';
+            }, index * 150);
+            card.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-15px)'; });
+            card.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0)'; });
         });
 
-        // 按钮悬停效果
         const buttons = document.querySelectorAll('.card-btn, .featured-btn');
         buttons.forEach(button => {
-            button.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-6px)';
-            });
-            
-            button.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-            });
+            button.addEventListener('mouseenter', function() { this.style.transform = 'translateY(-6px)'; });
+            button.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0)'; });
         });
-    </script>
+
+        // 全局 ESC 键处理
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeDisclaimer();
+                if (announcementModal) {
+                    announcementModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }
+        });
+    });
+</script>
 </body>
 </html>
