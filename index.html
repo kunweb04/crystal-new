@@ -58,20 +58,23 @@
             <a href="crystal-classification.html" class="featured-btn">开始探索</a>
         </div>
     </section>
-    <div class="updates-carousel-section">
-    <div class="section-title">
-        <h2>最新动态与更新</h2>
-        <p>CrystalLab 的最新进展、文章发布与版本记录</p>
+
+    <div class="updates-carousel-section asymmetric-layout">
+        <div class="carousel-left">
+            <div class="carousel-wrapper" id="carousel-wrapper">
+                <div class="carousel-viewport">
+                    <div class="carousel-track" id="updates-track"></div>
+                </div>
+                <div class="carousel-dots" id="carousel-dots"></div>
+            </div>
+        </div>
+        <div class="updates-right">
+            <div class="section-title-asymmetric">
+                <h2>最新快讯</h2>
+                <p>CrystalLab 的最新进展与版本记录</p>
+            </div>
+        </div>
     </div>
-    
-    <div class="carousel-wrapper" id="carousel-wrapper">
-        <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-        <div class="carousel-viewport">
-            <div class="carousel-track" id="updates-track"></div>
-        </div>
-            <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
-        </div>
-    </div>  
 
     <div class="container">
         <div class="section">
@@ -367,7 +370,6 @@
             </div>
         </div>
         
-        <!-- 底部横幅广告 -->
         <div class="ad-container bottom-ad">
             <ins class="adsbygoogle"
                  style="display:block"
@@ -401,62 +403,6 @@
             </div>
         </div>
         </div>
-
-    <!--<div id="announcementModal" class="announcement-modal">
-    <div class="scroll-container">
-        <div class="scroll-rod rod-left">
-            <div class="rod-finial finial-top"></div>
-            <div class="rod-body"></div>
-            <div class="rod-finial finial-bottom"></div>
-        </div>
-
-        <div class="scroll-content">
-            <div class="content-inner">
-                <div class="scroll-header">
-                    <div class="header-decoration left"></div>
-                    <h3><i class="fas fa-dragon"></i> 新春公告 <i class="fas fa-dragon"></i></h3>
-                    <div class="header-decoration right"></div>
-                    <button id="closeAnnouncement" class="close-btn" aria-label="关闭">
-                        <i class="fas fa-times"></i>
-                    </button>
-                </div>
-
-                <div class="scroll-body">
-                    <div class="version-tag">
-                        <span>Ver 1.0.05</span>
-                        <span class="divider">|</span>
-                        <span>农历丙午年</span>
-                    </div>
-                    
-                    <div class="update-section">
-                        <h4><i class="fas fa-scroll"></i> 更新日志</h4>
-                        <ul>
-                            <li><span class="bullet">🧨</span> 限时UI，祝大家新春快乐</li>
-                            <li><span class="bullet">🧨</span> 晶系理论专文发布！</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="call-to-action">
-                        <h4><i class="fas fa-pen-nib"></i> 诚邀赐稿</h4>
-                        <p>欢迎各位晶友分享你们的晶体作品！</p>
-                    </div>
-                </div>
-
-                <div class="scroll-footer">
-                    <button id="acceptAnnouncement" class="stamp-btn">
-                        <span class="btn-text">阅</span>
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="scroll-rod rod-right">
-            <div class="rod-finial finial-top"></div>
-            <div class="rod-body"></div>
-            <div class="rod-finial finial-bottom"></div>
-        </div>
-    </div>
-    </div>-->
 
     <div id="footer-container"></div>
 
@@ -550,49 +496,79 @@
             }
         }
 
-        const wrapper = document.getElementById('carousel-wrapper');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        const updateCards = document.getElementsByClassName('update-card');
-        
-        if (track && updateCards.length > 0) {
-            let currentSlideIndex = 0;
-            let autoPlayTimer = null;
+        const dotsContainer = document.getElementById('carousel-dots');
+        let currentSlideIndex = 0;
+        let autoPlayTimer = null;
+        let cardsCount = 0;
+        let visibleCount = 0;
+        let maxIndex = 0;
 
-            const updatePosition = () => {
-                const cardWidth = updateCards[0].offsetWidth;
-                const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
-                track.style.transform = `translateX(-${currentSlideIndex * (cardWidth + gap)}px)`;
-            };
-
-            const moveNext = () => {
-                const visibleCount = window.innerWidth > 1024 ? 3 : (window.innerWidth > 768 ? 2 : 1);
-                const maxIndex = Math.max(0, updateCards.length - visibleCount);
-                currentSlideIndex = (currentSlideIndex >= maxIndex) ? 0 : currentSlideIndex + 1;
-                updatePosition();
-            };
-
-            const movePrev = () => {
-                const visibleCount = window.innerWidth > 1024 ? 3 : (window.innerWidth > 768 ? 2 : 1);
-                const maxIndex = Math.max(0, updateCards.length - visibleCount);
-                currentSlideIndex = (currentSlideIndex <= 0) ? maxIndex : currentSlideIndex - 1;
-                updatePosition();
-            };
-
-            if(nextBtn) nextBtn.onclick = () => { moveNext(); resetTimer(); };
-            if(prevBtn) prevBtn.onclick = () => { movePrev(); resetTimer(); };
-
-            const startTimer = () => { if(!autoPlayTimer) autoPlayTimer = setInterval(moveNext, 4000); };
-            const stopTimer = () => { clearInterval(autoPlayTimer); autoPlayTimer = null; };
-            const resetTimer = () => { stopTimer(); startTimer(); };
-
-            if(wrapper) {
-                wrapper.onmouseenter = stopTimer;
-                wrapper.onmouseleave = startTimer;
+        function getVisibleCount() {
+            return window.innerWidth > 1024 ? 3 : (window.innerWidth > 768 ? 2 : 1);
+        }
+        function updateDots() {
+            if (!dotsContainer) return;
+            dotsContainer.innerHTML = '';
+            for (let i = 0; i <= maxIndex; i++) {
+                const dot = document.createElement('div');
+                dot.classList.add('dot');
+                if (i === currentSlideIndex) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    goToSlide(i);
+                    resetTimer();
+                });
+                dotsContainer.appendChild(dot);
             }
-            window.addEventListener('resize', () => { currentSlideIndex = 0; updatePosition(); });
+        }
+        function updatePosition() {
+            const cards = document.querySelectorAll('.update-card');
+            if (!cards.length) return;
+            const cardWidth = cards[0].offsetWidth;
+            const gap = parseFloat(window.getComputedStyle(track).gap) || 0;
+            track.style.transform = `translateX(-${currentSlideIndex * (cardWidth + gap)}px)`;
+            const dots = document.querySelectorAll('.dot');
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('active', idx === currentSlideIndex);
+            });
+        }
+        function goToSlide(index) {
+            currentSlideIndex = Math.min(maxIndex, Math.max(0, index));
+            updatePosition();
+        }
+        function moveNext() {
+            currentSlideIndex = (currentSlideIndex >= maxIndex) ? 0 : currentSlideIndex + 1;
+            updatePosition();
+        }
+        function resetTimer() {
+            stopTimer();
             startTimer();
         }
+        function startTimer() {
+            if (!autoPlayTimer) autoPlayTimer = setInterval(moveNext, 4000);
+        }
+        function stopTimer() {
+            clearInterval(autoPlayTimer);
+            autoPlayTimer = null;
+        }
+        function initCarousel() {
+            const cards = document.querySelectorAll('.update-card');
+            cardsCount = cards.length;
+            visibleCount = getVisibleCount();
+            maxIndex = Math.max(0, cardsCount - visibleCount);
+            currentSlideIndex = Math.min(currentSlideIndex, maxIndex);
+            updatePosition();
+            updateDots();
+        }
+        window.addEventListener('resize', () => {
+            initCarousel();
+        });
+        const wrapper = document.getElementById('carousel-wrapper');
+        if (wrapper) {
+            wrapper.addEventListener('mouseenter', stopTimer);
+            wrapper.addEventListener('mouseleave', startTimer);
+        }
+        initCarousel();
+        startTimer();
 
         if (announcementModal && typeof CONFIG !== 'undefined') {
             const showAnnouncement = () => {
@@ -639,7 +615,6 @@
             button.addEventListener('mouseleave', function() { this.style.transform = 'translateY(0)'; });
         });
 
-        // 全局 ESC 键处理
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closeDisclaimer();
