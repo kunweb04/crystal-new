@@ -6,6 +6,13 @@ const CONFIG = {
 
 const updatesData = [
     {
+        date: "2026.5.29",
+        badge: "v1.0.09",
+        title: "小幅度优化",
+        desc: "修复了一些小问题，提升了整体性能和用户体验。",
+        link: "faq.html"
+    }
+    ,{
         date: "2026.5.21",
         badge: "v1.0.08",
         title: "首页与导航栏优化",
