@@ -6,28 +6,28 @@ const CONFIG = {
 
 const updatesData = [
     {
-        date: "2026.5.29",
+        date: "2026.5.28",
         badge: "v1.0.09",
         title: "小幅度优化",
         desc: "修复了一些小问题，提升了整体性能和用户体验。",
         link: "faq.html"
     }
     ,{
-        date: "2026.5.21",
+        date: "2026.4.29",
         badge: "v1.0.08",
         title: "首页与导航栏优化",
         desc: "新增导航栏下拉菜单，首页动态更新模块，提升用户体验与内容展示效果。",
         link: "faq.html"
     },
     {
-        date: "2026.5.01",
+        date: "2026.4.26",
         badge: "v1.0.07",
         title: "FAQ章节上线",
         desc: "常见问题解答：解答用户在使用过程中遇到的常见问题，提供实用的解决方案。",
         link: "faq.html"
     },
     {
-        date: "2026.4.21",
+        date: "2026.4.18",
         badge: "v1.0.06",
         title: "网站一周年庆！",
         desc: "感谢大家一年来的支持与关注！CrystalLab 将继续致力于提供优质的内容！",
@@ -40,7 +40,7 @@ const updatesData = [
         link: "crystal-systems.html"
     },
     {
-        date: "2026.3.23",
+        date: "2026.3.13",
         badge: "v1.0.04",
         title: "卡片UI优化",
         desc: "全新设计的卡片UI，提升视觉体验与信息传达效果。",
@@ -53,7 +53,7 @@ const updatesData = [
         link: "purple-crystal-rain.html"
     },
     {
-        date: "2026.2.24",
+        date: "2026.2.14",
         badge: "v1.0.03",
         title: "蓝晶雨专文发布",
         desc: "蓝晶雨的秘密：晶体结构与独特性质解析。",
