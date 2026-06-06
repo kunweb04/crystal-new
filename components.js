@@ -15,14 +15,101 @@ window.difyChatbotConfig = {
   var style = document.createElement('style');
   style.textContent = `
     #dify-chatbot-bubble-button {
-      background-color: #1C64F2 !important;
+      position: fixed !important;
+      bottom: 24px !important;
+      right: 24px !important;
+      left: auto !important;
+      top: auto !important;
+      width: 56px !important;
+      height: 56px !important;
+      border-radius: 50% !important;
+      background: transparent !important;
+      background-image: url('ai_icon.png') !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25) !important;
+      border: none !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      z-index: 99999 !important;
+    }
+    #dify-chatbot-bubble-button svg,
+    #dify-chatbot-bubble-button img,
+    #dify-chatbot-bubble-button i,
+    #dify-chatbot-bubble-button span,
+    #dify-chatbot-bubble-button * {
+      display: none !important;
     }
     #dify-chatbot-bubble-window {
+      bottom: 92px !important;
+      right: 24px !important;
+      left: auto !important;
+      top: auto !important;
       width: 24rem !important;
       height: 40rem !important;
+      z-index: 99999 !important;
+    }
+    #ai-helper-tooltip {
+      position: fixed;
+      bottom: 88px;
+      right: 24px;
+      background: #ffffff;
+      color: #1f2937;
+      padding: 8px 14px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      white-space: nowrap;
+      opacity: 0;
+      transform: translateY(6px);
+      transition: opacity 0.35s ease, transform 0.35s ease;
+      pointer-events: none;
+      z-index: 99998;
+    }
+    #ai-helper-tooltip.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    #ai-helper-tooltip::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      right: 22px;
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid #ffffff;
     }
   `;
   document.head.appendChild(style);
+
+  function initTooltip() {
+    if (document.getElementById('ai-helper-tooltip')) return;
+    var tooltip = document.createElement('div');
+    tooltip.id = 'ai-helper-tooltip';
+    tooltip.textContent = '需要帮助吗？';
+    document.body.appendChild(tooltip);
+    
+    requestAnimationFrame(function() {
+      tooltip.classList.add('show');
+    });
+    
+    setTimeout(function() {
+      tooltip.classList.remove('show');
+      setTimeout(function() {
+        if (tooltip.parentNode) tooltip.parentNode.removeChild(tooltip);
+      }, 350);
+    }, 3000);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTooltip);
+  } else {
+    initTooltip();
+  }
 })();
 
 function loadComponents() {
