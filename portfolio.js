@@ -1,6 +1,4 @@
-// portfolio.js - 动态生成作品集页面
 document.addEventListener('DOMContentLoaded', function() {
-    // 作品集数据结构
     const portfolioData = [
         {
             id: 'copper-sulfate',
@@ -50,6 +48,9 @@ document.addEventListener('DOMContentLoaded', function() {
             type: 'gallery',
             works: [
                 { img: '作品33.png', author: '迷路的野指针', description: '银' },
+                { img: '作品117.jpg', author: 'Eutopia', description: '蒸馏银' },
+                { img: '作品118.jpg', author: 'Eutopia', description: '蒸馏银' },
+                { img: '作品119.jpg', author: 'Eutopia', description: '蒸馏银' },
                 { img: '作品35.png', author: 'mo', description: '铯' },
                 { img: '作品26.png', author: '清蒸带鱼', description: '铜' },
                 { img: '作品66.jpg', author: '关关', description: '铜' },
@@ -61,10 +62,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 { img: '作品76.jpg', author: '青于', description: '铜' },
                 { img: '作品77.jpg', author: '青于', description: '铜' },
                 { img: '作品78.jpg', author: '青于', description: '铜' },
+                { img: '作品115.jpg', author: 'Eutopia', description: 'CVD 铜' },
+                { img: '作品116.jpg', author: 'Eutopia', description: 'CVD 铜' },
                 { img: '作品79.jpg', author: '青于', description: '铁' },
                 { img: '作品80.jpg', author: '青于', description: '铁' },
                 { img: '作品81.jpg', author: '青于', description: '铁' },
                 { img: '作品82.jpg', author: '青于', description: '铁' },
+                { img: '作品129.jpg', author: 'Eutopia', description: '铬' },
+                { img: '作品130.jpg', author: 'Eutopia', description: '铬' },
+                { img: '作品131.jpg', author: 'Eutopia', description: '铬' },
+                { img: '作品132.jpg', author: 'Eutopia', description: '铬' },
+                { img: '作品133.jpg', author: 'Eutopia', description: '铬' },
+                { img: '作品120.jpg', author: 'Eutopia', description: 'pvd 碲' },
+                { img: '作品121.jpg', author: 'Eutopia', description: 'pvd 碲' },
+                { img: '作品122.jpg', author: 'Eutopia', description: 'pvd 碲' },
+                { img: '作品123.jpg', author: 'Eutopia', description: 'pvd 碲' },
                 { img: '作品72.jpg', author: 'Chlorine', description: '碘' },
                 { img: '作品73.jpg', author: 'Chlorine', description: '碘' },
                 { img: '作品74.jpg', author: 'Chlorine', description: '碘' },
@@ -72,6 +84,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 { img: '作品112.png', author: '群青丨Ultramarine', description: '碘' },
                 { img: '作品113.png', author: '群青丨Ultramarine', description: '碘' },
                 { img: '作品114.png', author: '群青丨Ultramarine', description: '碘' },
+                { img: '作品124.jpg', author: 'Eutopia', description: '钨' },
+                { img: '作品125.jpg', author: 'Eutopia', description: '钨' },
+                { img: '作品126.jpg', author: 'Eutopia', description: '铌' },
+                { img: '作品127.jpg', author: 'Eutopia', description: '锰' },
+                { img: '作品128.jpg', author: 'Eutopia', description: '锰' },
                 { img: '作品70.jpg', author: 'Chlorine', description: '白磷 '},
                 { img: '作品105.jpg', author: '氟氙Cryptand', description: '四丁基铵八氯二铼酸盐丨四丁基铵八溴二铼酸盐 丨合成by yusaki'},
                 { img: '作品106.jpg', author: '氟氙Cryptand', description: '二(μ-2羟基)双(二(2-甲基咪唑基)络铜)）二高氯酸盐二水合物'},
@@ -87,6 +104,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 { img: '作品52.png', author: '青于', description: '四氯合锰酸甜菜碱锰' },
                 { img: '作品58.jpg', author: '青于', description: '四氯合锰酸四乙基铵' },
                 { img: '作品59.jpg', author: '青于', description: '四氯合锰酸四乙基铵' },
+                { img: '作品134.jpg', author: 'Kerbal123', description: '六氯铼酸钾' },
+                { img: '作品135.jpg', author: 'Kerbal123', description: '六氯铼酸钾' },
                 { img: '作品83.jpg', author: '冰冰', description: '四氯一氧钨' },
                 { img: '作品84.jpg', author: '冰冰', description: '五氧化二磷' },
                 { img: '作品85.jpg', author: '冰冰', description: '铁氰化钾' },
@@ -130,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 { img: '作品67.jpg', author: 'Kerbal123', description: '硝酸脲铁' },
                 { img: '作品53.png', author: '泠鳞', description: '硫酸镨晶簇' },
                 { img: '作品54.png', author: '泠鳞', description: '柠檬酸单晶' },
-                { img: '作品68.jpg', author: 'Kerbal123', description: '乙酸铜钙' },
+                { img: '作品68.jpg', author: 'Kerbal123', description: '乙酸铜钙' }
             ]
         },
         {
@@ -147,7 +166,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 { img: '作品43.png', author: '迷路的野指针' },
                 { img: '作品44.png', author: '迷路的野指针' },
                 { img: '作品56.jpg', author: 'Circle' },
-                { img: '作品45.png', author: '氯' },
+                { img: '作品45.png', author: 'Chlorine' },
                 { img: '作品46.png', author: '长街听风' },
                 { img: '作品47.png', author: '长街听风' },
                 { img: '作品48.png', author: '冰麒麟' },
@@ -156,24 +175,220 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // 创建作品集内容
+    const AUTHOR_FILTER_THRESHOLD = 2;
+
+    const sidebar = document.getElementById('filterGroups');
+    const contentContainer = document.getElementById('portfolioContent');
+    const searchInput = document.getElementById('sidebarSearch');
+    const resetBtn = document.getElementById('filterResetBtn');
+
+    function extractFilters() {
+        const sections = portfolioData.map(function(d) { return { id: d.id, title: d.title }; });
+        const authorCounts = {};
+        const crystalSet = new Set();
+        portfolioData.forEach(function(d) {
+            d.works.forEach(function(w) {
+                if (w.author) {
+                    authorCounts[w.author] = (authorCounts[w.author] || 0) + 1;
+                }
+                if (w.description) crystalSet.add(w.description);
+            });
+        });
+        const authors = Object.keys(authorCounts)
+            .filter(function(a) { return authorCounts[a] > AUTHOR_FILTER_THRESHOLD; })
+            .sort(function(a, b) { return a.localeCompare(b, 'zh-CN'); });
+        const crystals = Array.from(crystalSet).sort(function(a, b) { return a.localeCompare(b, 'zh-CN'); });
+
+        const crystalSubGroups = {
+            '金属晶体': ['银', '蒸馏银', '铜', 'CVD 铜', '铁', '铬', 'pvd 碲', '钨', '铌', '铯']
+        };
+
+        var groupedCrystals = {};
+        var otherCrystals = [];
+        crystals.forEach(function(c) {
+            var found = false;
+            for (var groupName in crystalSubGroups) {
+                if (crystalSubGroups[groupName].indexOf(c) !== -1) {
+                    if (!groupedCrystals[groupName]) groupedCrystals[groupName] = [];
+                    groupedCrystals[groupName].push(c);
+                    found = true;
+                    break;
+                }
+            }
+            if (!found) otherCrystals.push(c);
+        });
+
+        return { sections: sections, authors: authors, groupedCrystals: groupedCrystals, otherCrystals: otherCrystals };
+    }
+
+    function createFilterGroups() {
+        const filters = extractFilters();
+        const sections = filters.sections;
+        const authors = filters.authors;
+        const groupedCrystals = filters.groupedCrystals;
+        const otherCrystals = filters.otherCrystals;
+
+        const sectionOptions = sections.map(function(s) {
+            return {
+                value: s.id,
+                label: s.title,
+                count: portfolioData.find(function(d) { return d.id === s.id; }).works.length
+            };
+        });
+
+        const authorOptions = authors.map(function(a) {
+            return {
+                value: a,
+                label: a,
+                count: portfolioData.reduce(function(sum, d) {
+                    return sum + d.works.filter(function(w) { return w.author === a; }).length;
+                }, 0)
+            };
+        });
+
+        var crystalGroups = [];
+        for (var groupName in groupedCrystals) {
+            crystalGroups.push({
+                name: groupName,
+                options: groupedCrystals[groupName].map(function(c) {
+                    return {
+                        value: c,
+                        label: c,
+                        count: portfolioData.reduce(function(sum, d) {
+                            return sum + d.works.filter(function(w) { return w.description === c; }).length;
+                        }, 0)
+                    };
+                })
+            });
+        }
+
+        var crystalOtherOptions = otherCrystals.map(function(c) {
+            return {
+                value: c,
+                label: c,
+                count: portfolioData.reduce(function(sum, d) {
+                    return sum + d.works.filter(function(w) { return w.description === c; }).length;
+                }, 0)
+            };
+        });
+
+        sidebar.appendChild(createFilterGroup('作品分类', sectionOptions));
+        sidebar.appendChild(createFilterGroup('作者', authorOptions));
+        if (crystalGroups.length > 0 || crystalOtherOptions.length > 0) {
+            sidebar.appendChild(createNestedFilterGroup('晶体种类', crystalGroups, crystalOtherOptions));
+        }
+    }
+
+    function createFilterGroup(name, options) {
+        const group = document.createElement('div');
+        group.className = 'filter-group';
+        group.dataset.group = name;
+
+        const header = document.createElement('div');
+        header.className = 'filter-group-header';
+        header.innerHTML = '<h4>' + name + '</h4><i class="fas fa-chevron-down"></i>';
+        header.addEventListener('click', function() {
+            group.classList.toggle('expanded');
+        });
+
+        const optionsContainer = document.createElement('div');
+        optionsContainer.className = 'filter-group-options';
+
+        options.forEach(function(opt) {
+            const label = document.createElement('label');
+            label.className = 'filter-option';
+            label.innerHTML = '<input type="checkbox" value="' + opt.value + '" data-group="' + name + '"><span>' + opt.label + '</span><span class="option-count">' + opt.count + '</span>';
+            const checkbox = label.querySelector('input');
+            checkbox.addEventListener('change', applyFilters);
+            optionsContainer.appendChild(label);
+        });
+
+        group.appendChild(header);
+        group.appendChild(optionsContainer);
+        return group;
+    }
+
+    function createNestedFilterGroup(name, subGroups, otherOptions) {
+        const group = document.createElement('div');
+        group.className = 'filter-group';
+        group.dataset.group = name;
+
+        const header = document.createElement('div');
+        header.className = 'filter-group-header';
+        header.innerHTML = '<h4>' + name + '</h4><i class="fas fa-chevron-down"></i>';
+        header.addEventListener('click', function() {
+            group.classList.toggle('expanded');
+        });
+
+        const optionsContainer = document.createElement('div');
+        optionsContainer.className = 'filter-group-options';
+
+        subGroups.forEach(function(sub) {
+            const subGroupEl = document.createElement('div');
+            subGroupEl.className = 'filter-subgroup';
+
+            const subHeader = document.createElement('div');
+            subHeader.className = 'filter-subgroup-header';
+            subHeader.innerHTML = '<h5>' + sub.name + '</h5><i class="fas fa-chevron-down"></i>';
+            subHeader.addEventListener('click', function(e) {
+                e.stopPropagation();
+                subGroupEl.classList.toggle('expanded');
+            });
+
+            const subOptions = document.createElement('div');
+            subOptions.className = 'filter-subgroup-options';
+
+            sub.options.forEach(function(opt) {
+                const label = document.createElement('label');
+                label.className = 'filter-option filter-option-sub';
+                label.innerHTML = '<input type="checkbox" value="' + opt.value + '" data-group="' + name + '"><span>' + opt.label + '</span><span class="option-count">' + opt.count + '</span>';
+                const checkbox = label.querySelector('input');
+                checkbox.addEventListener('change', applyFilters);
+                subOptions.appendChild(label);
+            });
+
+            subGroupEl.appendChild(subHeader);
+            subGroupEl.appendChild(subOptions);
+            optionsContainer.appendChild(subGroupEl);
+        });
+
+        otherOptions.forEach(function(opt) {
+            const label = document.createElement('label');
+            label.className = 'filter-option';
+            label.innerHTML = '<input type="checkbox" value="' + opt.value + '" data-group="' + name + '"><span>' + opt.label + '</span><span class="option-count">' + opt.count + '</span>';
+            const checkbox = label.querySelector('input');
+            checkbox.addEventListener('change', applyFilters);
+            optionsContainer.appendChild(label);
+        });
+
+        group.appendChild(header);
+        group.appendChild(optionsContainer);
+        return group;
+    }
+
+    function createSkeleton() {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'skeleton-img-wrapper';
+        wrapper.innerHTML = '<div class="skeleton-img" style="height:300px;"></div><div class="skeleton-text"><div class="skeleton-line" style="width:60%;margin:0 auto;"></div></div>';
+        return wrapper;
+    }
+
     function createPortfolioContent() {
-        const safetyContent = document.querySelector('.safety-content');
-        
-        // 移除现有的section元素（保留标题和装饰元素）
-        const existingSections = safetyContent.querySelectorAll('section');
-        existingSections.forEach(section => section.remove());
-        
-        // 创建新的section元素
-        portfolioData.forEach(sectionData => {
+        contentContainer.innerHTML = '';
+
+        const h1 = document.createElement('h1');
+        h1.innerHTML = '晶体作品集';
+        contentContainer.appendChild(h1);
+
+        portfolioData.forEach(function(sectionData) {
             const section = document.createElement('section');
             section.id = sectionData.id;
-            
+            section.dataset.section = sectionData.id;
+
             const h2 = document.createElement('h2');
             h2.textContent = sectionData.title;
             section.appendChild(h2);
-            
-            // 处理祝福语（仅饼の美学）
+
             if (sectionData.type === 'blessing') {
                 const blessingP = document.createElement('p');
                 blessingP.style.textAlign = 'center';
@@ -184,104 +399,143 @@ document.addEventListener('DOMContentLoaded', function() {
                 blessingP.textContent = '在这里，预祝大家';
                 section.appendChild(blessingP);
             }
-            
-            // 添加作品图片
-            sectionData.works.forEach(work => {
-                // 创建作品包装容器
+
+            sectionData.works.forEach(function(work) {
                 const workContainer = document.createElement('div');
                 workContainer.className = 'portfolio-work';
-                
-                // 设置搜索数据
+
                 let searchData = '';
                 if (work.author) searchData += work.author + ' ';
                 if (work.description) searchData += work.description + ' ';
                 if (sectionData.title) searchData += sectionData.title + ' ';
                 workContainer.setAttribute('data-search', searchData.trim());
-                
+                workContainer.setAttribute('data-author', work.author || '');
+                workContainer.setAttribute('data-crystal', work.description || '');
+                workContainer.setAttribute('data-section', sectionData.id);
+
+                const skeleton = createSkeleton();
+                workContainer.appendChild(skeleton);
+
                 const img = document.createElement('img');
-                // 使用data-src存储真实图片路径
-                img.dataset.src = `p/portfolio/${work.img}`;
-                // 初始使用一个极小的base64占位图
-                img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+                img.dataset.src = 'p/portfolio/' + work.img;
                 img.className = 'content-image';
-                img.alt = work.author ? `${work.author}作品` : '作品图片';
-                img.loading = 'lazy'; // 使用原生懒加载
-                
+                img.alt = work.author ? work.author + '作品' : '作品图片';
+                img.style.display = 'none';
+                img.style.opacity = '0';
+
+                img.addEventListener('load', function() {
+                    skeleton.style.display = 'none';
+                    img.style.display = 'block';
+                    requestAnimationFrame(function() {
+                        img.style.opacity = '1';
+                    });
+                });
+
+                img.addEventListener('error', function() {
+                    skeleton.innerHTML = '<p style="text-align:center;color:#999;padding:2rem;">图片加载失败</p>';
+                });
+
                 workContainer.appendChild(img);
-                
+
                 const p = document.createElement('p');
                 p.style.textAlign = 'center';
                 p.style.color = 'var(--accent)';
                 p.style.marginBottom = '3rem';
-                
+
                 let text = '';
-                if (work.author) {
-                    text += `作者：${work.author}`;
-                }
-                if (work.description) {
-                    text += work.author ? `，晶体：${work.description}` : work.description;
-                }
-                
+                if (work.author) text += '作者：' + work.author;
+                if (work.description) text += work.author ? '，晶体：' + work.description : work.description;
                 p.textContent = text;
+
                 workContainer.appendChild(p);
-                
                 section.appendChild(workContainer);
             });
-            
-            // 插入到安全内容容器中
-            safetyContent.appendChild(section);
-        });
 
-        // 初始化回退懒加载（为不支持原生懒加载的浏览器）
-        initFallbackLazyLoad();
+            contentContainer.appendChild(section);
+        });
     }
 
-    // 回退懒加载方案
-    function initFallbackLazyLoad() {
-        // 检查浏览器是否支持原生懒加载
-        if ('loading' in HTMLImageElement.prototype) {
-            // 浏览器支持原生懒加载，将data-src转移到src
-            document.querySelectorAll('img[data-src]').forEach(img => {
+    function initLazyLoad() {
+        if ('IntersectionObserver' in window) {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        var skeleton = entry.target;
+                        var img = skeleton.nextElementSibling;
+                        if (img && img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                    }
+                });
+            }, { rootMargin: '200px' });
+
+            document.querySelectorAll('.skeleton-img-wrapper').forEach(function(skeleton) {
+                observer.observe(skeleton);
+            });
+        } else {
+            document.querySelectorAll('img[data-src]').forEach(function(img) {
                 img.src = img.dataset.src;
                 img.removeAttribute('data-src');
             });
-            return;
         }
-        
-        // 回退方案：监听滚动事件实现懒加载
-        const lazyImages = [].slice.call(document.querySelectorAll('img[data-src]'));
-        
-        let lazyLoadThrottle;
-        
-        function lazyLoad() {
-            if (lazyLoadThrottle) {
-                clearTimeout(lazyLoadThrottle);
-            }
-            
-            lazyLoadThrottle = setTimeout(function() {
-                const scrollTop = window.pageYOffset;
-                
-                lazyImages.forEach(function(img) {
-                    if (img.offsetTop < (window.innerHeight + scrollTop + 200)) {
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src');
-                    }
-                });
-                
-                if (lazyImages.length == 0) {
-                    document.removeEventListener('scroll', lazyLoad);
-                    window.removeEventListener('resize', lazyLoad);
-                    window.removeEventListener('orientationchange', lazyLoad);
-                }
-            }, 20);
-        }
-        
-        document.addEventListener('scroll', lazyLoad);
-        window.addEventListener('resize', lazyLoad);
-        window.addEventListener('orientationchange', lazyLoad);
-        lazyLoad(); // 初始加载视口内的图片
     }
 
-    // 初始化作品集内容
+    function applyFilters() {
+        const checkedSections = Array.from(sidebar.querySelectorAll('input[data-group="作品分类"]:checked')).map(function(cb) { return cb.value; });
+        const checkedAuthors = Array.from(sidebar.querySelectorAll('input[data-group="作者"]:checked')).map(function(cb) { return cb.value; });
+        const checkedCrystals = Array.from(sidebar.querySelectorAll('input[data-group="晶体种类"]:checked')).map(function(cb) { return cb.value; });
+        const searchTerm = searchInput.value.trim().toLowerCase();
+
+        const sections = contentContainer.querySelectorAll('section');
+        let visibleCount = 0;
+
+        sections.forEach(function(section) {
+            const sectionId = section.dataset.section;
+            const sectionMatch = checkedSections.length === 0 || checkedSections.indexOf(sectionId) !== -1;
+            let sectionVisible = false;
+
+            const works = section.querySelectorAll('.portfolio-work');
+            works.forEach(function(work) {
+                const author = work.getAttribute('data-author');
+                const crystal = work.getAttribute('data-crystal');
+                const searchData = work.getAttribute('data-search').toLowerCase();
+
+                const authorMatch = checkedAuthors.length === 0 || checkedAuthors.indexOf(author) !== -1;
+                const crystalMatch = checkedCrystals.length === 0 || checkedCrystals.indexOf(crystal) !== -1;
+                const searchMatch = searchTerm === '' || searchData.indexOf(searchTerm) !== -1;
+
+                const show = sectionMatch && authorMatch && crystalMatch && searchMatch;
+                work.style.display = show ? 'block' : 'none';
+                if (show) sectionVisible = true;
+            });
+
+            section.style.display = sectionVisible ? 'block' : 'none';
+            if (sectionVisible) visibleCount++;
+        });
+
+        let noResults = contentContainer.querySelector('.no-results');
+        if (visibleCount === 0) {
+            if (!noResults) {
+                noResults = document.createElement('div');
+                noResults.className = 'no-results';
+                noResults.innerHTML = '<i class="fas fa-search"></i><p>没有找到匹配的作品</p>';
+                contentContainer.appendChild(noResults);
+            }
+        } else if (noResults) {
+            noResults.remove();
+        }
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+
+    resetBtn.addEventListener('click', function() {
+        sidebar.querySelectorAll('input[type="checkbox"]').forEach(function(cb) { cb.checked = false; });
+        searchInput.value = '';
+        applyFilters();
+    });
+
+    createFilterGroups();
     createPortfolioContent();
+    initLazyLoad();
 });

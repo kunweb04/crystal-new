@@ -93,6 +93,7 @@
     border: 1px solid var(--border-color);
     backdrop-filter: blur(10px);
     animation: fadeInUp 0.8s ease-out;
+    align-self: start;
 }
 
 .safety-nav h3 {

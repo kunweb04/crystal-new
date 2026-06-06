@@ -1,23 +1,26 @@
-// 全站更新數據
 const CONFIG = {
-    ANNOUNCEMENT_VERSION: 'v1.0.08', 
+    ANNOUNCEMENT_VERSION: 'v1.0.08',
     UPDATE_DATE: '2026.03.23'
 };
 
 const updatesData = [
     {
+        date: "2026.6.8",
+        badge: "v1.1.0",
+        title: "作品集与全站优化",
+        desc: "修复小问题，同时改造了作品集面板，使其更容易浏览和过滤作品。",
+    },
+    {
         date: "2026.5.28",
         badge: "v1.0.09",
         title: "小幅度优化",
         desc: "修复了一些小问题，提升了整体性能和用户体验。",
-        link: "faq.html"
-    }
-    ,{
+    },
+    {
         date: "2026.4.29",
         badge: "v1.0.08",
         title: "首页与导航栏优化",
         desc: "新增导航栏下拉菜单，首页动态更新模块，提升用户体验与内容展示效果。",
-        link: "faq.html"
     },
     {
         date: "2026.4.26",
@@ -80,18 +83,20 @@ const updatesData = [
     }
 ];
 
-// 渲染首頁卡片的函數
 function renderUpdatesCards() {
     const track = document.getElementById('updates-track');
     if (!track) return;
-    
+
     track.innerHTML = updatesData.map(item => `
         <div class="update-card">
             <span class="update-date">${item.date}</span>
             <span class="update-badge">${item.badge}</span>
             <h3>${item.title}</h3>
             <p>${item.desc}</p>
-            <a href="${item.link}">查看詳情 →</a>
+            ${item.link ? `<a href="${item.link}">查看详情 →</a>` : ''}
         </div>
     `).join('');
 }
+
+// 自动渲染
+renderUpdatesCards();

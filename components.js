@@ -1,3 +1,30 @@
+window.difyChatbotConfig = {
+  token: 't6geQ7E2a02dkUU9',
+  inputs: {},
+  systemVariables: {},
+  userVariables: {}
+};
+
+(function() {
+  var s = document.createElement('script');
+  s.src = 'https://udify.app/embed.min.js';
+  s.id = 't6geQ7E2a02dkUU9';
+  s.defer = true;
+  document.head.appendChild(s);
+
+  var style = document.createElement('style');
+  style.textContent = `
+    #dify-chatbot-bubble-button {
+      background-color: #1C64F2 !important;
+    }
+    #dify-chatbot-bubble-window {
+      width: 24rem !important;
+      height: 40rem !important;
+    }
+  `;
+  document.head.appendChild(style);
+})();
+
 function loadComponents() {
     fetch('navbar.html')
         .then(response => response.text())
@@ -74,25 +101,21 @@ function loadComponents() {
 }
 
 function initNavbar() {
+    let ticking = false;
     window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if(header) {
-            header.style.boxShadow = window.scrollY > 50 ? '0 4px 15px rgba(0,0,0,0.15)' : '0 4px 15px rgba(0,0,0,0.1)';
+        if (!ticking) {
+            requestAnimationFrame(function() {
+                const header = document.querySelector('header');
+                if (header) {
+                    header.style.boxShadow = window.scrollY > 50 ? '0 4px 15px rgba(0,0,0,0.15)' : '0 4px 15px rgba(0,0,0,0.1)';
+                }
+                ticking = false;
+            });
+            ticking = true;
         }
     });
-    
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a').forEach(link => {
-        const linkPage = link.getAttribute('href');
-        if (linkPage === currentPage || (currentPage === '' && linkPage === 'index.html')) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
-    
-    initKeyboardShortcuts();
 }
+
 
 function initKeyboardShortcuts() {
     document.addEventListener('keydown', function(e) {
