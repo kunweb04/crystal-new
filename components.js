@@ -15,102 +15,161 @@ window.difyChatbotConfig = {
   var style = document.createElement('style');
   style.textContent = `
     #dify-chatbot-bubble-button {
+      display: none !important;
+    }
+    #custom-dify-trigger {
       position: fixed !important;
       bottom: 24px !important;
       right: 24px !important;
       left: auto !important;
       top: auto !important;
-      width: 56px !important;
-      height: 56px !important;
-      border-radius: 50% !important;
-      background: transparent !important;
-      background-image: url('ai_icon.png') !important;
-      background-size: cover !important;
-      background-position: center !important;
-      background-repeat: no-repeat !important;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25) !important;
-      border: none !important;
-      padding: 0 !important;
-      overflow: hidden !important;
       z-index: 99999 !important;
+      display: flex !important;
+      align-items: center !important;
+      flex-direction: row-reverse !important;
+      gap: 12px !important;
+      cursor: pointer !important;
     }
-    #dify-chatbot-bubble-button svg,
-    #dify-chatbot-bubble-button img,
-    #dify-chatbot-bubble-button i,
-    #dify-chatbot-bubble-button span,
-    #dify-chatbot-bubble-button * {
-      display: none !important;
+    .custom-dify-btn {
+      width: 80px !important;
+      height: 80px !important;
+      overflow: hidden !important;
+      transition: transform 0.3s ease !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      border-radius: 50% !important;
+    }
+    .custom-dify-btn img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      display: block !important;
+    }
+    #custom-dify-trigger:hover .custom-dify-btn {
+      transform: scale(1.08) !important;
+    }
+    .custom-dify-popover {
+      background: #ffffff !important;
+      color: #1a1a1a !important;
+      padding: 10px 14px !important;
+      border-radius: 12px !important;
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+      white-space: nowrap !important;
+      position: relative !important;
+      animation: popoverFade 0.3s ease forwards !important;
+    }
+    .custom-dify-popover::after {
+      content: '' !important;
+      position: absolute !important;
+      right: -6px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      border-width: 6px 0 6px 6px !important;
+      border-style: solid !important;
+      border-color: transparent transparent transparent #ffffff !important;
+    }
+    @keyframes popoverFade {
+      from { opacity: 0; transform: translateX(10px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .custom-dify-tooltip {
+      position: absolute !important;
+      bottom: calc(100% + 10px) !important;
+      right: 10px !important;
+      background: rgba(0,0,0,0.75) !important;
+      color: #fff !important;
+      padding: 6px 14px !important;
+      border-radius: 10px !important;
+      font-size: 13px !important;
+      white-space: nowrap !important;
+      opacity: 1 !important;
+      transition: opacity 0.6s ease !important;
+      pointer-events: none !important;
+      z-index: 1 !important;
+    }
+    .custom-dify-tooltip.hide {
+      opacity: 0 !important;
+    }
+    .custom-dify-tooltip::after {
+      content: '' !important;
+      position: absolute !important;
+      top: 100% !important;
+      right: 20px !important;
+      border-width: 6px !important;
+      border-style: solid !important;
+      border-color: rgba(0,0,0,0.75) transparent transparent transparent !important;
     }
     #dify-chatbot-bubble-window {
-      bottom: 92px !important;
+      width: 24rem !important;
+      height: 40rem !important;
+      position: fixed !important;
+      bottom: 148px !important;
       right: 24px !important;
       left: auto !important;
       top: auto !important;
-      width: 24rem !important;
-      height: 40rem !important;
       z-index: 99999 !important;
+      border-radius: 16px !important;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15) !important;
     }
-    #ai-helper-tooltip {
-      position: fixed;
-      bottom: 88px;
-      right: 24px;
-      background: #ffffff;
-      color: #1f2937;
-      padding: 8px 14px;
-      border-radius: 12px;
-      font-size: 13px;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
-      white-space: nowrap;
-      opacity: 0;
-      transform: translateY(6px);
-      transition: opacity 0.35s ease, transform 0.35s ease;
-      pointer-events: none;
-      z-index: 99998;
-    }
-    #ai-helper-tooltip.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    #ai-helper-tooltip::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      right: 22px;
-      width: 0;
-      height: 0;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      border-top: 5px solid #ffffff;
+    @media (max-width: 768px) {
+      #custom-dify-trigger {
+        bottom: 16px !important;
+        right: 16px !important;
+        gap: 8px !important;
+      }
+      .custom-dify-btn {
+        width: 56px !important;
+        height: 56px !important;
+      }
+      .custom-dify-popover {
+        font-size: 13px !important;
+        padding: 8px 12px !important;
+      }
+      .custom-dify-tooltip {
+        font-size: 12px !important;
+        padding: 5px 10px !important;
+        right: 4px !important;
+      }
+      .custom-dify-tooltip::after {
+        right: 16px !important;
+      }
+      #dify-chatbot-bubble-window {
+        width: calc(100vw - 32px) !important;
+        height: 70vh !important;
+        bottom: 84px !important;
+        right: 16px !important;
+        left: auto !important;
+      }
     }
   `;
   document.head.appendChild(style);
-
-  function initTooltip() {
-    if (document.getElementById('ai-helper-tooltip')) return;
-    var tooltip = document.createElement('div');
-    tooltip.id = 'ai-helper-tooltip';
-    tooltip.textContent = '需要帮助吗？';
-    document.body.appendChild(tooltip);
-    
-    requestAnimationFrame(function() {
-      tooltip.classList.add('show');
-    });
-    
-    setTimeout(function() {
-      tooltip.classList.remove('show');
-      setTimeout(function() {
-        if (tooltip.parentNode) tooltip.parentNode.removeChild(tooltip);
-      }, 350);
-    }, 3000);
-  }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initTooltip);
-  } else {
-    initTooltip();
-  }
 })();
+
+function initCustomDifyTrigger() {
+  if (document.getElementById('custom-dify-trigger')) return;
+  var div = document.createElement('div');
+  div.id = 'custom-dify-trigger';
+  div.onclick = function() {
+    var btn = document.getElementById('dify-chatbot-bubble-button');
+    if (btn) btn.click();
+  };
+  div.innerHTML = '<div class="custom-dify-tooltip" id="dify-tooltip">需要帮助吗？</div><div class="custom-dify-btn"><img src="ai_icon.png" alt="Help"></div>';
+  document.body.appendChild(div);
+
+  setTimeout(function() {
+    var tooltip = document.getElementById('dify-tooltip');
+    if (tooltip) tooltip.classList.add('hide');
+  }, 3000);
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCustomDifyTrigger);
+} else {
+  initCustomDifyTrigger();
+}
 
 function loadComponents() {
     fetch('navbar.html')
