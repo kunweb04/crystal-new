@@ -5,6 +5,11 @@ const CONFIG = {
 
 const updatesData = [
     {
+        date: "2026.6.9",
+        badge: "v1.1.1",
+        title: "AI小助手晶核上线！",
+        desc: "固定于用户视窗右下角的AI智能助手晶核，随时为您提供智能问答、内容推荐和个性化服务！",
+    },{
         date: "2026.6.8",
         badge: "v1.1.0",
         title: "作品集与全站优化",
