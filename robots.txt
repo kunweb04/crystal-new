@@ -10,11 +10,6 @@ Disallow: /private/
 Disallow: /admin/
 Disallow: /temp/
 Disallow: /test/
-Disallow: /*.json$
-Disallow: /*.xml$
-
-# 允许访问站点地图
-Allow: /sitemap.xml
 
 # 站点地图位置
 Sitemap: https://crystal-lab.org/sitemap.xml

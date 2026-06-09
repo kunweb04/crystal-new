@@ -1,335 +1,312 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <!-- ==================== 核心页面 ==================== -->
-  
-  <!-- 首页 -->
+
   <url>
     <loc>https://crystal-lab.org/</loc>
-    <lastmod>2025-03-01</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-  
-  <!-- 培养指南（分类页） -->
+
   <url>
     <loc>https://crystal-lab.org/crystal-classification</loc>
-    <lastmod>2025-03-01</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
-  
-  <!-- 作品展示 -->
+
   <url>
     <loc>https://crystal-lab.org/portfolio</loc>
-    <lastmod>2025-03-01</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
-  
-  <!-- 搜索页面 -->
+
   <url>
     <loc>https://crystal-lab.org/search</loc>
-    <lastmod>2025-03-01</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
-  <!-- ==================== 基础教程页面 ==================== -->
-  
-  <!-- 结晶方式 -->
+
   <url>
     <loc>https://crystal-lab.org/crystallization</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-  
-  <!-- 溶液配置 -->
+
   <url>
     <loc>https://crystal-lab.org/solutionpreparation</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-  
-  <!-- 晶体保存 -->
+
   <url>
     <loc>https://crystal-lab.org/conserve</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-  
-  <!-- 晶体摄影 -->
+
   <url>
     <loc>https://crystal-lab.org/shooting</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- ==================== 入门晶体教程 ==================== -->
-  
-  <!-- 硫酸铜晶体 -->
+
   <url>
     <loc>https://crystal-lab.org/copper-sulfate</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
-  
-  <!-- 硫酸铝钾（明矾） -->
+
   <url>
     <loc>https://crystal-lab.org/aluminum-potassium-sulfate</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-  
-  <!-- 铬明矾 -->
+
   <url>
     <loc>https://crystal-lab.org/chromium-alum</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-  
-  <!-- 氯化钠 -->
+
   <url>
     <loc>https://crystal-lab.org/sodium-chloride</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 硫酸镍 -->
+
   <url>
     <loc>https://crystal-lab.org/nickel-sulfate</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 硫酸亚铁铵 -->
+
   <url>
     <loc>https://crystal-lab.org/ferrous-ammonium-sulfate</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- ==================== 进阶晶体教程 ==================== -->
-  
-  <!-- 磷酸二氢钾 -->
+
   <url>
     <loc>https://crystal-lab.org/potassium-dihydrogen-phosphate</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-  
-  <!-- 硫酸锰 -->
+
   <url>
     <loc>https://crystal-lab.org/manganese-sulfate</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 三草酸合铁酸钾 -->
+
   <url>
     <loc>https://crystal-lab.org/iron-oxalate</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 铁氰化钾 -->
+
   <url>
     <loc>https://crystal-lab.org/potassium-ferricyanide</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 硫酸钒铵 -->
+
   <url>
     <loc>https://crystal-lab.org/ammonium-vanadium-sulfate</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 硝酸脲铁 -->
+
   <url>
     <loc>https://crystal-lab.org/iron-urea-nitrate</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 硫酸钕 -->
+
   <url>
     <loc>https://crystal-lab.org/neodymium-sulfate</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- ==================== 单质晶体教程 ==================== -->
-  
-  <!-- 金属铋 -->
+
+  <url>
+    <loc>https://crystal-lab.org/sodium-aluminum-chromium-oxalate</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://crystal-lab.org/bismuth-metal</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-  
-  <!-- 电解铜 -->
+
   <url>
     <loc>https://crystal-lab.org/electrolytic-copper</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 碘晶体 -->
+
   <url>
     <loc>https://crystal-lab.org/iodine-crystal</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 银单质 -->
+
   <url>
     <loc>https://crystal-lab.org/silver-metar</loc>
-    <lastmod>2025-02-20</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- ==================== 晶雨专题 ==================== -->
-  
-  <!-- 晶雨分类页 -->
+
   <url>
     <loc>https://crystal-lab.org/crystal-rain-classification</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 钴晶雨 -->
+
   <url>
     <loc>https://crystal-lab.org/cobalt-crystal-rain</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
-  
-  <!-- 青色晶雨 -->
+
   <url>
     <loc>https://crystal-lab.org/cyan-crystal-rain</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
-  
-  <!-- 暗金晶雨 -->
+
   <url>
     <loc>https://crystal-lab.org/dark-gold-crystal-rain</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
-  
-  <!-- ==================== 理论知识页面 ==================== -->
-  
-  <!-- 晶系理论 -->
+
+  <url>
+    <loc>https://crystal-lab.org/blue-crystal-rain</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://crystal-lab.org/pink-crystal-rain</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://crystal-lab.org/purple-crystal-rain</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://crystal-lab.org/red-crystal-rain</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://crystal-lab.org/yellow-crystal-rain</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
   <url>
     <loc>https://crystal-lab.org/crystal-systems</loc>
-    <lastmod>2025-02-25</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-  
-  <!-- 晶体分类 -->
-  <url>
-    <loc>https://crystal-lab.org/crystal-classification</loc>
-    <lastmod>2025-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- ==================== 安全与规范页面 ==================== -->
-  
-  <!-- 安全须知 -->
+
   <url>
     <loc>https://crystal-lab.org/safety</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
-  
-  <!-- 防骗指南 -->
+
   <url>
-    <loc>https://crystal-lab.org/anti-fraud-guide</loc>
-    <lastmod>2025-02-15</lastmod>
+    <loc>https://crystal-lab.org/faq</loc>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  
-  <!-- 免责声明 -->
+
+  <url>
+    <loc>https://crystal-lab.org/anti-fraud-guide</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <url>
     <loc>https://crystal-lab.org/disclaimer</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
-  
-  <!-- ==================== 资源页面 ==================== -->
-  
-  <!-- 晶体图书馆 -->
+
   <url>
     <loc>https://crystal-lab.org/library</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.75</priority>
   </url>
-  
-  <!-- 投稿页面 -->
+
   <url>
     <loc>https://crystal-lab.org/contribute</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
-  
-  <!-- 特别鸣谢 -->
+
   <url>
     <loc>https://crystal-lab.org/acknowledgements</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-  
-  <!-- 添加页面 -->
-  <url>
-    <loc>https://crystal-lab.org/add</loc>
-    <lastmod>2025-02-15</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <!-- ==================== 搜索结果页面 ==================== -->
-  
-  <!-- 搜索结果 -->
+
   <url>
     <loc>https://crystal-lab.org/search-results</loc>
-    <lastmod>2025-02-15</lastmod>
+    <lastmod>2026-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
-  
+
 </urlset>
