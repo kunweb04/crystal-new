@@ -31,8 +31,8 @@ window.difyChatbotConfig = {
       cursor: pointer !important;
     }
     .custom-dify-btn {
-      width: 80px !important;
-      height: 80px !important;
+      width: 70px !important;
+      height: 70px !important;
       overflow: hidden !important;
       transition: transform 0.3s ease !important;
       display: flex !important;
