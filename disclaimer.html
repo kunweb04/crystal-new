@@ -7,27 +7,174 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-LR1SNSS33D');
 </script>
-        <link rel="canonical" href="https://crystal-lab.org/disclaimer">
+    <link rel="canonical" href="https://crystal-lab.org/disclaimer">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="CrystalLab 晶体培养指南免责声明。本站内容仅供学习交流，实验操作请遵守当地法律法规并在专业指导下进行。">
     <meta property="og:url" content="https://crystal-lab.org/disclaimer">
     <meta property="og:image" content="https://crystal-lab.org/og.png">
     <title>免责声明 - CrystalLab</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/article.css">
     <link rel="icon" href="favicon.ico" type="image/png">
     <meta name="google-adsense-account" content="ca-pub-9337526323324673">
+    <style>
+        .disclaimer-toc {
+            background: linear-gradient(145deg, rgba(248, 250, 252, 0.95) 0%, rgba(240, 244, 248, 0.95) 100%);
+            border-radius: 16px;
+            padding: 2rem 2.5rem;
+            margin: 2rem 0 3rem;
+            border: 1px solid rgba(22, 160, 133, 0.15);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+        }
+        .disclaimer-toc h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .disclaimer-toc ol {
+            margin: 0;
+            padding-left: 1.5rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.4rem 2rem;
+        }
+        .disclaimer-toc li {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+        .disclaimer-toc a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .disclaimer-toc a:hover { color: var(--primary); }
+        .article-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin: 2.8rem 0 1.2rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 2px solid rgba(22, 160, 133, 0.15);
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .article-content h3 i {
+            color: var(--accent);
+            font-size: 1.2rem;
+        }
+        .article-content p {
+            color: var(--text);
+            line-height: 1.9;
+            margin-bottom: 1rem;
+            font-size: 1.05rem;
+        }
+        .highlight-box {
+            background: rgba(22, 160, 133, 0.06);
+            border-radius: 12px;
+            padding: 1.4rem 1.8rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid var(--accent);
+        }
+        .highlight-box p {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--text);
+        }
+        .third-party-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .third-party-item {
+            background: #fff;
+            border-radius: 12px;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid rgba(22, 160, 133, 0.12);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+        }
+        .third-party-item .service-name {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .third-party-item p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.6;
+        }
+        .third-party-item a {
+            color: var(--accent);
+            font-size: 0.85rem;
+            text-decoration: none;
+        }
+        .last-updated {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(22, 160, 133, 0.15);
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .related-docs {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .related-doc-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: white;
+            padding: 0.7rem 1.4rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .related-doc-link:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        .related-doc-link.outline {
+            background: transparent;
+            color: var(--accent);
+            border: 1.5px solid var(--accent);
+        }
+        .related-doc-link.outline:hover {
+            background: var(--accent);
+            color: white;
+        }
+        @media (max-width: 600px) {
+            .disclaimer-toc ol { grid-template-columns: 1fr; }
+            .related-docs { flex-direction: column; }
+        }
+    </style>
 </head>
 <body>
     <div id="navbar-container"></div>
@@ -37,32 +184,116 @@
             <h2>免责声明</h2>
             <p>使用本网站前请仔细阅读以下条款</p>
         </div>
-        
+
         <div class="article-content">
             <div class="crystal-decoration top-left"><i class="fas fa-gem"></i></div>
             <div class="crystal-decoration bottom-right"><i class="fas fa-gem"></i></div>
-            
-            <p>欢迎访问 CrystalLab（以下简称"本网站"）。在您使用本网站前，请仔细阅读以下免责声明。您对本网站的任何使用行为将被视为对本声明全部内容的认可。</p>
-            
-            <h3>一、内容准确性</h3>
-            <p>本网站提供的晶体培养指南、实验方法和相关资讯仅供参考。尽管我们力求内容的准确性和时效性，但无法保证所有信息的绝对准确性和完整性。用户应自行判断信息的适用性，并承担因使用本网站内容而产生的风险。</p>
-            
-            <h3>二、安全责任</h3>
-            <p>晶体培养实验涉及化学品操作，可能存在安全风险。用户应具备相关化学实验知识并采取适当安全措施。本网站不对用户进行实验操作时发生的任何事故、伤害或损失承担责任。强烈建议在专业人士指导下进行实验。</p>
-            
-            <h3>三、知识产权</h3>
-            <p>本网站所有内容（包括文字、图片、视频、设计等）的知识产权归 CrystalLab 或相关权利人所有。未经授权，不得以任何形式复制、转载或用于商业目的。用户提交的内容被视为授权本网站无偿使用。</p>
-            
-            <h3>四、外部链接</h3>
-            <p>本网站可能包含指向第三方网站的链接。这些链接仅为方便用户而提供，本网站不对链接网站的内容负责，也不表示对这些网站或其中内容的认可。</p>
-            
-            <h3>五、责任限制</h3>
-            <p>在任何情况下，CrystalLab 及其关联方均不对因使用或无法使用本网站内容而导致的任何直接、间接、偶然、特殊或后果性损失承担法律责任，包括但不限于利润损失、数据丢失或业务中断。</p>
-            
-            <h3>六、内容变更</h3>
-            <p>本网站保留随时修改、暂停或终止网站服务及内容的权利，无需事先通知。本免责声明也可能随时更新，请定期查阅。</p>
-            
-            <p class="last-updated">最后更新日期：2025年1月</p>
+
+            <p>欢迎访问 CrystalLab（网址：<a href="https://crystal-lab.org" style="color:var(--accent)">crystal-lab.org</a>，以下简称"本网站"）。本网站是一个面向晶体化学爱好者的教育性公益知识分享平台，致力于提供晶体培养、化学实验及相关科学知识的学习资源。在您使用本网站前，请仔细阅读以下免责声明。您对本网站的任何访问或使用行为，均视为您已充分阅读、理解并接受本声明全部内容的约束。</p>
+
+            <div class="disclaimer-toc">
+                <h4><i class="fas fa-list-ul"></i> 目录</h4>
+                <ol>
+                    <li><a href="#accuracy">内容准确性</a></li>
+                    <li><a href="#safety">安全责任</a></li>
+                    <li><a href="#ipr">知识产权</a></li>
+                    <li><a href="#links">外部链接</a></li>
+                    <li><a href="#third-party">第三方服务</a></li>
+                    <li><a href="#ai">AI 智能助手</a></li>
+                    <li><a href="#ads">广告服务</a></li>
+                    <li><a href="#liability">责任限制</a></li>
+                    <li><a href="#minors">未成年人保护</a></li>
+                    <li><a href="#changes">内容变更</a></li>
+                    <li><a href="#law">适用法律</a></li>
+                    <li><a href="#contact">联系我们</a></li>
+                </ol>
+            </div>
+
+            <h3 id="accuracy"><i class="fas fa-file-alt"></i> 一、内容准确性</h3>
+            <p>本网站提供的晶体培养指南、实验方法、化学品信息、配合物合成教程及相关资讯均仅供参考和学习交流之用。尽管我们力求内容的准确性、时效性与完整性，但鉴于化学学科的专业复杂性及知识持续更新的特点，本网站无法保证所有信息在任何时间均绝对准确、完整或适用。</p>
+            <p>用户应自行判断相关信息的适用性，并在进行任何实验操作前查阅权威文献或咨询具有相应资质的专业人士。本网站不对因依赖本站内容而产生的任何直接或间接后果承担责任。</p>
+
+            <h3 id="safety"><i class="fas fa-shield-alt"></i> 二、安全责任</h3>
+            <p>晶体培养实验涉及化学品的购买、配制及操作，部分化学品具有腐蚀性、毒性或其他危险性。用户在进行任何实验操作前，必须具备相应的化学实验基础知识，充分了解所用化学品的安全数据表（SDS/MSDS），并采取必要的个人防护措施（如护目镜、防护手套、通风操作等）。</p>
+            <div class="highlight-box">
+                <p><strong>重要提示：</strong>本网站强烈建议所有用户，尤其是未成年人，在具有相应资质的成年专业人士的监督和指导下进行实验。本网站不对用户在进行实验操作时发生的任何人身伤害、财产损失或其他事故承担任何法律责任。</p>
+            </div>
+            <p>用户须自行确保其实验操作符合所在地区关于化学品管理、实验室安全及环境保护的相关法律法规。因违反当地法规而产生的一切法律后果，由用户本人独立承担。</p>
+
+            <h3 id="ipr"><i class="fas fa-copyright"></i> 三、知识产权</h3>
+            <p>本网站所有原创内容（包括但不限于文字教程、图片、示意图、网站设计、代码及视频等）的著作权及其他知识产权，归 CrystalLab 或相应内容贡献者所有。未经明确书面授权，任何个人或机构不得以任何形式复制、转载、改编或用于商业目的。</p>
+            <p>本网站引用的第三方文献、图片或数据，均注明了来源出处。如有版权争议，请通过本页末尾的联系方式与我们取得联系，我们将在核实后及时处理。</p>
+            <p>用户向本网站投稿提交的内容，即视为授权本网站在合理范围内无偿使用，包括展示、编辑和传播，但不影响投稿者对原始内容保有的著作权。</p>
+
+            <h3 id="links"><i class="fas fa-external-link-alt"></i> 四、外部链接</h3>
+            <p>本网站可能包含指向第三方网站的链接（如参考文献、购买渠道推荐、社区平台等）。这些链接仅为方便用户查阅而提供，不构成本网站对相关第三方网站内容、准确性、合法性或安全性的背书或认可。用户访问第三方网站的行为及相关风险，由用户自行承担。</p>
+
+            <h3 id="third-party"><i class="fas fa-puzzle-piece"></i> 五、第三方服务</h3>
+            <p>为提升用户体验和网站运营质量，本网站接入了以下第三方服务。这些服务由各自的服务提供商独立运营，受其各自的服务条款及隐私政策约束，本网站不对其服务质量、数据处理方式或可用性承担责任。</p>
+
+            <div class="third-party-grid">
+                <div class="third-party-item">
+                    <div class="service-name"><i class="fab fa-google"></i> Google Analytics</div>
+                    <p>用于统计网站访问数据，帮助我们了解内容使用情况。数据由 Google LLC 处理。</p>
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">查看 Google 隐私政策 →</a>
+                </div>
+                <div class="third-party-item">
+                    <div class="service-name"><i class="fas fa-ad"></i> Google AdSense</div>
+                    <p>用于在网站展示广告以维持网站运营。广告内容由 Google 根据用户兴趣自动投放。</p>
+                    <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener">了解广告政策 →</a>
+                </div>
+                <div class="third-party-item">
+                    <div class="service-name"><i class="fas fa-robot"></i> Dify AI 平台</div>
+                    <p>本站 AI 管家功能由 Dify（udify.app）提供支持，对话数据由该平台独立处理。</p>
+                    <a href="https://dify.ai/privacy" target="_blank" rel="noopener">查看 Dify 隐私政策 →</a>
+                </div>
+                <div class="third-party-item">
+                    <div class="service-name"><i class="fas fa-font"></i> Google Fonts</div>
+                    <p>用于加载网站字体。访问时浏览器会向 Google 服务器发起请求。</p>
+                    <a href="https://fonts.google.com/about" target="_blank" rel="noopener">了解详情 →</a>
+                </div>
+            </div>
+
+            <h3 id="ai"><i class="fas fa-robot"></i> 六、AI 智能助手</h3>
+            <p>本网站提供由 Dify 平台驱动的 AI 智能助手（"管家"）服务，旨在帮助用户快速获取晶体化学相关知识。请注意以下重要事项：</p>
+            <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 2; color: var(--text);">
+                <li>AI 助手的回答基于训练数据生成，可能存在错误、遗漏或过时信息，<strong>不构成专业化学建议</strong>。</li>
+                <li>请勿向 AI 助手输入个人敏感信息（如姓名、联系方式、家庭住址等）。</li>
+                <li>AI 助手的对话数据由 Dify 平台处理，受其隐私政策约束，本网站无法控制该平台对数据的具体处理方式。</li>
+                <li>AI 助手提供的实验步骤或化学品用量建议，均须经过用户自行核实后方可参考执行，本网站不对依赖 AI 建议产生的任何后果承担责任。</li>
+            </ul>
+
+            <h3 id="ads"><i class="fas fa-bullhorn"></i> 七、广告服务</h3>
+            <p>本网站通过 Google AdSense 展示第三方广告以维持网站正常运营。广告内容由 Google 根据用户的浏览行为和兴趣偏好自动投放，本网站不对广告内容的准确性、合法性及其所推广产品或服务的质量承担任何责任。如您对某则广告有任何异议，可直接向 Google 投诉。</p>
+            <p>本网站不存在通过广告内容向用户进行欺诈或误导的主观意图。如发现明显不当的广告内容，欢迎通过联系方式告知我们。</p>
+
+            <h3 id="liability"><i class="fas fa-gavel"></i> 八、责任限制</h3>
+            <p>在法律允许的最大范围内，CrystalLab 及其内容贡献者均不对因以下情形导致的任何直接、间接、偶然、特殊、惩罚性或后果性损失承担法律责任，包括但不限于：</p>
+            <ul style="margin: 1rem 0 1rem 1.5rem; line-height: 2; color: var(--text);">
+                <li>依赖本网站信息进行实验操作所产生的人身伤害或财产损失；</li>
+                <li>因网站技术故障、服务中断或数据丢失造成的损失；</li>
+                <li>因第三方服务（Google Analytics、AdSense、Dify 等）运作异常造成的损失；</li>
+                <li>因用户违反本声明或相关法律法规而产生的任何后果。</li>
+            </ul>
+
+            <h3 id="minors"><i class="fas fa-child"></i> 九、未成年人保护</h3>
+            <p>本网站部分实验内容涉及化学品操作，不适合未成年人独立操作。未成年用户在使用本网站内容进行实验时，必须在具有完全民事行为能力的监护人或专业教师的直接监督下进行。监护人有责任指导未成年人安全、合法地使用本网站资源。</p>
+
+            <h3 id="changes"><i class="fas fa-sync-alt"></i> 十、内容变更</h3>
+            <p>本网站保留随时修改、更新、暂停或终止网站部分或全部服务及内容的权利，且无需事先通知用户。本免责声明亦可能随法律法规变化或网站服务调整而随时更新，更新后的版本将在本页公布，请用户定期查阅。继续使用本网站将视为接受更新后的条款。</p>
+
+            <h3 id="law"><i class="fas fa-balance-scale"></i> 十一、适用法律</h3>
+            <p>本免责声明的解释、效力及争议解决均适用<strong>马来西亚法律（Laws of Malaysia）</strong>。如本声明与用户所在地区法律存在冲突，以用户所在地区的强制性法律规定为准。</p>
+
+            <h3 id="contact"><i class="fas fa-envelope"></i> 十二、联系我们</h3>
+            <p>如您对本免责声明有任何疑问，或发现本网站存在内容错误、版权争议或其他问题，欢迎通过<a href="contribute.html" style="color:var(--accent)">投稿与建议</a>页面与我们联系，我们将在合理时间内予以回复处理。</p>
+
+            <div class="related-docs">
+                <a href="terms.html" class="related-doc-link"><i class="fas fa-file-contract"></i> 用户服务协议</a>
+                <a href="privacy.html" class="related-doc-link outline"><i class="fas fa-user-shield"></i> 隐私政策</a>
+            </div>
+
+            <p class="last-updated"><i class="far fa-calendar-alt"></i> 最后更新日期：2026年6月</p>
         </div>
     </div>
 
