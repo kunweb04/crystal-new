@@ -494,6 +494,7 @@
 
         const sections = contentContainer.querySelectorAll('section');
         let visibleCount = 0;
+        let firstVisibleWork = null;
 
         sections.forEach(function(section) {
             const sectionId = section.dataset.section;
@@ -512,7 +513,10 @@
 
                 const show = sectionMatch && authorMatch && crystalMatch && searchMatch;
                 work.style.display = show ? 'block' : 'none';
-                if (show) sectionVisible = true;
+                if (show) {
+                    sectionVisible = true;
+                    if (!firstVisibleWork) firstVisibleWork = work;
+                }
             });
 
             section.style.display = sectionVisible ? 'block' : 'none';
@@ -530,6 +534,15 @@
         } else if (noResults) {
             noResults.remove();
         }
+
+        requestAnimationFrame(function() {
+            if (firstVisibleWork) {
+                var top = firstVisibleWork.getBoundingClientRect().top + window.scrollY - 16;
+                var maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+                var targetScroll = Math.max(0, Math.min(top, maxScroll));
+                window.scrollTo({ top: targetScroll, behavior: 'auto' });
+            }
+        });
     }
 
     searchInput.addEventListener('input', applyFilters);
