@@ -140,10 +140,6 @@
     content: ''; position: absolute; background: url('../p/cpsa.png') center/cover no-repeat;
     width: 70px; height: 100px; right: 20px; top: 20px; opacity: 0.5;
 }
-.honor-card.duya-special::before {
-    content: ''; position: absolute; background: url('../p/渡鸦.png') center/cover no-repeat;
-    width: 80px; height: 140px; right: 20px; top: 30px; opacity: 0.5;
-}
 .honor-card.changjie-special::before {
     content: ''; position: absolute; background: url('../p/长街.png') center/cover no-repeat;
     width: 100px; height: 100px; right: 20px; top: 30px; opacity: 0.5;
@@ -194,10 +190,21 @@
 .member-role { text-align: center; color: var(--accent-secondary); font-weight: 600; margin-bottom: 1.5rem; }
 .member-desc { color: #555; text-align: justify; line-height: 1.8; }
 
+.member-card.galvin-bg::after {
+    content: ''; position: absolute; background: url('../p/渡鸦.png') center/cover no-repeat;
+    width: 80px; height: 140px; right: 20px; top: 30px; opacity: 0.25;
+}
+
+.member-card.oho-bg::after {
+    content: ''; position: absolute; background: url('../p/oho.webp') center/cover no-repeat;
+    width: 80px; height: 120px; left: 20px; top: 15px; opacity: 0.25;
+}
+
 .final-thanks {
     text-align: center; padding: 5rem 2rem;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.9) 100%);
     border-radius: 20px; margin-top: 4rem; border: 2px dashed var(--accent-light);
+    position: relative;
 }
 .final-thanks h2 { font-size: 2.8rem; color: var(--primary); margin-bottom: 1.5rem; font-family: 'Playfair Display', serif; }
 .final-thanks p { font-size: 1.3rem; color: var(--text-light); margin-bottom: 3rem; }

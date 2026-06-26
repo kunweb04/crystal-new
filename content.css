@@ -2315,6 +2315,17 @@
     line-height: 1.8;
 }
 
+.member-card.galvin-bg::after {
+    content: '';
+    position: absolute;
+    background: url('p/渡鸦.png') center/cover no-repeat;
+    width: 80px;
+    height: 140px;
+    right: 20px;
+    top: 30px;
+    opacity: 0.5;
+}
+
 .member-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 24px 48px rgba(42, 92, 132, 0.12);
@@ -3669,20 +3680,6 @@ figcaption {
     height: 100px;
     right: 20px;
     top: 20px;
-    font-size: 0;
-    opacity: 0.5;
-    border-radius: 10%;
-    transform: rotate(0);
-    box-shadow: none;
-}
-
-.acknowledgements-container .honor-card.duya-special::before {
-    content: '' !important;
-    background: url('p/渡鸦.png') center/cover no-repeat;
-    width: 80px;
-    height: 140px;
-    right: 20px;
-    top: 30px;
     font-size: 0;
     opacity: 0.5;
     border-radius: 10%;
