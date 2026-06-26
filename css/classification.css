@@ -7,8 +7,17 @@
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
+.hero.classification-complex-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(26, 37, 47, 0.85)), url('../p/portfolio/作品133.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
 .hero.classification-rain-hero {
-    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(26, 37, 47, 0.85)), url('../p/关关-背景图2.jpg');
+    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(26, 37, 47, 0.85)), url('../p/晶雨1.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -124,8 +133,20 @@
 .category-card h4 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--primary); }
 .category-card p { color: var(--text-light); font-size: 0.95rem; line-height: 1.5; margin: 0; }
 
+.hero-author {
+    position: absolute;
+    bottom: 18px;
+    left: 24px;
+    color: rgba(255, 255, 255, 0.08);
+    font-size: 0.85rem;
+    z-index: 3;
+    letter-spacing: 0.5px;
+    font-weight: 300;
+}
+
 @media (max-width: 768px) {
     .secondary-hero { height: 60vh; clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%); }
+    .hero-author { bottom: 14px; left: 18px; font-size: 0.78rem; }
     .classification-category { padding: 1.8rem 1.5rem; width: calc(100% - 3rem); box-sizing: border-box; }
     .category-description, .category-card p { font-size: 1rem; line-height: 1.7; overflow-wrap: break-word; word-wrap: break-word; min-width: 0; }
     .category-card { flex-direction: column; text-align: center; gap: 1rem; }
