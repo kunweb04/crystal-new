@@ -89,8 +89,8 @@
                     <div class="videos-grid">
                         <div class="video-card">
                             <div class="video-wrapper">
-                                <video controls poster="p/video-poster-1.jpg">
-                                    <source src="videos/promo-2025.mp4" type="video/mp4">
+                                <video controls poster="og.png">
+                                    <source src="videos/宣传片.mp4" type="video/mp4">
                                     您的浏览器不支持视频播放，请升级浏览器。
                                 </video>
                             </div>
@@ -101,8 +101,8 @@
                         </div>
                         <div class="video-card">
                             <div class="video-wrapper">
-                                <video controls poster="p/video-poster-2.jpg">
-                                    <source src="videos/promo-2026.mp4" type="video/mp4">
+                                <video controls poster="og.png">
+                                    <source src="videos/宣传片1.mp4" type="video/mp4">
                                     您的浏览器不支持视频播放，请升级浏览器。
                                 </video>
                             </div>
@@ -178,7 +178,7 @@
                             </div>
                             <div class="timeline-content">
                                 <div class="timeline-date">
-                                    <span class="date-tag highlight">2026 年 2 月</span>
+                                    <span class="date-tag highlight">2026 年 3 月</span>
                                 </div>
                                 <h3>满一周岁</h3>
                                 <p>从最初的几篇教程，发展到覆盖 20 余种化合物的综合培养指南；从单一的图文页面，演变为包含作品展示、社区互动、理论图书馆的立体化平台。感谢每一位陪伴我们成长的伙伴。</p>
@@ -186,6 +186,42 @@
                         </div>
                     </div>
                 </div>
+
+                <section class="invitation-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-envelope"></i> 一封邀请函</h2>
+                        <p>打开信封，看看我们想对你说的话</p>
+                    </div>
+                    <div class="invitation-wrapper">
+                        <div class="letter-wrapper">
+                            <div class="letter-image" aria-label="打开邀请函">
+                                <div class="animated-mail">
+                                    <div class="back-fold"></div>
+                                    <div class="letter">
+                                        <div class="letter-border"></div>
+                                        <div class="letter-message">
+                                            <p>致<br>热爱晶体化学的你：</p>
+                                            <p>感谢你愿意停留在这里。CrystalLab 因你的关注而生长，也期待你的加入。</p>
+                                            <p><a href="contribute.html" class="contribute-link">加入我们 / 投稿</a></p>
+                                        </div>
+                                        <div class="letter-stamp">
+                                            <div class="letter-stamp-inner">
+                                                <img src="logo.png" alt="CrystalLab Logo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="top-fold"></div>
+                                    <div class="body"></div>
+                                    <div class="left-fold"></div>
+                                    <div class="envelope-logo">
+                                        <img src="logo.png" alt="CrystalLab Logo">
+                                    </div>
+                                </div>
+                                <div class="shadow"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <div class="team-brief">
                     <div class="section-header">
@@ -252,6 +288,16 @@
 
     <div id="footer-container"></div>
 
+    <script>
+    (function() {
+        var letter = document.querySelector('.letter-image');
+        if (!letter) return;
+        letter.addEventListener('click', function(e) {
+            e.preventDefault();
+            this.classList.toggle('opened');
+        });
+    })();
+    </script>
     <script src="components.js"></script>
 </body>
 </html>
