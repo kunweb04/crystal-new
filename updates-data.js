@@ -1,9 +1,15 @@
 const CONFIG = {
-    ANNOUNCEMENT_VERSION: 'v1.3.0',
-    UPDATE_DATE: '2026.6.9'
+    ANNOUNCEMENT_VERSION: 'v1.3.2',
+    UPDATE_DATE: '2026.7.15'
 };
 
 const updatesData = [
+    {
+        date: "2026.7.15",
+        badge: "v1.3.2",
+        title: "关于我们与新配合物专文上线",
+        desc: "新增关于我们页面，详细介绍CrystalLab的使命与愿景；同时上线了首篇配合物专文，深入解析二水四氯合铜酸铵的结构与性质。",
+    },
     {
         date: "2026.6.19",
         badge: "v1.3.1",
