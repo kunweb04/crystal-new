@@ -60,6 +60,399 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/home.css">
+    <style>
+    @font-face {
+      font-family: PixelText;
+      src: url(https://assets.codepen.io/36869/Grand9KPixel.ttf);
+    }
+    @property --sprite-fs {
+      syntax: "<integer>";
+      initial-value: 0;
+      inherits: true;
+    }
+    @property --_progress {
+      syntax: "<percentage>";
+      inherits: false;
+      initial-value: 0%;
+    }
+    .flipbook-wrapper {
+      font-family: 'PixelText', serif;
+      font-optical-sizing: auto;
+      line-height: 1.5;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.87);
+      font-synthesis: none;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      align-items: center;
+      justify-content: center;
+      padding: 150px 1rem;
+      box-sizing: border-box;
+
+      --sprite-image: url(https://assets.codepen.io/36869/book.webp);
+      --sprite-as: .8s;
+      --sprite-ad: normal;
+      --sprite-af: none;
+      --sprite-ap: running;
+      --sprite-ai: infinite;
+      --sprite-at: linear;
+      --sprite-fr: 12;
+
+      --sprite-c: 5;
+      --sprite-h: 3000;
+      --sprite-w: 9600;
+      --sprite-f: 7;
+      --sprite-as: calc(var(--sprite-f) / var(--sprite-fr) * 1s);
+      --sprite-r: round(up, calc(var(--sprite-f) / var(--sprite-c)), 1);
+      --sprite-sh: calc(var(--sprite-h) / var(--sprite-r));
+      --sprite-th: calc(var(--sprite-sh) / 2);
+      --sprite-ar: calc(var(--sprite-th) / var(--sprite-sh));
+      --sprite-uh: calc(var(--sprite-h) * var(--sprite-ar));
+      --sprite-uw: calc(var(--sprite-w) * var(--sprite-ar));
+      --sprite-tw: calc(var(--sprite-uw) / var(--sprite-c));
+    }
+    .flipbook-wrapper * {
+      box-sizing: border-box;
+    }
+    .flipbook-wrapper > h1 {
+      position: relative;
+      z-index: 2;
+      width: fit-content;
+      margin: 0 auto;
+      padding-bottom: 1.2rem;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .flipbook-wrapper > h1 .flipbook-highlight {
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .flipbook-wrapper > h1::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 160px;
+      height: 4px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+    .flipbook-wrapper .sprite-wrapper {
+      position: relative;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .flipbook-wrapper .book {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-areas:
+        "scroll scroll scroll"
+        "left markers right";
+      gap: 1rem;
+    }
+    .flipbook-wrapper .sprite {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: calc(1px * var(--sprite-th));
+      width: calc(1px * var(--sprite-tw));
+      margin: calc(-1px * calc((var(--sprite-th) - (var(--sprite-th) * 0.6107)) / 2)) calc(-1px * calc((var(--sprite-tw) - (var(--sprite-tw) * 0.7042)) / 2));
+      background-image: var(--sprite-image);
+      transform-origin: center center;
+      background-repeat: no-repeat;
+      background-size: calc(1px * var(--sprite-uw)) calc(1px * var(--sprite-uh));
+      z-index: -1;
+
+      --sprite-fe: calc(var(--sprite-f) * (var(--slides) - 1));
+      --sprite-fs-n: mod(var(--sprite-fs), var(--sprite-f));
+      --row: calc(round(down, calc(calc(var(--sprite-tw) * var(--sprite-fs-n)) / var(--sprite-uw)), 1) * var(--sprite-th));
+      --col: mod(calc(var(--sprite-tw) * var(--sprite-fs-n)), var(--sprite-uw));
+
+      background-position: calc(-1px * var(--col)) calc(-1px * var(--row));
+      animation: frame var(--sprite-as) var(--sprite-at) 0s var(--sprite-ad) var(--sprite-af) var(--sprite-ap);
+      animation-timeline: --carousel-timeline;
+    }
+    .flipbook-wrapper .carousel {
+      counter-increment: curpage;
+      grid-area: scroll;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+
+      display: grid;
+      margin: 0 auto;
+      width: calc(1px * (var(--sprite-tw) * 0.7042));
+      height: calc(1px * (var(--sprite-th) * 0.6107));
+      grid: 1fr / auto-flow 100%;
+      scroll-timeline: --carousel-timeline x;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      scroll-marker-group: after;
+    }
+    .flipbook-wrapper .carousel::scroll-button(*) {
+      inline-size: 48px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.35);
+      background: var(--btn-gradient);
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .flipbook-wrapper .carousel::scroll-button(*):disabled {
+      filter: grayscale(0.6);
+      opacity: 0.35;
+    }
+    .flipbook-wrapper .carousel::scroll-button(*):not(:disabled):is(:hover, :active) {
+      background: var(--btn-hover);
+      box-shadow: 0 15px 35px rgba(26, 188, 156, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+      transform: translateY(-2px);
+      filter: none;
+    }
+    .flipbook-wrapper .carousel::scroll-button(*):not(:disabled):active {
+      transform: translateY(0) scale(0.92);
+    }
+    .flipbook-wrapper .carousel::scroll-button(left) {
+      content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+PHBhdGggZD0iTTE4IDEySDZNMTIgNmwtNiA2IDYgNiIvPjwvc3ZnPg==") / "Scroll Left";
+      grid-area: left;
+    }
+    .flipbook-wrapper .carousel::scroll-button(right) {
+      content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+PHBhdGggZD0iTTYgMTJoMTJNMTIgNmw2IDYtNiA2Ii8+PC9zdmc+") / "Scroll Right";
+      grid-area: right;
+      justify-self: flex-end;
+    }
+    .flipbook-wrapper .carousel::scroll-marker-group {
+      content: "";
+      width: 100%;
+      height: 8px;
+      padding: 2px 0;
+      display: grid;
+      position: absolute;
+      grid-area: markers;
+
+      grid-auto-flow: column;
+      place-self: center;
+      overflow: hidden;
+      border: 1px solid #000;
+
+      background: linear-gradient(90deg, #f1e2b2 0%) no-repeat left center;
+      --_progress: calc(calc(100 / var(--slides)) * 1%);
+      background-size: var(--_progress, 20%) 100%;
+
+      animation: progress linear both;
+      animation-timeline: --carousel-timeline;
+    }
+    .flipbook-wrapper .carousel > .carousel-item {
+      scroll-snap-stop: always;
+      scroll-snap-align: start;
+      animation: count-before linear forwards;
+      animation-range: exit;
+      counter-increment: page;
+      animation-timeline: view(x);
+
+      position: relative;
+      box-sizing: border-box;
+      color: #333;
+    }
+    .flipbook-wrapper .carousel > .carousel-item::scroll-marker {
+      content: '';
+      position: relative;
+      left: -1px;
+      width: 100%;
+      height: 100%;
+      display: block;
+      box-sizing: border-box;
+      box-shadow: 2px 0 0 #000;
+    }
+    .flipbook-wrapper .carousel > .carousel-item:last-of-type::scroll-marker {
+      box-shadow: none;
+    }
+    .flipbook-wrapper .carousel > .carousel-item .page-container {
+      display: flex;
+      gap: 3rem;
+      height: 100%;
+
+      animation: stay-centered linear both;
+      animation-timeline: view(x);
+      timeline-scope: --parallax-item;
+    }
+    .flipbook-wrapper .carousel > .carousel-item .left-page,
+    .flipbook-wrapper .carousel > .carousel-item .right-page {
+      flex: 1;
+      font-size: small;
+      overflow: hidden;
+      display: grid;
+      grid-template-rows: 1fr auto;
+    }
+    .flipbook-wrapper .carousel > .carousel-item .left-page:after,
+    .flipbook-wrapper .carousel > .carousel-item .right-page:after {
+      bottom: 15px;
+      color: hsl(45.71deg 69.23% 30%);
+    }
+    .flipbook-wrapper .carousel > .carousel-item .left-page > div,
+    .flipbook-wrapper .carousel > .carousel-item .right-page > div {
+      text-align: justify;
+      hyphens: auto;
+      line-height: normal;
+      display: block;
+      word-wrap: break-word;
+    }
+    .flipbook-wrapper .carousel > .carousel-item .left-page {
+      padding: 20px 0 20px 20px;
+    }
+    .flipbook-wrapper .carousel > .carousel-item .left-page:after {
+      content: counter(curpage);
+    }
+    .flipbook-wrapper .carousel > .carousel-item .right-page {
+      padding: 20px 20px 20px 0;
+      counter-increment: curpage;
+    }
+    .flipbook-wrapper .carousel > .carousel-item .right-page:after {
+      content: counter(curpage);
+      place-self: self-end;
+    }
+    .flipbook-wrapper .carousel > .carousel-item .mobile-page {
+      display: none;
+    }
+    @media (width < 748px) {
+      .flipbook-wrapper {
+        --sprite-th: calc(var(--sprite-sh) / 2.5);
+        padding: 120px 1rem;
+      }
+      .flipbook-wrapper > h1 {
+        font-size: 2rem;
+      }
+      .flipbook-wrapper > h1::after {
+        width: 100px;
+        height: 3px;
+      }
+      .flipbook-wrapper .page > div {
+        font-size: .6rem;
+      }
+    }
+    @media (width < 560px) {
+      .flipbook-wrapper {
+        --sprite-th: calc(var(--sprite-sh) / 4);
+        padding: 50px 1rem;
+        gap: 1.5rem;
+      }
+      .flipbook-wrapper > h1 {
+        font-size: 1.6rem;
+      }
+      .flipbook-wrapper > h1::after {
+        width: 80px;
+        height: 2px;
+      }
+      .flipbook-wrapper .book {
+        gap: 0.5rem;
+      }
+      .flipbook-wrapper .carousel {
+        width: calc(1px * (var(--sprite-tw) * 0.3521));
+      }
+      .flipbook-wrapper .sprite {
+        transform: translateX(calc(-1px * var(--sprite-tw) * 0.176));
+      }
+      .flipbook-wrapper .carousel > .carousel-item .page-container {
+        display: block;
+      }
+      .flipbook-wrapper .carousel > .carousel-item .left-page,
+      .flipbook-wrapper .carousel > .carousel-item .right-page {
+        display: none;
+      }
+      .flipbook-wrapper .carousel > .carousel-item .mobile-page {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 100%;
+        padding: 20px;
+        overflow-y: auto;
+        font-size: 0.85rem;
+        color: #333;
+      }
+      .flipbook-wrapper .carousel > .carousel-item .mobile-page > div {
+        text-align: justify;
+        hyphens: auto;
+        line-height: normal;
+        word-wrap: break-word;
+      }
+      .flipbook-wrapper .carousel > .carousel-item .mobile-page::after {
+        content: counter(curpage);
+        position: absolute;
+        bottom: 15px;
+        right: 20px;
+        color: hsl(45.71deg 69.23% 30%);
+        font-size: 0.75rem;
+      }
+    }
+    @keyframes stay-centered {
+      entry 0% {
+        opacity: 0;
+        translate: -100%;
+      }
+      entry 75% {
+        opacity: 0;
+        translate: -25%;
+      }
+      entry 100% {
+        opacity: 1;
+        translate: 0%;
+      }
+      exit 0% {
+        opacity: 1;
+        translate: 0%;
+      }
+      exit 50% {
+        opacity: 0;
+        translate: 50%;
+      }
+      exit 100% {
+        opacity: 0;
+        translate: 100%;
+      }
+    }
+    @keyframes count-before {
+      1%,
+      100% {
+        counter-increment: page curpage;
+      }
+    }
+    @keyframes progress {
+      100% {
+        --_progress: 100%;
+      }
+    }
+    @keyframes frame {
+      to {
+        --sprite-fs: var(--sprite-fe);
+      }
+    }
+    @media (prefers-reduced-motion) {
+      .flipbook-wrapper * {
+        animation: none;
+      }
+    }
+</style>
     <link rel="icon" href="favicon.ico" type="image/png">
     <meta name="google-adsense-account" content="ca-pub-9337526323324673">
 </head>
@@ -161,20 +554,181 @@
                     </div>
                 </div>
 
-                <div class="extended-thanks-section">
-                    <div class="extended-thanks-dots">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                <div class="flipbook-wrapper">
+                  <h1>
+                    特别鸣谢与 <span class="flipbook-highlight">贡献者</span>
+                  </h1>
+                  <div class="sprite-wrapper">
+                    <div class="book">
+                      <div class="carousel" style="--slides: 4;">
+                        <div class="sprite"></div>
+                        <div class="carousel-item">
+                          <div class="page-container">
+                            <div class="page left-page">
+                              <div>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  特别鸣谢
+                                </p>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  本指南的诞生离不开众多晶体化学领域专家、爱好者及科研工作者的鼎力支持。特别感谢所有贡献者。
+                                </p>
+                              </div>
+                            </div>
+                            <div class="page right-page">
+                              <div>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  核心贡献者
+                                </p>
+                                <ul style="padding: 0; list-style: auto; list-style-position: inside; margin: 0">
+                                  <li>冰冰</li>
+                                  <li>迷路的野指针</li>
+                                  <li>浅梦星河</li>
+                                  <li>mo</li>
+                                  <li>KERBAL123</li>
+                                  <li>CPSA</li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="page mobile-page">
+                              <div>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  特别鸣谢
+                                </p>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  本指南的诞生离不开众多晶体化学领域专家、爱好者及科研工作者的鼎力支持。特别感谢所有贡献者。
+                                </p>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  核心贡献者
+                                </p>
+                                <ul style="padding: 0; list-style: auto; list-style-position: inside; margin: 0">
+                                  <li>冰冰</li>
+                                  <li>迷路的野指针</li>
+                                  <li>浅梦星河</li>
+                                  <li>mo</li>
+                                  <li>KERBAL123</li>
+                                  <li>CPSA</li>
+                                </ul>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <div class="page-container">
+                            <div class="page left-page">
+                              <div>
+                                <p style="margin: 0; text-indent: 1rem">更多贡献者</p>
+                                <ul style="padding: 0; list-style: auto; list-style-position: inside; margin: 0">
+                                  <li>青于</li>
+                                  <li>关关</li>
+                                  <li>zbh80</li>
+                                  <li>不会炼金的阿贝少</li>
+                                  <li>多彩</li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="page right-page">
+                              <div>
+                                <p style="margin: 0; text-indent: 1rem">延伸致谢</p>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  不明就里的乙酸铜，氟氙Cryptand，群青，蜉蝣，泠鳞，westleaf，清蒸带鱼，L20J10Q，待到群星闪耀时，Circle，⌬Aurora⌬
+                                </p>
+                              </div>
+                            </div>
+                            <div class="page mobile-page">
+                              <div>
+                                <p style="margin: 0; text-indent: 1rem">更多贡献者</p>
+                                <ul style="padding: 0; list-style: auto; list-style-position: inside; margin: 0">
+                                  <li>青于</li>
+                                  <li>关关</li>
+                                  <li>zbh80</li>
+                                  <li>不会炼金的阿贝少</li>
+                                  <li>多彩</li>
+                                </ul>
+                                <p style="margin: 0; text-indent: 1rem">延伸致谢</p>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  不明就里的乙酸铜，氟氙Cryptand，群青，蜉蝣，泠鳞，westleaf，清蒸带鱼，L20J10Q，待到群星闪耀时，Circle，⌬Aurora⌬
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <div class="page-container">
+                            <div class="page left-page">
+                              <div>
+                                <p style="margin: 0; text-indent: 1rem">核心团队</p>
+                                <ul style="padding: 0; list-style: auto; list-style-position: inside; margin: 0">
+                                  <li>冰麒麟</li>
+                                  <li>长街听风</li>
+                                  <li>Chlorine</li>
+                                  <li>LX虫管吖Galvin</li>
+                                  <li>紫色硫酸铜</li>
+                                  <li>不会炼金的阿贝少</li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="page right-page">
+                              <div>
+                                <p style="margin: 0; text-indent: 1rem">团队寄语</p>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  晶体化学指南因每一位贡献者而更加精彩。感谢所有在实验探索、数据分享、摄影记录及知识交流等方面提供支持的朋友。
+                                </p>
+                              </div>
+                            </div>
+                            <div class="page mobile-page">
+                              <div>
+                                <p style="margin: 0; text-indent: 1rem">核心团队</p>
+                                <ul style="padding: 0; list-style: auto; list-style-position: inside; margin: 0">
+                                  <li>冰麒麟</li>
+                                  <li>长街听风</li>
+                                  <li>Chlorine</li>
+                                  <li>LX虫管吖Galvin</li>
+                                  <li>紫色硫酸铜</li>
+                                  <li>不会炼金的阿贝少</li>
+                                </ul>
+                                <p style="margin: 0; text-indent: 1rem">团队寄语</p>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  晶体化学指南因每一位贡献者而更加精彩。感谢所有在实验探索、数据分享、摄影记录及知识交流等方面提供支持的朋友。
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <div class="page-container">
+                            <div class="page left-page">
+                              <div>
+                                <p style="margin: 0; text-indent: 1rem">感谢您的支持</p>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  特别鸣谢页以翻书形式呈现，向每一位贡献者致敬。
+                                </p>
+                              </div>
+                            </div>
+                            <div class="page right-page">
+                              <div>
+                                <p style="margin: 0; text-indent: 1rem">返回首页</p>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  <a href="index.html" style="color: #f840a8; text-decoration: underline">点击返回 CrystalLab 首页</a>
+                                </p>
+                              </div>
+                            </div>
+                            <div class="page mobile-page">
+                              <div>
+                                <p style="margin: 0; text-indent: 1rem">感谢您的支持</p>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  特别鸣谢页以翻书形式呈现，向每一位贡献者致敬。
+                                </p>
+                                <p style="margin: 0; text-indent: 1rem">返回首页</p>
+                                <p style="margin: 0; text-indent: 1rem">
+                                  <a href="index.html" style="color: #f840a8; text-decoration: underline">点击返回 CrystalLab 首页</a>
+                                </p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    
-                    <h2>特别鸣谢</h2>
-                    
-                    <div class="extended-names">
-                        <p>不明就里的乙酸铜，氟氙Cryptand，群青，蜉蝣，泠鳞，westleaf，清蒸带鱼，L20J10Q，待到群星闪耀时，Circle，⌬Aurora⌬</p>
-                    </div>
-                    
-                    <p class="thanks-message">感谢超过百位晶体化学领域的爱好者，他们在实验探索、数据分享、摄影记录及知识交流等方面提供了宝贵支持，促使本指南更加完善</p>
+                  </div>
                 </div>
 
                 <div class="team-section">

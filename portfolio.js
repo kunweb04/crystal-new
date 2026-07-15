@@ -21,7 +21,8 @@
                 { img: '作品3.webp', author: '迷路的野指针' },
                 { img: '作品6.webp', author: '迷路的野指针' },
                 { img: '作品7.webp', author: '迷路的野指针' },
-                { img: '作品57.webp', author: '紫色硫酸铜' }
+                { img: '作品57.webp', author: '紫色硫酸铜' },
+                { img: '作品144.webp', author: '食堂人民科学协会-荣' }
             ]
         },
         {
@@ -58,10 +59,12 @@
                 { img: '作品71.webp', author: '紫色硫酸铜', description: '铜' },
                 { img: '作品103.webp', author: '紫色硫酸铜', description: '铜' },
                 { img: '作品104.webp', author: '紫色硫酸铜', description: '铜' },
+                { img: '作品147.webp', author: '紫色硫酸铜', description: '铜' },
                 { img: '作品75.webp', author: '青于', description: '铜' },
                 { img: '作品76.webp', author: '青于', description: '铜' },
                 { img: '作品77.webp', author: '青于', description: '铜' },
                 { img: '作品78.webp', author: '青于', description: '铜' },
+                { img: '作品143.webp', author: 'Chlorine', description: '铜' },
                 { img: '作品115.webp', author: 'Eutopia', description: 'CVD 铜' },
                 { img: '作品116.webp', author: 'Eutopia', description: 'CVD 铜' },
                 { img: '作品79.webp', author: '青于', description: '铁' },
@@ -87,6 +90,7 @@
                 { img: '作品124.webp', author: 'Eutopia', description: '钨' },
                 { img: '作品125.webp', author: 'Eutopia', description: '钨' },
                 { img: '作品126.webp', author: 'Eutopia', description: '铌' },
+                { img: '作品145.webp', author: 'Eutopia', description: '铌' },
                 { img: '作品127.webp', author: 'Eutopia', description: '锰' },
                 { img: '作品128.webp', author: 'Eutopia', description: '锰' },
                 { img: '作品141.webp', author: 'Eutopia', description: '晶相铍' },
@@ -104,6 +108,7 @@
                 { img: '作品24.webp', author: '待到群星闪耀时', description: '三水合丙二酸铁钾' },
                 { img: '作品25.webp', author: '待到群星闪耀时', description: '四氯二水合铜酸钾' },
                 { img: '作品42.webp', author: '迷路的野指针', description: '三氯化三乙二胺络钴' },
+                { img: '作品146.webp', author: '迷路的野指针', description: '甜菜碱锰' },
                 { img: '作品52.webp', author: '青于', description: '四氯合锰酸甜菜碱锰' },
                 { img: '作品58.webp', author: '青于', description: '四氯合锰酸四乙基铵' },
                 { img: '作品59.webp', author: '青于', description: '四氯合锰酸四乙基铵' },
@@ -128,6 +133,7 @@
                 { img: '作品99.webp', author: '冰冰', description: '四氯一氧钨' },
                 { img: '作品100.webp', author: '冰冰', description: '三氯化铁' },
                 { img: '作品101.webp', author: '冰冰', description: '氯化汞' },
+                { img: '作品148.webp', author: '紫色硫酸铜·', description: '氯化铜' },
                 { img: '作品102.webp', author: '冰冰', description: '三溴氧磷' },
                 { img: '作品20.webp', author: '迷路的野指针', description: '草酸氢钠' },
                 { img: '作品21.webp', author: 'LX虫管吖Galvin', description: '乙酸铕' },
