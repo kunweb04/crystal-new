@@ -45,14 +45,9 @@
         },
         {
             id: 'sulfate4',
-            title: '其他好看晶体',
+            title: '电解铜',
             type: 'gallery',
             works: [
-                { img: '作品33.webp', author: '迷路的野指针', description: '银' },
-                { img: '作品117.webp', author: 'Eutopia', description: '蒸馏银' },
-                { img: '作品118.webp', author: 'Eutopia', description: '蒸馏银' },
-                { img: '作品119.webp', author: 'Eutopia', description: '蒸馏银' },
-                { img: '作品35.webp', author: 'mo', description: '铯' },
                 { img: '作品26.webp', author: '清蒸带鱼', description: '铜' },
                 { img: '作品66.webp', author: '关关', description: '铜' },
                 { img: '电解铜2.jpg', author: '食堂人民科学协会-荣', description: '铜' },
@@ -65,6 +60,18 @@
                 { img: '作品77.webp', author: '青于', description: '铜' },
                 { img: '作品78.webp', author: '青于', description: '铜' },
                 { img: '作品143.webp', author: 'Chlorine', description: '铜' },
+            ]
+        },
+        {
+            id: 'sulfate5',
+            title: '其他好看晶体',
+            type: 'gallery',
+            works: [
+                { img: '作品33.webp', author: '迷路的野指针', description: '银' },
+                { img: '作品117.webp', author: 'Eutopia', description: '蒸馏银' },
+                { img: '作品118.webp', author: 'Eutopia', description: '蒸馏银' },
+                { img: '作品119.webp', author: 'Eutopia', description: '蒸馏银' },
+                { img: '作品35.webp', author: 'mo', description: '铯' },
                 { img: '作品115.webp', author: 'Eutopia', description: 'CVD 铜' },
                 { img: '作品116.webp', author: 'Eutopia', description: 'CVD 铜' },
                 { img: '作品79.webp', author: '青于', description: '铁' },
@@ -166,7 +173,7 @@
             ]
         },
         {
-            id: 'sulfate5',
+            id: 'sulfate6',
             title: '饼の美学',
             type: 'blessing',
             works: [
