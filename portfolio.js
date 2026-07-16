@@ -60,6 +60,8 @@
                 { img: '作品77.webp', author: '青于', description: '铜' },
                 { img: '作品78.webp', author: '青于', description: '铜' },
                 { img: '作品143.webp', author: 'Chlorine', description: '铜' },
+                { img: '作品149.webp', author: 'Chlorine', description: '铜' },
+                { img: '作品150.webp', author: 'Chlorine', description: '铜' },
             ]
         },
         {
