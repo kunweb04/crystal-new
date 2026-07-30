@@ -1,10 +1,15 @@
 const CONFIG = {
-    ANNOUNCEMENT_VERSION: 'v1.3.2',
-    UPDATE_DATE: '2026.7.15'
+    ANNOUNCEMENT_VERSION: 'v1.3.3',
+    UPDATE_DATE: '2026.7.30'
 };
 
 const updatesData = [
     {
+        date: "2026.7.30",
+        badge: "v1.3.3",
+        title: "硫氰酸三乙二胺合镍专文上线",
+        desc: "配合物新专文：硫氰酸三乙二胺合镍的晶体结构与独特性质解析，深入了解其在化学领域的应用与研究价值。",
+    },{
         date: "2026.7.15",
         badge: "v1.3.2",
         title: "关于我们与新配合物专文上线",
