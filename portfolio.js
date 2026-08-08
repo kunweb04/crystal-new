@@ -22,7 +22,8 @@
                 { img: '作品6.webp', author: '迷路的野指针' },
                 { img: '作品7.webp', author: '迷路的野指针' },
                 { img: '作品57.webp', author: '紫色硫酸铜' },
-                { img: '作品144.webp', author: '食堂人民科学协会-荣' }
+                { img: '作品144.webp', author: '食堂人民科学协会-荣' },
+                { img: '作品152.webp', author: '紫色硫酸铜' }
             ]
         },
         {
@@ -165,6 +166,7 @@
                 { img: '作品51.webp', author: '青于', description: '硫酸镍' },
                 { img: '作品69.webp', author: '紫色硫酸铜', description: '硫酸镍' },
                 { img: '作品65.webp', author: '关关', description: '硫酸铝钾' },
+                { img: '作品151.webp', author: '紫色硫酸铜', description: '硫酸铝钾' },
                 { img: '作品138.webp', author: 'Kerbal123', description: '硫氰酸乙二胺镍' },
                 { img: '作品60.webp', author: '青于', description: '硝酸甜菜碱铜' },
                 { img: '作品67.webp', author: 'Kerbal123', description: '硝酸脲铁' },
