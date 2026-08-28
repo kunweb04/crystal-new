@@ -192,7 +192,7 @@ function loadComponents() {
                                 <li><a href="crystal-classification.html">培养指南</a></li>
                                 <li><a href="portfolio.html">作品展示</a></li>
                                 <li><a href="acknowledgements.html">特别鸣谢</a></li>
-                                <li><a href="contribute.html">联系投稿</a></li>
+                                <li><a href="contribute.html">投稿 / 供图</a></li>
                             </ul>
                         </nav>
                         <form class="search-box" method="get" action="search.html">
@@ -221,7 +221,7 @@ function loadComponents() {
                                     <li><a href="crystal-classification.html"><i class="fas fa-flask"></i>培养指南</a></li>
                                     <li><a href="portfolio.html"><i class="fas fa-images"></i>作品展示</a></li>
                                     <li><a href="acknowledgements.html"><i class="fas fa-hands-helping"></i>特别鸣谢</a></li>
-                                    <li><a href="contribute.html"><i class="fas fa-edit"></i>联系投稿</a></li>
+                                    <li><a href="contribute.html"><i class="fas fa-edit"></i>投稿 / 供图</a></li>
                                 </ul>
                             </nav>
                             

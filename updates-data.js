@@ -1,9 +1,15 @@
 const CONFIG = {
-    ANNOUNCEMENT_VERSION: 'v1.3.4',
-    UPDATE_DATE: '2026.8.15'
+    ANNOUNCEMENT_VERSION: 'v1.4.1',
+    UPDATE_DATE: '2026.8.28'
 };
 
 const updatesData = [
+    {
+        date: "2026.8.28",
+        badge: "v1.4.1",
+        title: "投稿优化与乙酸钐专文上线",
+        desc: "采用更稳定表单投稿，并给予更多投稿渠道；同时上线了乙酸钐的专文，深入解析其晶体结构与独特性质。",
+    },
     {
         date: "2026.8.15",
         badge: "v1.3.4",

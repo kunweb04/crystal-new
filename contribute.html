@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-LR1SNSS33D"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-LR1SNSS33D');
 </script>
     <meta charset="UTF-8">
@@ -45,7 +43,7 @@
             }
         },
         "datePublished": "2025-12-21",
-        "dateModified": "2026-03-02",
+        "dateModified": "2026-08-27",
         "mainEntityOfPage":{
             "@type": "WebPage",
             "@id": "https://crystal-lab.org/contribute"
@@ -66,149 +64,67 @@
     <meta name="google-adsense-account" content="ca-pub-9337526323324673">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9337526323324673" crossorigin="anonymous"></script>
     <style>
-        .custom-select {
-            position: relative;
-            width: 100%;
-        }
-        
-        .select-trigger {
-            width: 100%;
-            padding: 16px 50px 16px 22px;
+        .contact-card {
             background: white;
             border: 2px solid rgba(22, 160, 133, 0.15);
             border-radius: 14px;
-            font-size: 1rem;
-            color: var(--primary);
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            font-family: 'Noto Sans SC', sans-serif;
-            font-weight: 500;
-            text-align: left;
+            padding: 2rem;
+            margin-top: 1.5rem;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             background-image: linear-gradient(135deg, rgba(22, 160, 133, 0.02), rgba(26, 188, 156, 0.02));
-            position: relative;
-            z-index: 10;
         }
-        
-        .select-trigger:hover {
-            border-color: rgba(22, 160, 133, 0.3);
-            box-shadow: 0 6px 18px rgba(22, 160, 133, 0.08);
-            transform: translateY(-1px);
+
+        .contact-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
-        
-        .select-trigger:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 4px rgba(22, 160, 133, 0.15), 0 8px 24px rgba(22, 160, 133, 0.12);
-            background-color: rgba(255, 255, 255, 0.98);
+
+        .contact-card p {
+            color: #475569;
+            line-height: 1.7;
+            margin-bottom: 1.2rem;
         }
-        
-        .select-trigger::after {
-            content: '';
-            position: absolute;
-            right: 22px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0;
-            height: 0;
-            border-left: 6px solid transparent;
-            border-right: 6px solid transparent;
-            border-top: 8px solid var(--accent);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            opacity: 0.7;
-        }
-        
-        .select-trigger.open::after {
-            transform: translateY(-50%) rotate(180deg);
-            border-top-color: var(--accent-dark);
-            opacity: 1;
-        }
-        
-        .select-options {
-            position: absolute;
-            top: calc(100% + 5px);
-            left: 0;
-            width: 100%;
-            max-height: 300px;
-            overflow-y: auto;
-            background: white;
-            border: 2px solid rgba(22, 160, 133, 0.15);
-            border-radius: 14px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-            z-index: 1000;
-            display: none;
-            animation: dropdownFade 0.3s ease;
-        }
-        
-        .select-options.open {
-            display: block;
-        }
-        
-        .select-option {
-            padding: 14px 20px;
-            background: white;
-            color: #1e293b;
-            font-size: 1rem;
-            font-weight: 500;
-            font-family: 'Noto Sans SC', sans-serif;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-            position: relative;
-            text-align: left;
-            width: 100%;
-            border: none;
-        }
-        
-        .select-option:first-child {
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-        }
-        
-        .select-option:last-child {
-            border-bottom: none;
-            border-bottom-left-radius: 12px;
-            border-bottom-right-radius: 12px;
-        }
-        
-        .select-option:hover {
-            background: linear-gradient(135deg, rgba(22, 160, 133, 0.08), rgba(26, 188, 156, 0.08));
-            color: #0f766e;
-            padding-left: 26px;
-            font-weight: 600;
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            padding: 0.9rem 1rem;
+            background: rgba(22, 160, 133, 0.06);
+            border-radius: 10px;
+            margin-bottom: 0.7rem;
             border-left: 3px solid var(--accent);
+            font-weight: 500;
+            color: #1e293b;
+            word-break: break-all;
         }
-        
-        .select-option.selected {
-            background: linear-gradient(135deg, rgba(22, 160, 133, 0.15), rgba(26, 188, 156, 0.15));
-            color: #0f766e !important;
-            font-weight: 600;
-            border-left: 4px solid var(--accent);
-        }
-        
-        .select-option.selected::before {
-            content: '\f00c';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            right: 16px;
+
+        .contact-item i {
             color: var(--accent);
-            font-size: 0.85rem;
+            font-size: 1.1rem;
+            width: 1.2rem;
+            text-align: center;
+            flex-shrink: 0;
         }
-        
-        @keyframes dropdownFade {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+
+        .contact-item a {
+            color: #0f766e;
+            text-decoration: none;
+            transition: color 0.2s;
         }
-        
-        .custom-select select {
-            display: none;
+
+        .contact-item a:hover {
+            color: var(--accent-dark);
+            text-decoration: underline;
+        }
+
+        .placeholder-text {
+            color: #94a3b8;
+            font-style: italic;
         }
     </style>
 </head>
@@ -258,7 +174,6 @@
                             <ul>
                                 <li>图片清晰，能够展示晶体细节</li>
                                 <li>附上晶体名称、培养方法和心得体会</li>
-                                <li>视频长度建议在3至5分钟以内</li>
                                 <li>原创作品，不侵犯他人版权</li>
                                 <li>遵守实验室安全规范</li>
                             </ul>
@@ -274,109 +189,23 @@
                         </ul>
                     </div>
                     
-                    <div class="form-section">
-                        <h3><i class="fas fa-upload"></i> 投稿上传</h3>
+                    <div class="contact-card">
+                        <h3><i class="fas fa-address-card"></i> 联系方式</h3>
+                        <p>请通过以下方式发送您的投稿内容，我们会在审核后与您联系。</p>
                         
-                        <div class="form-group">
-                            <label for="contribute-type"><i class="fas fa-tag"></i> 投稿类型</label>
-                            <div class="custom-select">
-                                <select id="contribute-type" required>
-                                    <option value="" disabled selected>请选择投稿类型</option>
-                                    <option value="作品展示">晶体作品展示</option>
-                                    <option value="教程分享">培养教程分享</option>
-                                    <option value="方法创新">创新方法分享</option>
-                                    <option value="问题解决">问题解决方案</option>
-                                    <option value="资料补充">研究资料补充</option>
-                                    <option value="其他投稿">其他类型投稿</option>
-                                </select>
-                                <div class="select-trigger">请选择投稿类型</div>
-                                <div class="select-options">
-                                    <button class="select-option" data-value="">请选择投稿类型</button>
-                                    <button class="select-option" data-value="作品展示">晶体作品展示</button>
-                                    <button class="select-option" data-value="教程分享">培养教程分享</button>
-                                    <button class="select-option" data-value="方法创新">创新方法分享</button>
-                                    <button class="select-option" data-value="问题解决">问题解决方案</button>
-                                    <button class="select-option" data-value="资料补充">研究资料补充</button>
-                                    <button class="select-option" data-value="其他投稿">其他类型投稿</button>
-                                </div>
-                            </div>
+                        <div class="contact-item">
+                            <i class="fab fa-qq"></i>
+                            <span class="placeholder-text">站长QQ：3226997497</span>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="contribute-title"><i class="fas fa-heading"></i> 投稿标题</label>
-                            <input type="text" id="contribute-title" placeholder="请输入投稿标题" required>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span class="placeholder-text">本站邮箱：web@oho1417.com</span>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="contribute-author"><i class="fas fa-user"></i> 投稿人名称</label>
-                            <input type="text" id="contribute-author" placeholder="您的名称或昵称" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contribute-contact"><i class="fas fa-envelope"></i> 联系方式（选填）</label>
-                            <input type="text" id="contribute-contact" placeholder="邮箱、QQ或微信等">
-                            <div class="form-note">仅用于必要时与您联系，不会公开显示</div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contribute-description"><i class="fas fa-file-alt"></i> 详细描述</label>
-                            <textarea id="contribute-description" rows="6" placeholder="请详细描述您的投稿内容，包括晶体信息、培养方法、心得体会等..." required></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contribute-crystal-type"><i class="fas fa-gem"></i> 晶体类型（选填）</label>
-                            <input type="text" id="contribute-crystal-type" placeholder="例如：硫酸铜、磷酸二氢钾、明矾等">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label><i class="fas fa-image"></i> 图片上传</label>
-                            <div class="file-upload-container">
-                                <input type="file" id="contribute-images" accept="image/*" multiple>
-                                <div class="file-preview" id="contribute-images-preview"></div>
-                            </div>
-                            <div class="form-note">支持JPG、PNG、GIF、WEBP格式，单张图片不超过10MB，最多可上传10张</div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label><i class="fas fa-video"></i> 视频上传（选填）</label>
-                            <div class="file-upload-container">
-                                <input type="file" id="contribute-videos" accept="video/*">
-                                <div class="file-preview" id="contribute-videos-preview"></div>
-                            </div>
-                            <div class="form-note">支持MP4、MOV、AVI格式，视频不超过100MB</div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label><i class="fas fa-file"></i> 文档上传（选填）</label>
-                            <div class="file-upload-container">
-                                <input type="file" id="contribute-documents" accept=".pdf,.doc,.docx,.txt,.md">
-                                <div class="file-preview" id="contribute-documents-preview"></div>
-                            </div>
-                            <div class="form-note">支持PDF、DOC、DOCX、TXT、MD格式，单个文件不超过20MB</div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contribute-image-links"><i class="fas fa-link"></i> 图片链接（选填，已上传图片则无需填写）</label>
-                            <textarea id="contribute-image-links" rows="3" placeholder="请输入图片链接，每行一个链接"></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="contribute-video-links"><i class="fas fa-link"></i> 视频链接（选填，已上传视频则无需填写）</label>
-                            <input type="text" id="contribute-video-links" placeholder="请输入视频链接（如B站、YouTube链接）">
-                        </div>
-                        
-                        <div class="form-group">
-                            <div class="form-note">
-                                <strong><i class="fas fa-info-circle"></i> 注意事项：</strong> 
-                                上传内容应符合相关法律法规，不包含侵权、违法或不当内容。我们将在7-14个工作日内审核您的投稿，通过后会在网站相关位置展示。
-                            </div>
-                        </div>
-                        
-                        <div class="form-group" style="text-align: center; margin-top: 2.5rem;">
-                            <button id="submit-contribute" class="submit-btn">
-                                <i class="fas fa-paper-plane"></i> 提交投稿
-                            </button>
-                            <div id="contribute-message" class="vote-message" style="display: none;"></div>
+                        <div class="contact-item">
+                            <i class="fas fa-poll"></i>
+                            <a href="https://docs.qq.com/form/page/DSnNqWnRFdHppcmVV" class="placeholder-text">腾讯问卷</a>
                         </div>
                     </div>
                 </section>
@@ -400,87 +229,23 @@
                         </div>
                     </div>
                     
-                    <div class="form-section">
-                        <h3><i class="fas fa-comment-dots"></i> 建议反馈</h3>
+                    <div class="contact-card">
+                        <h3><i class="fas fa-address-card"></i> 反馈方式</h3>
+                        <p>您可以通过以下渠道提交建议，或直接填写问卷。</p>
                         
-                        <div class="form-group">
-                            <label for="suggestion-type"><i class="fas fa-tag"></i> 建议类型</label>
-                            <div class="custom-select">
-                                <select id="suggestion-type" required>
-                                    <option value="" disabled selected>请选择建议类型</option>
-                                    <option value="内容修正">内容错误修正</option>
-                                    <option value="教程补充">教程内容补充</option>
-                                    <option value="功能改进">网站功能改进</option>
-                                    <option value="界面优化">界面设计优化</option>
-                                    <option value="新功能建议">新功能需求</option>
-                                    <option value="其他建议">其他类型建议</option>
-                                </select>
-                                <div class="select-trigger">请选择建议类型</div>
-                                <div class="select-options">
-                                    <button class="select-option" data-value="">请选择建议类型</button>
-                                    <button class="select-option" data-value="内容修正">内容错误修正</button>
-                                    <button class="select-option" data-value="教程补充">教程内容补充</button>
-                                    <button class="select-option" data-value="功能改进">网站功能改进</button>
-                                    <button class="select-option" data-value="界面优化">界面设计优化</button>
-                                    <button class="select-option" data-value="新功能建议">新功能需求</button>
-                                    <button class="select-option" data-value="其他建议">其他类型建议</button>
-                                </div>
-                            </div>
+                        <div class="contact-item">
+                            <i class="fab fa-qq"></i>
+                            <span class="placeholder-text">站长QQ：3226997497</span>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="suggestion-title"><i class="fas fa-heading"></i> 建议标题</label>
-                            <input type="text" id="suggestion-title" placeholder="请输入建议标题" required>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span class="placeholder-text">本站邮箱：web@oho1417.com</span>
                         </div>
                         
-                        <div class="form-group">
-                            <label for="suggestion-author"><i class="fas fa-user"></i> 建议人名称</label>
-                            <input type="text" id="suggestion-author" placeholder="您的名称或昵称" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="suggestion-contact"><i class="fas fa-envelope"></i> 联系方式（选填）</label>
-                            <input type="text" id="suggestion-contact" placeholder="邮箱、QQ或微信等">
-                            <div class="form-note">仅用于必要时与您联系，不会公开显示</div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="suggestion-description"><i class="fas fa-file-alt"></i> 详细建议</label>
-                            <textarea id="suggestion-description" rows="6" placeholder="请详细描述您的建议，包括具体问题、改进方案等..." required></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="suggestion-page"><i class="fas fa-link"></i> 相关页面（选填）</label>
-                            <input type="text" id="suggestion-page" placeholder="例如：https://crystal-lab.org/safety.html">
-                            <div class="form-note">如果有具体的相关页面，请提供链接地址</div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label><i class="fas fa-image"></i> 参考图片（选填）</label>
-                            <div class="file-upload-container">
-                                <input type="file" id="suggestion-images" accept="image/*" multiple>
-                                <div class="file-preview" id="suggestion-images-preview"></div>
-                            </div>
-                            <div class="form-note">支持JPG、PNG格式，可用于说明问题或展示参考设计</div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="suggestion-image-links"><i class="fas fa-link"></i> 参考图片链接（选填）</label>
-                            <textarea id="suggestion-image-links" rows="3" placeholder="请输入参考图片链接，每行一个链接"></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <div class="form-note">
-                                <strong><i class="fas fa-info-circle"></i> 注意事项：</strong> 
-                                请提供具体、清晰的建议描述，这样我们才能更好地理解和实现您的想法。感谢您为完善CrystalLab做出的贡献！
-                            </div>
-                        </div>
-                        
-                        <div class="form-group" style="text-align: center; margin-top: 2.5rem;">
-                            <button id="submit-suggestion" class="submit-btn">
-                                <i class="fas fa-paper-plane"></i> 提交建议
-                            </button>
-                            <div id="suggestion-message" class="vote-message" style="display: none;"></div>
+                        <div class="contact-item">
+                            <i class="fas fa-poll"></i>
+                            <a href="https://docs.qq.com/form/page/DSnNqWnRFdHppcmVV" class="placeholder-text">腾讯问卷</a>
                         </div>
                     </div>
                 </section>
@@ -524,184 +289,8 @@
     <div id="footer-container"></div>
 
     <script src="components.js"></script>
-    <script src="upload-handler.js"></script>
     
     <script>
-// 自定义下拉组件逻辑
-function initCustomSelects() {
-    document.querySelectorAll('.custom-select').forEach(container => {
-        const select = container.querySelector('select');
-        const trigger = container.querySelector('.select-trigger');
-        const options = container.querySelectorAll('.select-option');
-        const optionsContainer = container.querySelector('.select-options');
-        
-        // 设置初始显示值
-        const selectedOption = select.options[select.selectedIndex];
-        trigger.textContent = selectedOption ? selectedOption.text : '请选择';
-        
-        // 点击触发器打开/关闭下拉
-        trigger.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const isOpen = optionsContainer.classList.contains('open');
-            
-            // 关闭其他打开的下拉
-            document.querySelectorAll('.select-options.open').forEach(openOptions => {
-                if (openOptions !== optionsContainer) {
-                    openOptions.classList.remove('open');
-                    openOptions.parentElement.querySelector('.select-trigger').classList.remove('open');
-                }
-            });
-            
-            // 切换当前下拉
-            optionsContainer.classList.toggle('open');
-            trigger.classList.toggle('open');
-        });
-        
-        // 点击选项选择
-        options.forEach(option => {
-            option.addEventListener('click', (e) => {
-                e.stopPropagation();
-                const value = option.getAttribute('data-value');
-                const text = option.textContent;
-                
-                // 更新显示
-                trigger.textContent = text;
-                trigger.classList.remove('open');
-                optionsContainer.classList.remove('open');
-                
-                // 更新隐藏的select元素
-                select.value = value;
-                
-                // 触发change事件
-                select.dispatchEvent(new Event('change'));
-                
-                // 更新选项选中状态
-                options.forEach(opt => opt.classList.remove('selected'));
-                option.classList.add('selected');
-            });
-        });
-        
-        // 点击其他地方关闭下拉
-        document.addEventListener('click', () => {
-            optionsContainer.classList.remove('open');
-            trigger.classList.remove('open');
-        });
-        
-        // 防止下拉内部点击关闭
-        optionsContainer.addEventListener('click', (e) => {
-            e.stopPropagation();
-        });
-    });
-}
-
-// 文件预览功能保持不变
-function initFilePreview() {
-    const fileInputs = document.querySelectorAll('input[type="file"]');
-    
-    fileInputs.forEach(input => {
-        const previewId = input.id + '-preview';
-        const previewContainer = document.getElementById(previewId);
-        
-        if (previewContainer) {
-            input.addEventListener('change', function(e) {
-                previewContainer.innerHTML = '';
-                const files = Array.from(e.target.files);
-                
-                files.forEach((file, index) => {
-                    const fileItem = document.createElement('div');
-                    fileItem.className = 'file-item';
-                    fileItem.dataset.index = index;
-                    
-                    const fileName = document.createElement('span');
-                    fileName.className = 'file-name';
-                    fileName.textContent = file.name;
-                    
-                    const fileSize = document.createElement('span');
-                    fileSize.className = 'file-size';
-                    fileSize.textContent = formatFileSize(file.size);
-                    
-                    const removeBtn = document.createElement('button');
-                    removeBtn.className = 'file-remove';
-                    removeBtn.innerHTML = '<i class="fas fa-times"></i>';
-                    removeBtn.type = 'button';
-                    removeBtn.addEventListener('click', function() {
-                        removeFile(input, fileItem.dataset.index, previewContainer);
-                    });
-                    
-                    fileItem.appendChild(fileName);
-                    fileItem.appendChild(fileSize);
-                    fileItem.appendChild(removeBtn);
-                    previewContainer.appendChild(fileItem);
-                });
-                
-                updatePreviewVisibility(previewContainer);
-            });
-        }
-    });
-}
-
-function updatePreviewVisibility(previewContainer) {
-    if (previewContainer.children.length > 0) {
-        previewContainer.classList.add('has-files');
-    } else {
-        previewContainer.classList.remove('has-files');
-    }
-}
-
-function formatFileSize(bytes) {
-    if (bytes === 0) return '0 Bytes';
-    const k = 1024;
-    const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-    const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-}
-
-function removeFile(input, indexToRemove, previewContainer) {
-    const dt = new DataTransfer();
-    const files = Array.from(input.files);
-    
-    files.forEach((file, index) => {
-        if (index !== parseInt(indexToRemove)) {
-            dt.items.add(file);
-        }
-    });
-    
-    input.files = dt.files;
-    
-    previewContainer.innerHTML = '';
-    const updatedFiles = Array.from(input.files);
-    
-    updatedFiles.forEach((file, index) => {
-        const fileItem = document.createElement('div');
-        fileItem.className = 'file-item';
-        fileItem.dataset.index = index;
-        
-        const fileName = document.createElement('span');
-        fileName.className = 'file-name';
-        fileName.textContent = file.name;
-        
-        const fileSize = document.createElement('span');
-        fileSize.className = 'file-size';
-        fileSize.textContent = formatFileSize(file.size);
-        
-        const removeBtn = document.createElement('button');
-        removeBtn.className = 'file-remove';
-        removeBtn.innerHTML = '<i class="fas fa-times"></i>';
-        removeBtn.type = 'button';
-        removeBtn.addEventListener('click', function() {
-            removeFile(input, index, previewContainer);
-        });
-        
-        fileItem.appendChild(fileName);
-        fileItem.appendChild(fileSize);
-        fileItem.appendChild(removeBtn);
-        previewContainer.appendChild(fileItem);
-    });
-    
-    updatePreviewVisibility(previewContainer);
-}
-
-// 选项卡切换功能
 function initTabSwitch() {
     const typeNavItems = document.querySelectorAll('.type-nav .nav-item');
     const navLinks = document.querySelectorAll('.contribute-nav .nav-link');
@@ -767,178 +356,8 @@ function initTabSwitch() {
     });
 }
 
-// 投稿提交
-document.getElementById('submit-contribute').addEventListener('click', function() {
-    const type = document.getElementById('contribute-type').value;
-    const title = document.getElementById('contribute-title').value;
-    const author = document.getElementById('contribute-author').value;
-    const contact = document.getElementById('contribute-contact').value;
-    const description = document.getElementById('contribute-description').value;
-    const crystalType = document.getElementById('contribute-crystal-type').value;
-    const images = document.getElementById('contribute-images').files;
-    const videos = document.getElementById('contribute-videos').files;
-    const documents = document.getElementById('contribute-documents').files;
-    const imageLinks = document.getElementById('contribute-image-links').value;
-    const videoLinks = document.getElementById('contribute-video-links').value;
-    
-    if (!type || !title || !author || !description) {
-        showMessage('contribute-message', '请填写所有必填字段', 'error');
-        return;
-    }
-    
-    const formData = new FormData();
-    formData.append('source', 'contribute');
-    formData.append('type', type);
-    formData.append('title', title);
-    formData.append('author', author);
-    formData.append('contact', contact);
-    formData.append('description', description);
-    formData.append('crystal_type', crystalType);
-    formData.append('image_links', imageLinks);
-    formData.append('video_links', videoLinks);
-    
-    for (let i = 0; i < images.length; i++) {
-        formData.append('images', images[i]);
-    }
-    
-    if (videos.length > 0) {
-        formData.append('videos', videos[0]);
-    }
-    
-    for (let i = 0; i < documents.length; i++) {
-        formData.append('documents', documents[i]);
-    }
-    
-    submitFormData(formData, 'contribute-message', 'submit-contribute');
-});
-
-// 建议提交
-document.getElementById('submit-suggestion').addEventListener('click', function() {
-    const type = document.getElementById('suggestion-type').value;
-    const title = document.getElementById('suggestion-title').value;
-    const author = document.getElementById('suggestion-author').value;
-    const contact = document.getElementById('suggestion-contact').value;
-    const description = document.getElementById('suggestion-description').value;
-    const page = document.getElementById('suggestion-page').value;
-    const images = document.getElementById('suggestion-images').files;
-    const imageLinks = document.getElementById('suggestion-image-links').value;
-    
-    if (!type || !title || !author || !description) {
-        showMessage('suggestion-message', '请填写所有必填字段', 'error');
-        return;
-    }
-    
-    const formData = new FormData();
-    formData.append('source', 'suggestion');
-    formData.append('type', type);
-    formData.append('title', title);
-    formData.append('author', author);
-    formData.append('contact', contact);
-    formData.append('description', description);
-    formData.append('page', page);
-    formData.append('image_links', imageLinks);
-    
-    for (let i = 0; i < images.length; i++) {
-        formData.append('images', images[i]);
-    }
-    
-    submitFormData(formData, 'suggestion-message', 'submit-suggestion');
-});
-
-function submitFormData(formData, messageElementId, buttonId) {
-    const submitBtn = document.getElementById(buttonId);
-    const originalText = submitBtn.innerHTML;
-    
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> 提交中...';
-    submitBtn.disabled = true;
-    
-    uploadToBackend(formData)
-        .then(response => {
-            showMessage(messageElementId, '提交成功！感谢您的贡献。', 'success');
-            resetForm(submitBtn.closest('.form-section'));
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        })
-        .catch(error => {
-            showMessage(messageElementId, `提交失败：${error.message}`, 'error');
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
-        });
-}
-
-async function uploadToBackend(formData) {
-    const UPLOAD_ENDPOINT = 'https://crystallab-upload.enderwolf9487.workers.dev/upload';
-    
-    try {
-        const response = await fetch(UPLOAD_ENDPOINT, {
-            method: 'POST',
-            body: formData
-        });
-        
-        if (!response.ok) {
-            throw new Error(`服务器错误: ${response.status}`);
-        }
-        
-        const result = await response.json();
-        
-        if (result.success) {
-            return result;
-        } else {
-            throw new Error(result.message || '上传失败');
-        }
-    } catch (error) {
-        console.error('上传失败:', error);
-        throw error;
-    }
-}
-
-function showMessage(elementId, message, type) {
-    const element = document.getElementById(elementId);
-    element.textContent = message;
-    element.className = `vote-message ${type}`;
-    element.style.display = 'block';
-    
-    setTimeout(() => {
-        element.style.display = 'none';
-    }, 5000);
-}
-
-function resetForm(formSection) {
-    const inputs = formSection.querySelectorAll('input[type="text"], input[type="file"], textarea, select');
-    inputs.forEach(input => {
-        if (input.type === 'file') {
-            input.value = '';
-            const previewId = input.id + '-preview';
-            const previewContainer = document.getElementById(previewId);
-            if (previewContainer) {
-                previewContainer.innerHTML = '';
-                previewContainer.classList.remove('has-files');
-            }
-        } else if (input.tagName === 'SELECT') {
-            input.selectedIndex = 0;
-            // 同时重置自定义下拉显示
-            const container = input.closest('.custom-select');
-            if (container) {
-                const trigger = container.querySelector('.select-trigger');
-                const selectedOption = input.options[input.selectedIndex];
-                trigger.textContent = selectedOption ? selectedOption.text : '请选择';
-                
-                // 重置选项选中状态
-                container.querySelectorAll('.select-option').forEach(opt => {
-                    opt.classList.remove('selected');
-                });
-            }
-        } else {
-            input.value = '';
-        }
-    });
-}
-
-// 初始化
 document.addEventListener('DOMContentLoaded', function() {
-    initFilePreview();
     initTabSwitch();
-    initCustomSelects();
 });
     </script>
 </body>
