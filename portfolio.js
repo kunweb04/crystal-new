@@ -127,7 +127,6 @@
                 { img: '作品125.webp', author: 'Eutopia', description: '钨' },
                 { img: '作品242.webp', author: '山云', description: '化学气相沉积金' },
                 { img: '作品244.webp', author: '山云', description: '熔融金 电化学沉积银' },
-                { img: '作品203.webp', author: 'DAOZAO', description: '铋' },
                 { img: '作品97.webp', author: '𝓐𝛵 ⁠🧊', description: '二水氟化铜' },
                 { img: '作品98.webp', author: '𝓐𝛵 ⁠🧊', description: '三氯化铝' },
                 { img: '作品159.webp', author: '紫色硫酸铜', description: '氯化锰' },
