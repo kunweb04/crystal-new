@@ -25,6 +25,15 @@
     clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
 }
 
+.hero.classification-library-hero {
+    background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(26, 37, 47, 0.85)), url('../p/portfolio/library.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 70vh;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
 .classification-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));

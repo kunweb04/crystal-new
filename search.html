@@ -67,6 +67,8 @@
         </div>
     </main>
 
+    <div id="search-toast" class="search-toast" role="status" aria-live="polite"></div>
+
     <div id="footer-container"></div>
 
     <script src="components.js"></script>
@@ -79,7 +81,44 @@
                     initSearch();
                 }
             }, 100);
-            
+
+            // ---------- 搜索成功提示 Toast ----------
+            let _toastObserver = null;
+            let _toastDisplayed = false;
+
+            function showSearchToast() {
+                const toast = document.getElementById('search-toast');
+                if (!toast) return;
+                _toastDisplayed = false;
+
+                const container = document.querySelector('.gcse-searchresults-only');
+                if (!container) { _displayToast(toast); return; }
+
+                if (_toastObserver) _toastObserver.disconnect();
+                _toastObserver = new MutationObserver(function (m, obs) {
+                    if (container.querySelector('.gsc-webResult, .gsc-results, .gsc-no-results-result')) {
+                        obs.disconnect();
+                        _displayToast(toast);
+                    }
+                });
+                _toastObserver.observe(container, { childList: true, subtree: true });
+
+                setTimeout(function () {
+                    if (_toastObserver) { _toastObserver.disconnect(); _toastObserver = null; }
+                    _displayToast(toast);
+                }, 3000);
+            }
+
+            function _displayToast(toast) {
+                if (_toastDisplayed) return;
+                _toastDisplayed = true;
+                toast.innerHTML = '<i class="fas fa-check-circle"></i><span>检索成功</span>';
+                toast.classList.add('show');
+                clearTimeout(toast._timer);
+                toast._timer = setTimeout(function () { toast.classList.remove('show'); }, 2000);
+            }
+            // ------------------------------------------
+
             function initSearch() {
                 const searchQuery = document.getElementById('search-query');
                 const searchButton = document.getElementById('search-button');
@@ -96,6 +135,7 @@
                         const element = google.search.cse.element.getElement('searchresults');
                         if (element) {
                             element.execute(queryFromUrl);
+                            showSearchToast();
                         }
                     }, 500);
                 }
@@ -111,6 +151,7 @@
                         const element = google.search.cse.element.getElement('searchresults');
                         if (element) {
                             element.execute(query);
+                            showSearchToast();
                         }
                     }
                 });
@@ -152,6 +193,7 @@
                         const element = google.search.cse.element.getElement('searchresults');
                         if (element) {
                             element.execute(query);
+                            showSearchToast();
                         }
                     }
                 });
