@@ -110,7 +110,7 @@
     position: fixed; top: 24px; right: 24px; z-index: 9999;
     display: flex; align-items: center; gap: 0.6rem;
     background: #fff; color: var(--primary-dark);
-    border: 1px solid var(--border-color); border-left: 4px solid var(--accent);
+    border: 1px solid var(--border-color); 
     border-radius: 12px; padding: 0.85rem 1.3rem;
     font-size: 0.95rem; font-weight: 500;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
