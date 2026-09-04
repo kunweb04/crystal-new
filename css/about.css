@@ -863,6 +863,10 @@
     content: ''; position: absolute; background: url('../p/多彩.png') center/cover no-repeat;
     width: 120px; height: 145px; right: 20px; top: 30px; opacity: 0.5;
 }
+.honor-card.shanyun-special::before {
+    content: ''; position: absolute; background: url('../p/shanyun.png') center/cover no-repeat;
+    width: 120px; height: 145px; right: 20px; top: 30px; opacity: 0.5;
+}
 
 .extended-thanks-section {
     background: linear-gradient(145deg, rgba(248, 250, 252, 0.95) 0%, rgba(240, 245, 250, 0.95) 100%);
