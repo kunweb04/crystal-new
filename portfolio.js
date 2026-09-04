@@ -22,7 +22,7 @@
                 { img: '作品6.webp', author: '迷路的野指针' },
                 { img: '作品7.webp', author: '迷路的野指针' },
                 { img: '作品57.webp', author: '紫色硫酸铜' },
-                { img: '作品144.webp', author: '食堂人民科学协会-荣' },
+                { img: '作品144.webp', author: 'Kerbal123' },
                 { img: '作品152.webp', author: '紫色硫酸铜' },
                 { img: '作品167.webp', author: '金平糖' },
                 { img: '作品196.webp', author: 'DAOZAO' },
