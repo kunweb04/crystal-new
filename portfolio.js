@@ -91,9 +91,14 @@
             type: 'gallery',
             works: [
                 { img: '作品141.webp', author: 'Eutopia', description: '晶相铍' },
+                { img: '作品307.webp', author: '山云', description: '化学气相沉积硅' },
                 { img: '作品70.webp', author: 'Chlorine', description: '白磷 '},
+                { img: '作品312.webp', author: '山云', description: '蒸馏硫' },
                 { img: '作品140.webp', author: 'mo', description: '电解钪' },
+                { img: '作品310.webp', author: '山云', description: '电解钪' },
                 { img: '作品248.webp', author: '山云', description: '钛' },
+                { img: '作品299.webp', photographer: 'DAOZAO', description: '钒晶体' },
+                { img: '作品300.webp', photographer: 'DAOZAO', description: '钒晶体' },
                 { img: '作品129.webp', author: 'Eutopia', description: '铬' },
                 { img: '作品130.webp', author: 'Eutopia', description: '铬' },
                 { img: '作品131.webp', author: 'Eutopia', description: '铬' },
@@ -113,19 +118,25 @@
                 { img: '作品279.webp', author: '山云', description: '化学气相沉积铜' },
                 { img: '作品280.webp', author: '山云', description: '化学气相沉积铜' },
                 { img: '作品281.webp', author: '山云', description: '熔炼铜' },
+                { img: '作品314.webp', author: '山云', description: '熔炼铜' },
                 { img: '作品291.webp', author: 'mo', description: '提拉铜' },
                 { img: '作品292.webp', author: 'mo', description: '提拉铜' },
+                { img: '作品313.webp', author: '山云', description: '化学气相传输铜' },
                 { img: '作品294.webp', author: '青于', description: '电解锌' },
                 { img: '作品295.webp', author: '青于', description: '电解锌' },
                 { img: '作品126.webp', author: 'Eutopia', description: '铌' },
                 { img: '作品145.webp', author: 'Eutopia', description: '铌' },
                 { img: '作品278.webp', author: '山云', description: '蒸馏钼' },
+                { img: '作品306.webp', author: '山云', description: '化学气相沉积钯' },
                 { img: '作品33.webp', author: '迷路的野指针', description: '银' },
+                { img: '作品296.webp', author: '山云', description: '银' },
                 { img: '作品117.webp', author: 'Eutopia', description: '蒸馏银' },
                 { img: '作品118.webp', author: 'Eutopia', description: '蒸馏银' },
                 { img: '作品119.webp', author: 'Eutopia', description: '蒸馏银' },
                 { img: '作品284.webp', author: 'mo', description: '电解银' },
                 { img: '作品285.webp', author: 'mo', description: '电解银' },
+                { img: '作品309.webp', author: '山云', description: '电解银' },
+                { img: '作品311.webp', author: '山云', description: '熔炼银' },
                 { img: '作品249.webp', author: '山云', description: '锑' },
                 { img: '作品282.webp', author: '山云', description: '蒸馏锑' },
                 { img: '作品120.webp', author: 'Eutopia', description: 'pvd 碲' },
@@ -147,11 +158,16 @@
                 { img: '作品125.webp', author: 'Eutopia', description: '钨' },
                 { img: '作品242.webp', author: '山云', description: '化学气相沉积金' },
                 { img: '作品244.webp', author: '山云', description: '熔融金 电化学沉积银' },
+                { img: '作品308.webp', author: '山云', description: '熔炼金' },
+                { img: '作品301.webp', photographer: 'DAOZAO', description: '铋晶体' },
+                { img: '作品302.webp', photographer: 'DAOZAO', description: '铋晶体' },
                 { img: '作品97.webp', author: '𝓐𝛵 ⁠🧊', description: '二水氟化铜' },
                 { img: '作品263.webp', author: 'Printhe', description: '氯化铵' },
                 { img: '作品98.webp', author: '𝓐𝛵 ⁠🧊', description: '三氯化铝' },
                 { img: '作品253.webp', author: 'Printhe', description: '氯化钙' },
                 { img: '作品254.webp', author: 'Printhe', description: '氯化钙' },
+                { img: '作品297.webp', author: 'DAOZAO', description: '氯化钙' },
+                { img: '作品298.webp', author: 'DAOZAO', description: '氯化钙' },
                 { img: '作品159.webp', author: '紫色硫酸铜', description: '氯化锰' },
                 { img: '作品160.webp', author: '紫色硫酸铜', description: '氯化锰' },
                 { img: '作品161.webp', author: '紫色硫酸铜', description: '氯化锰' },
@@ -206,12 +222,16 @@
                 { img: '作品269.webp', author: 'Printhe', description: '硫酸钴' },
                 { img: '作品51.webp', author: '青于', description: '硫酸镍' },
                 { img: '作品69.webp', author: '紫色硫酸铜', description: '硫酸镍' },
+                { img: '作品320.webp', author: 'Kerbal123', description: '硫酸镍' },
                 { img: '作品107.webp', author: '氟氙Cryptand', description: '硫酸镍六水合物'},
                 { img: '作品170.webp', author: 'DAOZAO', description: '六水硫酸镍' },
                 { img: '作品172.webp', author: 'DAOZAO', description: '六水硫酸镍' },
                 { img: '作品173.webp', author: 'DAOZAO', description: '六水硫酸镍' },
                 { img: '作品204.webp', author: 'DAOZAO', description: '六水硫酸镍' },
                 { img: '作品205.webp', author: 'DAOZAO', description: '六水硫酸镍' },
+                { img: '作品303.webp', author: 'DAOZAO', description: '六水硫酸镍' },
+                { img: '作品304.webp', author: 'DAOZAO', description: '六水硫酸镍' },
+                { img: '作品305.webp', author: 'DAOZAO', description: '六水硫酸镍' },
                 { img: '作品185.webp', author: 'DAOZAO', description: '七水硫酸镍' },
                 { img: '作品186.webp', author: 'DAOZAO', description: '七水硫酸镍' },
                 { img: '作品187.webp', author: 'DAOZAO', description: '七水硫酸镍' },
@@ -244,6 +264,10 @@
                 { img: '作品206.webp', author: 'DAOZAO', description: 'K₅Na₁₉［Al（C₂O₄）₃］₈·32H₂O（铬掺杂）' },
                 { img: '作品207.webp', author: 'DAOZAO', description: 'K₅Na₁₉［Al（C₂O₄）₃］₈·32H₂O（铬掺杂）' },
                 { img: '作品208.webp', author: 'DAOZAO', description: 'K₅Na₁₉［Al（C₂O₄）₃］₈·32H₂O（铬掺杂）' },
+                { img: '作品315.webp', author: 'Kerbal123', description: '草酸铝钾钠钴' },
+                { img: '作品316.webp', author: 'Kerbal123', description: '草酸铝钾钠铬' },
+                { img: '作品317.webp', author: 'Kerbal123', description: '草酸铝钾钠铬' },
+                { img: '作品318.webp', author: 'Kerbal123', description: '草酸铝钾钠铬' },
                 { img: '作品250.webp', author: 'DAOZAO', description: '三草酸合铝酸钠' },
                 { img: '作品251.webp', author: 'DAOZAO', description: '三草酸合铝酸钠' },
                 { img: '作品194.webp', author: 'DAOZAO', description: '三草酸合铁酸钾' },
@@ -258,6 +282,7 @@
                 { img: '作品175.webp', author: 'DAOZAO', description: '乙酸铜钙' },
                 { img: '作品176.webp', author: 'DAOZAO', description: '乙酸铜钙' },
                 { img: '作品272.webp', author: 'Kerbal123', description: '乙酸铜钙' },
+                { img: '作品319.webp', author: 'Kerbal123', description: '乙酸铜钙' },
                 { img: '作品218.webp', author: 'DAOZAO', description: '乙酸铜' },
                 { img: '作品219.webp', author: 'DAOZAO', description: '乙酸铜' },
                 { img: '作品220.webp', author: 'DAOZAO', description: '乙酸铜' },
@@ -564,6 +589,7 @@
 
                 let searchData = '';
                 if (work.author) searchData += work.author + ' ';
+                if (work.photographer) searchData += work.photographer + ' ';
                 if (work.description) searchData += work.description + ' ';
                 if (sectionData.title) searchData += sectionData.title + ' ';
                 workContainer.setAttribute('data-search', searchData.trim());
@@ -577,7 +603,7 @@
                 const img = document.createElement('img');
                 img.dataset.src = 'p/portfolio/' + work.img;
                 img.className = 'content-image';
-                img.alt = work.author ? work.author + '作品' : '作品图片';
+                img.alt = work.author ? work.author + '作品' : (work.photographer ? work.photographer + '拍摄作品' : '作品图片');
                 img.style.display = 'none';
                 img.style.opacity = '0';
 
@@ -602,7 +628,8 @@
 
                 let text = '';
                 if (work.author) text += '作者：' + work.author;
-                if (work.description) text += work.author ? '，晶体：' + work.description : work.description;
+                if (work.photographer) text += work.author ? '，拍摄者：' + work.photographer : '拍摄者：' + work.photographer;
+                if (work.description) text += (work.author || work.photographer) ? '，晶体：' + work.description : work.description;
                 p.textContent = text;
 
                 workContainer.appendChild(p);
