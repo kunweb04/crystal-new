@@ -182,7 +182,7 @@
                 { img: '作品96.webp', author: '𝓐𝛵 ⁠🧊', description: '三氯化铁' },
                 { img: '作品100.webp', author: '𝓐𝛵 ⁠🧊', description: '三氯化铁' },
                 { img: '作品148.webp', author: '紫色硫酸铜', description: '氯化铜' },
-                { img: '作品268.webp', author: 'Printhe', description: '氯化铜' },
+                { img: '作品270.webp', author: 'Printhe', description: '氯化铜' },
                 { img: '作品101.webp', author: '𝓐𝛵 ⁠🧊', description: '氯化汞' },
                 { img: '作品241.webp', author: '山云', description: '一溴化碘' },
                 { img: '作品86.webp', author: '𝓐𝛵 ⁠🧊', description: '碘化亚铟' },
