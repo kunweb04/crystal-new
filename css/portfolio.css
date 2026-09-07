@@ -53,7 +53,7 @@
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 260px minmax(0, 1fr);
     gap: 2rem;
 }
 
@@ -337,6 +337,11 @@
     position: relative;
 }
 
+.portfolio-work p {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
 .portfolio-work .content-image {
     opacity: 1;
     transition: opacity 0.4s ease;
@@ -373,14 +378,14 @@
 
 @media (max-width: 1024px) {
     .portfolio-layout {
-        grid-template-columns: 220px 1fr;
+        grid-template-columns: 220px minmax(0, 1fr);
         gap: 1.5rem;
     }
 }
 
 @media (max-width: 768px) {
     .portfolio-layout {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .portfolio-sidebar {
@@ -392,6 +397,8 @@
 
     .portfolio-main {
         order: 1;
+        min-width: 0;
+        overflow-x: hidden;
     }
 
     .portfolio-hero-content h1 {

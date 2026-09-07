@@ -487,6 +487,13 @@
             if (!dotsContainer) return;
             dotsContainer.innerHTML = '';
             const totalPages = Math.ceil(totalCards / cardsPerView);
+            if (window.innerWidth <= 768 && totalPages > 5) {
+                const indicator = document.createElement('div');
+                indicator.className = 'carousel-indicator';
+                indicator.textContent = (currentIndex + 1) + ' / ' + totalPages;
+                dotsContainer.appendChild(indicator);
+                return;
+            }
             for (let i = 0; i < totalPages; i++) {
                 const dot = document.createElement('div');
                 dot.className = 'dot' + (i === 0 ? ' active' : '');
@@ -512,8 +519,17 @@
             } else {
                 currentIndex = index;
             }
-            const cardWidth = cards[0].offsetWidth + 32;
+            var trackGap = 32;
+            try {
+                var computedGap = window.getComputedStyle(track).gap;
+                if (computedGap) trackGap = parseInt(computedGap, 10) || 32;
+            } catch (e) {}
+            var cardWidth = cards[0].offsetWidth + trackGap;
             track.style.transform = 'translateX(' + (-currentIndex * cardsPerView * cardWidth) + 'px)';
+            var indicator = dotsContainer.querySelector('.carousel-indicator');
+            if (indicator) {
+                indicator.textContent = (currentIndex + 1) + ' / ' + totalPages;
+            }
             document.querySelectorAll('.dot').forEach(function(dot, i) {
                 dot.classList.toggle('active', i === currentIndex);
             });

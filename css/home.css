@@ -762,9 +762,8 @@
 @media (max-width: 768px) {
     .update-card { flex: 0 0 100%; }
     .carousel-btn { display: none; }
-    .carousel-viewport { overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; }
+    .carousel-viewport { overflow: hidden; padding-bottom: 1rem; }
     .carousel-track { gap: 1rem; }
-    .update-card { scroll-snap-align: center; }
 }
 
 .asymmetric-layout {
@@ -820,6 +819,14 @@
   gap: 14px;
   margin-top: 2rem;
   padding: 0.5rem 0;
+}
+
+.carousel-indicator {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-family: monospace;
 }
 
 .dot {

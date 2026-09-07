@@ -308,6 +308,8 @@
                 { img: '作品209.webp', author: 'DAOZAO', description: '甜菜碱锰' },
                 { img: '作品210.webp', author: 'DAOZAO', description: '甜菜碱锰' },
                 { img: '作品211.webp', author: 'DAOZAO', description: '甜菜碱锰' },
+                { img: '作品321.webp', author: 'DAOZAO', description: '甜菜碱锰（荧光）' },
+                { img: '作品322.webp', author: 'DAOZAO', description: '甜菜碱锰（荧光）' },
                 { img: '作品52.webp', author: '青于', description: '四氯合锰酸甜菜碱锰' },
                 { img: '作品58.webp', author: '青于', description: '四氯合锰酸四乙基铵' },
                 { img: '作品59.webp', author: '青于', description: '四氯合锰酸四乙基铵' },
