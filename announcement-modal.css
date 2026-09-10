@@ -220,3 +220,80 @@
   50% { transform: translateY(-15px) rotate(8deg); }
   100% { transform: translateY(0) rotate(0deg); }
 }
+
+@media (max-width: 768px) {
+  #announcementModal .announcement-content {
+    width: 90% !important;
+    max-width: 400px !important;
+    max-height: 82vh !important;
+    border-radius: 18px !important;
+  }
+
+  #announcementModal .announcement-header {
+    padding: 1.6rem 1.2rem !important;
+    flex-shrink: 0;
+  }
+
+  #announcementModal .announcement-header h3 {
+    font-size: 1.4rem !important;
+    letter-spacing: 0.5px;
+  }
+
+  #announcementModal .close-btn {
+    top: 0.8rem !important;
+    right: 0.8rem !important;
+    width: 34px;
+    height: 34px;
+    font-size: 1.4rem !important;
+  }
+
+  #announcementModal .announcement-body {
+    padding: 1.2rem !important;
+    line-height: 1.6;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #announcementModal .version-info {
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+  }
+
+  #announcementModal .version-badge {
+    padding: 0.35rem 0.9rem;
+    font-size: 0.8rem;
+  }
+
+  #announcementModal .update-log,
+  #announcementModal .daily-tip {
+    margin-bottom: 1.2rem;
+    padding: 1.2rem !important;
+    border-radius: 12px;
+  }
+
+  #announcementModal .announcement-footer {
+    padding: 1rem 1.2rem !important;
+    flex-shrink: 0;
+  }
+
+  #announcementModal .accept-btn {
+    padding: 0.75rem 2.2rem !important;
+    font-size: 1rem !important;
+  }
+
+  #announcementModal .crystal-decoration {
+    font-size: 4rem;
+  }
+
+  #announcementModal .crystal-decoration.top-left {
+    top: -12px !important;
+    left: -16px !important;
+  }
+
+  #announcementModal .crystal-decoration.bottom-right {
+    bottom: -12px !important;
+    right: -16px !important;
+  }
+}

@@ -1,6 +1,6 @@
 
 .hero {
-    background: linear-gradient(rgba(44, 62, 80, 0.92), rgba(26, 37, 47, 0.92)), url('../p/index_head_01.jpg');
+    background: linear-gradient(rgba(44, 62, 80, 0.92), rgba(26, 37, 47, 0.92)), url('../p/portfolio/library.webp'); /*作者：DAOZAO*/
     background-size: cover;
     background-position: center;
     height: 85vh;
