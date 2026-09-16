@@ -8,7 +8,8 @@
                 { img: '紫色硫酸铜01.png', author: '紫色硫酸铜' },
                 { img: '作品12.webp', author: '迷路的野指针' },
                 { img: '作品14.webp', author: '迷路的野指针' },
-                { img: '作品34.webp', author: '长街听风' }
+                { img: '作品34.webp', author: '长街听风' },
+                { img: '作品323.webp', author: 'DAOZAO' }
             ]
         },
         {
@@ -33,7 +34,9 @@
                 { img: '作品201.webp', author: 'DAOZAO' },
                 { img: '作品236.webp', author: 'DAOZAO' },
                 { img: '作品231.webp', author: 'DAOZAO' },
-                { img: '作品288.webp', author: '紫色硫酸铜' }
+                { img: '作品288.webp', author: '紫色硫酸铜' },
+                { img: '作品324.webp', author: 'DAOZAO' },
+                { img: '作品325.webp', author: 'DAOZAO' }
             ]
         },
         {

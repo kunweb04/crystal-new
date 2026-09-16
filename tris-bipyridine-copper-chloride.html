@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LR1SNSS33D"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LR1SNSS33D');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="氯化三(2,2'-联吡啶)合铜晶体合成完整教程：1:3摩尔比水-乙醇混合溶剂络合，65℃浓缩冷却结晶，培养蓝紫色六配位姜-泰勒畸变八面体晶体">
+    <meta name="keywords" content="氯化三联吡啶合铜,三联吡啶合铜,联吡啶合铜,配位化合物,晶体培养,姜-泰勒效应,六配位">
+    <meta name="author" content="CrystalLab团队">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CrystalLab">
+    <meta property="og:title" content="CrystalLab - 氯化三(2,2'-联吡啶)合铜晶体">
+    <meta property="og:description" content="学习如何合成蓝紫色氯化三联吡啶合铜晶体，理解配体比例如何决定铜配合物的配位结构">
+    <meta property="og:locale" content="zh_CN">
+    <meta property="og:url" content="https://crystal-lab.org/tris-bipyridine-copper-chloride">
+    <link rel="canonical" href="https://crystal-lab.org/tris-bipyridine-copper-chloride">
+    <meta property="og:image" content="https://crystal-lab.org/og.png">
+    <title>氯化三(2,2'-联吡啶)合铜培养教程 | 蓝紫色配位晶体 - CrystalLab</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "氯化三(2,2'-联吡啶)合铜合成教程",
+        "description": "学习如何合成蓝紫色氯化三联吡啶合铜晶体，理解配体比例如何决定铜配合物的配位结构",
+        "image": "https://crystal-lab.org/og.png",
+        "keywords": ["氯化三联吡啶合铜", "联吡啶合铜", "配位化合物", "姜-泰勒效应", "六配位"],
+        "author":{
+            "@type": "Organization",
+            "name": "CrystalLab团队"
+            },
+        "publisher":{
+            "@type": "Organization",
+            "name": "CrystalLab",
+            "logo":{
+                "@type": "ImageObject",
+                "url": "https://crystal-lab.org/logo.png"
+            }
+        },
+        "datePublished": "2026-09-09",
+        "dateModified": "2026-09-09",
+        "mainEntityOfPage":{
+            "@type": "WebPage",
+            "@id": "https://crystal-lab.org/tris-bipyridine-copper-chloride"
+        }
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/article.css">
+    <link rel="icon" href="logo.png" type="image/png">
+    <meta name="google-adsense-account" content="ca-pub-9337526323324673">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9337526323324673" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="navbar-container"></div>
+
+    <div class="container">
+        <div class="safety-container">
+            <div class="safety-content">
+                <nav class="breadcrumb"><a href="index.html">首页</a> <span class="breadcrumb-sep">&gt;</span> <span>培养教程</span> <span class="breadcrumb-sep">&gt;</span> <span>配合物</span></nav>
+                <h1>氯化三(2,2'-联吡啶)合铜篇</h1>
+
+                <div class="crystal-decoration top-left"><i class="fas fa-gem"></i></div>
+                <div class="crystal-decoration bottom-right"><i class="fas fa-gem"></i></div>
+
+                <img src="p/tris-bipyridine-copper-chloride.jpg" alt="氯化三(2,2'-联吡啶)合铜" class="content-image">
+                <p style="text-align:center;color:var(--accent)">图源：N-乙酰基蘑菇</p>
+
+                <section id="quick-start">
+                    <h2>&#127919; 预览</h2>
+                    <div class="method-card">
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>项目概览：</strong>
+                                <ul>
+                                    <li>难度等级：★★☆☆☆ (入门进阶)</li>
+                                    <li>实验耗时：约1小时（不含结晶）</li>
+                                    <li>单晶培养：数天</li>
+                                    <li>推荐人群：想理解配体比例如何决定配位结构的爱好者</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>所需材料：</strong>
+                                <ul>
+                                    <li>二水合氯化铜 CuCl<sub>2</sub>&middot;2H<sub>2</sub>O</li>
+                                    <li>2,2'-联吡啶（2,2'-bipyridine）纯品</li>
+                                    <li>无水乙醇 EtOH</li>
+                                    <li>蒸馏水</li>
+                                    <li>磁力搅拌器、恒温水浴与抽滤器材</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="basic">
+                    <h2>一、背景化学知识</h2>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-flask"></i> 1.1 化合物简介</h3>
+                        <p>在<a href="bis-bipyridine-copper-nitrate.html" style="color:var(--primary);">硝酸双(2,2'-联吡啶)合铜篇</a>中，我们用 1:2 的金属-配体比制得了五配位的 [Cu(bipy)<sub>2</sub>Cl]Cl 型络合物。而当我们把联吡啶的投料提高到 <strong>1:3</strong>，第三个联吡啶分子便会强行挤入内界，将铜离子完全包裹，得到全配位的六配位络合物——氯化三(2,2'-联吡啶)合铜。同样的两种原料，仅仅改变配比，就得到两种结构迥异的晶体，这正是配位化学最迷人的地方之一。本配方流程极为简洁：溶解、混合、浓缩、冷却，四步即可完成。</p>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-info-circle"></i> 1.2 目标化合物属性</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">中文名 / 英文名</div>
+                                <div class="step-detail">氯化三(2,2'-联吡啶)合铜（七水合物）<br>Tris(2,2'-bipyridine)copper(II) chloride heptahydrate</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">化学式 / 缩写</div>
+                                <div class="step-detail">[Cu(C<sub>10</sub>H<sub>8</sub>N<sub>2</sub>)<sub>3</sub>]Cl<sub>2</sub>&middot;7H<sub>2</sub>O &mdash; 常缩写为 [Cu(bipy)<sub>3</sub>]Cl<sub>2</sub>&middot;7H<sub>2</sub>O</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">物理外观</div>
+                                <div class="step-detail">蓝紫色晶体；其水-乙醇混合溶液呈极深的深蓝色</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">结构类型</div>
+                                <div class="step-detail">阳离子为三(2,2'-联吡啶)合铜(II)离子，属六配位螯合物；两个 Cl<sup>-</sup> 均在外界作为抗衡阴离子，结晶水填充于晶格之中</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-atom"></i> 1.3 结构特点</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">配位类型（六配位）</div>
+                                <div class="step-detail">三个联吡啶分子各以两个氮原子配位，将 Cu<sup>2+</sup> 完全包围，形成 CuN<sub>6</sub> 六配位构型。与 1:2 体系不同，两个氯离子<strong>都无法进入内界</strong>，只能留在外界平衡电荷。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">姜-泰勒畸变八面体</div>
+                                <div class="step-detail">Cu<sup>2+</sup> 为 d<sup>9</sup> 构型，即便被三个强螯合配体包裹，姜-泰勒效应依然无法被完全消除：八面体会沿某一轴向发生拉长（少数情况下压缩），形成畸变的伪 D<sub>3</sub> 对称结构。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">与五配位体系的对比</div>
+                                <div class="step-detail">1:2 配比时，第三个配位点空缺，阴离子（Cl<sup>-</sup> 或 NO<sub>3</sub><sup>-</sup>）得以入内界形成五配位；1:3 配比时，第三个联吡啶凭强大的螯合能力抢占全部配位点，阴离子被彻底"逐出"内界。</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="experiment">
+                    <h2>二、实验制备</h2>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-shield-alt"></i> 2.1 原料准备（1:3 摩尔比）</h3>
+
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">原料试剂</div>
+                                <div class="step-detail">
+                                    二水合氯化铜 CuCl<sub>2</sub>&middot;2H<sub>2</sub>O &mdash; <strong>1.7 g</strong>（约 0.01 mol）<br>
+                                    2,2'-联吡啶 &mdash; <strong>5 g</strong>（约 0.032 mol，略过量）<br>
+                                    无水乙醇 &mdash; 约 30 mL<br>
+                                    蒸馏水 &mdash; 约 20 mL
+                                </div>
+                            </div>
+                        <div class="warning-box">
+                            <h3><i class="fas fa-shield-alt"></i> 安全提醒</h3>
+                            <ul>
+                                <li><strong>联吡啶毒性：</strong> 联吡啶粉末有一定毒性及刺激性，称量时避免吸入粉尘。</li>
+                                <li><strong>铜盐防备：</strong> 铜离子属于重金属，请佩戴手套操作。</li>
+                                <li><strong>防火：</strong> 使用乙醇作溶剂时，远离明火。</li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-flask"></i> 2.2 制备操作流程</h3>
+
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">1. 制备金属盐溶液</div>
+                                <div class="step-detail">称取 <strong>1.7 g</strong> 二水合氯化铜于烧杯中，加入 <strong>20 mL 蒸馏水</strong>，搅拌至完全溶解，得到蓝绿色 CuCl<sub>2</sub> 溶液。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">2. 制备配体溶液</div>
+                                <div class="step-detail">称取 <strong>5 g</strong> 2,2'-联吡啶晶体移入锥形瓶，加入 <strong>30 mL 无水乙醇</strong>，开启磁力搅拌（可微热），直至晶体完全溶解。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">3. 混合络合</div>
+                                <div class="step-detail">将氯化铜水溶液倒入联吡啶的乙醇溶液中。体系立即变为<strong>深蓝色溶液</strong>——三个联吡啶分子与铜离子完成六配位螯合，生成 [Cu(bipy)<sub>3</sub>]<sup>2+</sup>。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">4. 控温浓缩</div>
+                                <div class="step-detail">将混合液置于 <strong>65&#8451;</strong> 左右的水浴上加热浓缩，直至体积缩减至<strong>约 20 mL</strong>。控温是关键：温度过高易导致溶液暴沸飞溅，且对配合物稳定不利。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">5. 冷却结晶</div>
+                                <div class="step-detail">停止加热，将浓缩液<strong>静置缓慢冷却</strong>，蓝紫色晶体逐渐析出。切忌快速冰镇，慢速降温才能得到更大更完整的晶体。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">6. 抽滤与干燥</div>
+                                <div class="step-detail">趁冷对析出的晶体进行真空抽滤，用少量冷乙醇快速冲洗滤饼带走母液，随后转入干燥器中干燥。母液可保留，二次浓缩后还能再收一批晶体。</div>
+                            </div>
+                        </div>
+
+                        <div class="note">
+                            <strong>反应方程式</strong>
+                            <p style="text-align:center;margin:12px 0;font-size:1.05em">
+                                CuCl<sub>2</sub>&middot;2H<sub>2</sub>O + 3bipy + 5H<sub>2</sub>O
+                                <span style="font-size:0.9em">&#x2500;&#x2500;&#x2192;</span>
+                                [Cu(bipy)<sub>3</sub>]Cl<sub>2</sub>&middot;7H<sub>2</sub>O
+                            </p>
+                            <p style="text-align:center;color:var(--accent);font-size:0.9em">（投料比 1:3，联吡啶略过量以保证全配位）</p>
+                        </div>
+
+                        <div class="note">
+                            <strong>反应配位比关键点</strong>
+                            <p>本实验与双联吡啶体系唯一的差别就是配体用量：金属与配体 <strong>1:3</strong> 时，第三个联吡啶分子完成全配位，得到六配位八面体 [Cu(bipy)<sub>3</sub>]<sup>2+</sup>；若配体不足（1:2），则只能得到五配位的 [Cu(bipy)<sub>2</sub>Cl]<sup>+</sup>，且产物外观与晶形均不同。<strong>投料比直接决定产物结构，称量务必准确。</strong></p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="safety">
+                    <h2>三、安全与注意事项</h2>
+
+                    <div class="warning-box">
+                        <h3><i class="fas fa-shield-alt"></i> 防护与废液处理</h3>
+                        <ul>
+                            <li><strong>个人防护：</strong> 全程佩戴丁腈手套。2,2'-联吡啶纯品常因轻微氧化发黄，且有特异气味，请在通风良好处称量。</li>
+                            <li><strong>浓缩控温：</strong> 乙醇-水体系务必使用水浴加热并控制在 65&#8451; 左右，严禁直火加热，注意防止暴沸；乙醇蒸气易燃，远离一切火源。</li>
+                            <li><strong>废液处理：</strong> 含有铜络离子的母液与洗涤废液不可直排。应收集后加入碳酸钠等使铜离子沉淀，集中进行重金属废液处理。</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="gallery">
+                    <h2>四、成果展示与质量评估</h2>
+                    <div class="method-card">
+                        <h3><i class="fas fa-gem"></i> 晶体特征对比</h3>
+                        <div class="pros-cons">
+                            <div class="pros">
+                                <strong>成功晶体特征：</strong>
+                                <ul>
+                                    <li>颜色呈均匀的蓝紫色，与五配位体系的蔚蓝色明显不同</li>
+                                    <li>结晶完整、晶面清晰有光泽</li>
+                                    <li>溶于水后呈深蓝色，且颜色稳定</li>
+                                </ul>
+                            </div>
+                            <div class="cons">
+                                <strong>需要检查的情况：</strong>
+                                <ul>
+                                    <li>颜色偏蔚蓝色而非蓝紫色——配体投料不足，可能混入五配位产物</li>
+                                    <li>析出大量浑浊粉末——浓缩过度或冷却太快</li>
+                                    <li>溶液久置后颜色变浅发绿——配体量不足或体系被酸化</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="troubleshooting">
+                    <h2>五、常见问题与解答（Q&amp;A）</h2>
+
+                    <div class="method-card">
+                        <div class="warning-box">
+                            <h4><i class="fas fa-question-circle"></i> Q1：这篇和硝酸双(2,2'-联吡啶)合铜篇是什么关系？</h4>
+                            <p><strong>同源不同构。</strong>两篇用的是同一对原料（铜盐 + 联吡啶），区别只在投料比：1:2 得到五配位的 [Cu(bipy)<sub>2</sub>X]X 型蔚蓝色晶体，1:3 得到六配位的 [Cu(bipy)<sub>3</sub>]X<sub>2</sub> 型蓝紫色晶体。两者是讲解"配比决定结构"的完美对照实验。</p>
+                        </div>
+
+                        <div class="warning-box">
+                            <h4><i class="fas fa-question-circle"></i> Q2：为什么联吡啶要用乙醇溶解？</h4>
+                            <p>2,2'-联吡啶在水中的溶解度很小，直接加入水溶液会析出白色固体，导致配位不充分、产物不纯。<strong>必须先用无水乙醇将其溶解</strong>，再与铜盐水溶液混合，才能保证三个配体均匀、充分地参与配位。</p>
+                        </div>
+
+                        <div class="warning-box">
+                            <h4><i class="fas fa-question-circle"></i> Q3：为什么浓缩温度定在 65&#8451; 左右？</h4>
+                            <p>乙醇沸点约 78&#8451;，65&#8451; 的水浴既能平稳地蒸发掉部分乙醇与水、推动溶液进入过饱和区，又能避免暴沸飞溅和长时间高温对配合物的潜在破坏。<strong>浓缩终点控制在约 20 mL</strong>：太稀则析晶缓慢且量少，太浓则容易一下子析出细粉。</p>
+                        </div>
+
+                        <div class="warning-box">
+                            <h4><i class="fas fa-question-circle"></i> Q4：能把二水合氯化铜换成硫酸铜或硝酸铜吗？</h4>
+                            <p>可以类比操作，阳离子 [Cu(bipy)<sub>3</sub>]<sup>2+</sup> 的形成不受影响，但得到的是相应阴离子的盐（如硫酸盐、硝酸盐），其溶解度、水合数与结晶习性都与氯化物不同，浓缩终点需要自行摸索调整。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="science">
+                    <h2>六、科学原理深究</h2>
+
+                    <div class="method-card">
+                        <h3><i class="fas fa-balance-scale"></i> 6.1 配比决定结构：从五配位到六配位</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">配体的"名额竞争"</div>
+                                <div class="step-detail">Cu<sup>2+</sup> 周围最多容纳六个配位点。1:2 配比时，两个联吡啶占去四个点，余下一个点被阴离子（Cl<sup>-</sup> 或 NO<sub>3</sub><sup>-</sup>）占据，形成五配位；1:3 配比时，第三个联吡啶凭借强大的螯合能力占据剩余两点，把阴离子彻底挤出内界。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">熵驱动的螯合效应</div>
+                                <div class="step-detail">一个双齿的联吡啶取代两个单齿配体（如水分子）时，体系中自由粒子数增加，熵显著增大。三个联吡啶取代六个水分子后，粒子数从 7 个增至 10 个，这是 [Cu(bipy)<sub>3</sub>]<sup>2+</sup> 热力学上高度稳定的根本原因。</div>
+                            </div>
+                        </div>
+
+                        <h3><i class="fas fa-cube"></i> 6.2 关不住的姜-泰勒畸变</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">d<sup>9</sup> 的宿命</div>
+                                <div class="step-detail">理想八面体中，e<sub>g</sub> 轨道（d<sub>z&sup2;</sub> 与 d<sub>x&sup2;-y&sup2;</sub>）简并。d<sup>9</sup> 构型的 Cu<sup>2+</sup> 在这对轨道上填入 3 个电子，占据不对称，体系通过沿轴向拉长（或少数情况下压缩）键长来消除简并、降低总能量——这就是姜-泰勒效应。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">三螯合环也压不住</div>
+                                <div class="step-detail">在 [Cu(bipy)<sub>3</sub>]<sup>2+</sup> 中，三个刚性螯合环把铜离子箍成伪 D<sub>3</sub> 对称的"螺旋桨"，但晶体结构与气相红外离子光谱研究均表明：六个 Cu&ndash;N 键依然不完全等长，八面体仍呈拉长型畸变。换言之，螯合配体能"驯服"配位数，却无法抹平 d<sup>9</sup> 电子结构带来的畸变。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">颜色的来源</div>
+                                <div class="step-detail">畸变八面体场中 d-d 跃迁的主吸收带落在橙红光区（约 600&ndash;700 nm），其补色使溶液与晶体呈现深邃的蓝至蓝紫色。相比五配位的 [Cu(bipy)<sub>2</sub>Cl]<sup>+</sup>，六配位对称性的改变使吸收位置移动，宏观上表现为蔚蓝&#8594;蓝紫的颜色差异。</div>
+                            </div>
+                        </div>
+
+                        <h3><i class="fas fa-sync-alt"></i> 6.3 光学异构：螺旋桨手性</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">Δ 与 Λ 构型</div>
+                                <div class="step-detail">与 [Ni(en)<sub>3</sub>]<sup>2+</sup>（见<a href="tris-ethylenediamine-nickel-thiocyanate.html" style="color:var(--primary);">硫氰酸三乙二胺合镍篇</a>）一样，[Cu(bipy)<sub>3</sub>]<sup>2+</sup> 的三个螯合环沿 C<sub>3</sub> 轴呈螺旋桨式排列，存在互为镜像的 Δ（右手）与 Λ（左手）两种对映异构体。常规结晶得到的是两者等量共存的外消旋混合物。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">刚性与消旋</div>
+                                <div class="step-detail">联吡啶是刚性平面配体，其螯合环无法像乙二胺那样自由翻转变形，因此 Δ/Λ 之间的转化只能通过配体解离-重配实现。加之姜-泰勒畸变使轴向 Cu&ndash;N 键较弱，该离子在溶液中的外消旋化相对容易，手性拆分颇具挑战性。</div>
+                            </div>
+                        </div>
+
+                        <h3><i class="fas fa-vial"></i> 6.4 结晶条件分析</h3>
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">乙醇的双重角色</div>
+                                <div class="step-detail">乙醇首先是联吡啶的"载体溶剂"，解决其不溶于水的问题；其次，水-乙醇混合体系降低了产物溶解度，使浓缩后更易进入过饱和区析晶。</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">浓缩 + 冷却的经典组合</div>
+                                <div class="step-detail">65&#8451; 浓缩先移除部分溶剂制造过饱和，随后缓慢冷却进一步降低溶解度，晶体得以在低成核速率下逐层生长。这也是本配方仅用四步就能获得规整晶体的原因。</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="application">
+                    <h2>七、应用领域</h2>
+                    <div class="method-card">
+                        <div class="step-list">
+                            <div class="step-item">
+                                <div class="step-title">配位化学教学</div>
+                                <div class="step-detail">与五配位双联吡啶合铜组成"同源不同构"对照实验，直观演示投料比对配位数与内界结构的决定作用，是讲解配位比概念的经典案例</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">姜-泰勒效应教学</div>
+                                <div class="step-detail">[Cu(bipy)<sub>3</sub>]<sup>2+</sup> 是 d<sup>9</sup> 八面体畸变的标志性离子，从经典晶体学到现代气相离子光谱都是研究姜-泰勒效应的模型体系</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">氧化还原与光化学研究</div>
+                                <div class="step-detail">铜-联吡啶体系可在 Cu(II)/Cu(I) 之间发生可逆或准可逆转化，被广泛用于电子转移、光物理与电化学研究</div>
+                            </div>
+                            <div class="step-item">
+                                <div class="step-title">晶体收藏</div>
+                                <div class="step-detail">蓝紫色调在铜配合物晶体中相对少见，与蔚蓝色的五配位姊妹篇并置收藏，观赏与教学价值兼备</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="author-card">
+                    <div class="author-avatar">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <div class="author-info">
+                        <p class="author-title">本章作者</p>
+                        <h3>N-乙酰基蘑菇</h3>
+                        <div class="author-social">
+                            <span class="social-tag"><i class="fas fa-flask"></i> 配合物专家</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ad-container article-ad">
+                    <ins class="adsbygoogle"
+                         style="display:block; text-align:center;"
+                         data-ad-layout="in-article"
+                         data-ad-format="fluid"
+                         data-ad-client="ca-pub-9337526323324673"
+                         data-ad-slot="6874868877"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
+                </div>
+            </div>
+
+                        <div class="sidebar-col">
+<nav class="safety-nav">
+                <h3>内容导航</h3>
+                <ul>
+                    <li><a href="#basic">背景化学知识</a></li>
+                    <li><a href="#experiment">实验制备</a></li>
+                    <li><a href="#safety">安全事项</a></li>
+                    <li><a href="#gallery">质量评估</a></li>
+                    <li><a href="#troubleshooting">常见问题</a></li>
+                    <li><a href="#science">科学原理</a></li>
+                    <li><a href="#application">应用领域</a></li>
+                    <li><a href="index.html">返回首页</a></li>
+                </ul>
+
+            </nav>
+
+<div class="related-content">
+                <h4 class="related-header"><i class="far fa-square-check"></i> 相关内容推荐</h4>
+                <div class="related-list">
+                <a href="tris-ethylenediamine-nickel-thiocyanate.html" class="related-card">
+                    <div class="related-card-img">
+                        <img src="p/tris1.jpg" alt="硫氰酸三乙二胺合镍篇">
+                    </div>
+                    <div class="related-card-info">
+                        <div class="related-card-title">硫氰酸三乙二胺合镍篇</div>
+        
+                    </div>
+                </a>
+                <a href="未bis-diethylenetriamine-nickel-ferrocyanide.html" class="related-card">
+                    <div class="related-card-img">
+                        <img src="p/[Ni(dien)2]2[Fe(CN)6].jpg" alt="双(二亚乙基三胺)合镍(II)六氰合铁(II)酸盐篇">
+                    </div>
+                    <div class="related-card-info">
+                        <div class="related-card-title">双(二亚乙基三胺)合镍(II)六氰合铁(II)酸盐篇</div>
+        
+                    </div>
+                </a>
+                <a href="bis-bipyridine-copper-nitrate.html" class="related-card">
+                    <div class="related-card-img">
+                        <img src="p/硝酸双联吡啶合铜.jpg" alt="硝酸双(2,2'-联吡啶)合铜篇">
+                    </div>
+                    <div class="related-card-info">
+                        <div class="related-card-title">硝酸双(2,2'-联吡啶)合铜篇</div>
+        
+                    </div>
+                </a>
+                <a href="copper-sulfate.html" class="related-card">
+                    <div class="related-card-img">
+                        <img src="p/crystal02_1_1.png" alt="硫酸铜晶体篇">
+                    </div>
+                    <div class="related-card-info">
+                        <div class="related-card-title">硫酸铜晶体篇</div>
+                        <div class="related-card-formula">无水硫酸铜（白色粉末）为 CuSO4；常见的是蓝色五水合物 CuSO4·5H2O</div>
+                    </div>
+                </a>
+                </div>
+                <a href="crystal-classification.html" class="related-more">查看更多 <i class="fas fa-arrow-right"></i></a>
+            </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <script src="components.js"></script>
+
+    <script>
+        document.querySelectorAll('.safety-nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                const offset = 100;
+                const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+
+                document.querySelectorAll('.safety-nav a').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.safety-nav a[href^="#"]');
+
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+
+                if (window.scrollY >= sectionTop - 150) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
