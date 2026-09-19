@@ -358,7 +358,9 @@
                 { img: '作品46.webp', author: '长街听风' },
                 { img: '作品47.webp', author: '长街听风' },
                 { img: '作品48.webp', author: '冰麒麟' },
-                { img: '作品55.webp', author: '食堂人民科学协会-荣', description: '乙二胺四乙酸钴(Ⅲ)酸钠' }
+                { img: '作品55.webp', author: '食堂人民科学协会-荣', description: '乙二胺四乙酸钴(Ⅲ)酸钠' },
+                { img: '作品326.webp', author: 'DAOZAO', description: '硫酸镍钾' },
+                { img: '作品327.webp', author: 'DAOZAO', description: '硫酸镍钾' }
             ]
         }
     ];
