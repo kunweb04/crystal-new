@@ -247,6 +247,8 @@
                 { img: '作品215.webp', author: 'DAOZAO', description: '硫酸镍铵' },
                 { img: '作品216.webp', author: 'DAOZAO', description: '硫酸镍铵' },
                 { img: '作品217.webp', author: 'DAOZAO', description: '硫酸镍铵' },
+                { img: '作品329.webp', author: 'DAOZAO', description: '硫酸镍钾' },
+                { img: '作品330.webp', author: 'DAOZAO', description: '硫酸镍钾' },
                 { img: '作品31.webp', author: '泠鳞', description: '硫酸镨' },
                 { img: '作品49.webp', author: '青于', description: '硫酸镨' },
                 { img: '作品50.webp', author: '青于', description: '硫酸镨' },
@@ -360,7 +362,8 @@
                 { img: '作品48.webp', author: '冰麒麟' },
                 { img: '作品55.webp', author: '食堂人民科学协会-荣', description: '乙二胺四乙酸钴(Ⅲ)酸钠' },
                 { img: '作品326.webp', author: 'DAOZAO', description: '硫酸镍钾' },
-                { img: '作品327.webp', author: 'DAOZAO', description: '硫酸镍钾' }
+                { img: '作品327.webp', author: 'DAOZAO', description: '硫酸镍钾' },
+                { img: '作品328.webp', author: 'DAOZAO', description: '草酸铁钾' }
             ]
         }
     ];
