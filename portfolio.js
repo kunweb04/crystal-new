@@ -9,7 +9,8 @@
                 { img: '作品12.webp', author: '迷路的野指针' },
                 { img: '作品14.webp', author: '迷路的野指针' },
                 { img: '作品34.webp', author: '长街听风' },
-                { img: '作品323.webp', author: 'DAOZAO' }
+                { img: '作品323.webp', author: 'DAOZAO' },
+                { img: '作品336.webp', author: '彩色腐竹' }
             ]
         },
         {
@@ -48,6 +49,7 @@
                 { img: '作品19.webp', author: '迷路的野指针' },
                 { img: '作品255.webp', author: 'Printhe' },
                 { img: '作品267.webp', author: 'Printhe' },
+                { img: '作品337.webp', author: '彩色腐竹' }
             ]
         },
         {
@@ -259,6 +261,7 @@
                 { img: '作品64.webp', author: '紫色硫酸铜', description: '硫酸钕' },
                 { img: '作品30.webp', author: '泠鳞', description: '硫酸钐' },
                 { img: '作品169.webp', author: '金平糖', description: '硫酸铒' },
+                { img: '作品335.webp', author: '彩色腐竹', description: '磷酸二氢钾' },
                 { img: '作品334.webp', author: 'Printhe', description: '重铬酸钾' },
                 { img: '作品27.webp', author: '青于', description: '高铼酸钾' },
                 { img: '作品28.webp', author: '青于', description: '高铼酸钾' },

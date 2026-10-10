@@ -869,7 +869,7 @@
 }
 .honor-card.printhe-special::before {
     content: ''; position: absolute; background: url('../p/printhe.png') center/cover no-repeat;
-    width: 120px; height: 145px; right: 20px; top: 30px; opacity: 0.5;
+    width: 150px; height: 145px; right: 20px; top: 30px; opacity: 0.5;
 }
 
 .extended-thanks-section {
